@@ -6,22 +6,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Êı¾İ¿âµÄÁ¬½Ó
+ * æ•°æ®åº“çš„è¿æ¥
  * @author Peter
  *
  */
 public class DbUtil {
-	//Êı¾İ¿âÇı¶¯Ãû
+	//æ•°æ®åº“é©±åŠ¨å
 	private static String DriverName = "com.mysql.jdbc.Driver";
-	//Êı¾İ¿âĞ­Òé
+	//æ•°æ®åº“åè®®
 	private static String dbUril = "jdbc:mysql://localhost:3306/db_warehouse";
-	//Êı¾İ¿âÓÃ»§Ãû
+	//æ•°æ®åº“ç”¨æˆ·å
 	private static String dbName = "root";
-	//Êı¾İ¿âÃÜÂë
+	//æ•°æ®åº“å¯†ç 
 	private static String dbPassword = "panli";
 	
 	/**
-	 * Êı¾İ¿âÇı¶¯µÄ¼ÓÔØÓëÊı¾İ¿âÁ¬½Ó
+	 * æ•°æ®åº“é©±åŠ¨çš„åŠ è½½ä¸æ•°æ®åº“è¿æ¥
 	 * @return
 	 * @throws Exception
 	 */
@@ -31,7 +31,7 @@ public class DbUtil {
 		return conn;
 	}
 	/**
-	 * ¹Ø±ÕÊı¾İ¿âÁ¬½Ó
+	 * å…³é—­æ•°æ®åº“è¿æ¥
 	 * @param conn
 	 * @throws SQLException
 	 */
@@ -41,7 +41,7 @@ public class DbUtil {
 		}
 	}
 	/**
-	 * ¹Ø±ÕÊı¾İ¿âÁ¬½Ó
+	 * å…³é—­æ•°æ®åº“è¿æ¥
 	 * @param conn
 	 * @param rs
 	 * @throws SQLException
@@ -55,17 +55,17 @@ public class DbUtil {
 		}
 	}
 	/**
-	 * ²âÊÔmain()·½·¨
+	 * æµ‹è¯•main()æ–¹æ³•
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		try {
 			getCon();
-			System.out.println("Êı¾İ¿âÁ¬½Ó³É¹¦!");
+			System.out.println("æ•°æ®åº“è¿æ¥æˆåŠŸ!");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("Êı¾İ¿âÁ¬½ÓÊ§°Ü!");
+			System.out.println("æ•°æ®åº“è¿æ¥å¤±è´¥!");
 		}
 	}
 	

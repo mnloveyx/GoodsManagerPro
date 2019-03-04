@@ -22,7 +22,7 @@ import com.panli.model.GoodsType;
 import com.panli.util.DbUtil;
 import com.panli.util.StringUtil;
 /**
- * goodsTypeÊÓÍ¼²ã»õÎïÀà±ğÌí¼Ó
+ * goodsTypeè§†å›¾å±‚è´§ç‰©ç±»åˆ«æ·»åŠ 
  * @author Peter
  *
  */
@@ -128,7 +128,7 @@ public class GoodsTypeAddInterFrm extends JInternalFrame {
 	}
 
 	/**
-	 * »õÎïÀàĞÍÌí¼ÓÊÂ¼ş
+	 * è´§ç‰©ç±»å‹æ·»åŠ äº‹ä»¶
 	 * @param e
 	 */
 	private void goodsTypeAddActionPerformed(ActionEvent e) {
@@ -136,11 +136,11 @@ public class GoodsTypeAddInterFrm extends JInternalFrame {
 		String goodsTypeName = this.goodsTypeNameTxt.getText();
 		String goodsTypeDesc = this.goodsTypeDescTxt.getText();
 		if(StringUtil.isEmpty(goodsTypeName)){
-			JOptionPane.showMessageDialog(null, "»õÎïÀàĞÍÃû³Æ²»ÄÜÎª¿Õ!");
+			JOptionPane.showMessageDialog(null, "è´§ç‰©ç±»å‹åç§°ä¸èƒ½ä¸ºç©º!");
 			return;
 		}
 		if(StringUtil.isEmpty(goodsTypeDesc)){
-			JOptionPane.showMessageDialog(null, "»õÎïÀàĞÍÃèÊö²»ÄÜÎª¿Õ!");
+			JOptionPane.showMessageDialog(null, "è´§ç‰©ç±»å‹æè¿°ä¸èƒ½ä¸ºç©º!");
 			return;
 		}
 		GoodsType goodsType = new GoodsType(goodsTypeName, goodsTypeDesc);
@@ -149,15 +149,15 @@ public class GoodsTypeAddInterFrm extends JInternalFrame {
 			conn = dbUtil.getCon();
 			int result = goodsTypeDao.addGoodsType(conn, goodsType);
 			if(result==1){
-				JOptionPane.showMessageDialog(null, "»õÎïÀà±ğÌí¼Ó³É¹¦!");
-				this.resetValue();//Ìí¼Ó³É¹¦£¬ÖØÖÃ±íµ¥
+				JOptionPane.showMessageDialog(null, "è´§ç‰©ç±»åˆ«æ·»åŠ æˆåŠŸ!");
+				this.resetValue();//æ·»åŠ æˆåŠŸï¼Œé‡ç½®è¡¨å•
 			}else{
-				JOptionPane.showMessageDialog(null, "»õÎïÀà±ğÌí¼ÓÊ§°Ü!");
+				JOptionPane.showMessageDialog(null, "è´§ç‰©ç±»åˆ«æ·»åŠ å¤±è´¥!");
 			}
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-			JOptionPane.showMessageDialog(null, "»õÎïÀà±ğÌí¼ÓÊ§°Ü!");
+			JOptionPane.showMessageDialog(null, "è´§ç‰©ç±»åˆ«æ·»åŠ å¤±è´¥!");
 		}finally{
 			try {
 				dbUtil.close(conn);
@@ -171,7 +171,7 @@ public class GoodsTypeAddInterFrm extends JInternalFrame {
 	}
 
 	/**
-	 * ÖØÖÃÊÂ¼ş
+	 * é‡ç½®äº‹ä»¶
 	 * @param e
 	 */
 	private void goodsTypeResetValueActionPerformed(ActionEvent e) {
@@ -180,7 +180,7 @@ public class GoodsTypeAddInterFrm extends JInternalFrame {
 	}
 
 	/**
-	 * ÖØÖÃ±íµ¥
+	 * é‡ç½®è¡¨å•
 	 */
 	private void resetValue(){
 		this.goodsTypeNameTxt.setText("");

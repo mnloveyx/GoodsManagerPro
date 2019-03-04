@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Base64;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -25,8 +26,11 @@ import com.panli.dao.UserDao;
 import com.panli.model.User;
 import com.panli.util.DbUtil;
 import com.panli.util.StringUtil;
+import javax.swing.JTextPane;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.Color;
 /**
- * µ«¬º“≥√Ê ”Õº≤„
+ * ÁôªÂΩïÈ°µÈù¢ËßÜÂõæÂ±Ç
  * @author Peter
  *
  */
@@ -38,6 +42,7 @@ public class LoginFrm extends JFrame {
 	private JPanel contentPane;
 	private JTextField userNameTxt;
 	private JPasswordField passwordTxt;
+	private JTextField codeTxt;
 
 	/**
 	 * Launch the application.
@@ -60,7 +65,7 @@ public class LoginFrm extends JFrame {
 	 */
 	public LoginFrm() {
 		
-		//∏√±ÌœµÕ≥ƒ¨»œ◊÷ÃÂ
+		//ËØ•Ë°®Á≥ªÁªüÈªòËÆ§Â≠ó‰Ωì
 		Font font = new Font("Dialog", Font.PLAIN, 12);
 		java.util.Enumeration keys = UIManager.getDefaults().keys();
 		while(keys.hasMoreElements()){
@@ -71,21 +76,21 @@ public class LoginFrm extends JFrame {
 			}
 		}
 		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginFrm.class.getResource("/images/goods_logo.png")));
-		setTitle("\u4ED3\u5E93\u7BA1\u7406\u7CFB\u7EDF");
+		setTitle("Â®±‰πêËæÖÂä©Á≥ªÁªü");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 546, 369);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JLabel label = new JLabel("\u4ED3\u5E93\u7BA1\u7406\u7CFB\u7EDF\u7BA1\u7406\u5458\u767B\u5F55\u754C\u9762");
-		label.setFont(new Font("ÀŒÃÂ", Font.BOLD, 20));
+		JLabel label = new JLabel("ÁÆ°ÁêÜÂëòÁôªÂΩïÁïåÈù¢");
+		label.setFont(new Font("ÂÆã‰Ωì", Font.BOLD, 20));
 		label.setIcon(new ImageIcon(LoginFrm.class.getResource("/images/goods_logo.png")));
 		
-		JLabel label_1 = new JLabel("\u7528\u6237\u540D\uFF1A");
+		JLabel label_1 = new JLabel("Áî®Êà∑Âêç");
 		label_1.setIcon(new ImageIcon(LoginFrm.class.getResource("/images/user.png")));
 		
-		JLabel label_2 = new JLabel("\u5BC6  \u7801\uFF1A");
+		JLabel label_2 = new JLabel("ÂØÜÁ†Å");
 		label_2.setIcon(new ImageIcon(LoginFrm.class.getResource("/images/password.png")));
 		
 		userNameTxt = new JTextField();
@@ -93,7 +98,7 @@ public class LoginFrm extends JFrame {
 		
 		passwordTxt = new JPasswordField();
 		
-		JButton btnNewButton = new JButton("\u767B\u5F55");
+		JButton btnNewButton = new JButton("ÁôªÂΩï");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				loginActionPerformed(arg0);
@@ -102,35 +107,50 @@ public class LoginFrm extends JFrame {
 		});
 		btnNewButton.setIcon(new ImageIcon(LoginFrm.class.getResource("/images/login.png")));
 		
-		JButton button = new JButton("\u91CD\u7F6E");
+		JButton button = new JButton("ÈáçÁΩÆ");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				resetValueActionPerformed(arg0);
 			}
 		});
 		button.setIcon(new ImageIcon(LoginFrm.class.getResource("/images/reset.png")));
+		
+		JLabel lblNewLabel = new JLabel("È™åËØÅÁ†Å");
+		lblNewLabel.setIcon(new ImageIcon(Base64.getDecoder().decode("iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAACXBIW‚Ä¶1Lhl5FxC+P/NfGJX6X9UADFABozHCKYPyJOIT+O7v4oS3/Dxp9kOEgTql9AAAAAElFTkSuQmCC")));
+		
+		codeTxt = new JTextField();
+		codeTxt.setColumns(10);
+		
+		JLabel codeimage = new JLabel("");
+//		codeimage.setIcon(new ImageIcon(LoginFrm.class.getResource("/images/goods_logo.png")));
+		codeimage.setIcon(new ImageIcon(Base64.getDecoder().decode("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")));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap(99, Short.MAX_VALUE)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(label)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(38)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addComponent(label_2)
-								.addComponent(label_1))
-							.addGap(18)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(passwordTxt)
-								.addComponent(userNameTxt, GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-								.addComponent(button, Alignment.TRAILING))))
-					.addGap(96))
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(176)
 					.addComponent(btnNewButton)
-					.addContainerGap(261, Short.MAX_VALUE))
+					.addContainerGap(267, Short.MAX_VALUE))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap(198, Short.MAX_VALUE)
+					.addComponent(label)
+					.addGap(123))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(183)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addComponent(lblNewLabel)
+						.addComponent(label_2)
+						.addComponent(label_1))
+					.addGap(18)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(passwordTxt)
+						.addComponent(userNameTxt, GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+						.addComponent(button, Alignment.TRAILING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(codeTxt, GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(codeimage, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)))
+					.addGap(96))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -145,20 +165,25 @@ public class LoginFrm extends JFrame {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(label_2)
 						.addComponent(passwordTxt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(48)
+					.addGap(15)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel)
+						.addComponent(codeTxt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(codeimage, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
 						.addComponent(button, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(37, Short.MAX_VALUE))
+					.addContainerGap(59, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
 		
-		//æ”÷–œ‘ æ
+		//Â±Ö‰∏≠ÊòæÁ§∫
 		this.setLocationRelativeTo(null);
 	}
 
 	/**
-	 * π‹¿Ì‘±µ«¬º
+	 * ÁÆ°ÁêÜÂëòÁôªÂΩï
 	 * @param arg0
 	 */
 	private void loginActionPerformed(ActionEvent arg0) {
@@ -166,11 +191,11 @@ public class LoginFrm extends JFrame {
 		String userName = this.userNameTxt.getText();
 		String password = new String(this.passwordTxt.getPassword());
 		if(StringUtil.isEmpty(userName)){
-			JOptionPane.showMessageDialog(null, "”√ªß√˚≤ªƒ‹Œ™ø’!");
+			JOptionPane.showMessageDialog(null, "Áî®Êà∑Âêç‰∏çËÉΩ‰∏∫Á©∫!");
 			return;
 		}
 		if(StringUtil.isEmpty(password)){
-			JOptionPane.showMessageDialog(null, "√‹¬Î≤ªƒ‹Œ™ø’!");
+			JOptionPane.showMessageDialog(null, "ÂØÜÁ†Å‰∏çËÉΩ‰∏∫Á©∫!");
 			return;
 		}
 		User user = new User(userName, password);
@@ -179,17 +204,17 @@ public class LoginFrm extends JFrame {
 			conn = dbUtil.getCon();
 			User currentUser = userDao.login(conn, user);
 			if(currentUser!=null){
-				//JOptionPane.showMessageDialog(null, "µ«¬º≥…π¶!");
+				//JOptionPane.showMessageDialog(null, "ÁôªÂΩïÊàêÂäü!");
 				dispose();
 				new MainFrm().setVisible(true);
 			}else{
-				JOptionPane.showMessageDialog(null, "µ«¬º ß∞‹!");
+				JOptionPane.showMessageDialog(null, "ÁôªÂΩïÂ§±Ë¥•!");
 			}
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "µ«¬º ß∞‹!");
+			JOptionPane.showMessageDialog(null, "ÁôªÂΩïÂ§±Ë¥•!");
 		}finally{
 			try {
 				dbUtil.close(conn);
@@ -202,7 +227,7 @@ public class LoginFrm extends JFrame {
 	}
 
 	/**
-	 * ÷ÿ÷√ ¬º˛
+	 * ÈáçÁΩÆ‰∫ã‰ª∂
 	 * @param arg0
 	 */
 	private void resetValueActionPerformed(ActionEvent arg0) {
@@ -210,7 +235,7 @@ public class LoginFrm extends JFrame {
 		this.resetValue();
 	}
 	/**
-	 * ÷ÿ÷√±Ìµ• ¬º˛
+	 * ÈáçÁΩÆË°®Âçï‰∫ã‰ª∂
 	 */
 	private void resetValue(){
 		this.userNameTxt.setText("");

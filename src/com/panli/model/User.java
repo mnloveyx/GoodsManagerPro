@@ -1,22 +1,23 @@
 package com.panli.model;
 /**
- * ¹ÜÀíÔ±t_user±íµÄUserÊµÌåÀà
+ * ç®¡ç†å‘˜t_userè¡¨çš„Userå®ä½“ç±»
  * @author Peter
  *
  */
 public class User {
-	private int id;//id×Ö¶Î
-	private String userName;//userName×Ö¶Î
-	private String password;//password×Ö¶Î
+	private int id;//idå­—æ®µ
+	private String userName;//userNameå­—æ®µ
+	private String password;//passwordå­—æ®µ
+	private String code; //éªŒè¯ç 
 	
-	//¼Ì³Ğ¸¸ÀàµÄ¹¹Ôì·½·¨
+	//ç»§æ‰¿çˆ¶ç±»çš„æ„é€ æ–¹æ³•
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
 	/**
-	 * ÖØÔØ¸¸ÀàµÄ¹¹Ôì·½·¨´ø2¸ö²ÎÊı
+	 * é‡è½½çˆ¶ç±»çš„æ„é€ æ–¹æ³•å¸¦2ä¸ªå‚æ•°
 	 * @param userName
 	 * @param password
 	 */
@@ -24,6 +25,13 @@ public class User {
 		super();
 		this.userName = userName;
 		this.password = password;
+	}
+	
+	public User(String userName, String password,String code ) {
+		super();
+		this.userName = userName;
+		this.password = password;
+		this.code = code;
 	}
 
 	public int getId() {
@@ -43,6 +51,14 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 	
 }

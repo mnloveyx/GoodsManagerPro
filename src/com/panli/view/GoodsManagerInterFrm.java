@@ -36,7 +36,7 @@ import com.panli.model.GoodsType;
 import com.panli.util.DbUtil;
 import com.panli.util.StringUtil;
 /**
- * »õÎï¹ÜÀíÊÓÍ¼²ã
+ * è´§ç‰©ç®¡ç†è§†å›¾å±‚
  * @author Peter
  *
  */
@@ -336,23 +336,23 @@ public class GoodsManagerInterFrm extends JInternalFrame {
 		);
 		panel.setLayout(gl_panel);
 		getContentPane().setLayout(groupLayout);
-		//Ìî³ä±íµ¥
+		//å¡«å……è¡¨å•
 		this.fillGoodsTable(new Goods());
 		this.fillGoodsTypeNameItem("search");
 		this.fillGoodsTypeNameItem("modify");
 	}
 	/**
-	 * »õÎïÉ¾³ýÊÂ¼þ
+	 * è´§ç‰©åˆ é™¤äº‹ä»¶
 	 * @param arg0
 	 */
 	private void deleteGoodsActionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		String id = this.goodsIdTxt.getText();
 		if(StringUtil.isEmpty(id)){
-			JOptionPane.showMessageDialog(null, "ÇëÑ¡ÔñÒªÉ¾³ýµÄ»õÎï");
+			JOptionPane.showMessageDialog(null, "è¯·é€‰æ‹©è¦åˆ é™¤çš„è´§ç‰©");
 			return;
 		}
-		int n = JOptionPane.showConfirmDialog(null, "È·¶¨ÒªÉ¾³ý´Ë»õÎï£¿");
+		int n = JOptionPane.showConfirmDialog(null, "ç¡®å®šè¦åˆ é™¤æ­¤è´§ç‰©ï¼Ÿ");
 		Goods goods = new Goods(Integer.parseInt(id));
 		if(n==0){
 			Connection conn = null;
@@ -360,16 +360,16 @@ public class GoodsManagerInterFrm extends JInternalFrame {
 				conn = dbUtil.getCon();
 				int result = goodsDao.deleteGoods(conn, goods);
 				if(result==1){
-					JOptionPane.showMessageDialog(null, "»õÎïÉ¾³ý³É¹¦!");
+					JOptionPane.showMessageDialog(null, "è´§ç‰©åˆ é™¤æˆåŠŸ!");
 					this.resetValue();
 					this.fillGoodsTable(new Goods());
 				}else{
-					JOptionPane.showMessageDialog(null, "»õÎïÉ¾³ýÊ§°Ü!");
+					JOptionPane.showMessageDialog(null, "è´§ç‰©åˆ é™¤å¤±è´¥!");
 				}
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				JOptionPane.showMessageDialog(null, "»õÎïÉ¾³ýÊ§°Ü!");
+				JOptionPane.showMessageDialog(null, "è´§ç‰©åˆ é™¤å¤±è´¥!");
 			}finally{
 				try {
 					dbUtil.close(conn);
@@ -383,7 +383,7 @@ public class GoodsManagerInterFrm extends JInternalFrame {
 	}
 
 	/**
-	 * »õÎïÐÞ¸ÄÊÂ¼þ
+	 * è´§ç‰©ä¿®æ”¹äº‹ä»¶
 	 * @param a
 	 */
     private void modifyGoodsActionPerformed(Object a) {
@@ -394,30 +394,30 @@ public class GoodsManagerInterFrm extends JInternalFrame {
 		String goodsSupplier = this.goodsSupplierTxt.getText();
 		String goodsDesc = this.goodsDescTxt.getText();
 		if(StringUtil.isEmpty(id)){
-			JOptionPane.showMessageDialog(null, "ÇëÑ¡ÔñÒªÐÞ¸ÄµÄ»õÎï");
+			JOptionPane.showMessageDialog(null, "è¯·é€‰æ‹©è¦ä¿®æ”¹çš„è´§ç‰©");
 			return;
 		}
 		if(StringUtil.isEmpty(goodsName)){
-			JOptionPane.showMessageDialog(null, "»õÎïÃû³Æ²»ÄÜÎª¿Õ!");
+			JOptionPane.showMessageDialog(null, "è´§ç‰©åç§°ä¸èƒ½ä¸ºç©º!");
 			return;
 		}
 		if(StringUtil.isEmpty(price)){
-			JOptionPane.showMessageDialog(null, "»õÎï¼Û¸ñ²»ÄÜÎª¿Õ!");
+			JOptionPane.showMessageDialog(null, "è´§ç‰©ä»·æ ¼ä¸èƒ½ä¸ºç©º!");
 			return;
 		}
 		if(StringUtil.isEmpty(goodsSupplier)){
-			JOptionPane.showMessageDialog(null, "¹©»õÉÌÃû³Æ²»ÄÜÎª¿Õ!");
+			JOptionPane.showMessageDialog(null, "ä¾›è´§å•†åç§°ä¸èƒ½ä¸ºç©º!");
 			return;
 		}
 		if(StringUtil.isEmpty(goodsDesc)){
-			JOptionPane.showMessageDialog(null, "»õÎïÃèÊö²»ÄÜÎª¿Õ!");
+			JOptionPane.showMessageDialog(null, "è´§ç‰©æè¿°ä¸èƒ½ä¸ºç©º!");
 			return;
 		}
 		String sex = "";
 		if(manJrb.isSelected()){
-			sex = "ÄÐ";
+			sex = "ç”·";
 		}else if(femaleJrb.isSelected()){
-			sex = "Å®";
+			sex = "å¥³";
 		}
 		GoodsType goodsType = (GoodsType)this.goodsTypeNameJcb.getSelectedItem();
 		int goodsTypeId = goodsType.getId();
@@ -428,16 +428,16 @@ public class GoodsManagerInterFrm extends JInternalFrame {
 			conn = DbUtil.getCon();
 			int result = GoodsDao.updateGoods(conn, goods);
 			if(result == 1){
-				JOptionPane.showMessageDialog(null, "»õÎïÐÞ¸Ä³É¹¦!");
+				JOptionPane.showMessageDialog(null, "è´§ç‰©ä¿®æ”¹æˆåŠŸ!");
 				this.fillGoodsTable(new Goods());
 				
 			}else{
-				JOptionPane.showMessageDialog(null, "»õÎïÐÞ¸ÄÊ§°Ü!");
+				JOptionPane.showMessageDialog(null, "è´§ç‰©ä¿®æ”¹å¤±è´¥!");
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "»õÎïÐÞ¸ÄÊ§°Ü!");
+			JOptionPane.showMessageDialog(null, "è´§ç‰©ä¿®æ”¹å¤±è´¥!");
 		}finally{
 			try {
 				dbUtil.close(conn);
@@ -452,7 +452,7 @@ public class GoodsManagerInterFrm extends JInternalFrame {
 
 
 	/**
-	 * »õÎïËÑË÷ÊÂ¼þ
+	 * è´§ç‰©æœç´¢äº‹ä»¶
 	 * @param arg0
 	 */
 	private void searchGoodsActionPerformed(ActionEvent arg0) {
@@ -466,7 +466,7 @@ public class GoodsManagerInterFrm extends JInternalFrame {
 	}
 
 	/**
-	 * Ìî³äÏÂÀ­ÁÐ±í²Ëµ¥
+	 * å¡«å……ä¸‹æ‹‰åˆ—è¡¨èœå•
 	 * @param type
 	 */
 	private void fillGoodsTypeNameItem(String type){
@@ -478,7 +478,7 @@ public class GoodsManagerInterFrm extends JInternalFrame {
 			rs = goodsTypeDao.listGoodsType(conn, new GoodsType());
 			if("search".equals(type)){
 				goodsType = new GoodsType();
-				goodsType.setGoodsTypeName("ÇëÑ¡Ôñ...");
+				goodsType.setGoodsTypeName("è¯·é€‰æ‹©...");
 				goodsType.setId(-1);
 				this.s_goodsTypeNameJcbTxt.addItem(goodsType);
 			}
@@ -506,7 +506,7 @@ public class GoodsManagerInterFrm extends JInternalFrame {
 		
 	}
 	/**
-	 * Ìî³ä±íµ¥ÊÂ¼þ
+	 * å¡«å……è¡¨å•äº‹ä»¶
 	 * @param goods
 	 */
 	private void fillGoodsTable(Goods goods){
@@ -543,7 +543,7 @@ public class GoodsManagerInterFrm extends JInternalFrame {
 		
 	}
 	/**
-	 * Êó±êµã»÷ÊÂ¼þ
+	 * é¼ æ ‡ç‚¹å‡»äº‹ä»¶
 	 * @param arg0
 	 */
 	private void MouseClickGoodsTableActionPerformed(MouseEvent arg0) {
@@ -553,9 +553,9 @@ public class GoodsManagerInterFrm extends JInternalFrame {
 		this.goodsNameTxt.setText(goodsTable.getValueAt(row, 1)+"");
 		this.goodsSupplierTxt.setText(goodsTable.getValueAt(row, 2)+"");
 		String sex = (String)goodsTable.getValueAt(row, 3);
-		if("ÄÐ".equals(sex)){
+		if("ç”·".equals(sex)){
 			this.manJrb.setSelected(true);
-		}else if("Å®".equals(sex)){
+		}else if("å¥³".equals(sex)){
 			this.femaleJrb.setSelected(true);
 		}
 		
@@ -576,7 +576,7 @@ public class GoodsManagerInterFrm extends JInternalFrame {
 	}
 
 	/**
-	 * ÖØÖÃÊÂ¼þ
+	 * é‡ç½®äº‹ä»¶
 	 * @param arg0
 	 */
 	private void resetValueActionPerformed(ActionEvent arg0) {
@@ -584,7 +584,7 @@ public class GoodsManagerInterFrm extends JInternalFrame {
 		this.resetValue();
 	}
 	/**
-	 * ÖØÖÃ±íµ¥
+	 * é‡ç½®è¡¨å•
 	 */
 	private void resetValue(){
 		this.goodsIdTxt.setText("");
@@ -593,7 +593,7 @@ public class GoodsManagerInterFrm extends JInternalFrame {
 		this.priceTxt.setText("");
 		this.goodsDescTxt.setText("");
 		this.manJrb.setSelected(true);
-		//ÏÂÀ­²Ëµ¥µÄÖØÖÃ
+		//ä¸‹æ‹‰èœå•çš„é‡ç½®
 		if(this.goodsTypeNameJcb.getItemCount()>0){
 			this.goodsTypeNameJcb.setSelectedIndex(0);
 		}

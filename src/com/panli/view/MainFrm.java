@@ -15,8 +15,9 @@ import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 /**
- * ��ҳ����ͼ��
+ * 主页面视图层
  * @author Peter
  *
  */
@@ -45,7 +46,7 @@ public class MainFrm extends JFrame {
 	 * Create the frame.
 	 */
 	public MainFrm() {
-		setTitle("\u4ED3\u5E93\u7BA1\u7406\u7CFB\u7EDF\u4E3B\u9875\u9762   ");
+		setTitle("管理系统主页面   ");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrm.class.getResource("/images/goods_logo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 519, 348);
@@ -53,7 +54,7 @@ public class MainFrm extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu menu = new JMenu("\u4ED3\u5E93\u7BA1\u7406\u7CFB\u7EDF");
+		JMenu menu = new JMenu("\u4ED3\u5E93\u7BA1\u7406\u7CFB\u7EDF ");
 		menu.setIcon(new ImageIcon(MainFrm.class.getResource("/images/manager.png")));
 		menuBar.add(menu);
 		
@@ -139,19 +140,20 @@ public class MainFrm extends JFrame {
 		setContentPane(contentPane);
 		
 		table = new JDesktopPane();
+		table.setBackground(Color.WHITE);
 		contentPane.add(table, BorderLayout.CENTER);
 		
-		//��󻯴���
+		//最大化处理
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 	}
 
 	/**
-	 * ��ȫ�˳�ϵͳ
+	 * 安全退出系统
 	 * @param e
 	 */
 	private void exitSystemActionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		int n =  JOptionPane.showConfirmDialog(null, "��ȷ��Ҫ�뿪ϵͳô");
+		int n =  JOptionPane.showConfirmDialog(null, "你确定要离开系统么");
 		if(n == 0){
 			dispose();
 			return;

@@ -1,13 +1,13 @@
 package com.panli.util;
 /**
- * ÅĞ¶ÏÓÃ»§µÄÊäÈëÊÇ·ñÎª¿Õ·½·¨Àà
+ * åˆ¤æ–­ç”¨æˆ·çš„è¾“å…¥æ˜¯å¦ä¸ºç©ºæ–¹æ³•ç±»
  * @author Peter
  *
  */
 public class StringUtil {
 
 	/**
-	 * ÅĞ¶Ï×Ö·û´®ÊÇ·ñÎª¿Õ
+	 * åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦ä¸ºç©º
 	 * @param str
 	 * @return
 	 */
@@ -21,7 +21,7 @@ public class StringUtil {
 	
 	
 	/**
-	 * ÅĞ¶Ï×Ö·û´®ÊÇ·ñ²»Îª¿Õ
+	 * åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦ä¸ä¸ºç©º
 	 * @param str
 	 * @return
 	 */

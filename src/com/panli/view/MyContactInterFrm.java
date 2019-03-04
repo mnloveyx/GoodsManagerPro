@@ -12,6 +12,11 @@ import java.awt.Font;
 public class MyContactInterFrm extends JInternalFrame {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
@@ -36,23 +41,23 @@ public class MyContactInterFrm extends JInternalFrame {
 		setTitle("\u8054\u7CFB\u6211\u4EEC");
 		setBounds(100, 100, 528, 356);
 		
-		JLabel label = new JLabel("\u4F60\u6709\u4EC0\u4E48\u95EE\u9898");
-		label.setFont(new Font("����", Font.BOLD, 15));
-		label.setIcon(new ImageIcon(MyContactInterFrm.class.getResource("/images/smile.png")));
+		JLabel lblqq = new JLabel("本软件由QQ171676786提供技术支持");
+		lblqq.setFont(new Font("宋体", Font.BOLD, 15));
+		lblqq.setIcon(new ImageIcon(MyContactInterFrm.class.getResource("/images/smile.png")));
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(177)
-					.addComponent(label)
-					.addContainerGap(281, Short.MAX_VALUE))
+					.addGap(52)
+					.addComponent(lblqq)
+					.addContainerGap(125, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(130)
-					.addComponent(label)
-					.addContainerGap(182, Short.MAX_VALUE))
+				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+					.addContainerGap(111, Short.MAX_VALUE)
+					.addComponent(lblqq)
+					.addGap(87))
 		);
 		getContentPane().setLayout(groupLayout);
 
