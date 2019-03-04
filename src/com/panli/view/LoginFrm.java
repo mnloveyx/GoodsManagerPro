@@ -90,7 +90,7 @@ public class LoginFrm extends JFrame {
 		JLabel label_1 = new JLabel("用户名");
 		label_1.setIcon(new ImageIcon(LoginFrm.class.getResource("/images/user.png")));
 		
-		JLabel label_2 = new JLabel("密码");
+		JLabel label_2 = new JLabel("密  码");
 		label_2.setIcon(new ImageIcon(LoginFrm.class.getResource("/images/password.png")));
 		
 		userNameTxt = new JTextField();
@@ -116,7 +116,7 @@ public class LoginFrm extends JFrame {
 		button.setIcon(new ImageIcon(LoginFrm.class.getResource("/images/reset.png")));
 		
 		JLabel lblNewLabel = new JLabel("验证码");
-		lblNewLabel.setIcon(new ImageIcon(Base64.getDecoder().decode("iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAACXBIW…1Lhl5FxC+P/NfGJX6X9UADFABozHCKYPyJOIT+O7v4oS3/Dxp9kOEgTql9AAAAAElFTkSuQmCC")));
+		lblNewLabel.setIcon(new ImageIcon(LoginFrm.class.getResource("/images/code.png")));
 		
 		codeTxt = new JTextField();
 		codeTxt.setColumns(10);
@@ -143,14 +143,14 @@ public class LoginFrm extends JFrame {
 						.addComponent(label_1))
 					.addGap(18)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(passwordTxt)
+						.addComponent(passwordTxt, 167, 167, 167)
 						.addComponent(userNameTxt, GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
 						.addComponent(button, Alignment.TRAILING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(codeTxt, GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
+							.addComponent(codeTxt, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(codeimage, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)))
-					.addGap(96))
+					.addGap(92))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -166,15 +166,16 @@ public class LoginFrm extends JFrame {
 						.addComponent(label_2)
 						.addComponent(passwordTxt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(15)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel)
-						.addComponent(codeTxt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+							.addComponent(lblNewLabel)
+							.addComponent(codeTxt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 						.addComponent(codeimage, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
 						.addComponent(button, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(59, Short.MAX_VALUE))
+					.addContainerGap(60, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
 		
@@ -190,12 +191,17 @@ public class LoginFrm extends JFrame {
 		// TODO Auto-generated method stub
 		String userName = this.userNameTxt.getText();
 		String password = new String(this.passwordTxt.getPassword());
+		String code = new String(this.codeTxt.getText());
 		if(StringUtil.isEmpty(userName)){
 			JOptionPane.showMessageDialog(null, "用户名不能为空!");
 			return;
 		}
 		if(StringUtil.isEmpty(password)){
 			JOptionPane.showMessageDialog(null, "密码不能为空!");
+			return;
+		}
+		if(StringUtil.isEmpty(code)){
+			JOptionPane.showMessageDialog(null, "验证码不能为空!");
 			return;
 		}
 		User user = new User(userName, password);
