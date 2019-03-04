@@ -36,7 +36,7 @@ public class MyContactInterFrm extends JInternalFrame {
 		setTitle("\u8054\u7CFB\u6211\u4EEC");
 		setBounds(100, 100, 528, 356);
 		
-		JLabel label = new JLabel("\u4F60\u6709\u4EC0\u4E48\u95EE\u9898  ");
+		JLabel label = new JLabel("\u4F60\u6709\u4EC0\u4E48\u95EE\u9898");
 		label.setFont(new Font("ËÎÌו", Font.BOLD, 15));
 		label.setIcon(new ImageIcon(MyContactInterFrm.class.getResource("/images/smile.png")));
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
