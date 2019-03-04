@@ -116,7 +116,6 @@ public class LoginFrm extends JFrame {
 		button.setIcon(new ImageIcon(LoginFrm.class.getResource("/images/reset.png")));
 		
 		JLabel lblNewLabel = new JLabel("验证码");
-		lblNewLabel.setIcon(new ImageIcon(Base64.getDecoder().decode("iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAACXBIW…1Lhl5FxC+P/NfGJX6X9UADFABozHCKYPyJOIT+O7v4oS3/Dxp9kOEgTql9AAAAAElFTkSuQmCC")));
 		
 		codeTxt = new JTextField();
 		codeTxt.setColumns(10);
