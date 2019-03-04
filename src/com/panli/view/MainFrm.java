@@ -45,7 +45,7 @@ public class MainFrm extends JFrame {
 	 * Create the frame.
 	 */
 	public MainFrm() {
-		setTitle("\u4ED3\u5E93\u7BA1\u7406\u7CFB\u7EDF\u4E3B\u9875\u9762  ");
+		setTitle("\u4ED3\u5E93\u7BA1\u7406\u7CFB\u7EDF\u4E3B\u9875\u9762");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrm.class.getResource("/images/goods_logo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 519, 348);
