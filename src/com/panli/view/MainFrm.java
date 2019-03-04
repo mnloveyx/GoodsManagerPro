@@ -53,7 +53,7 @@ public class MainFrm extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu menu = new JMenu("\u4ED3\u5E93\u7BA1\u7406\u7CFB\u7EDF");
+		JMenu menu = new JMenu("\u4ED3\u5E93\u7BA1\u7406\u7CFB\u7EDF ");
 		menu.setIcon(new ImageIcon(MainFrm.class.getResource("/images/manager.png")));
 		menuBar.add(menu);
 		
