@@ -21,7 +21,7 @@ import java.awt.Color;
  * @author Peter
  *
  */
-public class MainFrm extends JFrame {
+public class MainFrm1 extends JFrame {
 
 	private JPanel contentPane;
 	private JDesktopPane table;

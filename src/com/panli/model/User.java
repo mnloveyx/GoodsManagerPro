@@ -9,6 +9,7 @@ public class User {
 	private String userName;//userName字段
 	private String password;//password字段
 	private String code; //验证码
+	private String token;
 	
 	//继承父类的构造方法
 	public User() {
@@ -59,6 +60,14 @@ public class User {
 
 	public void setCode(String code) {
 		this.code = code;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
 	}
 	
 }
