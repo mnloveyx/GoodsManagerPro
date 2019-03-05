@@ -245,5 +245,6 @@ public class LoginFrm extends JFrame {
 	private void resetValue(){
 		this.userNameTxt.setText("");
 		this.passwordTxt.setText("");
+		this.codeTxt.setText("");
 	}
 }

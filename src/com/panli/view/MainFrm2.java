@@ -6,49 +6,53 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.BoxLayout;
-import java.awt.GridLayout;
-import java.awt.FlowLayout;
 import javax.swing.JTable;
-import javax.swing.border.BevelBorder;
 import java.awt.Color;
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
-import javax.swing.border.LineBorder;
-import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.UIManager;
 import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JComboBox;
 import javax.swing.ListSelectionModel;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JCheckBox;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import java.awt.GridBagLayout;
 import javax.swing.JTabbedPane;
-import java.awt.GridBagConstraints;
-import javax.swing.JRadioButton;
 import javax.swing.JButton;
+import java.awt.Font;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JScrollPane;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class MainFrm2 extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_3;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
+	private JTextField plan_text_1;
+	private JTextField plan_text_2;
+	private JTextField plan_text_3;
+	private JTextField plan_text_4;
+	private JTextField plan_text_5;
+	private JTextField plan_text_6;
+	private JTextField plan_text_7;
+	private JTextField plan_text_8;
+	private JTextField plan_text_9;
+	private JTextField plan_text_10;
+	private JTable planTable;
+	private JTable table_1;
+	private JTextField plan_p2_start;
+	private JTextField plan_p2_changeline;
+	private JTextField textField_end;
+	private JTable table_2;
+	
+//	private JPanel panel_14 = new JPanel();
 
 	/**
 	 * Launch the application.
@@ -73,7 +77,7 @@ public class MainFrm2 extends JFrame {
 		setTitle("娱乐管理系统V1.0.0");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrm.class.getResource("/images/goods_logo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 650);
+		setBounds(100, 100, 900, 650);
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -134,39 +138,59 @@ public class MainFrm2 extends JFrame {
 		panel_3.add(panel_4, BorderLayout.NORTH);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"请选择一个彩种"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"极速赛车", "极速飞艇", "幸运飞艇"}));
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("选项1");
+		JLabel lblNewLabel_3 = new JLabel("用户名");
 		
-		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("选项2");
+		JLabel lblNewLabel_19 = new JLabel("laomeng666");
 		
-		JCheckBox chckbxNewCheckBox_2 = new JCheckBox("选项3");
+		JLabel label_1 = new JLabel("额度");
 		
-		JLabel lblNewLabel_3 = new JLabel("这里是一些个人账户信息");
+		JLabel label_2 = new JLabel("0.0");
+		
+		JLabel label_3 = new JLabel("未结算金额");
+		
+		JLabel lblNewLabel_20 = new JLabel("0.0");
+		
+		JLabel lblNewLabel_21 = new JLabel("今日输赢");
+		
+		JLabel label_4 = new JLabel("0.0");
 		GroupLayout gl_panel_4 = new GroupLayout(panel_4);
 		gl_panel_4.setHorizontalGroup(
 			gl_panel_4.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_4.createSequentialGroup()
 					.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(lblNewLabel_3)
-					.addGap(138)
-					.addComponent(chckbxNewCheckBox)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(chckbxNewCheckBox_1)
+					.addComponent(lblNewLabel_19, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(chckbxNewCheckBox_2)
-					.addContainerGap())
+					.addComponent(label_1)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(label_2, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(label_3)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblNewLabel_20, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(lblNewLabel_21)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(label_4, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
+					.addGap(348))
 		);
 		gl_panel_4.setVerticalGroup(
 			gl_panel_4.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_4.createSequentialGroup()
 					.addGroup(gl_panel_4.createParallelGroup(Alignment.BASELINE)
 						.addComponent(comboBox, GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
-						.addComponent(chckbxNewCheckBox_2)
-						.addComponent(chckbxNewCheckBox_1)
-						.addComponent(chckbxNewCheckBox)
-						.addComponent(lblNewLabel_3))
+						.addComponent(lblNewLabel_3)
+						.addComponent(lblNewLabel_19)
+						.addComponent(label_1)
+						.addComponent(label_2)
+						.addComponent(label_3)
+						.addComponent(lblNewLabel_20)
+						.addComponent(lblNewLabel_21)
+						.addComponent(label_4))
 					.addContainerGap())
 		);
 		panel_4.setLayout(gl_panel_4);
@@ -174,7 +198,6 @@ public class MainFrm2 extends JFrame {
 		JPanel panel_5 = new JPanel();
 		panel_5.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_3.add(panel_5, BorderLayout.WEST);
-		panel_5.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		JList list = new JList();
 		list.setModel(new AbstractListModel() {
@@ -186,7 +209,302 @@ public class MainFrm2 extends JFrame {
 				return values[index];
 			}
 		});
-		panel_5.add(list);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		
+		table_2 = new JTable();
+		table_2.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"51626630", "5,7,6,8,1,3,2,10,9,4", "15:12"},
+				{"51626629", "7,8,4,2,9,10,3,6,1,5", "15:11"},
+				{"51626628", "10,8,7,9,5,1,3,4,6,2", "15:10"},
+				{null, null, null},
+				{null, null, null},
+			},
+			new String[] {
+				"\u5F00\u5956\u671F\u53F7", "\u5F00\u5956\u53F7\u7801", "\u65F6\u95F4"
+			}
+		) {
+			boolean[] columnEditables = new boolean[] {
+				false, true, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		});
+		table_2.getColumnModel().getColumn(0).setPreferredWidth(62);
+		table_2.getColumnModel().getColumn(1).setPreferredWidth(129);
+		table_2.getColumnModel().getColumn(2).setPreferredWidth(41);
+		scrollPane_1.add(table_2);
+		scrollPane_1.setViewportView(table_2);
+		
+		final JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setToolTipText("");
+		
+		JPanel panel_9 = new JPanel();
+		tabbedPane.addTab("1.欢迎使用", null, panel_9, null);
+		
+		JLabel lblNewLabel_8 = new JLabel("欢迎使用");
+		lblNewLabel_8.setFont(new Font("宋体", Font.PLAIN, 65));
+		GroupLayout gl_panel_9 = new GroupLayout(panel_9);
+		gl_panel_9.setHorizontalGroup(
+			gl_panel_9.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_9.createSequentialGroup()
+					.addGap(198)
+					.addComponent(lblNewLabel_8, GroupLayout.PREFERRED_SIZE, 313, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(134, Short.MAX_VALUE))
+		);
+		gl_panel_9.setVerticalGroup(
+			gl_panel_9.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_9.createSequentialGroup()
+					.addGap(112)
+					.addComponent(lblNewLabel_8, GroupLayout.PREFERRED_SIZE, 163, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(137, Short.MAX_VALUE))
+		);
+		panel_9.setLayout(gl_panel_9);
+		
+		JPanel panel_8 = new JPanel();
+		tabbedPane.addTab("2.方案设定", null, panel_8, null);
+		
+		final JPanel panel_12 = new JPanel();
+		
+		final JPanel plan_p2 = new JPanel();
+		plan_p2.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "\u8BA1\u5212\u8BBE\u7F6E", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		
+		JLabel lblNewLabel_18 = new JLabel("开始位置");
+		
+		JComboBox plan_comboBox_1 = new JComboBox();
+		plan_comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
+		
+		JLabel lblNewLabel_15 = new JLabel("时间范围");
+		
+		plan_p2_start = new JTextField();
+		plan_p2_start.setText("50");
+		plan_p2_start.setColumns(10);
+		
+		JLabel lblNewLabel_16 = new JLabel("-");
+		
+		plan_p2_changeline = new JTextField();
+		plan_p2_changeline.setText("1,2,3,4,5,6");
+		plan_p2_changeline.setColumns(10);
+		
+		JLabel lblNewLabel_17 = new JLabel("跳   线");
+		
+		textField_end = new JTextField();
+		textField_end.setText("60");
+		textField_end.setColumns(10);
+		
+		JPanel panel_13 = new JPanel();
+		
+		JButton plan_b_save = new JButton("保存");
+		plan_b_save.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
+		panel_13.add(plan_b_save);
+		
+		JButton plan_b_update = new JButton("修改");
+		plan_b_update.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				
+			}
+		});
+		panel_13.add(plan_b_update);
+		
+		JLabel label = new JLabel("备注：时间范围单位为：分钟，跳线设置如:1,2,3,4,5,6");
+		GroupLayout gl_plan_p2 = new GroupLayout(plan_p2);
+		gl_plan_p2.setHorizontalGroup(
+			gl_plan_p2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_plan_p2.createSequentialGroup()
+					.addGap(29)
+					.addGroup(gl_plan_p2.createParallelGroup(Alignment.LEADING)
+						.addComponent(label)
+						.addGroup(gl_plan_p2.createSequentialGroup()
+							.addComponent(lblNewLabel_18)
+							.addGap(18)
+							.addComponent(plan_comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_plan_p2.createSequentialGroup()
+							.addComponent(lblNewLabel_17)
+							.addGap(24)
+							.addComponent(plan_p2_changeline, GroupLayout.PREFERRED_SIZE, 177, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_plan_p2.createSequentialGroup()
+							.addComponent(lblNewLabel_15)
+							.addGap(18)
+							.addComponent(plan_p2_start, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(lblNewLabel_16, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(textField_end, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addGap(100))
+		);
+		gl_plan_p2.setVerticalGroup(
+			gl_plan_p2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_plan_p2.createSequentialGroup()
+					.addGap(8)
+					.addGroup(gl_plan_p2.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel_18)
+						.addComponent(plan_comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addGroup(gl_plan_p2.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel_15)
+						.addComponent(plan_p2_start, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_16)
+						.addComponent(textField_end, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(19)
+					.addGroup(gl_plan_p2.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel_17)
+						.addComponent(plan_p2_changeline, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+					.addComponent(label)
+					.addContainerGap())
+		);
+		plan_p2.setLayout(gl_plan_p2);
+		final JPanel plan_p = new JPanel();
+		plan_p.setBorder(new TitledBorder(null, "\u8BA1\u5212\u8BBE\u7F6E", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_12.add(plan_p);
+		planTable = new JTable();
+		planTable.setFillsViewportHeight(true);
+//		planTable.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				int sr;
+//                if ((sr = planTable.getSelectedRow()) == -1) {
+//                    return;
+//                }
+//                if (e.getButton() == MouseEvent.BUTTON1) {
+//                	if(sr==0)
+//                	{
+////                		panel_11.setVisible(true);
+//                		panel_12.remove(plan_p2);
+//                		panel_12.add(plan_p,BorderLayout.NORTH);
+//                	
+//                	}else {
+//                		panel_12.remove(plan_p);
+//                		panel_12.add(plan_p2,BorderLayout.NORTH);
+//                	}
+//                	panel_12.updateUI();
+//            		panel_12.repaint();
+//                }
+//			}
+//		});
+		
+		planTable.getSelectionModel().addListSelectionListener(new ListSelectionListener(){  
+            @Override  
+            public void valueChanged(ListSelectionEvent e)  
+            {  
+				int sr = planTable.getSelectedRow();
+              if (sr == -1) {
+                  return;
+              }
+              String play = (String) planTable.getModel().getValueAt(sr, 1);
+          	if(sr==0)
+          	{
+          		panel_12.remove(plan_p2);
+          		TitledBorder t = (TitledBorder)plan_p.getBorder();
+          		t.setTitle(play+"设置");
+          		panel_12.add(plan_p,BorderLayout.NORTH);
+          	
+          	}else {
+          		panel_12.remove(plan_p);
+          		TitledBorder t = (TitledBorder)plan_p2.getBorder();
+          		t.setTitle(play+"设置");
+          		panel_12.add(plan_p2,BorderLayout.NORTH);
+          	}
+          	panel_12.updateUI();
+      		panel_12.repaint();
+          }
+        });  
+		
+		planTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+//		table.setselect
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.add(planTable);
+		//		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF); 
+				planTable.setModel(new DefaultTableModel(
+					new Object[][] {
+						{"\u65B9\u68481", "\u5F00\u67D0\u6295\u67D0"},
+						{"\u65B9\u68482", "\u53CC\u5355"},
+						{"\u65B9\u68483", "\u5355\u53CC"},
+						{"\u65B9\u68484", "\u5927\u5C0F"},
+						{"\u65B9\u68485", "\u5C0F\u5927"},
+					},
+					new String[] {
+						"\u65B9\u6848", "\u73A9\u6CD5"
+					}
+				) {
+					Class[] columnTypes = new Class[] {
+						String.class, String.class
+					};
+					public Class getColumnClass(int columnIndex) {
+						return columnTypes[columnIndex];
+					}
+					boolean[] columnEditables = new boolean[] {
+						false, false
+					};
+					public boolean isCellEditable(int row, int column) {
+						return columnEditables[column];
+					}
+				});
+				planTable.getColumnModel().getColumn(0).setPreferredWidth(64);
+				planTable.getColumnModel().getColumn(1).setPreferredWidth(64);
+				planTable.setRowHeight(30);
+				
+				scrollPane.setViewportView(planTable);
+				GroupLayout gl_panel_8 = new GroupLayout(panel_8);
+				gl_panel_8.setHorizontalGroup(
+					gl_panel_8.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_8.createSequentialGroup()
+							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 215, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(panel_12, GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE))
+				);
+				gl_panel_8.setVerticalGroup(
+					gl_panel_8.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_8.createSequentialGroup()
+							.addGroup(gl_panel_8.createParallelGroup(Alignment.LEADING)
+								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 412, GroupLayout.PREFERRED_SIZE)
+								.addComponent(panel_12, GroupLayout.PREFERRED_SIZE, 412, GroupLayout.PREFERRED_SIZE))
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+				);
+				panel_8.setLayout(gl_panel_8);
+				
+				JPanel panel_10 = new JPanel();
+				tabbedPane.addTab("3.自动投注", null, panel_10, null);
+				
+				JPanel panel_15 = new JPanel();
+				tabbedPane.addTab("4.参考数据", null, panel_15, null);
+				
+				tabbedPane.addChangeListener(new ChangeListener() {
+		            @Override
+		            public void stateChanged(ChangeEvent e) {
+//		                
+		                if(tabbedPane.getSelectedIndex()==1)
+		                {
+		                	planTable.getSelectionModel().setSelectionInterval(0, 0);
+		                }
+		            }
+				});
+				
+				
+		GroupLayout gl_panel_5 = new GroupLayout(panel_5);
+		gl_panel_5.setHorizontalGroup(
+			gl_panel_5.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_5.createSequentialGroup()
+					.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 236, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 636, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		gl_panel_5.setVerticalGroup(
+			gl_panel_5.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_5.createParallelGroup(Alignment.BASELINE)
+					.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
+					.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 442, GroupLayout.PREFERRED_SIZE))
+		);
+		panel_5.setLayout(gl_panel_5);
 		
 		JPanel panel_6 = new JPanel();
 		panel_6.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -194,84 +512,28 @@ public class MainFrm2 extends JFrame {
 		
 		JLabel lblNewLabel_2 = new JLabel("这是一些其它的提示信息");
 		panel_6.add(lblNewLabel_2);
+		panel_12.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel_7 = new JPanel();
-		panel_3.add(panel_7, BorderLayout.CENTER);
-		GridBagLayout gbl_panel_7 = new GridBagLayout();
-		gbl_panel_7.columnWidths = new int[]{0, 0};
-		gbl_panel_7.rowHeights = new int[]{0, 0};
-		gbl_panel_7.columnWeights = new double[]{1.0, Double.MIN_VALUE};
-		gbl_panel_7.rowWeights = new double[]{1.0, Double.MIN_VALUE};
-		panel_7.setLayout(gbl_panel_7);
-		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setToolTipText("");
-		GridBagConstraints gbc_tabbedPane = new GridBagConstraints();
-		gbc_tabbedPane.fill = GridBagConstraints.BOTH;
-		gbc_tabbedPane.gridx = 0;
-		gbc_tabbedPane.gridy = 0;
-		panel_7.add(tabbedPane, gbc_tabbedPane);
-		
-		JPanel panel_8 = new JPanel();
-		tabbedPane.addTab("自动投注", null, panel_8, null);
-		panel_8.setLayout(new BorderLayout(0, 0));
-		
-		JPanel panel_11 = new JPanel();
-		panel_11.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "\u6295\u6CE8\u73A9\u6CD5", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel_8.add(panel_11, BorderLayout.NORTH);
-		
-		JRadioButton radioButton = new JRadioButton("跟某投某");
-		radioButton.setSelected(true);
-		panel_11.add(radioButton);
-		
-		JRadioButton radioButton_2 = new JRadioButton("小大");
-		panel_11.add(radioButton_2);
-		
-		JRadioButton radioButton_1 = new JRadioButton("大小");
-		panel_11.add(radioButton_1);
-		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("双单");
-		panel_11.add(rdbtnNewRadioButton_1);
-		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("单双");
-		panel_11.add(rdbtnNewRadioButton);
-		
-		JPanel panel_12 = new JPanel();
-		panel_8.add(panel_12);
-		
-		JPanel panel_13 = new JPanel();
-		panel_8.add(panel_13, BorderLayout.SOUTH);
-		
-		JButton btnNewButton_3 = new JButton("模拟统计");
-		btnNewButton_3.setToolTipText("模拟统计最近2个小时结果");
-		panel_13.add(btnNewButton_3);
-		
-		JButton button = new JButton("模拟投注");
-		panel_13.add(button);
-		
-		JButton btnNewButton = new JButton("真实投注");
-		panel_13.add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("停止投注");
-		panel_13.add(btnNewButton_1);
-		
-		JPanel panel_14 = new JPanel();
-		panel_8.add(panel_14, BorderLayout.WEST);
+//		JPanel panel_14 = new JPanel();
+//		panel_12.add(panel_14);
 		
 		JLabel lblNewLabel_4 = new JLabel("一号");
 		
-		textField = new JTextField();
-		textField.setColumns(10);
+		plan_text_1 = new JTextField();
+		plan_text_1.setText("1,2,3,4,5");
+		plan_text_1.setColumns(10);
 		
 		JLabel lblNewLabel_5 = new JLabel("二号");
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
+		plan_text_2 = new JTextField();
+		plan_text_2.setText("2,3,4,5,6");
+		plan_text_2.setColumns(10);
 		
 		JLabel lblNewLabel_6 = new JLabel("三号");
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
+		plan_text_3 = new JTextField();
+		plan_text_3.setText("3,4,5,6,7");
+		plan_text_3.setColumns(10);
 		
 		JLabel lblNewLabel_9 = new JLabel("四号");
 		
@@ -279,8 +541,9 @@ public class MainFrm2 extends JFrame {
 		
 		JLabel lblNewLabel_11 = new JLabel("五号");
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
+		plan_text_4 = new JTextField();
+		plan_text_4.setText("4,5,6,7,8");
+		plan_text_4.setColumns(10);
 		
 		JLabel lblNewLabel_12 = new JLabel("六号");
 		
@@ -288,129 +551,152 @@ public class MainFrm2 extends JFrame {
 		
 		JLabel lblNewLabel_14 = new JLabel("八号");
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
+		plan_text_5 = new JTextField();
+		plan_text_5.setText("5,6,7,8,9");
+		plan_text_5.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
+		plan_text_6 = new JTextField();
+		plan_text_6.setText("6,7,8,9,10");
+		plan_text_6.setColumns(10);
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
+		plan_text_7 = new JTextField();
+		plan_text_7.setText("7,8,9,10,1");
+		plan_text_7.setColumns(10);
 		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
+		plan_text_8 = new JTextField();
+		plan_text_8.setText("8,9,10,1,2");
+		plan_text_8.setColumns(10);
 		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
+		plan_text_9 = new JTextField();
+		plan_text_9.setText("9,10,1,2,3");
+		plan_text_9.setColumns(10);
 		
 		JLabel lblNewLabel_7 = new JLabel("十号");
 		
-		textField_9 = new JTextField();
-		textField_9.setColumns(10);
-		
-		JButton btnNewButton_2 = new JButton("保存");
-		GroupLayout gl_panel_14 = new GroupLayout(panel_14);
-		gl_panel_14.setHorizontalGroup(
-			gl_panel_14.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_14.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panel_14.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel_14.createSequentialGroup()
-							.addComponent(lblNewLabel_4)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField, GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE))
-						.addGroup(gl_panel_14.createSequentialGroup()
-							.addComponent(lblNewLabel_5)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE))
-						.addGroup(gl_panel_14.createSequentialGroup()
-							.addComponent(lblNewLabel_6)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField_2, GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE))
-						.addGroup(gl_panel_14.createSequentialGroup()
-							.addComponent(lblNewLabel_9)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField_4, GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE))
-						.addGroup(gl_panel_14.createSequentialGroup()
-							.addComponent(lblNewLabel_11)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField_5, GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE))
-						.addGroup(gl_panel_14.createSequentialGroup()
-							.addComponent(lblNewLabel_12)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField_3, GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE))
-						.addGroup(gl_panel_14.createSequentialGroup()
-							.addComponent(lblNewLabel_13)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField_6, GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE))
-						.addGroup(gl_panel_14.createSequentialGroup()
-							.addComponent(lblNewLabel_14)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField_7, GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE))
-						.addGroup(gl_panel_14.createSequentialGroup()
-							.addComponent(lblNewLabel_10)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField_8, GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE))
-						.addGroup(gl_panel_14.createSequentialGroup()
-							.addComponent(lblNewLabel_7)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_panel_14.createParallelGroup(Alignment.LEADING)
-								.addComponent(btnNewButton_2)
-								.addComponent(textField_9, GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE))))
-					.addContainerGap())
+		plan_text_10 = new JTextField();
+		plan_text_10.setText("10,1,2,3,4");
+		plan_text_10.setColumns(10);
+		GroupLayout gl_plan_p = new GroupLayout(plan_p);
+		gl_plan_p.setHorizontalGroup(
+			gl_plan_p.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_plan_p.createSequentialGroup()
+					.addGap(10)
+					.addComponent(lblNewLabel_4)
+					.addGap(4)
+					.addComponent(plan_text_1, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_plan_p.createSequentialGroup()
+					.addGap(10)
+					.addComponent(lblNewLabel_5)
+					.addGap(4)
+					.addComponent(plan_text_2, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_plan_p.createSequentialGroup()
+					.addGap(10)
+					.addComponent(lblNewLabel_6)
+					.addGap(4)
+					.addComponent(plan_text_3, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_plan_p.createSequentialGroup()
+					.addGap(10)
+					.addComponent(lblNewLabel_9)
+					.addGap(4)
+					.addComponent(plan_text_4, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_plan_p.createSequentialGroup()
+					.addGap(10)
+					.addComponent(lblNewLabel_11)
+					.addGap(4)
+					.addComponent(plan_text_5, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_plan_p.createSequentialGroup()
+					.addGap(10)
+					.addComponent(lblNewLabel_12)
+					.addGap(4)
+					.addComponent(plan_text_6, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_plan_p.createSequentialGroup()
+					.addGap(10)
+					.addComponent(lblNewLabel_13)
+					.addGap(4)
+					.addComponent(plan_text_7, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_plan_p.createSequentialGroup()
+					.addGap(10)
+					.addComponent(lblNewLabel_14)
+					.addGap(4)
+					.addComponent(plan_text_8, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_plan_p.createSequentialGroup()
+					.addGap(10)
+					.addComponent(lblNewLabel_10)
+					.addGap(4)
+					.addComponent(plan_text_9, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_plan_p.createSequentialGroup()
+					.addGap(10)
+					.addComponent(lblNewLabel_7)
+					.addGap(4)
+					.addComponent(plan_text_10, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE))
 		);
-		gl_panel_14.setVerticalGroup(
-			gl_panel_14.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_14.createSequentialGroup()
-					.addGroup(gl_panel_14.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_4)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panel_14.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_5)
-						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel_14.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_6)
-						.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panel_14.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_9)
-						.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel_14.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_11)
-						.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel_14.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_12)
-						.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panel_14.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_13)
-						.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel_14.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_14)
-						.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-					.addGroup(gl_panel_14.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_10)
-						.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel_14.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textField_9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_7))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnNewButton_2)
-					.addGap(8))
+		gl_plan_p.setVerticalGroup(
+			gl_plan_p.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_plan_p.createSequentialGroup()
+					.addGroup(gl_plan_p.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_plan_p.createSequentialGroup()
+							.addGap(3)
+							.addComponent(lblNewLabel_4))
+						.addComponent(plan_text_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(6)
+					.addGroup(gl_plan_p.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_plan_p.createSequentialGroup()
+							.addGap(3)
+							.addComponent(lblNewLabel_5))
+						.addComponent(plan_text_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(10)
+					.addGroup(gl_plan_p.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_plan_p.createSequentialGroup()
+							.addGap(3)
+							.addComponent(lblNewLabel_6))
+						.addComponent(plan_text_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(6)
+					.addGroup(gl_plan_p.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_plan_p.createSequentialGroup()
+							.addGap(3)
+							.addComponent(lblNewLabel_9))
+						.addComponent(plan_text_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(10)
+					.addGroup(gl_plan_p.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_plan_p.createSequentialGroup()
+							.addGap(3)
+							.addComponent(lblNewLabel_11))
+						.addComponent(plan_text_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(10)
+					.addGroup(gl_plan_p.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_plan_p.createSequentialGroup()
+							.addGap(3)
+							.addComponent(lblNewLabel_12))
+						.addComponent(plan_text_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(6)
+					.addGroup(gl_plan_p.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_plan_p.createSequentialGroup()
+							.addGap(3)
+							.addComponent(lblNewLabel_13))
+						.addComponent(plan_text_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(10)
+					.addGroup(gl_plan_p.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_plan_p.createSequentialGroup()
+							.addGap(3)
+							.addComponent(lblNewLabel_14))
+						.addComponent(plan_text_8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(7)
+					.addGroup(gl_plan_p.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_plan_p.createSequentialGroup()
+							.addGap(3)
+							.addComponent(lblNewLabel_10))
+						.addComponent(plan_text_9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(10)
+					.addGroup(gl_plan_p.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_plan_p.createSequentialGroup()
+							.addGap(3)
+							.addComponent(lblNewLabel_7))
+						.addComponent(plan_text_10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(29, Short.MAX_VALUE))
 		);
-		panel_14.setLayout(gl_panel_14);
-		
-		JPanel panel_9 = new JPanel();
-		tabbedPane.addTab("投注历史", null, panel_9, null);
-		
-		JPanel panel_10 = new JPanel();
-		tabbedPane.addTab("选项卡3", null, panel_10, null);
+		plan_p.setLayout(gl_plan_p);
+		panel_12.add(plan_p,BorderLayout.NORTH);
+		panel_12.add(plan_p2);
+		panel_12.add(panel_13,BorderLayout.CENTER);
 	}
 }
