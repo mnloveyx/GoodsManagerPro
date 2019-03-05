@@ -127,15 +127,7 @@ public class LoginFrm extends JFrame {
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(176)
-					.addComponent(btnNewButton)
-					.addContainerGap(267, Short.MAX_VALUE))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap(198, Short.MAX_VALUE)
-					.addComponent(label)
-					.addGap(123))
-				.addGroup(gl_contentPane.createSequentialGroup()
+				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
 					.addGap(183)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 						.addComponent(lblNewLabel)
@@ -144,13 +136,19 @@ public class LoginFrm extends JFrame {
 					.addGap(18)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addComponent(passwordTxt, 167, 167, 167)
-						.addComponent(userNameTxt, GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+						.addComponent(userNameTxt, GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
 						.addComponent(button, Alignment.TRAILING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(codeTxt, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(codeimage, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)))
 					.addGap(92))
+				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+					.addGap(176)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(label)
+						.addComponent(btnNewButton))
+					.addContainerGap(145, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -204,11 +202,12 @@ public class LoginFrm extends JFrame {
 			JOptionPane.showMessageDialog(null, "验证码不能为空!");
 			return;
 		}
-		User user = new User(userName, password);
-		Connection conn = null;
+		User user = new User(userName, password,code);
+//		Connection conn = null;
 		try {
-			conn = dbUtil.getCon();
-			User currentUser = userDao.login(conn, user);
+//			conn = dbUtil.getCon();
+//			User currentUser = userDao.login(conn, user);
+			User currentUser = new User("123", "222", "22");//userDao.login(conn, user);
 			if(currentUser!=null){
 				//JOptionPane.showMessageDialog(null, "登录成功!");
 				dispose();
@@ -222,12 +221,12 @@ public class LoginFrm extends JFrame {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "登录失败!");
 		}finally{
-			try {
-				dbUtil.close(conn);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+//			try {
+////				dbUtil.close(conn);
+//			} catch (SQLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 		}
 		
 	}
