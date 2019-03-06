@@ -45,7 +45,7 @@ public class MainFrm1 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MainFrm() {
+	public MainFrm1() {
 		setTitle("管理系统主页面   ");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrm.class.getResource("/images/goods_logo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
