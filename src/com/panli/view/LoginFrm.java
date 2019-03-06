@@ -211,7 +211,7 @@ public class LoginFrm extends JFrame {
 			if(currentUser!=null){
 				//JOptionPane.showMessageDialog(null, "登录成功!");
 				dispose();
-				new MainFrm().setVisible(true);
+				new MainFrm2(currentUser).setVisible(true);
 			}else{
 				JOptionPane.showMessageDialog(null, "登录失败!");
 			}
