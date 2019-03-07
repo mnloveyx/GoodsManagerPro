@@ -12,6 +12,7 @@ import java.awt.Dimension;
 
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
+import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
@@ -31,7 +32,11 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.table.DefaultTableModel;
 
+import org.apache.commons.lang3.time.DateUtils;
+
 import com.panli.model.User;
+import com.toedter.calendar.JCalendar;
+import com.toedter.calendar.JDateChooser;
 
 import javax.swing.JScrollPane;
 import java.awt.event.MouseAdapter;
@@ -42,6 +47,12 @@ import java.awt.FlowLayout;
 import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerDateModel;
+import java.util.Date;
+import java.util.Calendar;
+import java.awt.SystemColor;
 
 public class MainFrm2 extends JFrame {
 
@@ -69,9 +80,6 @@ public class MainFrm2 extends JFrame {
 	private JTable table;
 	private JTextField textField;
 	private JTable table_3;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	
 	
 	
 //	private JPanel panel_14 = new JPanel();
@@ -236,6 +244,7 @@ public class MainFrm2 extends JFrame {
 		JScrollPane scrollPane_1 = new JScrollPane();
 		
 		table_2 = new JTable();
+		table_2.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table_2.setModel(new DefaultTableModel(
 			new Object[][] {
 				{"51626630", "5,7,6,8,1,3,2,10,9,4", "15:12"},
@@ -391,19 +400,27 @@ public class MainFrm2 extends JFrame {
 				textField.setColumns(10);
 				
 				JRadioButton radioButton = new JRadioButton("真实投注");
-				
 				JRadioButton radioButton_1 = new JRadioButton("模拟投注");
 				radioButton_1.setSelected(true);
 				
+				ButtonGroup group = new ButtonGroup();
+				group.add(radioButton);
+				group.add(radioButton_1);
+				
 				JButton btnNewButton = new JButton("开启自动投注");
+				btnNewButton.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						
+						Object[] s = 	group.getSelection().getSelectedObjects();
+						
+					}
+				});
 				btnNewButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 					}
 				});
-				btnNewButton.setBackground(new Color(51, 51, 204));
-				
-				JButton button = new JButton("停止自动投注");
-				button.setBackground(Color.BLUE);
+				btnNewButton.setBackground(SystemColor.activeCaption);
 				
 				JLabel label_24 = new JLabel("备注：金额设定为对应的局数如：1,2,4,8,16,32,64,128,256,512");
 				GroupLayout gl_panel_7 = new GroupLayout(panel_7);
@@ -426,17 +443,14 @@ public class MainFrm2 extends JFrame {
 										.addComponent(radioButton)
 										.addComponent(radioButton_1))
 									.addGap(31)
-									.addComponent(btnNewButton)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(button, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)))
-							.addContainerGap(26, Short.MAX_VALUE))
+									.addComponent(btnNewButton)))
+							.addContainerGap(256, Short.MAX_VALUE))
 				);
 				gl_panel_7.setVerticalGroup(
 					gl_panel_7.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel_7.createSequentialGroup()
 							.addContainerGap()
 							.addGroup(gl_panel_7.createParallelGroup(Alignment.LEADING)
-								.addComponent(button, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
 								.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_panel_7.createSequentialGroup()
 									.addGroup(gl_panel_7.createParallelGroup(Alignment.BASELINE, false)
@@ -571,26 +585,42 @@ public class MainFrm2 extends JFrame {
 				JScrollPane scrollPane_2 = new JScrollPane();
 				scrollPane_2.setPreferredSize(new Dimension(380, 300));
 				table = new JTable();
+				table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 				table.setModel(new DefaultTableModel(
 					new Object[][] {
-						{"\u6781\u901F\u8D5B\u8F66", "00:58", "51626640", new Double(1.0), new Integer(1), "1,2,3,4,5", "5,7,6,8,1,3,2,10,9,4", "\u6A21\u62DF\u6295\u6CE8", "\u76C8"},
+						{"\u6781\u901F\u8D5B\u8F66", "00:58", "51626640", "\u65B9\u68481", "\u5F00\u67D0\u6295\u67D0", "10000.00", "-10000.00", "1,2,3,4,5", "5,7,6,8,1,3,2,10,9,4", "1", "\u6A21\u62DF", "\u6302", "5/5", "0/2", "-20000.00"},
 					},
 					new String[] {
-						"\u6295\u6CE8\u5F69\u79CD", "\u6295\u6CE8\u65F6\u95F4", "\u6295\u6CE8\u671F\u6570", "\u91D1\u989D", "\u6CE8\u6570", "\u6295\u6CE8", "\u5F00\u5956\u53F7\u7801", "\u72B6\u6001", "\u76C8\u4E8F"
+						"\u6295\u6CE8\u5F69\u79CD", "\u6295\u6CE8\u65F6\u95F4", "\u6295\u6CE8\u671F\u6570", "\u65B9\u6848", "\u73A9\u6CD5", "\u91D1\u989D", "\u76C8\u4E8F", "\u6295\u6CE8", "\u5F00\u5956\u53F7\u7801", "\u8F6E\u6B21", "\u72B6\u6001", "\u4E2D\u6302", "\u8FDE\u6302", "\u8FDE\u4E2D", "\u65B9\u6848\u76C8\u4E8F"
 					}
 				) {
 					Class[] columnTypes = new Class[] {
-						String.class, String.class, String.class, Double.class, Integer.class, String.class, String.class, String.class, String.class
+						String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class
 					};
 					public Class getColumnClass(int columnIndex) {
 						return columnTypes[columnIndex];
 					}
+					boolean[] columnEditables = new boolean[] {
+						false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+					};
+					public boolean isCellEditable(int row, int column) {
+						return columnEditables[column];
+					}
 				});
+				table.getColumnModel().getColumn(0).setPreferredWidth(58);
 				table.getColumnModel().getColumn(1).setPreferredWidth(61);
 				table.getColumnModel().getColumn(2).setPreferredWidth(60);
-				table.getColumnModel().getColumn(3).setPreferredWidth(49);
-				table.getColumnModel().getColumn(4).setPreferredWidth(41);
-				table.getColumnModel().getColumn(6).setPreferredWidth(133);
+				table.getColumnModel().getColumn(3).setPreferredWidth(38);
+				table.getColumnModel().getColumn(4).setPreferredWidth(56);
+				table.getColumnModel().getColumn(5).setPreferredWidth(54);
+				table.getColumnModel().getColumn(6).setPreferredWidth(58);
+				table.getColumnModel().getColumn(8).setPreferredWidth(126);
+				table.getColumnModel().getColumn(9).setPreferredWidth(35);
+				table.getColumnModel().getColumn(10).setPreferredWidth(36);
+				table.getColumnModel().getColumn(11).setPreferredWidth(36);
+				table.getColumnModel().getColumn(12).setPreferredWidth(34);
+				table.getColumnModel().getColumn(13).setPreferredWidth(34);
+				table.getColumnModel().getColumn(14).setPreferredWidth(63);
 //				panel_10.add(table, BorderLayout.NORTH);
 				scrollPane_2.add(table);
 				scrollPane_2.setViewportView(table);
@@ -628,24 +658,40 @@ public class MainFrm2 extends JFrame {
 				comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"方案1", "方案2", "方案3", "方案4", "方案5"}));
 				
 				JButton button_1 = new JButton("开始计算");
-				button_1.setBackground(new Color(51, 51, 204));
+				button_1.setBackground(Color.LIGHT_GRAY);
 				
 				JLabel lblNewLabel_23 = new JLabel("日期：");
 				
-				JComboBox comboBox_3 = new JComboBox();
-				comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"选择日期"}));
+//				JComboBox comboBox_3 = new JComboBox();
+//				comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"选择日期"}));
+				
+//				 datepick = DateFrm.getDatePicker();
+//				
+//				 DatePicker comboBox_3 = DateFrm.getDatePicker();
+//				 comboBox_3.
+				 
+				JDateChooser  comboBox_3 = new JDateChooser(DateUtils.addDays(new Date(), -1));
+				
+				
+				
 				
 				JLabel label_25 = new JLabel("时间：");
 				
-				textField_1 = new JTextField();
-				textField_1.setText("09:00");
-				textField_1.setColumns(10);
-				
 				JLabel label_26 = new JLabel("至");
 				
-				textField_2 = new JTextField();
-				textField_2.setText("10:00");
-				textField_2.setColumns(10);
+				JSpinner spinner = new JSpinner(new SpinnerDateModel());
+				spinner.setValue(DateUtils.addHours(new Date(), -1));
+				//设置时间格式
+		        spinner.setEditor(new JSpinner.DateEditor(spinner,
+		                "HH:mm"));
+		        //获得JSPinner对象
+		        JSpinner spinner_1 = new JSpinner(new SpinnerDateModel());
+		        spinner_1.setValue(new Date());
+		        spinner_1.setEditor(new JSpinner.DateEditor(spinner_1,
+		                "HH:mm"));
+//		        spinner_1.setBounds(34, 67, 219, 22);
+				
+				
 				GroupLayout gl_panel_14 = new GroupLayout(panel_14);
 				gl_panel_14.setHorizontalGroup(
 					gl_panel_14.createParallelGroup(Alignment.LEADING)
@@ -655,20 +701,20 @@ public class MainFrm2 extends JFrame {
 								.addComponent(label_27, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblNewLabel_23))
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_panel_14.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(comboBox_3, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(comboBox_2, 0, 65, Short.MAX_VALUE))
+							.addGroup(gl_panel_14.createParallelGroup(Alignment.LEADING)
+								.addComponent(comboBox_2, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
+								.addComponent(comboBox_3, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(label_25)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(spinner, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(label_26)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-							.addGap(101)
+							.addGap(12)
+							.addComponent(spinner_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addGap(63)
 							.addComponent(button_1)
-							.addContainerGap(136, Short.MAX_VALUE))
+							.addContainerGap(115, Short.MAX_VALUE))
 				);
 				gl_panel_14.setVerticalGroup(
 					gl_panel_14.createParallelGroup(Alignment.LEADING)
@@ -684,15 +730,16 @@ public class MainFrm2 extends JFrame {
 										.addComponent(lblNewLabel_23)
 										.addComponent(comboBox_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addComponent(label_25)
-										.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addComponent(label_26)
-										.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+										.addComponent(spinner, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(spinner_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(label_26)))
 								.addComponent(button_1, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE))
-							.addContainerGap(38, Short.MAX_VALUE))
+							.addContainerGap(37, Short.MAX_VALUE))
 				);
 				panel_14.setLayout(gl_panel_14);
 				
 				table_3 = new JTable();
+				table_3.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 				table_3.setModel(new DefaultTableModel(
 					new Object[][] {
 						{null, null, null, null, null, null, null, null, null},
