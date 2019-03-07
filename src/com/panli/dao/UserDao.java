@@ -7,14 +7,14 @@ import java.sql.ResultSet;
 import com.panli.model.User;
 
 /**
- * UserDaoÊµÌåÀàÊÇ¶Ôuser¹ÜÀíÔ±µÄ²Ù×ö¿ØÖÆ
+ * UserDaoÊµï¿½ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½userï¿½ï¿½ï¿½ï¿½Ô±ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @author Peter
  *
  */
 public class UserDao {
 	
 	/**
-	 * ¹ÜÀíÔ±µÇÂ¼²Ù×÷
+	 * ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
 	 * @param conn
 	 * @param user
 	 * @return
@@ -29,7 +29,7 @@ public class UserDao {
 		ResultSet rs = pstmt.executeQuery();
 		if(rs.next()){
 			resultUser = new User();
-			resultUser.setId(rs.getInt("id"));
+//			resultUser.setId(rs.getInt("id"));
 			resultUser.setUserName(rs.getString("userName"));
 			resultUser.setPassword(rs.getString("password"));
 		}

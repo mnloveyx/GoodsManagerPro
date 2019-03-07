@@ -5,9 +5,12 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -22,13 +25,26 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+
+import com.google.gson.Gson;
 import com.panli.dao.UserDao;
+import com.panli.model.Code;
+import com.panli.model.LoginMsg;
 import com.panli.model.User;
 import com.panli.util.DbUtil;
+import com.panli.util.HttpClientTool;
+import com.panli.util.HttpClientUtil;
+import com.panli.util.HttpUtils;
 import com.panli.util.StringUtil;
 import javax.swing.JTextPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 /**
  * 登录页面视图层
  * @author Peter
@@ -36,6 +52,8 @@ import java.awt.Color;
  */
 public class LoginFrm extends JFrame {
 
+	private String host = "https://2164492817-hs.cp168.ws";
+	private String codeeurl = "/web/rest/generatecaptcha";
 	
 	private static DbUtil dbUtil = new DbUtil();
 	private static UserDao userDao = new UserDao();
@@ -43,7 +61,10 @@ public class LoginFrm extends JFrame {
 	private JTextField userNameTxt;
 	private JPasswordField passwordTxt;
 	private JTextField codeTxt;
-
+	private JLabel codeimage;
+	
+	private String codeData = "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";
+	private String cryptograph;
 	/**
 	 * Launch the application.
 	 */
@@ -99,6 +120,13 @@ public class LoginFrm extends JFrame {
 		passwordTxt = new JPasswordField();
 		
 		JButton btnNewButton = new JButton("登录");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				
+			}
+		});
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				loginActionPerformed(arg0);
@@ -121,9 +149,26 @@ public class LoginFrm extends JFrame {
 		codeTxt = new JTextField();
 		codeTxt.setColumns(10);
 		
-		JLabel codeimage = new JLabel("");
+//		 String  result2 = 	HttpUtils.get(host+codeeurl,null);
+//		String  result2 = 	HttpClientTool.doGetSSL(host+codeeurl,null);
+//		
+//		 
+//		 Gson gson = new Gson();
+//		 
+//		Code code =  gson.fromJson(result2, Code.class);
+//		codeData = 
+		deGetCode();
+		
+		 codeimage = new JLabel("");
+		 codeimage.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				updateCode();
+			}
+		});
 //		codeimage.setIcon(new ImageIcon(LoginFrm.class.getResource("/images/goods_logo.png")));
-		codeimage.setIcon(new ImageIcon(Base64.getDecoder().decode("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")));
+//		codeimage.setIcon(new ImageIcon(Base64.getDecoder().decode("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")));
+		codeimage.setIcon(new ImageIcon(Base64.getDecoder().decode(codeData)));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -180,6 +225,24 @@ public class LoginFrm extends JFrame {
 		//居中显示
 		this.setLocationRelativeTo(null);
 	}
+	
+	private void  deGetCode()
+	{
+		String  result2 = 	HttpClientTool.doGetSSL(host+codeeurl,null);
+		 Gson gson = new Gson();
+		Code code =  gson.fromJson(result2, Code.class);
+		this.codeData = code.getCaptchImageData();
+		this.cryptograph = code.getCryptograph();
+		
+	}
+	
+	private void updateCode()
+	{
+		deGetCode();
+		codeimage.setIcon(new ImageIcon(Base64.getDecoder().decode(codeData)));
+		codeimage.updateUI();
+		codeimage.repaint();
+	}
 
 	/**
 	 * 管理员登录
@@ -188,7 +251,7 @@ public class LoginFrm extends JFrame {
 	private void loginActionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		String userName = this.userNameTxt.getText();
-		String password = new String(this.passwordTxt.getPassword());
+		String password = String.valueOf(this.passwordTxt.getPassword());
 		String code = new String(this.codeTxt.getText());
 		if(StringUtil.isEmpty(userName)){
 			JOptionPane.showMessageDialog(null, "用户名不能为空!");
@@ -202,24 +265,35 @@ public class LoginFrm extends JFrame {
 			JOptionPane.showMessageDialog(null, "验证码不能为空!");
 			return;
 		}
-		User user = new User(userName, password,code);
+		User user = new User(userName, password,code,cryptograph);
 //		Connection conn = null;
 		try {
 //			conn = dbUtil.getCon();
 //			User currentUser = userDao.login(conn, user);
-			User currentUser = new User("123", "222", "22");//userDao.login(conn, user);
-			if(currentUser!=null){
+			
+			Gson g = new Gson();
+			String params = 	g.toJson(user);
+//			 Map<String, String>	params = BeanUtils.describe(user);  
+			
+			String  result2 = 	HttpClientUtil.post(host+"/web/rest/login", params, "utf-8");
+			 Gson gson = new Gson();
+			LoginMsg msg =  gson.fromJson(result2, LoginMsg.class);
+//			User currentUser = new User("123", "222", "22");//userDao.login(conn, user);
+			if(msg.getToken()!=null){
+				user.setToken(msg.getToken());
 				//JOptionPane.showMessageDialog(null, "登录成功!");
 				dispose();
-				new MainFrm2(currentUser).setVisible(true);
+				new MainFrm2(user).setVisible(true);
 			}else{
 				JOptionPane.showMessageDialog(null, "登录失败!");
+				updateCode();
 			}
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "登录失败!");
+			updateCode();
 		}finally{
 //			try {
 ////				dbUtil.close(conn);

@@ -9,8 +9,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JToolBar;
 import javax.swing.JTable;
 import com.amuse.lottery.utils.DesUtil;
-import com.amuse.lottery.utils.HttpUtils;
 import com.amuse.lottery.utils.LotteryUtils;
+import com.panli.util.HttpUtils;
 
 import javax.swing.JTextPane;
 import java.awt.List;

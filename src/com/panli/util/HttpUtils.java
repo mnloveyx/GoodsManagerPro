@@ -1,4 +1,4 @@
-package com.amuse.lottery.utils;
+package com.panli.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,7 +33,7 @@ public class HttpUtils {
         String params = "";// 编码之后的参数
         try {
         	params = getParams(parameters);
-            String full_url = url + "?" + params; 
+            String full_url = url+="".equals(params)?"":"?" + params; 
             System.out.println(full_url); 
             // 创建URL对象  
             java.net.URL connURL = new java.net.URL(full_url);  
@@ -94,7 +94,11 @@ public class HttpUtils {
     
     protected static String getParams(Map<String, String> parameters) throws UnsupportedEncodingException {
     	  String params = "";// 编码之后的参数
-    	  StringBuffer sb = new StringBuffer();// 存储参数  
+    	  StringBuffer sb = new StringBuffer();// 存储参数 
+    	  if(parameters==null)
+    	  {
+    		  return params;
+    	  }
           // 编码请求参数  
           if(parameters.size()==1){
               for(String name:parameters.keySet()){

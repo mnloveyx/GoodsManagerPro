@@ -81,6 +81,8 @@ public class MainFrm2 extends JFrame {
 	private JTextField textField;
 	private JTable table_3;
 	
+	private String[] plan = new String[] {"方案1", "方案2", "方案3", "方案4", "方案5"};
+	
 	
 //	private JPanel panel_14 = new JPanel();
 
@@ -392,7 +394,7 @@ public class MainFrm2 extends JFrame {
 				JLabel label_5 = new JLabel("方案：");
 				
 				JComboBox comboBox_1 = new JComboBox();
-				comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"方案1", "方案2", "方案3", "方案4", "方案5"}));
+				comboBox_1.setModel(new DefaultComboBoxModel(plan));
 				
 				JLabel label_23 = new JLabel("金额：");
 				
@@ -655,7 +657,7 @@ public class MainFrm2 extends JFrame {
 				JLabel label_27 = new JLabel("方案：");
 				
 				JComboBox comboBox_2 = new JComboBox();
-				comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"方案1", "方案2", "方案3", "方案4", "方案5"}));
+				comboBox_2.setModel(new DefaultComboBoxModel(plan));
 				
 				JButton button_1 = new JButton("开始计算");
 				button_1.setBackground(Color.LIGHT_GRAY);

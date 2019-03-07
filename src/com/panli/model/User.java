@@ -1,14 +1,21 @@
 package com.panli.model;
+
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * 管理员t_user表的User实体类
  * @author Peter
  *
  */
+@Getter
+@Setter
 public class User {
-	private int id;//id字段
-	private String userName;//userName字段
-	private String password;//password字段
+	private Long id;//id字段
 	private String code; //验证码
+	private String cryptograph;
+	private String password;//password字段
+	private String userName;//userName字段
 	private String token;
 	
 	//继承父类的构造方法
@@ -35,10 +42,12 @@ public class User {
 		this.code = code;
 	}
 
-	public int getId() {
+	
+	
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getUserName() {
@@ -68,6 +77,14 @@ public class User {
 
 	public void setToken(String token) {
 		this.token = token;
+	}
+
+	public User(String userName, String password, String code, String cryptograph) {
+		super();
+		this.userName = userName;
+		this.password = password;
+		this.code = code;
+		this.cryptograph = cryptograph;
 	}
 	
 }
