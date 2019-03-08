@@ -13,6 +13,7 @@ import java.awt.Dimension;
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
 import javax.swing.ButtonGroup;
+import javax.swing.ComboBoxModel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
@@ -32,11 +33,20 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.table.DefaultTableModel;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 
+import com.panli.enums.SchemeEnum;
+import com.panli.model.Item;
+import com.panli.model.Plan;
+import com.panli.model.Scheme;
 import com.panli.model.User;
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.swing.JScrollPane;
 import java.awt.event.MouseAdapter;
@@ -51,9 +61,19 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.awt.SystemColor;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 
+@Slf4j
+//@Setter
+//@Getter
 public class MainFrm2 extends JFrame {
 
 	private JPanel contentPane;
@@ -72,6 +92,9 @@ public class MainFrm2 extends JFrame {
 	private JTextField plan_p2_start;
 	private JTextField plan_p2_changeline;
 	private JTextField textField_end;
+	private JComboBox plan_comboBox_1;
+	private JComboBox schemeTxt;
+	
 	private JTable table_2;
 	private JPanel plan_p2;
 	private  JPanel plan_p;
@@ -80,6 +103,8 @@ public class MainFrm2 extends JFrame {
 	private JTable table;
 	private JTextField textField;
 	private JTable table_3;
+	
+	private Scheme scheme;
 	
 	private String[] plan = new String[] {"方案1", "方案2", "方案3", "方案4", "方案5"};
 	
@@ -106,7 +131,8 @@ public class MainFrm2 extends JFrame {
 	 * Create the frame.
 	 */
 	public MainFrm2(User user ) {
-		 this.user = user;
+//		 setUser(user);
+		this.user = user;
 		setTitle("娱乐管理系统V1.0.0");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrm.class.getResource("/images/goods_logo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -170,8 +196,24 @@ public class MainFrm2 extends JFrame {
 		panel_4.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_3.add(panel_4, BorderLayout.NORTH);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"极速赛车", "极速飞艇", "幸运飞艇"}));
+		 schemeTxt = new JComboBox();
+		DefaultComboBoxModel model  = new DefaultComboBoxModel();
+//		comboBox.setModel(new DefaultComboBoxModel(new String[] {"极速极赛车", "极速飞艇", "幸运飞艇"}));
+//		comboBox.setModel(new DefaultComboBoxModel(SchemeEnum.enumsToStringArray()));
+		
+		schemeTxt.setModel(model);
+		model.addElement(new Item("极速极赛车","PK10JSC"));
+		model.addElement(new Item("极速飞艇 ","LUCKYSB"));
+		model.addElement(new Item("幸运飞艇","XYFT"));
+		
+		schemeTxt.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				if (e.getStateChange() == ItemEvent.SELECTED) {
+					Item item = 	(Item) schemeTxt.getSelectedItem();
+					log.debug("选中:{},key:{},value:{}",schemeTxt.getSelectedIndex(),item.getKey(),item.getValue());
+				}
+			}
+		});
 		
 		JLabel lblNewLabel_3 = new JLabel("用户名");
 		
@@ -192,8 +234,9 @@ public class MainFrm2 extends JFrame {
 		gl_panel_4.setHorizontalGroup(
 			gl_panel_4.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_4.createSequentialGroup()
-					.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGap(12)
+					.addComponent(schemeTxt, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
+					.addGap(41)
 					.addComponent(lblNewLabel_3)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblNewLabel_19, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
@@ -215,7 +258,6 @@ public class MainFrm2 extends JFrame {
 			gl_panel_4.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_4.createSequentialGroup()
 					.addGroup(gl_panel_4.createParallelGroup(Alignment.BASELINE)
-						.addComponent(comboBox, GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
 						.addComponent(lblNewLabel_3)
 						.addComponent(lblNewLabel_19)
 						.addComponent(label_1)
@@ -223,7 +265,8 @@ public class MainFrm2 extends JFrame {
 						.addComponent(label_3)
 						.addComponent(lblNewLabel_20)
 						.addComponent(lblNewLabel_21)
-						.addComponent(label_4))
+						.addComponent(label_4)
+						.addComponent(schemeTxt, GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE))
 					.addContainerGap())
 		);
 		panel_4.setLayout(gl_panel_4);
@@ -664,18 +707,7 @@ public class MainFrm2 extends JFrame {
 				
 				JLabel lblNewLabel_23 = new JLabel("日期：");
 				
-//				JComboBox comboBox_3 = new JComboBox();
-//				comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"选择日期"}));
-				
-//				 datepick = DateFrm.getDatePicker();
-//				
-//				 DatePicker comboBox_3 = DateFrm.getDatePicker();
-//				 comboBox_3.
-				 
 				JDateChooser  comboBox_3 = new JDateChooser(DateUtils.addDays(new Date(), -1));
-				
-				
-				
 				
 				JLabel label_25 = new JLabel("时间：");
 				
@@ -691,7 +723,6 @@ public class MainFrm2 extends JFrame {
 		        spinner_1.setValue(new Date());
 		        spinner_1.setEditor(new JSpinner.DateEditor(spinner_1,
 		                "HH:mm"));
-//		        spinner_1.setBounds(34, 67, 219, 22);
 				
 				
 				GroupLayout gl_panel_14 = new GroupLayout(panel_14);
@@ -827,6 +858,36 @@ public class MainFrm2 extends JFrame {
 		JPanel panel_13 = new JPanel();
 		
 		JButton plan_b_save = new JButton("保存");
+		plan_b_save.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Map<String,List<String>> m = new HashMap<>();
+				m.put("1", Arrays.asList(StringUtils.split(plan_text_1.getText(), ",")));
+				m.put("2", Arrays.asList(StringUtils.split(plan_text_2.getText(), ",")));
+				m.put("3", Arrays.asList(StringUtils.split(plan_text_3.getText(), ",")));
+				m.put("4", Arrays.asList(StringUtils.split(plan_text_4.getText(), ",")));
+				m.put("5", Arrays.asList(StringUtils.split(plan_text_5.getText(), ",")));
+				m.put("6", Arrays.asList(StringUtils.split(plan_text_6.getText(), ",")));
+				m.put("7", Arrays.asList(StringUtils.split(plan_text_7.getText(), ",")));
+				m.put("8", Arrays.asList(StringUtils.split(plan_text_8.getText(), ",")));
+				m.put("9", Arrays.asList(StringUtils.split(plan_text_9.getText(), ",")));
+				m.put("10", Arrays.asList(StringUtils.split(plan_text_10.getText(), ",")));
+				
+				String startLine = plan_comboBox_1.getSelectedItem().toString();
+				
+				Item scheme = (Item) schemeTxt.getSelectedItem();
+				String schemeName = scheme.getKey();
+				String schemeValue = scheme.getValue();
+				
+				
+				
+				
+//				Plan p  =new Plan();
+//				p.setSchemeName(SchemeName);
+//				p.setSchemeValue(SchemeValue);
+				
+			}
+		});
 		plan_b_save.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1021,7 +1082,7 @@ public class MainFrm2 extends JFrame {
 		 plan_p2.setPreferredSize(new Dimension(400, 180));
 		 JLabel lblNewLabel_18 = new JLabel("开始线路");
 		 
-		 JComboBox plan_comboBox_1 = new JComboBox();
+		 plan_comboBox_1 = new JComboBox();
 		 plan_comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		 
 		 JLabel lblNewLabel_15 = new JLabel("时间范围");

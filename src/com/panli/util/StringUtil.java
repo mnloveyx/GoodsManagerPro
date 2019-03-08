@@ -1,4 +1,7 @@
 package com.panli.util;
+
+import java.util.List;
+
 /**
  * 判断用户的输入是否为空方法类
  * @author Peter
@@ -32,4 +35,5 @@ public class StringUtil {
 			return false;
 		}
 	}
+	
 }

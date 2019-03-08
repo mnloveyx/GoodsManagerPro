@@ -120,17 +120,9 @@ public class LoginFrm extends JFrame {
 		passwordTxt = new JPasswordField();
 		
 		JButton btnNewButton = new JButton("登录");
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				
-			}
-		});
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				loginActionPerformed(arg0);
-				
 			}
 		});
 		btnNewButton.setIcon(new ImageIcon(LoginFrm.class.getResource("/images/login.png")));
