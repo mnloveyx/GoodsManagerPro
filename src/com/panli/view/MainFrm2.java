@@ -13,7 +13,6 @@ import java.awt.Dimension;
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
 import javax.swing.ButtonGroup;
-import javax.swing.ComboBoxModel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
@@ -32,44 +31,43 @@ import javax.swing.JTabbedPane;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 
-import com.panli.enums.SchemeEnum;
 import com.panli.model.Item;
 import com.panli.model.Plan;
 import com.panli.model.Scheme;
 import com.panli.model.User;
-import com.toedter.calendar.JCalendar;
+import com.panli.util.FileUtils;
 import com.toedter.calendar.JDateChooser;
 
-import lombok.Getter;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.swing.JScrollPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.CardLayout;
-import java.awt.GridLayout;
-import java.awt.FlowLayout;
+import java.io.IOException;
+import java.nio.charset.Charset;
+
 import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.ScrollPaneConstants;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
 import java.awt.SystemColor;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
 
 @Slf4j
 //@Setter
@@ -90,14 +88,15 @@ public class MainFrm2 extends JFrame {
 	private JTable planTable;
 	private JTable table_1;
 	private JTextField plan_p2_start;
-	private JTextField plan_p2_changeline;
-	private JTextField textField_end;
+	private JTextField plan_p2_jumpline;
+	private JTextField plan_p2_end;
 	private JComboBox plan_comboBox_1;
 	private JComboBox schemeTxt;
 	
 	private JTable table_2;
 	private JPanel plan_p2;
 	private  JPanel plan_p;
+	private JPanel panel_plan_main;
 	
 	private User user;
 	private JTable table;
@@ -105,6 +104,14 @@ public class MainFrm2 extends JFrame {
 	private JTable table_3;
 	
 	private Scheme scheme;
+	
+	private Plan currentPlan;
+	
+	private List<Scheme> schemes;
+	
+	private static List<Plan> plans;
+	
+	private static String planDir="../Scheme/";
 	
 	private String[] plan = new String[] {"方案1", "方案2", "方案3", "方案4", "方案5"};
 	
@@ -132,6 +139,7 @@ public class MainFrm2 extends JFrame {
 	 */
 	public MainFrm2(User user ) {
 //		 setUser(user);
+		initSchemes();
 		this.user = user;
 		setTitle("娱乐管理系统V1.0.0");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrm.class.getResource("/images/goods_logo.png")));
@@ -202,14 +210,14 @@ public class MainFrm2 extends JFrame {
 //		comboBox.setModel(new DefaultComboBoxModel(SchemeEnum.enumsToStringArray()));
 		
 		schemeTxt.setModel(model);
-		model.addElement(new Item("极速极赛车","PK10JSC"));
-		model.addElement(new Item("极速飞艇 ","LUCKYSB"));
-		model.addElement(new Item("幸运飞艇","XYFT"));
+		model.addElement(new Scheme("极速极赛车","PK10JSC"));
+		model.addElement(new Scheme("极速飞艇 ","LUCKYSB"));
+		model.addElement(new Scheme("幸运飞艇","XYFT"));
 		
 		schemeTxt.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
-					Item item = 	(Item) schemeTxt.getSelectedItem();
+					Scheme item = 	(Scheme) schemeTxt.getSelectedItem();
 					log.debug("选中:{},key:{},value:{}",schemeTxt.getSelectedIndex(),item.getKey(),item.getValue());
 				}
 			}
@@ -340,11 +348,22 @@ public class MainFrm2 extends JFrame {
 		);
 		panel_9.setLayout(gl_panel_9);
 		
-		JPanel panel_8 = new JPanel();
-		tabbedPane.addTab("2.方案设定", null, panel_8, null);
+	    panel_plan_main = new JPanel();
+		tabbedPane.addTab("2.方案设定", null, panel_plan_main, null);
 		
 		final JPanel panel_12 = new JPanel();
 		planTable = new JTable();
+		planTable.addPropertyChangeListener(new PropertyChangeListener() {
+			public void propertyChange(PropertyChangeEvent evt) {
+//				int select = planTable.getSelectedRow();
+//				if(select == -1)
+//				{
+//					setPlan(plans.get(0));
+//				}else {
+//					setPlan(plans.get(select));
+//				}
+			}
+		});
 		planTable.setFillsViewportHeight(true);
 		
 		planTable.getSelectionModel().addListSelectionListener(new ListSelectionListener(){  
@@ -409,24 +428,24 @@ public class MainFrm2 extends JFrame {
 				planTable.setRowHeight(30);
 				
 				scrollPane.setViewportView(planTable);
-				GroupLayout gl_panel_8 = new GroupLayout(panel_8);
-				gl_panel_8.setHorizontalGroup(
-					gl_panel_8.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel_8.createSequentialGroup()
+				GroupLayout gl_panel_plan_main = new GroupLayout(panel_plan_main);
+				gl_panel_plan_main.setHorizontalGroup(
+					gl_panel_plan_main.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_plan_main.createSequentialGroup()
 							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 215, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(panel_12, GroupLayout.PREFERRED_SIZE, 409, GroupLayout.PREFERRED_SIZE)
 							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 				);
-				gl_panel_8.setVerticalGroup(
-					gl_panel_8.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel_8.createSequentialGroup()
-							.addGroup(gl_panel_8.createParallelGroup(Alignment.TRAILING, false)
+				gl_panel_plan_main.setVerticalGroup(
+					gl_panel_plan_main.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_plan_main.createSequentialGroup()
+							.addGroup(gl_panel_plan_main.createParallelGroup(Alignment.TRAILING, false)
 								.addComponent(panel_12, Alignment.LEADING, 0, 0, Short.MAX_VALUE)
 								.addComponent(scrollPane, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE))
 							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 				);
-				panel_8.setLayout(gl_panel_8);
+				panel_plan_main.setLayout(gl_panel_plan_main);
 				
 				JPanel panel_10 = new JPanel();
 				tabbedPane.addTab("3.自动投注", null, panel_10, null);
@@ -860,32 +879,65 @@ public class MainFrm2 extends JFrame {
 		JButton plan_b_save = new JButton("保存");
 		plan_b_save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				Map<String,List<String>> m = new HashMap<>();
-				m.put("1", Arrays.asList(StringUtils.split(plan_text_1.getText(), ",")));
-				m.put("2", Arrays.asList(StringUtils.split(plan_text_2.getText(), ",")));
-				m.put("3", Arrays.asList(StringUtils.split(plan_text_3.getText(), ",")));
-				m.put("4", Arrays.asList(StringUtils.split(plan_text_4.getText(), ",")));
-				m.put("5", Arrays.asList(StringUtils.split(plan_text_5.getText(), ",")));
-				m.put("6", Arrays.asList(StringUtils.split(plan_text_6.getText(), ",")));
-				m.put("7", Arrays.asList(StringUtils.split(plan_text_7.getText(), ",")));
-				m.put("8", Arrays.asList(StringUtils.split(plan_text_8.getText(), ",")));
-				m.put("9", Arrays.asList(StringUtils.split(plan_text_9.getText(), ",")));
-				m.put("10", Arrays.asList(StringUtils.split(plan_text_10.getText(), ",")));
+				Map<String,String> num = new HashMap<>();
+				num.put("1",plan_text_1.getText());
+				num.put("2",plan_text_2.getText());
+				num.put("3",plan_text_3.getText());
+				num.put("4",plan_text_4.getText());
+				num.put("5",plan_text_5.getText());
+				num.put("6",plan_text_6.getText());
+				num.put("7",plan_text_7.getText());
+				num.put("8",plan_text_8.getText());
+				num.put("9",plan_text_9.getText());
+				num.put("10",plan_text_10.getText());
 				
 				String startLine = plan_comboBox_1.getSelectedItem().toString();
 				
-				Item scheme = (Item) schemeTxt.getSelectedItem();
+//				Scheme scheme = (Scheme) schemeTxt.getSelectedItem();
 				String schemeName = scheme.getKey();
 				String schemeValue = scheme.getValue();
 				
+				String startTime = plan_p2_start.getText();
 				
+				String endTime = plan_p2_end.getText();
 				
+				String jumpLines = plan_p2_jumpline.getText();
 				
-//				Plan p  =new Plan();
-//				p.setSchemeName(SchemeName);
-//				p.setSchemeValue(SchemeValue);
-				
+				TableModel  tm =	planTable.getModel();
+			 int selectIndex =	planTable.getSelectedRow();
+			 String planName = tm.getValueAt(selectIndex, 0).toString();
+			 String planType = tm.getValueAt(selectIndex, 1).toString();
+			 
+			 currentPlan   = new Plan(schemeName,schemeValue, planName,startLine, startTime,
+					endTime, jumpLines,num,planType) ;
+			 
+//			 FileUtils.
+			 
+			 String fileName = planDir+schemeValue+"/"+planName+".txt";
+			 
+//			 Boolean b =	FileUtils.createFile("descDirName");
+			 try {
+				FileUtils.writeStringToFile(FileUtils.getFile(fileName), currentPlan.toFileString(), Charset.forName("UTF-8"));
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			 
+			 if(CollectionUtils.isEmpty(plans))
+			 {
+				 plans =  new ArrayList<>();
+				 plans.add(currentPlan);
+			 }else {
+				 for(int i = plans.size()-1;i>=0;i--)
+				 {
+					 Plan p = plans.get(i);
+					 if(currentPlan.getType().equals(p.getType()))
+					 {
+						 plans.set(i, currentPlan);
+					 }
+				 }
+			 }
+			 
 			}
 		});
 		plan_b_save.addMouseListener(new MouseAdapter() {
@@ -1093,15 +1145,15 @@ public class MainFrm2 extends JFrame {
 		 
 		 JLabel lblNewLabel_16 = new JLabel("-");
 		 
-		 plan_p2_changeline = new JTextField();
-		 plan_p2_changeline.setText("1,2,3,4,5,6");
-		 plan_p2_changeline.setColumns(10);
+		 plan_p2_jumpline = new JTextField();
+		 plan_p2_jumpline.setText("1,2,3,4,5,6");
+		 plan_p2_jumpline.setColumns(10);
 		 
 		 JLabel lblNewLabel_17 = new JLabel("跳   线");
 		 
-		 textField_end = new JTextField();
-		 textField_end.setText("60");
-		 textField_end.setColumns(10);
+		 plan_p2_end = new JTextField();
+		 plan_p2_end.setText("60");
+		 plan_p2_end.setColumns(10);
 		 
 		 JLabel label = new JLabel("备注：时间范围单位为：分钟，跳线设置如:1,2,3,4,5,6");
 		 GroupLayout gl_plan_p2 = new GroupLayout(plan_p2);
@@ -1118,7 +1170,7 @@ public class MainFrm2 extends JFrame {
 		 				.addGroup(gl_plan_p2.createSequentialGroup()
 		 					.addComponent(lblNewLabel_17)
 		 					.addGap(24)
-		 					.addComponent(plan_p2_changeline, GroupLayout.PREFERRED_SIZE, 177, GroupLayout.PREFERRED_SIZE))
+		 					.addComponent(plan_p2_jumpline, GroupLayout.PREFERRED_SIZE, 177, GroupLayout.PREFERRED_SIZE))
 		 				.addGroup(gl_plan_p2.createSequentialGroup()
 		 					.addComponent(lblNewLabel_15)
 		 					.addGap(18)
@@ -1126,7 +1178,7 @@ public class MainFrm2 extends JFrame {
 		 					.addPreferredGap(ComponentPlacement.UNRELATED)
 		 					.addComponent(lblNewLabel_16, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)
 		 					.addPreferredGap(ComponentPlacement.RELATED)
-		 					.addComponent(textField_end, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+		 					.addComponent(plan_p2_end, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 		 			.addGap(100))
 		 );
 		 gl_plan_p2.setVerticalGroup(
@@ -1141,11 +1193,11 @@ public class MainFrm2 extends JFrame {
 		 				.addComponent(lblNewLabel_15)
 		 				.addComponent(plan_p2_start, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 		 				.addComponent(lblNewLabel_16)
-		 				.addComponent(textField_end, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+		 				.addComponent(plan_p2_end, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 		 			.addGap(19)
 		 			.addGroup(gl_plan_p2.createParallelGroup(Alignment.BASELINE)
 		 				.addComponent(lblNewLabel_17)
-		 				.addComponent(plan_p2_changeline, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
+		 				.addComponent(plan_p2_jumpline, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
 		 			.addPreferredGap(ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
 		 			.addComponent(label)
 		 			.addContainerGap())
@@ -1157,5 +1209,88 @@ public class MainFrm2 extends JFrame {
 		
 //		table_3 = new JTable();
 //		tabbedPane.addTab("New tab", null, table_3, null);
+	}
+	
+	protected void setPlan(Plan p)
+	{
+		plan_text_1.setText(p.getNumMap("1"));
+		plan_text_2.setText(p.getNumMap("2"));
+		plan_text_3.setText(p.getNumMap("3"));
+		plan_text_4.setText(p.getNumMap("4"));
+		plan_text_5.setText(p.getNumMap("5"));
+		plan_text_6.setText(p.getNumMap("6"));
+		plan_text_7.setText(p.getNumMap("7"));
+		plan_text_8.setText(p.getNumMap("8"));
+		plan_text_9.setText(p.getNumMap("9"));
+		plan_text_10.setText(p.getNumMap("10"));
+		
+		plan_comboBox_1.setSelectedIndex(Integer.valueOf(p.getStartLine()));
+		
+		plan_p2_start.setText(p.getStartTime());
+		plan_p2_end.setText(p.getEndTime());
+		plan_p2_jumpline.setText(p.getJumpLine());
+		
+		TableModel  tm =	planTable.getModel();
+		 int selectIndex =	planTable.getSelectedRow();
+		 tm.setValueAt(p.getName(), selectIndex, 0);
+		 tm.setValueAt(p.getType(), selectIndex, 1);
+		 
+		 panel_plan_main.updateUI();
+		 panel_plan_main.repaint();
+	}
+	
+	
+	String schemeName,schemeValue, planName,startLine, startTime,endTime, jumpLines,planType;
+	Map<String,String> numMap = new HashMap<>();
+	protected void  initSchemes()
+	{
+		this.schemes = new ArrayList<>();
+		List<String> schemesDir =  FileUtils.findChildrenList(FileUtils.getFile(planDir), true);
+		if(CollectionUtils.isNotEmpty(schemesDir))
+		{
+			schemesDir.forEach(s->{
+				
+				Scheme sch = new Scheme(schemeName=Scheme.valueMap.get(s),schemeValue=s);
+				List<String> plansDir =  FileUtils.findChildrenList(FileUtils.getFile(planDir+"/"+s), false);
+				
+				if(CollectionUtils.isNotEmpty(plansDir))
+				{
+					plans = new ArrayList<>();
+					plansDir.forEach(p->{
+						try {
+							planName =p;
+							List<String> files =	FileUtils.readLines(FileUtils.getFile(planDir+"/"+s+"/"+p), Charset.forName("UTF-8"));
+						
+//							new Plan(schemeName,schemeValue, planName,startLine, startTime,
+//									endTime, jumpLines,num,planType) ;
+							if(CollectionUtils.isNotEmpty(files)) {
+									planType = files.get(0).split("=")[1];
+									startLine = files.get(1).split("=")[1];
+									startTime = files.get(2).split("=")[1].split("-")[0];
+									endTime = files.get(2).split("=")[1].split("-")[1];
+									jumpLines = files.get(3).split("=")[1];
+									
+									for(int i = 4;i<files.size();i++)
+									{
+										String numKey =	files.get(i).split("=")[0];
+										String numValue =files.get(i).split("=")[1];
+										numMap.put(Plan.numValueyMap.get(numKey), numValue);
+									}
+									
+								plans.add(new Plan(schemeName,schemeValue, planName,startLine, startTime,
+										endTime, jumpLines,numMap,planType));
+							}
+							
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					});
+					sch.setPlans(plans);
+				}
+				
+				this.schemes.add(sch);
+			});
+		}
 	}
 }
