@@ -495,6 +495,7 @@ public class MainFrm2 extends JFrame {
 				JLabel label_23 = new JLabel("金额：");
 				
 				textField = new JTextField();
+				textField.setText("1,2,3,4,5,6,7,8,9,10");
 				textField.setColumns(10);
 				
 				JRadioButton radioButton = new JRadioButton("真实投注");
