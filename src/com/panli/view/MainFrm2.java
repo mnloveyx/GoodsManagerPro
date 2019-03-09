@@ -30,6 +30,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTabbedPane;
 import javax.swing.JButton;
 import java.awt.Font;
+
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -93,6 +95,10 @@ public class MainFrm2 extends JFrame {
 	private JComboBox plan_comboBox_1;
 	private JComboBox schemeTxt;
 	
+	private JComboBox autoselectplan;
+	private JComboBox autocalcplan;
+	private JScrollPane scrollPane;
+	
 	private JTable table_2;
 	private JPanel plan_p2;
 	private  JPanel plan_p;
@@ -115,9 +121,6 @@ public class MainFrm2 extends JFrame {
 	
 	private String[] plan = new String[] {"方案1", "方案2", "方案3", "方案4", "方案5"};
 	
-	
-//	private JPanel panel_14 = new JPanel();
-
 	/**
 	 * Launch the application.
 	 */
@@ -210,15 +213,42 @@ public class MainFrm2 extends JFrame {
 //		comboBox.setModel(new DefaultComboBoxModel(SchemeEnum.enumsToStringArray()));
 		
 		schemeTxt.setModel(model);
-		model.addElement(new Scheme("极速极赛车","PK10JSC"));
-		model.addElement(new Scheme("极速飞艇 ","LUCKYSB"));
-		model.addElement(new Scheme("幸运飞艇","XYFT"));
+		
+		if(CollectionUtils.isNotEmpty(schemes))
+		{
+			schemes.forEach(s->{
+				model.addElement(s);
+			});
+		}else {
+			model.addElement(new Scheme("极速极赛车","PK10JSC"));
+			model.addElement(new Scheme("极速飞艇 ","LUCKYSB"));
+			model.addElement(new Scheme("幸运飞艇","XYFT"));
+		}
 		
 		schemeTxt.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
 					Scheme item = 	(Scheme) schemeTxt.getSelectedItem();
 					log.debug("选中:{},key:{},value:{}",schemeTxt.getSelectedIndex(),item.getKey(),item.getValue());
+					scheme = item;
+					plans = item.getPlans();
+					planTable.setModel(new DefaultTableModel(
+							getPlanData(),planDateHead
+						));
+					planTable.getSelectionModel().setSelectionInterval(0, 0);
+					
+					
+					DefaultComboBoxModel autoselectplanmodel =	new DefaultComboBoxModel();
+					if(CollectionUtils.isNotEmpty(plans))
+					{
+						plans.forEach(s->{
+							autoselectplanmodel.addElement(s);
+						});
+					}
+					autoselectplan.setModel(autoselectplanmodel);
+					autocalcplan.setModel(autoselectplanmodel);
+//					name
+//					planTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 				}
 			}
 		});
@@ -353,27 +383,26 @@ public class MainFrm2 extends JFrame {
 		
 		final JPanel panel_12 = new JPanel();
 		planTable = new JTable();
-		planTable.addPropertyChangeListener(new PropertyChangeListener() {
-			public void propertyChange(PropertyChangeEvent evt) {
-//				int select = planTable.getSelectedRow();
-//				if(select == -1)
-//				{
-//					setPlan(plans.get(0));
-//				}else {
-//					setPlan(plans.get(select));
-//				}
-			}
-		});
 		planTable.setFillsViewportHeight(true);
 		
 		planTable.getSelectionModel().addListSelectionListener(new ListSelectionListener(){  
             @Override  
             public void valueChanged(ListSelectionEvent e)  
             {  
+//            	scheme = (Scheme) schemeTxt.getSelectedItem();
+//            	plans = scheme.getPlans();
+//            	planTable.setModel(new DefaultTableModel(
+//						getPlanData(),planDateHead
+//					));
+//            	planTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+//            	planTable.getSelectionModel().setSelectionInterval(0, 0);
 				int sr = planTable.getSelectedRow();
               if (sr == -1) {
                   return;
               }
+//              plans = sc
+              setPlan(plans.get(sr));
+              
               String play = (String) planTable.getModel().getValueAt(sr, 1);
           	if(sr==0)
           	{
@@ -396,19 +425,13 @@ public class MainFrm2 extends JFrame {
         });  
 		
 		planTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		JScrollPane scrollPane = new JScrollPane();
+		 scrollPane = new JScrollPane();
+		scheme = (Scheme) schemeTxt.getSelectedItem();
+		plans = scheme.getPlans();
+		planDateHead = new String[] {"\u65B9\u6848", "\u73A9\u6CD5"};
 		scrollPane.add(planTable);
 				planTable.setModel(new DefaultTableModel(
-					new Object[][] {
-						{"\u65B9\u68481", "\u5F00\u67D0\u6295\u67D0"},
-						{"\u65B9\u68482", "\u53CC\u5355"},
-						{"\u65B9\u68483", "\u5355\u53CC"},
-						{"\u65B9\u68484", "\u5927\u5C0F"},
-						{"\u65B9\u68485", "\u5C0F\u5927"},
-					},
-					new String[] {
-						"\u65B9\u6848", "\u73A9\u6CD5"
-					}
+					getPlanData(),planDateHead
 				) {
 					Class[] columnTypes = new Class[] {
 						String.class, String.class
@@ -455,8 +478,19 @@ public class MainFrm2 extends JFrame {
 				
 				JLabel label_5 = new JLabel("方案：");
 				
-				JComboBox comboBox_1 = new JComboBox();
-				comboBox_1.setModel(new DefaultComboBoxModel(plan));
+				autoselectplan = new JComboBox();
+				DefaultComboBoxModel autoselectplanmodel =	new DefaultComboBoxModel();
+				autoselectplan.setModel(autoselectplanmodel);
+				if(CollectionUtils.isNotEmpty(plans))
+				{
+					plans.forEach(s->{
+						autoselectplanmodel.addElement(s);
+					});
+				}else {
+					 int i,c;
+					 for ( i=0,c=plan.length;i<c;i++ )
+						 autoselectplanmodel.addElement(plan[i]);
+				}
 				
 				JLabel label_23 = new JLabel("金额：");
 				
@@ -500,7 +534,7 @@ public class MainFrm2 extends JFrame {
 										.addComponent(label_5, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addGroup(gl_panel_7.createParallelGroup(Alignment.LEADING)
-										.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
+										.addComponent(autoselectplan, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
 										.addComponent(textField, GroupLayout.PREFERRED_SIZE, 193, GroupLayout.PREFERRED_SIZE))
 									.addGap(18)
 									.addGroup(gl_panel_7.createParallelGroup(Alignment.LEADING)
@@ -519,7 +553,7 @@ public class MainFrm2 extends JFrame {
 								.addGroup(gl_panel_7.createSequentialGroup()
 									.addGroup(gl_panel_7.createParallelGroup(Alignment.BASELINE, false)
 										.addComponent(label_5)
-										.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(autoselectplan, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addComponent(radioButton_1))
 									.addPreferredGap(ComponentPlacement.UNRELATED)
 									.addGroup(gl_panel_7.createParallelGroup(Alignment.BASELINE)
@@ -718,8 +752,21 @@ public class MainFrm2 extends JFrame {
 				
 				JLabel label_27 = new JLabel("方案：");
 				
-				JComboBox comboBox_2 = new JComboBox();
-				comboBox_2.setModel(new DefaultComboBoxModel(plan));
+				autocalcplan = new JComboBox();
+				
+				autocalcplan = new JComboBox();
+				autocalcplan.setModel(autoselectplanmodel);
+//				if(CollectionUtils.isNotEmpty(plans))
+//				{
+//					plans.forEach(s->{
+//						autoselectplanmodel.addElement(s);
+//					});
+//				}else {
+//					 int i,c;
+//					 for ( i=0,c=plan.length;i<c;i++ )
+//						 autoselectplanmodel.addElement(plan[i]);
+//				}
+//				autocalcplan.setModel(new DefaultComboBoxModel(plan));
 				
 				JButton button_1 = new JButton("开始计算");
 				button_1.setBackground(Color.LIGHT_GRAY);
@@ -754,7 +801,7 @@ public class MainFrm2 extends JFrame {
 								.addComponent(lblNewLabel_23))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_panel_14.createParallelGroup(Alignment.LEADING)
-								.addComponent(comboBox_2, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
+								.addComponent(autocalcplan, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
 								.addComponent(comboBox_3, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(label_25)
@@ -776,7 +823,7 @@ public class MainFrm2 extends JFrame {
 								.addGroup(gl_panel_14.createSequentialGroup()
 									.addGroup(gl_panel_14.createParallelGroup(Alignment.BASELINE, false)
 										.addComponent(label_27)
-										.addComponent(comboBox_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+										.addComponent(autocalcplan, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 									.addPreferredGap(ComponentPlacement.UNRELATED)
 									.addGroup(gl_panel_14.createParallelGroup(Alignment.BASELINE)
 										.addComponent(lblNewLabel_23)
@@ -893,7 +940,7 @@ public class MainFrm2 extends JFrame {
 				
 				String startLine = plan_comboBox_1.getSelectedItem().toString();
 				
-//				Scheme scheme = (Scheme) schemeTxt.getSelectedItem();
+				scheme = (Scheme) schemeTxt.getSelectedItem();
 				String schemeName = scheme.getKey();
 				String schemeValue = scheme.getValue();
 				
@@ -1224,7 +1271,7 @@ public class MainFrm2 extends JFrame {
 		plan_text_9.setText(p.getNumMap("9"));
 		plan_text_10.setText(p.getNumMap("10"));
 		
-		plan_comboBox_1.setSelectedIndex(Integer.valueOf(p.getStartLine()));
+		plan_comboBox_1.setSelectedIndex(Integer.sum(Integer.valueOf(p.getStartLine()),-1));
 		
 		plan_p2_start.setText(p.getStartTime());
 		plan_p2_end.setText(p.getEndTime());
@@ -1258,11 +1305,8 @@ public class MainFrm2 extends JFrame {
 					plans = new ArrayList<>();
 					plansDir.forEach(p->{
 						try {
-							planName =p;
+							planName =p.split("\\.")[0];
 							List<String> files =	FileUtils.readLines(FileUtils.getFile(planDir+"/"+s+"/"+p), Charset.forName("UTF-8"));
-						
-//							new Plan(schemeName,schemeValue, planName,startLine, startTime,
-//									endTime, jumpLines,num,planType) ;
 							if(CollectionUtils.isNotEmpty(files)) {
 									planType = files.get(0).split("=")[1];
 									startLine = files.get(1).split("=")[1];
@@ -1293,4 +1337,24 @@ public class MainFrm2 extends JFrame {
 			});
 		}
 	}
+	
+	  private Object [][]planData=null;
+	  private String planDateHead[]=null;
+	
+	//生成表格数据
+    /**
+     * @return
+     */
+    public Object[][] getPlanData(){
+    	List<Plan> list = plans;
+        planData=new Object[list.size()][planDateHead.length];
+
+        for(int i=0;i<list.size();i++){
+            for(int j=0;j<planData.length;j++){
+            	planData[i][0]=list.get(i).getName();
+            	planData[i][1]=list.get(i).getType();
+            }
+        }
+        return planData;
+    }
 }

@@ -15,7 +15,7 @@ public class Scheme extends Item {
 		public static Map<String,String> keyMap =  new HashMap<>();
 		
 		static {
-			keyMap.put("极速极赛车", "PK10JSC");
+			keyMap.put("极速赛车", "PK10JSC");
 			keyMap.put("极速飞艇 ", "LUCKYSB");
 			keyMap.put("幸运飞艇", "XYFT");
 		}
@@ -23,7 +23,7 @@ public class Scheme extends Item {
 		public static Map<String,String> valueMap =  new HashMap<>();
 		
 		static {
-			valueMap.put("PK10JSC","极速极赛车");
+			valueMap.put("PK10JSC","极速赛车");
 			valueMap.put("LUCKYSB","极速飞艇 ");
 			valueMap.put("XYFT","幸运飞艇");
 		}

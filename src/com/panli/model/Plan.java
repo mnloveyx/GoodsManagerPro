@@ -137,5 +137,12 @@ public static Map<String,String> numValueyMap =  new HashMap<>();
 				;
 	}
 	
+	 /**
+     * {@inheritDoc}
+     * @see java.lang.Object#toString()
+     */
+    public String toString() {
+        return name;
+    }
 	
 }
