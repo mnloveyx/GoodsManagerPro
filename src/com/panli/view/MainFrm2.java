@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JList;
+import javax.swing.AbstractButton;
 import javax.swing.AbstractListModel;
 import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
@@ -41,7 +42,9 @@ import org.apache.commons.lang3.time.DateUtils;
 
 import com.panli.model.Item;
 import com.panli.model.Plan;
+import com.panli.model.Record;
 import com.panli.model.Scheme;
+import com.panli.model.Statis;
 import com.panli.model.User;
 import com.panli.util.FileUtils;
 import com.toedter.calendar.JDateChooser;
@@ -62,6 +65,7 @@ import javax.swing.SpinnerDateModel;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -106,7 +110,7 @@ public class MainFrm2 extends JFrame {
 	
 	private User user;
 	private JTable table;
-	private JTextField textField;
+	private JTextField amountsTxt;
 	private JTable table_3;
 	
 	private Scheme scheme;
@@ -494,32 +498,53 @@ public class MainFrm2 extends JFrame {
 				
 				JLabel label_23 = new JLabel("金额：");
 				
-				textField = new JTextField();
-				textField.setText("1,2,3,4,5,6,7,8,9,10");
-				textField.setColumns(10);
+				amountsTxt = new JTextField();
+				amountsTxt.setText("1,2,3,4,5,6,7,8,9,10");
+				amountsTxt.setColumns(10);
 				
-				JRadioButton radioButton = new JRadioButton("真实投注");
-				JRadioButton radioButton_1 = new JRadioButton("模拟投注");
-				radioButton_1.setSelected(true);
+				JRadioButton autoradioButton = new JRadioButton("真实投注");
+				JRadioButton autoradioButton_1 = new JRadioButton("模拟投注");
+				autoradioButton_1.setSelected(true);
 				
-				ButtonGroup group = new ButtonGroup();
-				group.add(radioButton);
-				group.add(radioButton_1);
+				ButtonGroup autogroup = new ButtonGroup();
+				autogroup.add(autoradioButton);
+				autogroup.add(autoradioButton_1);
 				
-				JButton btnNewButton = new JButton("开启自动投注");
-				btnNewButton.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent e) {
-						
-						Object[] s = 	group.getSelection().getSelectedObjects();
-						
-					}
-				});
-				btnNewButton.addActionListener(new ActionListener() {
+				JButton autoStart = new JButton("开启自动投注");
+//				btnNewButton.addMouseListener(new MouseAdapter() {
+//					@Override
+//					public void mouseClicked(MouseEvent e) {
+//						
+//						Object[] s = 	group.getSelection().getSelectedObjects();
+//						
+//					}
+//				});
+				autoStart.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						PlaceThread t = null;
+						String placeType = getRadioButton(autogroup);
+						Plan selectPlan = (Plan) autoselectplan.getSelectedItem();
+						String amounts = amountsTxt.getText();
+						if(autoStart.getText().equalsIgnoreCase("启动自动投注"))
+						{
+							log.info("启动自动投注:方案:{},下注类型:{},金额设置:{}",selectPlan.toLogString(),placeType,amounts);
+							autoStart.setText("停止自动投注");
+							autoStart.setForeground(Color.GREEN);
+							 t = new PlaceThread(table,selectPlan, records);
+							 t.start();
+							
+						}else {
+							autoStart.setText("启动自动投注");
+							autoStart.setForeground(new Color(0, 0, 0));
+							log.info("停止自动投注:方案:{},下注类型:{},金额设置:{}",selectPlan.toLogString(),placeType,amounts);
+							
+							Integer i = records.size();
+							String current = selectPlan.getCurrentLine();
+							log.info(i.toString(),current);
+						}
 					}
 				});
-				btnNewButton.setBackground(SystemColor.activeCaption);
+				autoStart.setBackground(SystemColor.activeCaption);
 				
 				JLabel label_24 = new JLabel("备注：金额设定为对应的局数如：1,2,4,8,16,32,64,128,256,512");
 				GroupLayout gl_panel_7 = new GroupLayout(panel_7);
@@ -535,32 +560,32 @@ public class MainFrm2 extends JFrame {
 										.addComponent(label_5, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addGroup(gl_panel_7.createParallelGroup(Alignment.LEADING)
-										.addComponent(autoselectplan, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
-										.addComponent(textField, GroupLayout.PREFERRED_SIZE, 193, GroupLayout.PREFERRED_SIZE))
+										.addComponent(amountsTxt, GroupLayout.PREFERRED_SIZE, 193, GroupLayout.PREFERRED_SIZE)
+										.addComponent(autoselectplan, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE))
 									.addGap(18)
 									.addGroup(gl_panel_7.createParallelGroup(Alignment.LEADING)
-										.addComponent(radioButton)
-										.addComponent(radioButton_1))
+										.addComponent(autoradioButton)
+										.addComponent(autoradioButton_1))
 									.addGap(31)
-									.addComponent(btnNewButton)))
-							.addContainerGap(256, Short.MAX_VALUE))
+									.addComponent(autoStart)))
+							.addContainerGap(141, Short.MAX_VALUE))
 				);
 				gl_panel_7.setVerticalGroup(
 					gl_panel_7.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel_7.createSequentialGroup()
 							.addContainerGap()
 							.addGroup(gl_panel_7.createParallelGroup(Alignment.LEADING)
-								.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+								.addComponent(autoStart, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_panel_7.createSequentialGroup()
 									.addGroup(gl_panel_7.createParallelGroup(Alignment.BASELINE, false)
 										.addComponent(label_5)
 										.addComponent(autoselectplan, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addComponent(radioButton_1))
+										.addComponent(autoradioButton_1))
 									.addPreferredGap(ComponentPlacement.UNRELATED)
 									.addGroup(gl_panel_7.createParallelGroup(Alignment.BASELINE)
 										.addComponent(label_23)
-										.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addComponent(radioButton))))
+										.addComponent(amountsTxt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(autoradioButton))))
 							.addGap(11)
 							.addComponent(label_24)
 							.addContainerGap())
@@ -572,39 +597,39 @@ public class MainFrm2 extends JFrame {
 				panel_11.setPreferredSize(new Dimension(400, 20));
 				JLabel lblNewLabel_22 = new JLabel("真实下注：");
 				
-				JLabel label_6 = new JLabel("0");
+				JLabel realCountTxt = new JLabel("0");
 				
 				JLabel label_7 = new JLabel("真实盈亏：");
 				
-				JLabel label_8 = new JLabel("0");
+				JLabel realAmountTxt = new JLabel("0");
 				
 				JLabel label_9 = new JLabel("模拟下注：");
 				
-				JLabel label_10 = new JLabel("0");
+				JLabel virtualCountTxt = new JLabel("0");
 				
 				JLabel label_11 = new JLabel("模拟盈亏：");
 				
-				JLabel label_12 = new JLabel("0");
+				JLabel virtualAmountTxt = new JLabel("0");
 				
 				JLabel label_13 = new JLabel("投注记录：");
 				
-				JLabel label_14 = new JLabel("0");
+				JLabel placeCountTxt = new JLabel("0");
 				
 				JLabel label_15 = new JLabel("最大连中：");
 				
-				JLabel label_16 = new JLabel("0");
+				JLabel continueWinTxt = new JLabel("0");
 				
 				JLabel label_17 = new JLabel("最大连挂：");
 				
-				JLabel label_18 = new JLabel("0");
+				JLabel continueLostTxt = new JLabel("0");
 				
 				JLabel label_19 = new JLabel("投注状态：");
 				
-				JLabel label_20 = new JLabel("无");
+				JLabel placeStatusTxt = new JLabel("无");
 				
 				JLabel label_21 = new JLabel("准确率：");
 				
-				JLabel label_22 = new JLabel("0%");
+				JLabel winPercentTxt = new JLabel("0%");
 				GroupLayout gl_panel_11 = new GroupLayout(panel_11);
 				gl_panel_11.setHorizontalGroup(
 					gl_panel_11.createParallelGroup(Alignment.LEADING)
@@ -614,39 +639,39 @@ public class MainFrm2 extends JFrame {
 								.addGroup(gl_panel_11.createSequentialGroup()
 									.addComponent(lblNewLabel_22)
 									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
+									.addComponent(realCountTxt, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addComponent(label_7, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 									.addGap(6)
-									.addComponent(label_8, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE)
+									.addComponent(realAmountTxt, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE)
 									.addGap(18)
 									.addComponent(label_9, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 									.addGap(6)
-									.addComponent(label_10, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE)
+									.addComponent(virtualCountTxt, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.UNRELATED)
 									.addComponent(label_11, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 									.addGap(6)
-									.addComponent(label_12, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE)
+									.addComponent(virtualAmountTxt, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.UNRELATED)
 									.addComponent(label_13, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 									.addGap(6)
-									.addComponent(label_14, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE)
+									.addComponent(placeCountTxt, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.UNRELATED)
 									.addComponent(label_15, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 									.addGap(6)
-									.addComponent(label_16, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE)
+									.addComponent(continueWinTxt, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.UNRELATED)
 									.addComponent(label_17, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 									.addGap(6)
-									.addComponent(label_18, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE))
+									.addComponent(continueLostTxt, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_panel_11.createSequentialGroup()
 									.addComponent(label_19, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 									.addGap(4)
-									.addComponent(label_20, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+									.addComponent(placeStatusTxt, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addComponent(label_21, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
 									.addGap(18)
-									.addComponent(label_22, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)))
+									.addComponent(winPercentTxt, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)))
 							.addContainerGap(37, Short.MAX_VALUE))
 				);
 				gl_panel_11.setVerticalGroup(
@@ -655,27 +680,27 @@ public class MainFrm2 extends JFrame {
 							.addContainerGap()
 							.addGroup(gl_panel_11.createParallelGroup(Alignment.LEADING)
 								.addComponent(label_17)
-								.addComponent(label_18)
+								.addComponent(continueLostTxt)
 								.addComponent(label_15)
-								.addComponent(label_16)
+								.addComponent(continueWinTxt)
 								.addComponent(label_13)
-								.addComponent(label_14)
+								.addComponent(placeCountTxt)
 								.addComponent(label_11)
-								.addComponent(label_12)
+								.addComponent(virtualAmountTxt)
 								.addComponent(label_9)
-								.addComponent(label_10)
+								.addComponent(virtualCountTxt)
 								.addComponent(label_7)
-								.addComponent(label_8)
+								.addComponent(realAmountTxt)
 								.addGroup(gl_panel_11.createParallelGroup(Alignment.BASELINE)
 									.addComponent(lblNewLabel_22)
-									.addComponent(label_6)))
+									.addComponent(realCountTxt)))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(gl_panel_11.createParallelGroup(Alignment.LEADING)
-								.addComponent(label_20, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(placeStatusTxt, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addGroup(gl_panel_11.createParallelGroup(Alignment.LEADING, false)
 									.addComponent(label_19, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 									.addGroup(gl_panel_11.createParallelGroup(Alignment.BASELINE)
-										.addComponent(label_22, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+										.addComponent(winPercentTxt, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 										.addComponent(label_21, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
 							.addContainerGap(83, Short.MAX_VALUE))
 				);
@@ -988,21 +1013,21 @@ public class MainFrm2 extends JFrame {
 			 
 			}
 		});
-		plan_b_save.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-			}
-		});
+//		plan_b_save.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//			}
+//		});
 		panel_13.add(plan_b_save);
 		
 		JButton plan_b_update = new JButton("修改");
-		plan_b_update.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				
-			}
-		});
+//		plan_b_update.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				
+//				
+//			}
+//		});
 		panel_12.setLayout(new BorderLayout(0, 0));
 		plan_p = new JPanel();
 		plan_p.setBorder(new TitledBorder(null, "\u8BA1\u5212\u8BBE\u7F6E", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -1341,6 +1366,12 @@ public class MainFrm2 extends JFrame {
 	
 	  private Object [][]planData=null;
 	  private String planDateHead[]=null;
+	  
+	  private Statis statis;
+	  
+	  private List<Record> records = new ArrayList<>();
+	  
+	  private Record record; 
 	
 	//生成表格数据
     /**
@@ -1357,5 +1388,27 @@ public class MainFrm2 extends JFrame {
             }
         }
         return planData;
+    }
+    
+    /**
+     * @Title: getButtonSelect   
+     * @Description: 取得所选按钮
+     * @param: @param buttonGroup
+     * @param: @return      
+     * @return: JRadioButton      
+     * @throws
+     */
+    protected  String getRadioButton(ButtonGroup buttonGroup) {
+    	
+    	Enumeration<AbstractButton> radioBtns=buttonGroup.getElements();
+		while (radioBtns.hasMoreElements()) {
+			AbstractButton btn = radioBtns.nextElement();
+			if(btn.isSelected()){
+				return btn.getText();
+//				return (JRadioButton) btn;
+//				break;
+			}
+		}
+		return null;
     }
 }

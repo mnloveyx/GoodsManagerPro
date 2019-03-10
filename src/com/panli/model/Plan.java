@@ -2,7 +2,6 @@ package com.panli.model;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -144,5 +143,11 @@ public static Map<String,String> numValueyMap =  new HashMap<>();
     public String toString() {
         return name;
     }
+    
+	public String toLogString() {
+		return "Plan [schemeName=" + schemeName + ", name=" + name + ", startLine=" + startLine + ", startTime="
+				+ startTime + ", endTime=" + endTime + ", jumpLine=" + jumpLine + ", numMapStr=" + numMapStr
+				+ ", currentLine=" + currentLine + ", jumpHistory=" + jumpHistory + ", type=" + type + "]";
+	}
 	
 }

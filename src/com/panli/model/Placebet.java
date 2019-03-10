@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 public class Placebet {
 	private Date drawTime; //投注时间
-	private String drawNumber;//基数
+	private String drawNumber;//期数
 	private String lottery; //彩种; PK10JSC
 	private List<Bet> bets; //投注号码类型
 	@Getter
