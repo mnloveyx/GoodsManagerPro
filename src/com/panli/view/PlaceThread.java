@@ -49,14 +49,11 @@ public class PlaceThread  extends Thread {
     		{
     			Record record = new Record(plan);
     			record.setDrawNumber(String.valueOf(Long.valueOf(51631557L)+i));
-    			records.add(record);
     			plan.setCurrentLine("悄好");
-//    			tableModel.setValueAt(String.valueOf(System.currentTimeMillis()), tableModel.getRowCount()+1,1);
+    			
     			((DefaultTableModel) table.getModel()).addRow(record.getRowData(gridHeader.length));
     			
-//    			tableModel = new DefaultTableModel(gridData, gridHeader);
-//    			table.setModel(tableModel);
-    			this.sleep(sleepTime);
+    			PlaceThread.sleep(sleepTime);
     			i++;
     		}
 			
@@ -87,10 +84,17 @@ public class PlaceThread  extends Thread {
     }
     
 public PlaceThread(JTable table,Plan plan, List<Record> records) {
-	super();
-	this.plan = plan;
-	this.records = records;
-	this.table = table;
+	this(table, plan, records, null);
 }
 
+
+
+	public PlaceThread(JTable table, Plan plan, List<Record> records,Statis statis) {
+		super();
+		this.plan = plan;
+		this.records = records;
+		this.table = table;
+		this.statis = statis;
+	}
+	
 }

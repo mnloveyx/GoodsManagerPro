@@ -530,7 +530,7 @@ public class MainFrm2 extends JFrame {
 							log.info("启动自动投注:方案:{},下注类型:{},金额设置:{}",selectPlan.toLogString(),placeType,amounts);
 							autoStart.setText("停止自动投注");
 							autoStart.setForeground(Color.GREEN);
-							 t = new PlaceThread(table,selectPlan, records);
+							 t = new PlaceThread(table,selectPlan, records,statis);
 							 t.start();
 							
 						}else {
