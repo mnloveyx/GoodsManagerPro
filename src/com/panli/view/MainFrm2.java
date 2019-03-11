@@ -125,6 +125,16 @@ public class MainFrm2 extends JFrame {
 	
 	private String[] plan = new String[] {"方案1", "方案2", "方案3", "方案4", "方案5"};
 	
+	private JLabel userName;
+	
+	private JLabel account_type_0; 
+	
+	private JLabel account_type_1;
+	
+	private JLabel account_type_2;
+	
+//	private JLabel account_type_3;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -148,6 +158,10 @@ public class MainFrm2 extends JFrame {
 //		 setUser(user);
 		initSchemes();
 		this.user = user;
+		if(user!=null && user.getUserName()!=null)
+		{
+			this.userName.setText(user.getUserName());
+		}
 		setTitle("娱乐管理系统V1.0.0");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrm.class.getResource("/images/goods_logo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -259,19 +273,20 @@ public class MainFrm2 extends JFrame {
 		
 		JLabel lblNewLabel_3 = new JLabel("用户名");
 		
-		JLabel lblNewLabel_19 = new JLabel("laomeng666");
+		 userName = new JLabel("laomeng666");
 		
 		JLabel label_1 = new JLabel("额度");
 		
-		JLabel label_2 = new JLabel("0.0");
+		 account_type_0 = new JLabel("0.0");
 		
 		JLabel label_3 = new JLabel("未结算金额");
 		
-		JLabel lblNewLabel_20 = new JLabel("0.0");
+		 account_type_1 = new JLabel("0.0");
 		
 		JLabel lblNewLabel_21 = new JLabel("今日输赢");
 		
-		JLabel label_4 = new JLabel("0.0");
+		 account_type_2 = new JLabel("0.0");
+		 
 		GroupLayout gl_panel_4 = new GroupLayout(panel_4);
 		gl_panel_4.setHorizontalGroup(
 			gl_panel_4.createParallelGroup(Alignment.LEADING)
@@ -281,19 +296,19 @@ public class MainFrm2 extends JFrame {
 					.addGap(41)
 					.addComponent(lblNewLabel_3)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblNewLabel_19, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
+					.addComponent(userName, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(label_1)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(label_2, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+					.addComponent(account_type_0, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(label_3)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblNewLabel_20, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
+					.addComponent(account_type_1, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 					.addComponent(lblNewLabel_21)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(label_4, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
+					.addComponent(account_type_2, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
 					.addGap(348))
 		);
 		gl_panel_4.setVerticalGroup(
@@ -301,13 +316,13 @@ public class MainFrm2 extends JFrame {
 				.addGroup(gl_panel_4.createSequentialGroup()
 					.addGroup(gl_panel_4.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel_3)
-						.addComponent(lblNewLabel_19)
+						.addComponent(userName)
 						.addComponent(label_1)
-						.addComponent(label_2)
+						.addComponent(account_type_0)
 						.addComponent(label_3)
-						.addComponent(lblNewLabel_20)
+						.addComponent(account_type_1)
 						.addComponent(lblNewLabel_21)
-						.addComponent(label_4)
+						.addComponent(account_type_2)
 						.addComponent(schemeTxt, GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE))
 					.addContainerGap())
 		);
@@ -1280,6 +1295,11 @@ public class MainFrm2 extends JFrame {
 		panel_13.add(plan_b_update);
 		panel_12.add(panel_13, BorderLayout.NORTH);
 		
+		AccountThread accountThread = new AccountThread(account_type_0, account_type_1, account_type_2, user.getToken());
+		 accountThread.start();
+		 
+		 HistoryDrawThread drawThread = new HistoryDrawThread(table_2, currentPlan,user.getToken());
+		 drawThread.start();
 //		table_3 = new JTable();
 //		tabbedPane.addTab("New tab", null, table_3, null);
 	}

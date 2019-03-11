@@ -16,7 +16,9 @@ public class User {
 	private String cryptograph;
 	private String password;//password字段
 	private String userName;//userName字段
-	private String token;
+	private String token ="c3440b1ec1cf95c43852c2c729bc6b866d2ffef6";
+	private String oid;
+//	private String 
 	
 	//继承父类的构造方法
 	public User() {

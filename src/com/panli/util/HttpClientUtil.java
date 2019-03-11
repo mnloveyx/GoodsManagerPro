@@ -94,6 +94,27 @@ public class HttpClientUtil {
 	 * @return
 	 */
 	public static String get(String url, Map<String, String> reqMap, String encoding){
+		return get(url, reqMap, encoding, null);
+	}
+	
+	/**
+	 * get请求(1.处理http请求;2.处理https请求,信任所有证书)
+	 * @param url (只能是http或https请求)
+	 * @param encoding
+	 * @return
+	 */
+	public static String get(String url,Map<String, String> reqMap, Map<String, String> headMap){
+		return get(url, reqMap, DEFAULT_ENCODING, headMap);
+	}
+	
+	
+	/**
+	 * get请求(1.处理http请求;2.处理https请求,信任所有证书)
+	 * @param url (只能是http或https请求)
+	 * @param encoding
+	 * @return
+	 */
+	public static String get(String url, Map<String, String> reqMap, String encoding, Map<String, String> headMap){
 		String result = "";
 		if (StringUtils.isBlank(url)) {
 			log.info("----->url为空");
@@ -128,6 +149,14 @@ public class HttpClientUtil {
 		        httpGet = new HttpGet(builder.build());
 			}else {
 				httpGet = new HttpGet(url);
+			}
+			
+			if (headMap != null && headMap.keySet().size() > 0) {
+				Iterator<Map.Entry<String, String>> iter = headMap.entrySet().iterator();
+				while (iter.hasNext()) {
+					Map.Entry<String, String> entity = iter.next();
+					httpGet.addHeader(entity.getKey(), entity.getValue());
+				}
 			}
 			
 	        RequestConfig requestConfig = RequestConfig.custom()

@@ -36,7 +36,6 @@ import com.panli.model.Code;
 import com.panli.model.LoginMsg;
 import com.panli.model.User;
 import com.panli.util.DbUtil;
-import com.panli.util.HttpClientTool;
 import com.panli.util.HttpClientUtil;
 import com.panli.util.HttpUtils;
 import com.panli.util.StringUtil;
@@ -220,7 +219,7 @@ public class LoginFrm extends JFrame {
 	
 	private void  deGetCode()
 	{
-		String  result2 = 	HttpClientTool.doGetSSL(host+codeeurl,null);
+		String  result2 = 	HttpClientUtil.get(host+codeeurl,null);
 		 Gson gson = new Gson();
 		Code code =  gson.fromJson(result2, Code.class);
 		this.codeData = code.getCaptchImageData();
