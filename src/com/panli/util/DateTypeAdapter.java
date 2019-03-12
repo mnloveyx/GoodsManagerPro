@@ -31,6 +31,7 @@ public class DateTypeAdapter implements JsonDeserializer<Date> {
         }
  
         String jsonStr = json.getAsString();
+        Date date = new Date(Long.parseLong(jsonStr));
         if (format != null) {
  
             try {

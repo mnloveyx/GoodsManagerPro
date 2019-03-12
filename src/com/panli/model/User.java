@@ -1,5 +1,7 @@
 package com.panli.model;
 
+import java.util.Date;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,83 +12,54 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class User {
-	private Long id;//id字段
+public class User extends Result<User> {
+	
+	private String id;//id字段
 	private String code; //验证码
 	private String cryptograph;
-	private String password;//password字段
-	private String userName;//userName字段
-	private String token ="c3440b1ec1cf95c43852c2c729bc6b866d2ffef6";
+	private String password;
+//	private String token ="c3440b1ec1cf95c43852c2c729bc6b866d2ffef6";
+	private String token;
+	private Boolean changePassword;
+	private Date created;
+	private Boolean gameEnable;
+	private String ip;
+	private String ipAddress;
+	private Date lastLogin;
+	private Date loginTime;
+	private Integer lv;
+	private Boolean main;
 	private String oid;
-//	private String 
+	private Boolean online;
+	private String parent;
+	private String platform;
+	private String range;
+	private Integer resetType;
+	private String server;
+	private Integer shareMode;
+//	private Integer status;
+	private Integer type;
+	private Date updated;
+	private String userKey;
+	private String username;
+	private String userpass;
+	private Integer wechatEnabled;
 	
-	//继承父类的构造方法
+	public User(String username, String password,String code, String cryptograph) {
+		super();
+		this.code = code;
+		this.cryptograph = cryptograph;
+		this.username = username;
+		this.password = password;
+	}
+
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-	
-	/**
-	 * 重载父类的构造方法带2个参数
-	 * @param userName
-	 * @param password
-	 */
-	public User(String userName, String password) {
-		super();
-		this.userName = userName;
-		this.password = password;
-	}
-	
-	public User(String userName, String password,String code ) {
-		super();
-		this.userName = userName;
-		this.password = password;
-		this.code = code;
-	}
+	} 
 
-	
-	
-	public Long getId() {
-		return id;
+	public String getToken()
+	{
+		return this.oid;
 	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getToken() {
-		return token;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
-	}
-
-	public User(String userName, String password, String code, String cryptograph) {
-		super();
-		this.userName = userName;
-		this.password = password;
-		this.code = code;
-		this.cryptograph = cryptograph;
-	}
-	
 }

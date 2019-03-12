@@ -1,5 +1,6 @@
 package com.panli.model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -11,9 +12,11 @@ import org.apache.commons.lang3.StringUtils;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 @Getter
 @Setter
+@Slf4j
 public class Plan {
 	
    private String schemeName;
@@ -25,12 +28,121 @@ public class Plan {
    private String endTime;
    private List<String> jumpLines;
    private String jumpLine;
-   private Map<String,List<String>> numMap;
+   private Map<String,List<String>> numMap; //号码映射
    private String numMapStr="";
    private Map<String,String> numMap_sor;
    private String currentLine;
    private String jumpHistory;
    private String type;
+   private String  amounts;  //投注金额设置
+   private String  placeType; //投注类型   模拟投注，真实投注;
+   
+   private String startGame;
+   
+   private List<String> startContents = new ArrayList<>();
+   
+   
+   public void setStartLine(String startLine)
+   {
+	   this.startLine = startLine;
+	   this.currentLine = startLine;
+   }
+   
+   public void nextLine()
+   {
+	  for(int i = 0 ;i<jumpLines.size();i++)
+	  {
+		  String  s = jumpLines.get(i);
+		  if(currentLine.equalsIgnoreCase(s))
+		  {
+			  String l = jumpLines.get(i+1%jumpLines.size());
+			  log.info("当前线路：{},切换线路：{}"+currentLine,l);
+			  
+			 setStartLine(l);
+		  }
+			  
+	  }
+   }
+   
+   public void setType(String type)
+   {
+	   this.type  = type;
+	   if(type.equalsIgnoreCase("开某投某")){
+		   this.startGame = "B"+currentLine;
+		   this.startContents = numMap.get(startLine);
+	   }else if(type.equalsIgnoreCase("双单"))
+	   {
+		   this.startGame = "DS"+currentLine;
+		   if(startContents.contains("S"))
+		   {
+			   startContents.add("D");
+			   startContents.remove("S");
+
+		   }else {
+			   startContents.add("S");
+			   startContents.remove("D");
+		   }
+		   
+	   }else if(type.equalsIgnoreCase("单双"))
+	   {
+		   this.startGame = "DS"+currentLine;
+		   
+		   if(startContents.contains("D"))
+		   {
+			   startContents.add("S");
+			   startContents.remove("D");
+
+		   }else {
+			   startContents.add("D");
+			   startContents.remove("S");
+		   }
+		   
+	   }else if(type.equalsIgnoreCase("大小"))
+	   {
+		   this.startGame = "DX"+currentLine;
+		    if(startContents.contains("D"))
+			   {
+				   startContents.add("X");
+				   startContents.remove("D");
+	
+			   }else {
+				   startContents.add("D");
+				   startContents.remove("X");
+			   }
+	   }else if(type.equalsIgnoreCase("小大"))
+	   {
+		   this.startGame = "DX"+currentLine;
+		   if(startContents.contains("X"))
+		   {
+			   startContents.add("D");
+			   startContents.remove("X");
+
+		   }else {
+			   startContents.add("X");
+			   startContents.remove("D");
+		   }
+	   }
+	   
+   }
+   
+   public void setNextContents()
+   {
+	   
+   }
+   
+   private List<String> amountsList;
+   
+   
+   public void setAmounts(String amounts)
+   {
+	   this.amounts = amounts;
+	   
+	   if(CollectionUtils.isEmpty(amountsList))
+	   {
+		   this.amountsList = Arrays.asList(StringUtils.split(amounts, ","));
+	   }
+   }
+   
    
    public void  setJumpLine(String jumpLine)
    {

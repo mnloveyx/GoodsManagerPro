@@ -40,6 +40,7 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 
+import com.panli.model.Api;
 import com.panli.model.Item;
 import com.panli.model.Plan;
 import com.panli.model.Record;
@@ -47,6 +48,7 @@ import com.panli.model.Scheme;
 import com.panli.model.Statis;
 import com.panli.model.User;
 import com.panli.util.FileUtils;
+import com.panli.util.SubjectUtils;
 import com.toedter.calendar.JDateChooser;
 
 import lombok.extern.slf4j.Slf4j;
@@ -133,6 +135,9 @@ public class MainFrm2 extends JFrame {
 	
 	private JLabel account_type_2;
 	
+	private String token = "8a266a1150dbf8e83ac51d8566f80453f209dc5b";
+	
+	
 //	private JLabel account_type_3;
 	
 	/**
@@ -158,9 +163,10 @@ public class MainFrm2 extends JFrame {
 //		 setUser(user);
 		initSchemes();
 		this.user = user;
-		if(user!=null && user.getUserName()!=null)
+		if(null==SubjectUtils.getUser())
 		{
-			this.userName.setText(user.getUserName());
+			this.user.setOid(token);
+			SubjectUtils.setUser(this.user);
 		}
 		setTitle("娱乐管理系统V1.0.0");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrm.class.getResource("/images/goods_logo.png")));
@@ -249,6 +255,7 @@ public class MainFrm2 extends JFrame {
 					Scheme item = 	(Scheme) schemeTxt.getSelectedItem();
 					log.debug("选中:{},key:{},value:{}",schemeTxt.getSelectedIndex(),item.getKey(),item.getValue());
 					scheme = item;
+					SubjectUtils.setScheme(item);
 					plans = item.getPlans();
 					planTable.setModel(new DefaultTableModel(
 							getPlanData(),planDateHead
@@ -274,6 +281,11 @@ public class MainFrm2 extends JFrame {
 		JLabel lblNewLabel_3 = new JLabel("用户名");
 		
 		 userName = new JLabel("laomeng666");
+		 
+		 if(user!=null && user.getUsername()!=null)
+			{
+				this.userName.setText(user.getUsername());
+			}
 		
 		JLabel label_1 = new JLabel("额度");
 		
@@ -517,8 +529,8 @@ public class MainFrm2 extends JFrame {
 				amountsTxt.setText("1,2,3,4,5,6,7,8,9,10");
 				amountsTxt.setColumns(10);
 				
-				JRadioButton autoradioButton = new JRadioButton("真实投注");
-				JRadioButton autoradioButton_1 = new JRadioButton("模拟投注");
+				JRadioButton autoradioButton = new JRadioButton(Api.placeType_1);
+				JRadioButton autoradioButton_1 = new JRadioButton(Api.placeType_0);
 				autoradioButton_1.setSelected(true);
 				
 				ButtonGroup autogroup = new ButtonGroup();
@@ -536,19 +548,28 @@ public class MainFrm2 extends JFrame {
 //				});
 				autoStart.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						PlaceThread t = null;
 						String placeType = getRadioButton(autogroup);
 						Plan selectPlan = (Plan) autoselectplan.getSelectedItem();
+						SubjectUtils.setPlan(selectPlan);
 						String amounts = amountsTxt.getText();
+						selectPlan.setAmounts(amounts);
+						selectPlan.setPlaceType(placeType);
+						selectPlan.setStartLine(selectPlan.getStartLine());
+						PlaceThread  placeThread = new PlaceThread(table,selectPlan,user.getToken());
+						SubjectUtils.setStatis(new Statis());
 						if(autoStart.getText().equalsIgnoreCase("启动自动投注"))
 						{
 							log.info("启动自动投注:方案:{},下注类型:{},金额设置:{}",selectPlan.toLogString(),placeType,amounts);
 							autoStart.setText("停止自动投注");
 							autoStart.setForeground(Color.GREEN);
-							 t = new PlaceThread(table,selectPlan, records,statis);
-							 t.start();
+							
+							placeThread.start();
+							 
 							
 						}else {
+							//终止线程
+							placeThread.setFlag(false);
+							
 							autoStart.setText("启动自动投注");
 							autoStart.setForeground(new Color(0, 0, 0));
 							log.info("停止自动投注:方案:{},下注类型:{},金额设置:{}",selectPlan.toLogString(),placeType,amounts);
@@ -1425,8 +1446,6 @@ public class MainFrm2 extends JFrame {
 			AbstractButton btn = radioBtns.nextElement();
 			if(btn.isSelected()){
 				return btn.getText();
-//				return (JRadioButton) btn;
-//				break;
 			}
 		}
 		return null;

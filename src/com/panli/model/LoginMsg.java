@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class LoginMsg  extends Result{
+public class LoginMsg  extends Result<LoginMsg>{
 	private Boolean firstTime;
 	private String token;
 }

@@ -3,12 +3,14 @@ package com.panli.util;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +19,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
+import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -200,12 +203,6 @@ public class HttpClientUtil {
 	 * @return
 	 */
 	public static String post(String url, Map<String, String> reqMap, String encoding){
-		String result = "";
-		if (StringUtils.isBlank(url)) {
-			log.info("----->url为空");
-			return result;
-		}
-		
 		// 添加参数
 		List<NameValuePair> params = new ArrayList<>();
 		if (reqMap != null && reqMap.keySet().size() > 0) {
@@ -215,38 +212,27 @@ public class HttpClientUtil {
 				params.add(new BasicNameValuePair(entity.getKey(), entity.getValue()));
 			}
 		}
-		
-		CloseableHttpClient httpClient = null;
-		if (url.startsWith(HTTPS)) {
-			// 创建一个SSL信任所有证书的httpClient对象
-			httpClient = HttpClientUtil.createSSLInsecureClient();
-		}else {
-			httpClient = HttpClients.createDefault();
-		}
-		CloseableHttpResponse response = null;
+		Map<String, String> headMap = new HashMap<String, String>();
+		headMap.put("Content-type", "application/x-www-form-urlencoded");
 		try {
-			HttpPost httpPost = new HttpPost(url);
-	        RequestConfig requestConfig = RequestConfig.custom()
-	                .setConnectTimeout(CONNECTION_TIMEOUT)   //设置连接超时时间
-	                .setConnectionRequestTimeout(CONNECTION_REQUEST_TIMEOUT) // 设置请求超时时间
-	                .setSocketTimeout(SOCKET_TIMEOUT)
-	                .setRedirectsEnabled(true)//默认允许自动重定向
-	                .build();
-	        httpPost.setConfig(requestConfig);
-	        httpPost.setHeader("Content-type", "application/x-www-form-urlencoded");
-	        httpPost.setEntity(new UrlEncodedFormEntity(params, encoding));
-			
-	        // 发送请求，并接收响应
-			response = httpClient.execute(httpPost);
-			result = handleResponse(url, encoding, response);
-		} catch (IOException e) {
-			log.error("-----> url:" + url +",post请求异常:" + e.getMessage());
+			return post(url, DEFAULT_ENCODING,headMap,new UrlEncodedFormEntity(params, encoding));
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			closeResource(httpClient, response);
 		}
-		
-		return result;
+		return null;
+	}
+	
+	
+	/**
+	 * post请求(1.处理http请求;2.处理https请求,信任所有证书)
+	 * @param url
+	 * @param jsonParams 入参是个json字符串
+	 * @param encoding
+	 * @return
+	 */
+	public static String post(String url, String jsonParams){
+		return post(url, jsonParams, DEFAULT_ENCODING);
 	}
 	
 	/**
@@ -257,6 +243,46 @@ public class HttpClientUtil {
 	 * @return
 	 */
 	public static String post(String url, String jsonParams, String encoding){
+		Map<String, String> headMap = new HashMap<String, String>();
+		return post(url, jsonParams,encoding, headMap);
+	}
+	
+	/**
+	 * post请求(1.处理http请求;2.处理https请求,信任所有证书)
+	 * @param url
+	 * @param jsonParams 入参是个json字符串
+	 * @param encoding
+	 * @return
+	 */
+	public static String post(String url, String jsonParams,Map<String, String> headMap){
+		return post(url, jsonParams, DEFAULT_ENCODING,headMap);
+	}
+	
+	
+	/**
+	 * post请求(1.处理http请求;2.处理https请求,信任所有证书)
+	 * @param url
+	 * @param jsonParams 入参是个json字符串
+	 * @param encoding
+	 * @return
+	 */
+	public static String post(String url, String jsonParams,String encoding,Map<String, String> headMap){
+		if(MapUtils.isEmpty(headMap))
+		{
+			headMap = new HashMap<>();
+		}
+		headMap.put("Content-Type","application/json");
+		return post(url, encoding,headMap,new StringEntity(jsonParams,ContentType.create("application/json", encoding)));
+	}
+	
+	/**
+	 * post请求(1.处理http请求;2.处理https请求,信任所有证书)
+	 * @param url
+	 * @param jsonParams 入参是个json字符串
+	 * @param encoding
+	 * @return
+	 */
+	public static String post(String url, String encoding, Map<String, String> headMap,HttpEntity entity){
 		String result = "";
 		if (StringUtils.isBlank(url)) {
 			log.info("----->url为空");
@@ -282,8 +308,16 @@ public class HttpClientUtil {
 	                .build();
 	        httpPost.setConfig(requestConfig);
 	        
-	        httpPost.setHeader("Content-Type","application/json");
-	        httpPost.setEntity(new StringEntity(jsonParams,ContentType.create("application/json", encoding)));
+	        
+	        if (headMap != null && headMap.keySet().size() > 0) {
+				Iterator<Map.Entry<String, String>> iter = headMap.entrySet().iterator();
+				while (iter.hasNext()) {
+					Map.Entry<String, String> head = iter.next();
+					httpPost.addHeader(head.getKey(), head.getValue());
+				}
+			}
+	        
+	        httpPost.setEntity(entity);
 			
 	        // 发送请求，并接收响应
 			response = httpClient.execute(httpPost);

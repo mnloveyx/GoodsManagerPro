@@ -1,5 +1,6 @@
 package com.panli.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,13 +13,18 @@ public class Placebet {
 	private Date drawTime; //投注时间
 	private String drawNumber;//期数
 	private String lottery; //彩种; PK10JSC
-	private List<Bet> bets; //投注号码类型
-	@Getter
-	@Setter
-	public class Bet{
-		private Integer amount;//金额
-		private String  contents; //D,X; 2;D,X
-		private String game;//DX1; B1;DS
-		private Double odds; //1.9426 赔率;
+	private List<Bet> bets = new ArrayList<>(); //投注号码类型
+	@Override
+	public String toString() {
+		String b = "";
+		
+		for(int i =0;i<bets.size();i++)
+		{
+			 b+=bets.get(i).toString();
+		}
+		
+		return "Placebet [drawTime=" + drawTime + ", drawNumber=" + drawNumber + ", lottery=" + lottery + ", bets="
+				+ b+ "]";
 	}
+	
 }

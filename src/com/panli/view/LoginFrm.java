@@ -5,10 +5,8 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.Base64;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,23 +23,21 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
 
 import com.google.gson.Gson;
-import com.panli.dao.UserDao;
+import com.google.gson.GsonBuilder;
+import com.panli.model.Api;
 import com.panli.model.Code;
 import com.panli.model.LoginMsg;
 import com.panli.model.User;
-import com.panli.util.DbUtil;
+import com.panli.util.DateTypeAdapter;
 import com.panli.util.HttpClientUtil;
-import com.panli.util.HttpUtils;
 import com.panli.util.StringUtil;
-import javax.swing.JTextPane;
+import com.panli.util.SubjectUtils;
+
+import lombok.extern.slf4j.Slf4j;
+
 import javax.swing.LayoutStyle.ComponentPlacement;
-import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 /**
@@ -49,13 +45,13 @@ import java.awt.event.MouseEvent;
  * @author Peter
  *
  */
+@Slf4j
 public class LoginFrm extends JFrame {
 
-	private String host = "https://2164492817-hs.cp168.ws";
-	private String codeeurl = "/web/rest/generatecaptcha";
-	
-	private static DbUtil dbUtil = new DbUtil();
-	private static UserDao userDao = new UserDao();
+	/**   
+	 * @Fields serialVersionUID : TODO
+	 */   
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField userNameTxt;
 	private JPasswordField passwordTxt;
@@ -84,7 +80,7 @@ public class LoginFrm extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginFrm() {
-		
+		deGetCode();
 		//该表系统默认字体
 		Font font = new Font("Dialog", Font.PLAIN, 12);
 		java.util.Enumeration keys = UIManager.getDefaults().keys();
@@ -139,17 +135,6 @@ public class LoginFrm extends JFrame {
 		
 		codeTxt = new JTextField();
 		codeTxt.setColumns(10);
-		
-//		 String  result2 = 	HttpUtils.get(host+codeeurl,null);
-//		String  result2 = 	HttpClientTool.doGetSSL(host+codeeurl,null);
-//		
-//		 
-//		 Gson gson = new Gson();
-//		 
-//		Code code =  gson.fromJson(result2, Code.class);
-//		codeData = 
-		deGetCode();
-		
 		 codeimage = new JLabel("");
 		 codeimage.addMouseListener(new MouseAdapter() {
 			@Override
@@ -219,7 +204,7 @@ public class LoginFrm extends JFrame {
 	
 	private void  deGetCode()
 	{
-		String  result2 = 	HttpClientUtil.get(host+codeeurl,null);
+		String  result2 = 	HttpClientUtil.get(Api.codeeurl);
 		 Gson gson = new Gson();
 		Code code =  gson.fromJson(result2, Code.class);
 		this.codeData = code.getCaptchImageData();
@@ -257,41 +242,45 @@ public class LoginFrm extends JFrame {
 			return;
 		}
 		User user = new User(userName, password,code,cryptograph);
-//		Connection conn = null;
 		try {
-//			conn = dbUtil.getCon();
-//			User currentUser = userDao.login(conn, user);
 			
 			Gson g = new Gson();
 			String params = 	g.toJson(user);
-//			 Map<String, String>	params = BeanUtils.describe(user);  
-			
-			String  result2 = 	HttpClientUtil.post(host+"/web/rest/login", params, "utf-8");
-			 Gson gson = new Gson();
-			LoginMsg msg =  gson.fromJson(result2, LoginMsg.class);
+			String  result = 	HttpClientUtil.post(Api.login, params);
+			 Gson gson = new GsonBuilder()
+				        .registerTypeAdapter(Date.class, new DateTypeAdapter())
+				        .create();
+			LoginMsg msg =  gson.fromJson(result, LoginMsg.class);
 //			User currentUser = new User("123", "222", "22");//userDao.login(conn, user);
-			if(msg.getToken()!=null){
-				user.setToken(msg.getToken());
-				//JOptionPane.showMessageDialog(null, "登录成功!");
-				dispose();
-				new MainFrm2(user).setVisible(true);
+			if(msg!=null && msg.getToken()!=null){
+				Map<String,String> headMap = new HashMap<>();
+				headMap.put("token", msg.getToken());
+				String  result2 = 	HttpClientUtil.get(Api.member_userInfo,null,headMap);
+				user = gson.fromJson(result2, User.class);
+				
+				if(user!=null && null!= user.getResult())
+				{	
+					user = user.getResult();
+					SubjectUtils.setUser(user);
+					dispose();
+					new MainFrm2(user).setVisible(true);
+				}else {
+					JOptionPane.showMessageDialog(null, "登录失败!");
+					updateCode();
+				}
+			
 			}else{
 				JOptionPane.showMessageDialog(null, "登录失败!");
 				updateCode();
 			}
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			log.error("loginerror:{}",e.getMessage());
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "登录失败!");
 			updateCode();
 		}finally{
-//			try {
-////				dbUtil.close(conn);
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
+			
 		}
 		
 	}

@@ -40,6 +40,7 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 
+import com.panli.model.Api;
 import com.panli.model.Item;
 import com.panli.model.Plan;
 import com.panli.model.Record;
@@ -502,8 +503,8 @@ public class MainFrm1 extends JFrame {
 				amountsTxt.setText("1,2,3,4,5,6,7,8,9,10");
 				amountsTxt.setColumns(10);
 				
-				JRadioButton autoradioButton = new JRadioButton("真实投注");
-				JRadioButton autoradioButton_1 = new JRadioButton("模拟投注");
+				JRadioButton autoradioButton = new JRadioButton(Api.placeType_0);
+				JRadioButton autoradioButton_1 = new JRadioButton(Api.placeType_1);
 				autoradioButton_1.setSelected(true);
 				
 				ButtonGroup autogroup = new ButtonGroup();
@@ -530,7 +531,9 @@ public class MainFrm1 extends JFrame {
 							log.info("启动自动投注:方案:{},下注类型:{},金额设置:{}",selectPlan.toLogString(),placeType,amounts);
 							autoStart.setText("停止自动投注");
 							autoStart.setForeground(Color.GREEN);
-							 t = new PlaceThread(table,selectPlan, records,statis);
+							selectPlan.setAmounts(amounts);
+							selectPlan.setPlaceType(placeType);
+							 t = new PlaceThread(table,selectPlan);
 							 t.start();
 							
 						}else {

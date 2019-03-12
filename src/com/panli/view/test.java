@@ -2,17 +2,32 @@ package com.panli.view;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang3.CharSet;
 import org.apache.commons.lang3.StringUtils;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.panli.model.Api;
+import com.panli.model.HistoryDraw;
+import com.panli.model.LastOpenResult;
 import com.panli.model.Member;
+import com.panli.model.Odd;
+import com.panli.model.OpenInfo;
+import com.panli.model.Period;
 import com.panli.model.Result;
+import com.panli.model.User;
+import com.panli.util.DateTypeAdapter;
+import com.panli.util.DateUtils;
 import com.panli.util.FileUtils;
+import com.panli.util.HttpClientUtil;
 
 import lombok.extern.slf4j.Slf4j;
 import sun.nio.cs.StandardCharsets;
@@ -22,7 +37,7 @@ import sun.nio.cs.ext.GBK;
 public class test {
 	public static void main(String[] args) throws IOException {
 //		laomeng666
-//		Aaa321123
+//		Aa321123
 		/**  lottery
 		 * 极速赛车  PK10JSC 
 		         极速飞艇 LUCKYSB
@@ -68,7 +83,15 @@ public class test {
 //		List<String> list =	FileUtils.readLines(FileUtils.getFile("../Scheme/PK10JSC/方案1.txt"), "utf-8");
 		
 //		log.debug("1");
-		testMember();
+//		testMember();
+//		testUser();
+		
+		getPeriod();
+//		getOdds();
+//		getLastResult();
+		
+//		int i = 7;
+		System.out.println(7%5);
 		
 	}
 	
@@ -83,4 +106,60 @@ public class test {
 		System.out.println(msg);
 	
 	}
+	
+	public static void testUser() {
+		String result = "{\"message\":\"成功检索\",\"result\":{\"changePassword\":false,\"created\":1551006418000,\"gameEnable\":false,\"id\":\"hs008-laomeng666\",\"ip\":\"113.87.12.192\",\"ipAddress\":\"广东省深圳市 电信\",\"lastLogin\":1552376719762,\"loginTime\":1552376719762,\"lv\":5,\"main\":true,\"oid\":\"15dffa24e739e6faa73662aa9841d29dd2673358\",\"online\":false,\"parent\":\"ak4455\",\"platform\":\"react\",\"range\":\"B\",\"resetType\":0,\"server\":\"2164492817-hs.cp168.ws\",\"shareMode\":0,\"type\":1,\"updated\":1551201853000,\"userKey\":\"hs008\",\"username\":\"laomeng666\",\"userpass\":\"laomeng666\",\"wechatEnabled\":0},\"status\":\"success\",\"statusCode\":0}";
+		Gson gson = new GsonBuilder()
+		        .registerTypeAdapter(Date.class, new DateTypeAdapter())
+		        .create();
+		
+		User msg =  gson.fromJson(result, User.class);
+		
+		System.out.println(msg);
+	
+	}
+	
+	
+//  https://2164492817-hs.cp168.ws/web/rest/member/period?lottery=LUCKYSB
+    
+  	/**
+  	 * 获取开奖时间
+  	 */
+  private static void getPeriod(){
+	  Period info =   getEntity(Api.member_period,Period.class);
+	  log.info(info.getResult().toString());
+  }
+  
+//  https://2164492817-hs.cp168.ws/web/rest/member/odds?lottery=LUCKYSB
+  /**
+   * 获取最新的赔率
+   */
+  private static void getOdds(){
+	  Odd info =   getEntity(Api.member_odds,Odd.class);
+	  log.info(info.getResult().toString());
+  }
+  
+ // https://2164492817-hs.cp168.ws/web/rest/member/lastResult?lottery=LUCKYSB
+  private static void getLastResult()
+  {
+	  
+	  LastOpenResult info =   getEntity(Api.member_lastResult, LastOpenResult.class);
+	  log.info(info.getResult().toString());
+	  
+  }
+  
+  private static <T> T getEntity(String api,Class<T> s)
+  {
+	  	Map<String,String> param = new HashMap<>();
+		param.put("token", token);
+		String result =	HttpClientUtil.get(api,null,param);
+		Gson gson = new GsonBuilder()
+		        .registerTypeAdapter(Date.class, new DateTypeAdapter())
+		        .create();
+	  return  gson.fromJson(result, s);
+  }
+	
+	static String  token = "8a266a1150dbf8e83ac51d8566f80453f209dc5b";
+	
+	
 }

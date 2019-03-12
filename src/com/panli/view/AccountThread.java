@@ -16,6 +16,7 @@ import com.panli.model.LoginMsg;
 import com.panli.model.Member;
 import com.panli.model.Record;
 import com.panli.util.HttpClientUtil;
+import com.panli.util.SubjectUtils;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -41,7 +42,7 @@ public class AccountThread extends Thread{
 	    		while(true)
 	    		{
 	    			Map<String,String> param = new HashMap<>();
-	    					param.put("token", token);
+	    					param.put("token",token);
 	    			String result =	HttpClientUtil.get(Api.member_info,null,param);
 	    			Gson gson = new Gson();
 	    			Member msg =  gson.fromJson(result, Member.class);
