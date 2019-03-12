@@ -533,7 +533,7 @@ public class MainFrm1 extends JFrame {
 							autoStart.setForeground(Color.GREEN);
 							selectPlan.setAmounts(amounts);
 							selectPlan.setPlaceType(placeType);
-							 t = new PlaceThread(table,selectPlan);
+							 t = new PlaceThread(table,selectPlan,user.getOid());
 							 t.start();
 							
 						}else {

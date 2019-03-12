@@ -10,9 +10,11 @@ import com.panli.util.DateUtils;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 @Getter
 @Setter
+@Slf4j
 public class Record {
 	private Scheme scheme; //彩种信息
 	private Plan plan;   //计划信息
@@ -42,7 +44,7 @@ public class Record {
     
     private String isWin;//中挂
     
-    private Boolean win;
+    private Boolean win =false;
     
     private String round;//轮次
     
@@ -56,21 +58,22 @@ public class Record {
     
     public String[] getRowData(int heardSize) {
     	String[] data = new String[heardSize];
-    	data[0] =  this.lotteryName;
+    	data[0] =  this.getPlan().getSchemeName();
     	data[1] =  String.valueOf(DateUtils.formatDate(drawTime, DateUtils.TIME_PATTERN_HHMMSS));
-    	data[2] =  this.drawNumber;
-    	data[3] =  this.planName;
-    	data[4] =  this.placeType;
-    	data[5] =  String.valueOf(this.amount);
+    	data[2] =  this.getPlacebet().getDrawNumber();
+    	data[3] =  this.getPlan().getName();
+    	data[4] =  this.getPlan().getType();
+    	data[5] =  String.valueOf(this.getPlacebet().getAmounts());
     	data[6] =  this.resultAmount;
-    	data[7] =  this.placeBets;
+    	data[7] =   String.valueOf(this.getPlacebet().getBetString());
     	data[8] =  this.resultBets;
     	data[9] =  this.round;
-    	data[10] =  this.placeType;
+    	data[10] =  this.getPlan().getPlaceType();
     	data[11] =  this.isWin;
     	data[12] =  this.continueWin;
     	data[13] =  this.continueLost;
     	data[14] =  this.planAmount;
+    	data[15] =  this.plan.getCurrentLine();
     	return data;
     }
     
@@ -82,24 +85,29 @@ public class Record {
     	List<Bet> bets = placebet.getBets();
     	 
     	bets.forEach(b->{
-    		String r  = openInfo.getMap().get(b.getGame()+"_"+b.getContents());
+    		String key = b.getGame()+"="+b.getContents();
+    		String r  = openInfo.getMap().get(key);
+    		
+    		log.info("key:{},value:{},detail:{},drwaNum:{},platNum:{}",key,r,openInfo.getDetail(),openInfo.getDrawNumber(),placebet.getDrawNumber());
+    		
     		if(!StringUtils.isEmpty(r))
     		{
     			this.win = true;
+    			this.isWin = "中";
     		}else {
-    			
+    			this.isWin = "挂";
     		}
     		this.placeBets+=b.getContents();
     		this.amount+=b.getAmount()*b.getOdds();
     	});
     	this.drawNumber = openInfo.getDrawNumber();
+    	this.resultBets = openInfo.getResult();
     	if(getWin())
     	{
     		this.resultAmount ="+"+this.amount;
     	}else {
     		this.resultAmount ="-"+this.amount;
     	}
-    	this.placeType = plan.getPlaceType();
     }
 
 	public Record(Plan plan) {

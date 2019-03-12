@@ -19,9 +19,8 @@ public class OpenInfo{
 	private String result; //开奖结果
 	private String lottery; //彩种; PK10JSC
 	
-	public void setDetail(String detail)
+	public Map<String,String> getMap()
 	{
-		this.detail = detail;
 		if(this.detail!=null)
 		{
 			String[] s = detail.split(";");
@@ -30,7 +29,9 @@ public class OpenInfo{
 				String[] b = s[i].split(",");
 				map.put(b[0],b[1]+b[2]);
 			}
+			return map;
 		}
+		return this.map;
 	}
 	
 	

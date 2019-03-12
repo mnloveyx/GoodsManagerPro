@@ -91,7 +91,7 @@ public class test {
 //		getLastResult();
 		
 //		int i = 7;
-		System.out.println(7%5);
+		System.out.println(0%6);
 		
 	}
 	

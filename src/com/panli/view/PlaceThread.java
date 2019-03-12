@@ -1,6 +1,7 @@
 package com.panli.view;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -22,6 +23,7 @@ import com.panli.model.OpenInfo;
 import com.panli.model.Period;
 import com.panli.model.Placebet;
 import com.panli.model.Bet;
+import com.panli.model.LastOpenResult;
 import com.panli.model.Plan;
 import com.panli.model.Record;
 import com.panli.model.Result;
@@ -47,18 +49,18 @@ public class PlaceThread  extends Thread {
 	
 	private Plan plan ;
 	
-	private List<Record> records;
+	private List<Record> records = new ArrayList<>();
 	
 	private Record record = new Record();
 	
 	private JTable table;
   
     private Object[] gridHeader = new String[] {
-			"\u6295\u6CE8\u5F69\u79CD", "\u6295\u6CE8\u65F6\u95F4", "\u6295\u6CE8\u671F\u6570", "\u65B9\u6848", "\u73A9\u6CD5", "\u91D1\u989D", "\u76C8\u4E8F", "\u6295\u6CE8", "\u5F00\u5956\u53F7\u7801", "\u8F6E\u6B21", "\u72B6\u6001", "\u4E2D\u6302", "\u8FDE\u6302", "\u8FDE\u4E2D", "\u65B9\u6848\u76C8\u4E8F"
+			"\u6295\u6CE8\u5F69\u79CD", "\u6295\u6CE8\u65F6\u95F4", "\u6295\u6CE8\u671F\u6570", "\u65B9\u6848", "\u73A9\u6CD5", "\u91D1\u989D", "\u76C8\u4E8F", "\u6295\u6CE8", "\u5F00\u5956\u53F7\u7801", "\u8F6E\u6B21", "\u72B6\u6001", "\u4E2D\u6302", "\u8FDE\u6302", "\u8FDE\u4E2D", "\u65B9\u6848\u76C8\u4E8F", "\u5F53\u524D\u7EBF\u8DEF"
 		};
 	Long sleepTime = 60000L;
 	
-	private Long startPlaceTime = System.currentTimeMillis();
+	private Long startPlaceTime = new Date().getTime();
 	
 	private String currentLine ;
 	
@@ -131,15 +133,23 @@ public class PlaceThread  extends Thread {
 				 {
 					log.info("开始投注========");
 					record = new Record();
-					startPlaceTime = System.currentTimeMillis();
+					record.setPlan(plan);
+//					startPlaceTime = System.currentTimeMillis();
 					//投注
 					Placebet  placebet = new Placebet();
 					int amount = plan.getAmountsList().size();
-					plan.setType(plan.getType());
+					if(CollectionUtils.isEmpty(plan.getStartContents()))
+					{
+						plan.setType(plan.getType());
+					}
 					if(CollectionUtils.isNotEmpty(plan.getStartContents()))
 					{
 						plan.getStartContents().forEach(c->{
-							Bet bet = new Bet(Integer.valueOf(plan.getAmountsList().get(round%amount)),c, plan.getStartGame(),Double.valueOf(ReflexObjectUtil.getValueByKey(o, plan.getStartGame()+"_"+plan.getCurrentLine()).toString()));
+							
+							int i = (round-1)%amount;
+							
+							log.info("这里是获取投注金位置:{}",String.valueOf(i));
+							Bet bet = new Bet(Integer.valueOf(plan.getAmountsList().get((round-1)%amount)),c, plan.getStartGame(),Double.valueOf(ReflexObjectUtil.getValueByKey(o, plan.getContents()).toString()));
 							placebet.getBets().add(bet);
 							
 						});
@@ -168,41 +178,55 @@ public class PlaceThread  extends Thread {
 					totalRound++;
 					log.info("始投注完成========");
 					statis  = SubjectUtils.getStatis();
-					record.setRound(String.valueOf(totalRound));
+					record.setRound(String.valueOf(round));
 					record.setIsWin("等待开奖");
 					dt.addRow(record.getRowData(gridHeader.length));
 				 }
-				Thread.sleep(p.getRestTime()+1000);
+				Thread.sleep(p.getRestTime()+10000);
 				
 				openInfo = 	getLastResult();
+				if(record.getPlacebet()==null)
+				{
+					return;
+				}
 				if(!openInfo.getDrawNumber().equalsIgnoreCase(record.getPlacebet().getDrawNumber()))
 				{
-					Thread.sleep(1000);
+					Thread.sleep(10000);
 					openInfo = getLastResult();
+					
+					log.info("开奖期数:{},投奖期数:{}",openInfo.getDrawNumber(),record.getPlacebet().getDrawNumber());
 				}
 				
 				record.setOpenInfo(openInfo);
 				record.calc();
 				//切换选球
 				plan.setType(plan.getType());
-				if(record.getWin())
-				{
-					round = 1;
-					Long d = new Date().getTime();
-					if((d-startPlaceTime) >Long.valueOf(plan.getStartTime())*1000)
-					{
-						log.info("开始换线========");
-						startPlaceTime = System.currentTimeMillis();
-						plan.nextLine();
-					}
-				}{
-					round++;
-				}
 				
 				//再次刷新表格
 				dt.removeRow(dt.getRowCount()-1);
 				dt.addRow(record.getRowData(gridHeader.length));
 				records.add(record);
+				
+				//跳转线路
+				if(record.getWin())
+				{
+					round = 1;
+					Long d = System.currentTimeMillis();
+					
+					log.info("开始时间111111111：startPlaceTime:{},当前时间:{},路线时间:{} 分钟",new Date(startPlaceTime),new Date(d),plan.getStartTime());
+					
+					if((d-startPlaceTime) >Long.valueOf(plan.getStartTime())*60000)
+					{
+						log.info("任务开始时间：startPlaceTime:{},当前时间:{},路线时间:{} 分钟",new Date(startPlaceTime),new Date(),plan.getStartTime());
+						log.info("开始换线========");
+						startPlaceTime = System.currentTimeMillis();
+						plan.nextLine();
+					}
+				}else{
+					round++;
+				}
+				
+				
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -240,9 +264,8 @@ public class PlaceThread  extends Thread {
   private  OpenInfo getLastResult()
   {
 	  
-	  OpenInfo info =   getEntity(Api.member_lastResult, OpenInfo.class);
-	  log.info(info.toString());
-	  return info;
+	  LastOpenResult info =   getEntity(Api.member_lastResult, LastOpenResult.class);
+	  return info.getResult();
 	  
   }
   

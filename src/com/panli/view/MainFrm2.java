@@ -748,20 +748,20 @@ public class MainFrm2 extends JFrame {
 				table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 				table.setModel(new DefaultTableModel(
 					new Object[][] {
-						{"\u6781\u901F\u8D5B\u8F66", "00:58", "51626640", "\u65B9\u68481", "\u5F00\u67D0\u6295\u67D0", "10000.00", "-10000.00", "1,2,3,4,5", "5,7,6,8,1,3,2,10,9,4", "1", "\u6A21\u62DF", "\u6302", "5/5", "0/2", "-20000.00"},
+						{"\u6781\u901F\u8D5B\u8F66", "00:58", "51626640", "\u65B9\u68481", "\u5F00\u67D0\u6295\u67D0", "10000.00", "-10000.00", "1,2,3,4,5", "5,7,6,8,1,3,2,10,9,4", "1", "\u6A21\u62DF", "\u6302", "5/5", "0/2", "-20000.00", null},
 					},
 					new String[] {
-						"\u6295\u6CE8\u5F69\u79CD", "\u6295\u6CE8\u65F6\u95F4", "\u6295\u6CE8\u671F\u6570", "\u65B9\u6848", "\u73A9\u6CD5", "\u91D1\u989D", "\u76C8\u4E8F", "\u6295\u6CE8", "\u5F00\u5956\u53F7\u7801", "\u8F6E\u6B21", "\u72B6\u6001", "\u4E2D\u6302", "\u8FDE\u6302", "\u8FDE\u4E2D", "\u65B9\u6848\u76C8\u4E8F"
+						"\u6295\u6CE8\u5F69\u79CD", "\u6295\u6CE8\u65F6\u95F4", "\u6295\u6CE8\u671F\u6570", "\u65B9\u6848", "\u73A9\u6CD5", "\u91D1\u989D", "\u76C8\u4E8F", "\u6295\u6CE8", "\u5F00\u5956\u53F7\u7801", "\u8F6E\u6B21", "\u72B6\u6001", "\u4E2D\u6302", "\u8FDE\u6302", "\u8FDE\u4E2D", "\u65B9\u6848\u76C8\u4E8F", "\u5F53\u524D\u7EBF\u8DEF"
 					}
 				) {
 					Class[] columnTypes = new Class[] {
-						String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class
+						String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, Object.class
 					};
 					public Class getColumnClass(int columnIndex) {
 						return columnTypes[columnIndex];
 					}
 					boolean[] columnEditables = new boolean[] {
-						false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+						true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false
 					};
 					public boolean isCellEditable(int row, int column) {
 						return columnEditables[column];

@@ -27,4 +27,27 @@ public class Placebet {
 				+ b+ "]";
 	}
 	
+	public String getBetString()
+	{
+		String b = "";
+		
+		for(int i =0;i<bets.size();i++)
+		{
+			 b+=bets.get(i).getContents().toString();
+		}
+		return b;
+	}
+	
+	public Integer getAmounts()
+	{
+		Integer b = 0;
+		
+		for(int i =0;i<bets.size();i++)
+		{
+			 b+=bets.get(i).getAmount();
+		}
+		return b;
+	}
+	
+	
 }

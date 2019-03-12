@@ -39,6 +39,9 @@ public class Plan {
    
    private String startGame;
    
+   private String contents; //下单内容;
+   
+   
    private List<String> startContents = new ArrayList<>();
    
    
@@ -56,9 +59,10 @@ public class Plan {
 		  if(currentLine.equalsIgnoreCase(s))
 		  {
 			  String l = jumpLines.get(i+1%jumpLines.size());
-			  log.info("当前线路：{},切换线路：{}"+currentLine,l);
+			  log.info("当前线路：{},切换线路：{}",currentLine,l);
 			  
 			 setStartLine(l);
+			 break;
 		  }
 			  
 	  }
@@ -70,6 +74,7 @@ public class Plan {
 	   if(type.equalsIgnoreCase("开某投某")){
 		   this.startGame = "B"+currentLine;
 		   this.startContents = numMap.get(startLine);
+		   this.contents =this.startGame+"_"+currentLine;
 	   }else if(type.equalsIgnoreCase("双单"))
 	   {
 		   this.startGame = "DS"+currentLine;
@@ -82,6 +87,7 @@ public class Plan {
 			   startContents.add("S");
 			   startContents.remove("D");
 		   }
+		   this.contents =this.startGame+"_"+startContents.get(0).toString();
 		   
 	   }else if(type.equalsIgnoreCase("单双"))
 	   {
@@ -96,6 +102,7 @@ public class Plan {
 			   startContents.add("D");
 			   startContents.remove("S");
 		   }
+		   this.contents =this.startGame+"_"+startContents.get(0).toString();
 		   
 	   }else if(type.equalsIgnoreCase("大小"))
 	   {
@@ -109,6 +116,8 @@ public class Plan {
 				   startContents.add("D");
 				   startContents.remove("X");
 			   }
+		    this.contents =this.startGame+"_"+startContents.get(0).toString();
+		    
 	   }else if(type.equalsIgnoreCase("小大"))
 	   {
 		   this.startGame = "DX"+currentLine;
@@ -121,6 +130,7 @@ public class Plan {
 			   startContents.add("X");
 			   startContents.remove("D");
 		   }
+		   this.contents =this.startGame+"_"+startContents.get(0).toString();
 	   }
 	   
    }
