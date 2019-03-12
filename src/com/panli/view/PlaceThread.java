@@ -166,13 +166,13 @@ public class PlaceThread  extends Thread {
 					}else{
 						record.setPlaceType(Api.placeType_1);
 						log.warn("这里是真实提交，敬请期待");
-//	  							Map<String,String> param = new HashMap<>();
-//	  							param.put("token", token);
-//	  							String result =	HttpClientUtil.get(Api.placebet,null,param);
-//	  							Gson gson = new GsonBuilder()
-//	  							        .registerTypeAdapter(Date.class, new DateTypeAdapter())
-//	  							        .create();
-//	  							Result r =   gson.fromJson(result, Result.class);
+						Map<String,String> param = new HashMap<>();
+						param.put("token", token);
+						String result =	HttpClientUtil.get(Api.placebet,null,param);
+						Gson gson = new GsonBuilder()
+						        .registerTypeAdapter(Date.class, new DateTypeAdapter())
+						        .create();
+						Result r =   gson.fromJson(result, Result.class);
 						realCount++;
 					}
 					totalRound++;
