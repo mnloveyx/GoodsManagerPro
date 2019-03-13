@@ -4,6 +4,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.collections.MapUtils;
+import org.apache.commons.lang3.StringUtils;
+
 import com.panli.util.DateUtils;
 
 import lombok.Getter;
@@ -19,19 +22,59 @@ public class OpenInfo{
 	private String result; //开奖结果
 	private String lottery; //彩种; PK10JSC
 	
-	public Map<String,String> getMap()
+	private Map<String,String> getMap()
 	{
-		if(this.detail!=null)
+//		
+//		if(this.detail!=null)
+//		{
+//			String[] s = detail.split(";");
+//			for(int i = 0;i<s.length;i++)
+//			{
+//				String[] b = s[i].split(",");
+//				map.put(b[0],b[1]+b[2]);
+//			}
+//			return map;
+//		}
+//		return this.map;
+		if(StringUtils.isNoneBlank(result))
 		{
-			String[] s = detail.split(";");
-			for(int i = 0;i<s.length;i++)
+			String[] r = result.split(",");
+			for(int i = 0;i<r.length;i++)
 			{
-				String[] b = s[i].split(",");
-				map.put(b[0],b[1]+b[2]);
+				Integer j = Integer.valueOf(r[i]);
+				String k = "";
+				String v = String.valueOf(j);
+				if(j%2==0)
+				{
+					k = "DS"+(i+1)+"="+"S";
+					map.put(k,v);
+				}else {
+					k = "DS"+(i+1)+"="+"D";
+					map.put(k,v);
+				}
+				if(j>5)
+				{
+					k = "DX"+(i+1)+"="+"D";
+					map.put(k,v);
+				}else {
+					k = "DX"+(i+1)+"="+"X";
+					map.put(k,v);
+				}
+				map.put("B"+(i+1)+"="+v, v);
 			}
+			
 			return map;
 		}
 		return this.map;
+	}
+	
+	public String getResult(String key)
+	{
+		if(MapUtils.isNotEmpty(this.map))
+		{
+			return this.map.get(key);
+		}
+		return this.getMap().get(key);
 	}
 	
 	

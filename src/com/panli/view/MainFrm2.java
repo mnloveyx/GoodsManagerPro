@@ -1080,6 +1080,16 @@ public class MainFrm2 extends JFrame {
 				 }
 			 }
 			 
+			//刷新现有数据
+			 DefaultComboBoxModel autoselectplanmodel =	new DefaultComboBoxModel();
+				if(CollectionUtils.isNotEmpty(plans))
+				{
+					plans.forEach(s->{
+						autoselectplanmodel.addElement(s);
+					});
+				}
+				autoselectplan.setModel(autoselectplanmodel);
+				autocalcplan.setModel(autoselectplanmodel);
 			}
 		});
 //		plan_b_save.addMouseListener(new MouseAdapter() {

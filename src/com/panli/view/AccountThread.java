@@ -46,7 +46,7 @@ public class AccountThread extends Thread{
 	    			String result =	HttpClientUtil.get(Api.member_info,null,param);
 	    			Gson gson = new Gson();
 	    			Member msg =  gson.fromJson(result, Member.class);
-	    			log.debug("用户账户信息:{}",result);
+//	    			log.debug("用户账户信息:{}",result);
 	    			List<Account> accounts = msg.getResult().getAccounts();
 	    			if(null!=msg && null!=msg.getResult() &&CollectionUtils.isNotEmpty(msg.getResult().getAccounts()))
 	    			{

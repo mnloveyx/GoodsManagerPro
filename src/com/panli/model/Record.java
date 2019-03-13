@@ -87,7 +87,8 @@ public class Record {
     	 
     	bets.forEach(b->{
     		String key = b.getGame()+"="+b.getContents();
-    		String r  = openInfo.getMap().get(key);
+//    		String r  = openInfo.getMap().get(key);
+    		String r = openInfo.getResult(key);
     		
     		log.info("key:{},value:{},detail:{},drwaNum:{},platNum:{}",key,r,openInfo.getDetail(),openInfo.getDrawNumber(),placebet.getDrawNumber());
     		

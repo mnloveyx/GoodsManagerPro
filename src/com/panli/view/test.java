@@ -86,13 +86,13 @@ public class test {
 //		testMember();
 //		testUser();
 		
-		getPeriod();
+//		getPeriod();
 //		getOdds();
 //		getLastResult();
 		
 //		int i = 7;
-		System.out.println(0%6);
-		
+//		System.out.println(0%6);
+		calcResult();
 	}
 	
 	public static void testMember()
@@ -105,6 +105,43 @@ public class test {
 		
 		System.out.println(msg);
 	
+	}
+	
+	public static void calcResult()
+	{
+		Map<String,String> map = new HashMap<>();
+		
+		String d = "10,9,5,4,3,2,7,8,6,1";
+		String[] r = d.split(",");
+		for(int i = 0;i<r.length;i++)
+		{
+			Integer j = Integer.valueOf(r[i]);
+			String k = "";
+			String v = String.valueOf(j);
+			if(j%2==0)
+			{
+				k = "DS"+(i+1)+"="+"S";
+				map.put(k,v);
+			}else {
+				k = "DS"+(i+1)+"="+"D";
+				map.put(k,v);
+			}
+			if(j>5)
+			{
+				k = "DX"+(i+1)+"="+"D";
+				map.put(k,v);
+			}else {
+				k = "DX"+(i+1)+"="+"X";
+				map.put(k,v);
+			}
+			map.put("B"+(i+1)+"="+v, v);
+		}
+		
+		String f = "";
+		 for (Map.Entry<String, String> entry : map.entrySet()) {
+     		f+=entry.getKey()+"|"+entry.getValue()+",";
+		 }
+		log.info(f);
 	}
 	
 	public static void testUser() {
