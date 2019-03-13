@@ -53,19 +53,23 @@ public class Plan {
    
    public void nextLine()
    {
-	  for(int i = 0 ;i<jumpLines.size();i++)
-	  {
-		  String  s = jumpLines.get(i);
-		  if(currentLine.equalsIgnoreCase(s))
+	   if(CollectionUtils.isNotEmpty(jumpLines))
+	   {
+		  for(int i = 0 ;i<jumpLines.size();i++)
 		  {
-			  String l = jumpLines.get(i+1%jumpLines.size());
-			  log.info("当前线路：{},切换线路：{}",currentLine,l);
-			  
-			 setStartLine(l);
-			 break;
+			  String  s = jumpLines.get(i);
+			  if(currentLine.equalsIgnoreCase(s))
+			  {
+				  String l = jumpLines.get(i+1%jumpLines.size());
+				  log.info("当前线路：{},切换线路：{}",currentLine,l);
+				  
+				 setStartLine(l);
+				 break;
+			  }else {
+				  setStartLine(jumpLines.get(0));
+			  }
 		  }
-			  
-	  }
+	   }
    }
    
    public void setType(String type)

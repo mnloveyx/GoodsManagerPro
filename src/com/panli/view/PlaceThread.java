@@ -35,7 +35,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Getter
 @Setter
-public class PlaceThread  extends Thread {
+public  class  PlaceThread  extends Thread {
 	
 	 private boolean flag=true;
 	
@@ -176,8 +176,6 @@ public class PlaceThread  extends Thread {
 				}
 				tableModel.insertRow(0,record.getRowData(tableModel.getColumnCount()));
 //				records.add(record);
-				//切换选球
-				plan.setType(plan.getType());
 				//跳转线路
 				if(record.getWin())
 				{
@@ -194,12 +192,16 @@ public class PlaceThread  extends Thread {
 				}else{
 					round++;
 				}
+				//切换选球
+				plan.setType(plan.getType());
 				
+				Thread.sleep(10000L);
 				
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 		 }
 		 
 	 }

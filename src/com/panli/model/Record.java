@@ -95,19 +95,18 @@ public class Record {
     		if(!StringUtils.isEmpty(r))
     		{
     			this.win = true;
-    			this.isWin = "中";
-    		}else {
-    			this.isWin = "挂";
     		}
-    		this.placeBets+=b.getContents();
+//    		this.placeBets+=b.getContents();
     		this.amount+=b.getAmount()*b.getOdds();
     	});
     	this.drawNumber = openInfo.getDrawNumber();
     	this.resultBets = openInfo.getResult();
     	if(getWin())
     	{
+    		this.isWin = "中";
     		this.resultAmount ="+"+this.amount;
     	}else {
+    		this.isWin = "挂";
     		this.resultAmount ="-"+this.getPlacebet().getAmounts();
     	}
     }
