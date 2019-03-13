@@ -6,7 +6,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Account {
-	public Double  balance;
-	public Double maxLimit;
-	public Integer type;
+	private Double  balance;
+	private Double maxLimit;
+	private Integer type;
+	private Double betting;
+	private Double result;
 }

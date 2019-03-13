@@ -1,6 +1,5 @@
 package com.panli.view;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -9,10 +8,6 @@ import java.util.Map;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
-import javax.swing.table.TableModel;
-
-import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.collections.CollectionUtils;
 
 import com.google.gson.Gson;
@@ -32,7 +27,6 @@ import com.panli.util.DateTypeAdapter;
 import com.panli.util.HttpClientUtil;
 import com.panli.util.ReflexObjectUtil;
 import com.panli.util.SubjectUtils;
-import com.sun.beans.editors.IntegerEditor;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -54,10 +48,7 @@ public class PlaceThread  extends Thread {
 	private Record record = new Record();
 	
 	private JTable table;
-  
-    private Object[] gridHeader = new String[] {
-			"\u6295\u6CE8\u5F69\u79CD", "\u6295\u6CE8\u65F6\u95F4", "\u6295\u6CE8\u671F\u6570", "\u65B9\u6848", "\u73A9\u6CD5", "\u91D1\u989D", "\u76C8\u4E8F", "\u6295\u6CE8", "\u5F00\u5956\u53F7\u7801", "\u8F6E\u6B21", "\u72B6\u6001", "\u4E2D\u6302", "\u8FDE\u6302", "\u8FDE\u4E2D", "\u65B9\u6848\u76C8\u4E8F", "\u5F53\u524D\u7EBF\u8DEF"
-		};
+	
 	Long sleepTime = 60000L;
 	
 	private Long startPlaceTime = new Date().getTime();
@@ -66,36 +57,9 @@ public class PlaceThread  extends Thread {
 	
 	private Statis  statis ;
 	
-	
-	
-
-//    @Override
-//    public void run() {
-//    	log.debug("启动线程:"+Thread.currentThread().getName()+"当前时间:"+System.currentTimeMillis());
-//    	try {
-//    		while(flag)
-//    		{
-//    			Record record = new Record(plan);
-//    			record.setDrawNumber(String.valueOf(Long.valueOf(51631557L)+i));
-//    			plan.setCurrentLine("悄好");
-//    			
-//    			((DefaultTableModel) table.getModel()).addRow(record.getRowData(gridHeader.length));
-//    			
-//    			PlaceThread.sleep(sleepTime);
-//    			i++;
-//    		}
-//			
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//    }
-	
 	 private int round=1;
 	 
 	 private int totalRound=0;
-	 
-//	 private int  
 	 
 	 private Integer realCount=0; //真实投注次数
 	  private Double realAmount=0D;  //真实盈亏
@@ -104,17 +68,19 @@ public class PlaceThread  extends Thread {
 	  
 	  private Record preRecord = new Record();
 	  
+	  private DefaultTableModel tableModel;
+	  
 //	  private String placeStatus;  //投注状态
 //	  private String winPercent;  //准确率
 //	  private String drawNumber;  //投注基数
 	  
-//	  private String continueWin; //连中
+	  private int  continueWin; //连中
 	  
-//	  private String continueLost; //连挂
+	  private int continueLost; //连挂
 	
 	 @Override
 	 public void run() {
-		 while(true)
+		 while(flag)
 		 {
 			 try {
 				 Period p = getPeriod();
@@ -127,14 +93,12 @@ public class PlaceThread  extends Thread {
 				 {
 					 odd = o;
 				 }
-				DefaultTableModel dt = ((DefaultTableModel) table.getModel());
 				 
 				if(!p.getDrawNumber().equalsIgnoreCase(record.getDrawNumber()) &&p.getRestTime()>1000L)
 				 {
 					log.info("开始投注========");
 					record = new Record();
 					record.setPlan(plan);
-//					startPlaceTime = System.currentTimeMillis();
 					//投注
 					Placebet  placebet = new Placebet();
 					int amount = plan.getAmountsList().size();
@@ -142,14 +106,14 @@ public class PlaceThread  extends Thread {
 					{
 						plan.setType(plan.getType());
 					}
+					log.info("投注选择方案========");
+					log.debug("投注选择方案========{}",plan.toLogString());
 					if(CollectionUtils.isNotEmpty(plan.getStartContents()))
 					{
+						int i = (round-1)%amount;
+						log.debug("这里是获取投注金位置:{}",String.valueOf(i));
 						plan.getStartContents().forEach(c->{
-							
-							int i = (round-1)%amount;
-							
-							log.info("这里是获取投注金位置:{}",String.valueOf(i));
-							Bet bet = new Bet(Integer.valueOf(plan.getAmountsList().get((round-1)%amount)),c, plan.getStartGame(),Double.valueOf(ReflexObjectUtil.getValueByKey(o, plan.getContents()).toString()));
+							Bet bet = new Bet(Integer.valueOf(plan.getAmountsList().get(i)),c, plan.getStartGame(),Double.valueOf(ReflexObjectUtil.getValueByKey(o, plan.getContents()).toString()));
 							placebet.getBets().add(bet);
 							
 						});
@@ -157,30 +121,34 @@ public class PlaceThread  extends Thread {
 					placebet.setDrawTime(new Date());
 					placebet.setDrawNumber(p.getDrawNumber());
 					placebet.setLottery(plan.getSchemeValue());
-					log.info("placebetInfo:{}",placebet.toString());
+					log.debug("placebetInfo:{}",placebet.toString());
 					record.setPlacebet(placebet);
 					if(Api.placeType_0.equalsIgnoreCase(plan.getPlaceType())){
+						log.info("开始虚拟投注==============");
 						record.setPlaceType(Api.placeType_0);
 						virtualCount++;
 //	  							statis.set
 					}else{
 						record.setPlaceType(Api.placeType_1);
-						log.warn("这里是真实提交，敬请期待");
+						log.info("开始真实投注==============");
 						Map<String,String> param = new HashMap<>();
 						param.put("token", token);
-						String result =	HttpClientUtil.get(Api.placebet,null,param);
 						Gson gson = new GsonBuilder()
-						        .registerTypeAdapter(Date.class, new DateTypeAdapter())
-						        .create();
+								.registerTypeAdapter(Date.class, new DateTypeAdapter())
+								.create();
+						String placeBetStr = gson.toJson(placebet);
+						String result =	HttpClientUtil.post(Api.placebet,placeBetStr,param);
+						log.debug("真实投注结果:{}",result);
 						Result r =   gson.fromJson(result, Result.class);
 						realCount++;
 					}
 					totalRound++;
-					log.info("始投注完成========");
+					log.info("投注完成========");
 					statis  = SubjectUtils.getStatis();
 					record.setRound(String.valueOf(round));
 					record.setIsWin("等待开奖");
-					dt.addRow(record.getRowData(gridHeader.length));
+//					tableModel.addRow(record.getRowData(tableModel.getColumnCount()));
+					tableModel.insertRow(0,record.getRowData(tableModel.getColumnCount()));
 				 }
 				Thread.sleep(p.getRestTime()+10000);
 				
@@ -199,22 +167,23 @@ public class PlaceThread  extends Thread {
 				
 				record.setOpenInfo(openInfo);
 				record.calc();
+				//再次刷新表格
+//				tableModel.removeRow(tableModel.getRowCount()-1);
+//				tableModel.addRow(record.getRowData(tableModel.getColumnCount()));
+				if(tableModel.getRowCount()>0)
+				{
+					tableModel.removeRow(0);
+				}
+				tableModel.insertRow(0,record.getRowData(tableModel.getColumnCount()));
+//				records.add(record);
 				//切换选球
 				plan.setType(plan.getType());
-				
-				//再次刷新表格
-				dt.removeRow(dt.getRowCount()-1);
-				dt.addRow(record.getRowData(gridHeader.length));
-				records.add(record);
-				
 				//跳转线路
 				if(record.getWin())
 				{
 					round = 1;
 					Long d = System.currentTimeMillis();
-					
-					log.info("开始时间111111111：startPlaceTime:{},当前时间:{},路线时间:{} 分钟",new Date(startPlaceTime),new Date(d),plan.getStartTime());
-					
+					log.info("开始时间：startPlaceTime:{},当前时间:{},路线时间:{} 分钟",new Date(startPlaceTime),new Date(d),plan.getStartTime());
 					if((d-startPlaceTime) >Long.valueOf(plan.getStartTime())*60000)
 					{
 						log.info("任务开始时间：startPlaceTime:{},当前时间:{},路线时间:{} 分钟",new Date(startPlaceTime),new Date(),plan.getStartTime());
@@ -245,7 +214,7 @@ public class PlaceThread  extends Thread {
 	 * @return 
   	 */
   private  Period getPeriod(){
-	  Period info =   getEntity(Api.member_period,Period.class);
+	  Period info =   getEntity(Api.member_period+plan.getSchemeValue(),Period.class);
 	  log.info(info.getResult().toString());
 	  return info.getResult();
   }
@@ -255,16 +224,15 @@ public class PlaceThread  extends Thread {
    * 获取最新的赔率
    */
   private Odd  getOdds(){
-	  Odd info =   getEntity(Api.member_odds,Odd.class);
+	  Odd info =   getEntity(Api.member_odds+plan.getSchemeValue(),Odd.class);
 	  log.info(info.getResult().toString());
 	  return info.getResult();
   }
   
  // https://2164492817-hs.cp168.ws/web/rest/member/lastResult?lottery=LUCKYSB
   private  OpenInfo getLastResult()
-  {
-	  
-	  LastOpenResult info =   getEntity(Api.member_lastResult, LastOpenResult.class);
+   {
+	  LastOpenResult info =   getEntity(Api.member_lastResult+plan.getSchemeValue(), LastOpenResult.class);
 	  return info.getResult();
 	  
   }
@@ -288,6 +256,7 @@ public class PlaceThread  extends Thread {
 		this.plan = plan;
 		this.token = token;
 		this.table = table;
+		this.tableModel = (DefaultTableModel) table.getModel();
 	}
 	
 }

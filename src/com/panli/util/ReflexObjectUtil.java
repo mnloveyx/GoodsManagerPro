@@ -80,7 +80,7 @@ public class ReflexObjectUtil {
             try {
             
                 if (f.getName().endsWith(key)) {
-                    System.out.println("单个对象的某个键的值==反射==" + f.get(obj));
+//                    System.out.println("单个对象的某个键的值==反射==" + f.get(obj));
                     return f.get(obj);
                 }
             } catch (IllegalArgumentException e) {

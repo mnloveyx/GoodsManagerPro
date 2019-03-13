@@ -2,7 +2,11 @@ package com.panli.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.lang3.StringUtils;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -33,10 +37,22 @@ public class Placebet {
 		
 		for(int i =0;i<bets.size();i++)
 		{
-			 b+=bets.get(i).getContents().toString();
+			Bet  t  = bets.get(i);
+			String key = t.getGame().substring(0,2)+"_"+t.getContents();
+			 b+=(StringUtils.isEmpty(betMap.get(key))?t.getContents():betMap.get(key))+",";
 		}
-		return b;
+		return b.substring(0,b.length()-1);
 	}
+	
+	private static Map<String,String> betMap = new HashMap<>();
+	
+	static {
+		betMap.put("DX_D","大");
+		betMap.put("DX_X","小");
+		betMap.put("DS_D", "单");
+		betMap.put("DS_S", "双");
+	}
+	
 	
 	public Integer getAmounts()
 	{

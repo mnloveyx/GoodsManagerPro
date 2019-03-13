@@ -20,6 +20,7 @@ import com.panli.model.Member;
 import com.panli.model.OpenInfo;
 import com.panli.model.Plan;
 import com.panli.model.Record;
+import com.panli.model.Scheme;
 import com.panli.model.Statis;
 import com.panli.util.DateTypeAdapter;
 import com.panli.util.HttpClientUtil;
@@ -35,19 +36,19 @@ public class HistoryDrawThread extends Thread{
 		};
     
    private  JTable table;
-   private  Plan plan;
+   private  Scheme scheme;
 	Long sleepTime = 60000L;
 	
     @Override
     public void run() {
-    	log.debug("启动线程:"+Thread.currentThread().getName()+"当前时间:"+System.currentTimeMillis());
+    	log.debug("启动开奖历史查询"+Thread.currentThread().getName()+"当前时间:"+System.currentTimeMillis());
     	
     	try {
     		while(true)
     		{
     			Map<String,String> param = new HashMap<>();
 				param.put("token", token);
-				String result =	HttpClientUtil.get(Api.member_dresult,null,param);
+				String result =	HttpClientUtil.get(Api.member_dresult+scheme.getValue(),null,param);
 				if (StringUtils.isBlank(result)) {
 					return;
 				}
@@ -77,10 +78,10 @@ public class HistoryDrawThread extends Thread{
 
 
 	private String token;
-	public HistoryDrawThread(JTable table, Plan plan,String token) {
+	public HistoryDrawThread(JTable table, Scheme scheme,String token) {
 		super();
 		this.table = table;
-		this.plan = plan;
+		this.scheme = scheme;
 		this.token = token;
 	}
     

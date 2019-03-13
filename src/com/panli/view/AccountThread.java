@@ -36,7 +36,7 @@ public class AccountThread extends Thread{
 	int i =0;
 	  @Override
 	    public void run() {
-	    	log.debug("启动线程:"+Thread.currentThread().getName()+"当前时间:"+System.currentTimeMillis());
+	    	log.debug("启动账户信息查询:"+Thread.currentThread().getName()+"当前时间:"+System.currentTimeMillis());
 	    	
 	    	try {
 	    		while(true)
@@ -46,13 +46,13 @@ public class AccountThread extends Thread{
 	    			String result =	HttpClientUtil.get(Api.member_info,null,param);
 	    			Gson gson = new Gson();
 	    			Member msg =  gson.fromJson(result, Member.class);
-	    			
+	    			log.debug("用户账户信息:{}",result);
 	    			List<Account> accounts = msg.getResult().getAccounts();
 	    			if(null!=msg && null!=msg.getResult() &&CollectionUtils.isNotEmpty(msg.getResult().getAccounts()))
 	    			{
-	    				account_type_0.setText(accounts.get(0).balance.toString());
-	    				account_type_1.setText(accounts.get(1).balance.toString());
-	    				account_type_2.setText(accounts.get(1).balance.toString());
+	    				account_type_0.setText(accounts.get(0).getBalance().toString());
+	    				account_type_1.setText(accounts.get(0).getBetting().toString());
+	    				account_type_2.setText(accounts.get(0).getResult().toString());
 	    			}
 	    			
 	    			Thread.sleep(60000L);

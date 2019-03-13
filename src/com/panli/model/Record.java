@@ -81,7 +81,8 @@ public class Record {
     
     public void calc()
     {
-    	
+    	log.debug("开奖数据:{}",openInfo.toString());
+    	log.debug("投注数据:{}",placebet.toString());
     	List<Bet> bets = placebet.getBets();
     	 
     	bets.forEach(b->{
@@ -106,7 +107,7 @@ public class Record {
     	{
     		this.resultAmount ="+"+this.amount;
     	}else {
-    		this.resultAmount ="-"+this.amount;
+    		this.resultAmount ="-"+this.getPlacebet().getAmounts();
     	}
     }
 

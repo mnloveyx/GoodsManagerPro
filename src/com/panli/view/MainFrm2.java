@@ -123,7 +123,7 @@ public class MainFrm2 extends JFrame {
 	
 	private static List<Plan> plans;
 	
-	private static String planDir="../Scheme/";
+	private static String planDir="./Scheme/";
 	
 	private String[] plan = new String[] {"方案1", "方案2", "方案3", "方案4", "方案5"};
 	
@@ -135,7 +135,7 @@ public class MainFrm2 extends JFrame {
 	
 	private JLabel account_type_2;
 	
-	private String token = "8a266a1150dbf8e83ac51d8566f80453f209dc5b";
+	private String token = "22ffd4f01c90a4890f57cbc40cd6f9a0dc1d255f";
 	
 	
 //	private JLabel account_type_3;
@@ -567,9 +567,16 @@ public class MainFrm2 extends JFrame {
 							 
 							
 						}else {
+							
 							//终止线程
 							placeThread.setFlag(false);
-							
+//							try {
+//								
+//								Thread.sleep(60000L);
+//							} catch (InterruptedException e1) {
+//								// TODO Auto-generated catch block
+//								e1.printStackTrace();
+//							}
 							autoStart.setText("启动自动投注");
 							autoStart.setForeground(new Color(0, 0, 0));
 							log.info("停止自动投注:方案:{},下注类型:{},金额设置:{}",selectPlan.toLogString(),placeType,amounts);
@@ -666,6 +673,14 @@ public class MainFrm2 extends JFrame {
 				JLabel label_21 = new JLabel("准确率：");
 				
 				JLabel winPercentTxt = new JLabel("0%");
+				
+				JButton clearTable = new JButton("清除数据");
+				clearTable.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						DefaultTableModel model=(DefaultTableModel)table.getModel();
+						model.setRowCount(0);
+					}
+				});
 				GroupLayout gl_panel_11 = new GroupLayout(panel_11);
 				gl_panel_11.setHorizontalGroup(
 					gl_panel_11.createParallelGroup(Alignment.LEADING)
@@ -699,7 +714,8 @@ public class MainFrm2 extends JFrame {
 									.addPreferredGap(ComponentPlacement.UNRELATED)
 									.addComponent(label_17, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 									.addGap(6)
-									.addComponent(continueLostTxt, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE))
+									.addComponent(continueLostTxt, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE)
+									.addContainerGap(33, Short.MAX_VALUE))
 								.addGroup(gl_panel_11.createSequentialGroup()
 									.addComponent(label_19, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 									.addGap(4)
@@ -707,8 +723,10 @@ public class MainFrm2 extends JFrame {
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addComponent(label_21, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
 									.addGap(18)
-									.addComponent(winPercentTxt, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)))
-							.addContainerGap(37, Short.MAX_VALUE))
+									.addComponent(winPercentTxt, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+									.addComponent(clearTable)
+									.addGap(147))))
 				);
 				gl_panel_11.setVerticalGroup(
 					gl_panel_11.createParallelGroup(Alignment.LEADING)
@@ -732,13 +750,18 @@ public class MainFrm2 extends JFrame {
 									.addComponent(realCountTxt)))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(gl_panel_11.createParallelGroup(Alignment.LEADING)
-								.addComponent(placeStatusTxt, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addGroup(gl_panel_11.createParallelGroup(Alignment.LEADING, false)
-									.addComponent(label_19, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-									.addGroup(gl_panel_11.createParallelGroup(Alignment.BASELINE)
-										.addComponent(winPercentTxt, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-										.addComponent(label_21, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-							.addContainerGap(83, Short.MAX_VALUE))
+								.addGroup(gl_panel_11.createSequentialGroup()
+									.addGroup(gl_panel_11.createParallelGroup(Alignment.LEADING)
+										.addComponent(placeStatusTxt, GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
+										.addGroup(gl_panel_11.createParallelGroup(Alignment.LEADING, false)
+											.addComponent(label_19, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+											.addGroup(gl_panel_11.createParallelGroup(Alignment.BASELINE)
+												.addComponent(winPercentTxt, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+												.addComponent(label_21, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+									.addGap(10))
+								.addGroup(gl_panel_11.createSequentialGroup()
+									.addComponent(clearTable)
+									.addContainerGap())))
 				);
 				panel_11.setLayout(gl_panel_11);
 				
@@ -747,8 +770,11 @@ public class MainFrm2 extends JFrame {
 				table = new JTable();
 				table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 				table.setModel(new DefaultTableModel(
-					new Object[][] {
-						{"\u6781\u901F\u8D5B\u8F66", "00:58", "51626640", "\u65B9\u68481", "\u5F00\u67D0\u6295\u67D0", "10000.00", "-10000.00", "1,2,3,4,5", "5,7,6,8,1,3,2,10,9,4", "1", "\u6A21\u62DF", "\u6302", "5/5", "0/2", "-20000.00", null},
+//					new Object[][] {
+//						{"\u6781\u901F\u8D5B\u8F66", "00:58", "51626640", "\u65B9\u68481", "\u5F00\u67D0\u6295\u67D0", "10000.00", "-10000.00", "1,2,3,4,5", "5,7,6,8,1,3,2,10,9,4", "1", "\u6A21\u62DF", "\u6302", "5/5", "0/2", "-20000.00", null},
+//					},
+						new Object[][] {
+//						{null,null,null,null,null,null,null,null,null,null,null,null, "5/5", "0/2", "-20000.00", null},
 					},
 					new String[] {
 						"\u6295\u6CE8\u5F69\u79CD", "\u6295\u6CE8\u65F6\u95F4", "\u6295\u6CE8\u671F\u6570", "\u65B9\u6848", "\u73A9\u6CD5", "\u91D1\u989D", "\u76C8\u4E8F", "\u6295\u6CE8", "\u5F00\u5956\u53F7\u7801", "\u8F6E\u6B21", "\u72B6\u6001", "\u4E2D\u6302", "\u8FDE\u6302", "\u8FDE\u4E2D", "\u65B9\u6848\u76C8\u4E8F", "\u5F53\u524D\u7EBF\u8DEF"
@@ -761,7 +787,7 @@ public class MainFrm2 extends JFrame {
 						return columnTypes[columnIndex];
 					}
 					boolean[] columnEditables = new boolean[] {
-						true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false
+						false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
 					};
 					public boolean isCellEditable(int row, int column) {
 						return columnEditables[column];
@@ -903,7 +929,7 @@ public class MainFrm2 extends JFrame {
 				table_3.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 				table_3.setModel(new DefaultTableModel(
 					new Object[][] {
-						{null, null, null, null, null, null, null, null, null},
+//						{null, null, null, null, null, null, null, null, null},
 					},
 					new String[] {
 						"\u65B9\u6848\u540D\u79F0", "\u5185\u5BB9", "\u76EE\u524D\u8FDE\u4E2D", "\u4E0A\u6B21\u8FDE\u4E2D", "\u76EE\u524D\u8FDE\u9519", "\u4E0A\u6B21\u5F00\u51FA", "\u4ECA\u65E5\u672A\u51FA", "\u6628\u65E5\u672A\u51FA", "\u4E00\u5468\u672A\u51FA"
@@ -1316,10 +1342,12 @@ public class MainFrm2 extends JFrame {
 		panel_13.add(plan_b_update);
 		panel_12.add(panel_13, BorderLayout.NORTH);
 		
+		
+		
 		AccountThread accountThread = new AccountThread(account_type_0, account_type_1, account_type_2, user.getToken());
 		 accountThread.start();
 		 
-		 HistoryDrawThread drawThread = new HistoryDrawThread(table_2, currentPlan,user.getToken());
+		 HistoryDrawThread drawThread = new HistoryDrawThread(table_2, scheme,user.getToken());
 		 drawThread.start();
 //		table_3 = new JTable();
 //		tabbedPane.addTab("New tab", null, table_3, null);
