@@ -710,6 +710,14 @@ public class MainFrm1 extends JFrame {
 //				autocalcplan.setModel(new DefaultComboBoxModel(plan));
 				
 				JButton button_1 = new JButton("开始计算");
+				button_1.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						Plan selectPlan = (Plan) autoselectplan.getSelectedItem();
+						CalcThread t = new CalcThread(table_3, selectPlan, user.getOid());
+						t.start();
+						
+					}
+				});
 				button_1.setBackground(Color.LIGHT_GRAY);
 				
 				JLabel lblNewLabel_23 = new JLabel("日期：");
@@ -782,7 +790,7 @@ public class MainFrm1 extends JFrame {
 				table_3.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 				table_3.setModel(new DefaultTableModel(
 					new Object[][] {
-						{null, null, null, null, null, null, null, null, null},
+						{0, 0, 0, 0, 0, 0, 0, 0, 0},
 					},
 					new String[] {
 						"\u65B9\u6848\u540D\u79F0", "\u5185\u5BB9", "\u76EE\u524D\u8FDE\u4E2D", "\u4E0A\u6B21\u8FDE\u4E2D", "\u76EE\u524D\u8FDE\u9519", "\u4E0A\u6B21\u5F00\u51FA", "\u4ECA\u65E5\u672A\u51FA", "\u6628\u65E5\u672A\u51FA", "\u4E00\u5468\u672A\u51FA"

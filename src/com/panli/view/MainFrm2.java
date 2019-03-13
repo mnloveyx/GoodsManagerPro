@@ -171,7 +171,7 @@ public class MainFrm2 extends JFrame {
 		setTitle("娱乐管理系统V1.0.0");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrm.class.getResource("/images/goods_logo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 900, 650);
+		setBounds(100, 100, 1100, 650);
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -815,10 +815,10 @@ public class MainFrm2 extends JFrame {
 					gl_panel_10.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel_10.createSequentialGroup()
 							.addGroup(gl_panel_10.createParallelGroup(Alignment.LEADING)
-								.addComponent(panel_7, GroupLayout.PREFERRED_SIZE, 631, GroupLayout.PREFERRED_SIZE)
-								.addComponent(panel_11, GroupLayout.PREFERRED_SIZE, 631, GroupLayout.PREFERRED_SIZE)
-								.addComponent(scrollPane_2, GroupLayout.PREFERRED_SIZE, 631, GroupLayout.PREFERRED_SIZE))
-							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+								.addComponent(scrollPane_2, GroupLayout.DEFAULT_SIZE, 803, Short.MAX_VALUE)
+								.addComponent(panel_11, GroupLayout.DEFAULT_SIZE, 803, Short.MAX_VALUE)
+								.addComponent(panel_7, GroupLayout.DEFAULT_SIZE, 803, Short.MAX_VALUE))
+							.addContainerGap())
 				);
 				gl_panel_10.setVerticalGroup(
 					gl_panel_10.createParallelGroup(Alignment.LEADING)
@@ -857,6 +857,13 @@ public class MainFrm2 extends JFrame {
 //				autocalcplan.setModel(new DefaultComboBoxModel(plan));
 				
 				JButton button_1 = new JButton("开始计算");
+				button_1.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						Plan selectPlan = (Plan) autoselectplan.getSelectedItem();
+						CalcThread t = new CalcThread(table_3, selectPlan, user.getOid());
+						t.start();
+					}
+				});
 				button_1.setBackground(Color.LIGHT_GRAY);
 				
 				JLabel lblNewLabel_23 = new JLabel("日期：");
@@ -928,15 +935,15 @@ public class MainFrm2 extends JFrame {
 				table_3 = new JTable();
 				table_3.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 				table_3.setModel(new DefaultTableModel(
-					new Object[][] {
-//						{null, null, null, null, null, null, null, null, null},
+					new String[][] {
+//						{0, 0, 0, null, null, null, null, null, null},
 					},
 					new String[] {
 						"\u65B9\u6848\u540D\u79F0", "\u5185\u5BB9", "\u76EE\u524D\u8FDE\u4E2D", "\u4E0A\u6B21\u8FDE\u4E2D", "\u76EE\u524D\u8FDE\u9519", "\u4E0A\u6B21\u5F00\u51FA", "\u4ECA\u65E5\u672A\u51FA", "\u6628\u65E5\u672A\u51FA", "\u4E00\u5468\u672A\u51FA"
 					}
 				) {
 					Class[] columnTypes = new Class[] {
-						String.class, String.class, String.class, Double.class, Integer.class, String.class, String.class, String.class, String.class
+						String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class
 					};
 					public Class getColumnClass(int columnIndex) {
 						return columnTypes[columnIndex];
@@ -991,8 +998,8 @@ public class MainFrm2 extends JFrame {
 					.addContainerGap()
 					.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 236, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 636, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 818, Short.MAX_VALUE)
+					.addContainerGap())
 		);
 		gl_panel_5.setVerticalGroup(
 			gl_panel_5.createParallelGroup(Alignment.LEADING)
@@ -1094,10 +1101,6 @@ public class MainFrm2 extends JFrame {
 		plan_p = new JPanel();
 		plan_p.setBorder(new TitledBorder(null, "\u8BA1\u5212\u8BBE\u7F6E", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		plan_p.setPreferredSize(new Dimension(400, 180));
-		//		plan_p.setBounds(20, 20, 20, 20);
-		//		plan_p.setb
-		//		JPanel panel_14 = new JPanel();
-		//		panel_12.add(panel_14);
 				
 				JLabel lblNewLabel_4 = new JLabel("一号");
 				
