@@ -171,7 +171,7 @@ public class MainFrm2 extends JFrame {
 		setTitle("娱乐管理系统V1.0.0");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrm.class.getResource("/images/goods_logo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1100, 650);
+		setBounds(100, 100, 1230, 650);
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -379,8 +379,8 @@ public class MainFrm2 extends JFrame {
 			}
 		});
 		table_2.getColumnModel().getColumn(0).setPreferredWidth(62);
-		table_2.getColumnModel().getColumn(1).setPreferredWidth(129);
-		table_2.getColumnModel().getColumn(2).setPreferredWidth(41);
+		table_2.getColumnModel().getColumn(1).setPreferredWidth(147);
+		table_2.getColumnModel().getColumn(2).setPreferredWidth(91);
 		scrollPane_1.add(table_2);
 		scrollPane_1.setViewportView(table_2);
 		
@@ -714,8 +714,7 @@ public class MainFrm2 extends JFrame {
 									.addPreferredGap(ComponentPlacement.UNRELATED)
 									.addComponent(label_17, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 									.addGap(6)
-									.addComponent(continueLostTxt, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE)
-									.addContainerGap(33, Short.MAX_VALUE))
+									.addComponent(continueLostTxt, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_panel_11.createSequentialGroup()
 									.addComponent(label_19, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 									.addGap(4)
@@ -724,9 +723,9 @@ public class MainFrm2 extends JFrame {
 									.addComponent(label_21, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
 									.addGap(18)
 									.addComponent(winPercentTxt, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
-									.addComponent(clearTable)
-									.addGap(147))))
+									.addGap(186)
+									.addComponent(clearTable)))
+							.addContainerGap(290, Short.MAX_VALUE))
 				);
 				gl_panel_11.setVerticalGroup(
 					gl_panel_11.createParallelGroup(Alignment.LEADING)
@@ -752,7 +751,7 @@ public class MainFrm2 extends JFrame {
 							.addGroup(gl_panel_11.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_panel_11.createSequentialGroup()
 									.addGroup(gl_panel_11.createParallelGroup(Alignment.LEADING)
-										.addComponent(placeStatusTxt, GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
+										.addComponent(placeStatusTxt, GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
 										.addGroup(gl_panel_11.createParallelGroup(Alignment.LEADING, false)
 											.addComponent(label_19, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 											.addGroup(gl_panel_11.createParallelGroup(Alignment.BASELINE)
@@ -815,9 +814,10 @@ public class MainFrm2 extends JFrame {
 					gl_panel_10.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel_10.createSequentialGroup()
 							.addGroup(gl_panel_10.createParallelGroup(Alignment.LEADING)
-								.addComponent(scrollPane_2, GroupLayout.DEFAULT_SIZE, 803, Short.MAX_VALUE)
-								.addComponent(panel_11, GroupLayout.DEFAULT_SIZE, 803, Short.MAX_VALUE)
-								.addComponent(panel_7, GroupLayout.DEFAULT_SIZE, 803, Short.MAX_VALUE))
+								.addComponent(scrollPane_2, GroupLayout.DEFAULT_SIZE, 940, Short.MAX_VALUE)
+								.addGroup(gl_panel_10.createParallelGroup(Alignment.TRAILING, false)
+									.addComponent(panel_7, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(panel_11, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)))
 							.addContainerGap())
 				);
 				gl_panel_10.setVerticalGroup(
@@ -996,10 +996,10 @@ public class MainFrm2 extends JFrame {
 			gl_panel_5.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_5.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 236, GroupLayout.PREFERRED_SIZE)
+					.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 297, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 818, Short.MAX_VALUE)
-					.addContainerGap())
+					.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 955, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		gl_panel_5.setVerticalGroup(
 			gl_panel_5.createParallelGroup(Alignment.LEADING)
