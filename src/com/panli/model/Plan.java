@@ -53,7 +53,20 @@ public class Plan {
    private String round;
    
    private String isWin;//中挂
+   
+   private String openResult;//开将结果
+   
+   private List<String> openResultBets = new ArrayList<>();
     
+   public void setOpenResult(String openResult)
+   {
+	   this.openResult = openResult;
+	   if(StringUtils.isNoneBlank(openResult))
+	   {
+		   this.openResultBets = Arrays.asList(openResult.split(","));
+	   }
+   }
+   
    
    public String  getContinueLost()
    {
@@ -110,10 +123,18 @@ public class Plan {
    
    public void setType(String type)
    {
+	   this.type = type;
+   }
+   
+   public void setPlaceInfo(String type,String openResult)
+   {
 	   this.type  = type;
 	   if(type.equalsIgnoreCase("开某投某")){
+		   setOpenResult(openResult);
 		   this.startGame = "B"+currentLine;
-		   this.startContents = numMap.get(startLine);
+//		   this.startContents = numMap.get(startLine);
+		   //取对应线路的开奖号码，再取开奖号码所设定的投注信息
+		   this.startContents = numMap.get(openResultBets.get(Integer.valueOf(currentLine)-1));
 		   this.contents =this.startGame+"_"+currentLine;
 	   }else if(type.equalsIgnoreCase("双单"))
 	   {

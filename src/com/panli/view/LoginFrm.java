@@ -26,6 +26,7 @@ import javax.swing.border.EmptyBorder;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.panli.enums.license.SystemTool;
 import com.panli.model.Api;
 import com.panli.model.Code;
 import com.panli.model.LoginMsg;
@@ -81,6 +82,10 @@ public class LoginFrm extends JFrame {
 	 */
 	public LoginFrm() {
 		deGetCode();
+//		  String str4=getMAC();// mac物理地址
+//	      String str5=getCpuNumber();//本机cpu 序列号 
+//	      String str6=getSerialNumber("C");//C硬盘序列号
+		log.debug("collect client info hostName:{},ipaddress:{},machinecode:{},os:{}",SystemTool.getHostName(),SystemTool.getIpAddress(),SystemTool.getMachineCode(),SystemTool.getOS());
 		//该表系统默认字体
 		Font font = new Font("Dialog", Font.PLAIN, 12);
 		java.util.Enumeration keys = UIManager.getDefaults().keys();

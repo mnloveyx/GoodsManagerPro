@@ -30,6 +30,7 @@ import com.panli.model.Record;
 import com.panli.model.Result;
 import com.panli.model.Statis;
 import com.panli.util.DateTypeAdapter;
+import com.panli.util.DateUtils;
 import com.panli.util.HttpClientUtil;
 import com.panli.util.ReflexObjectUtil;
 import com.panli.util.SubjectUtils;
@@ -57,7 +58,9 @@ public  class  PlaceThread  extends Thread {
 	
 	Long sleepTime = 60000L;
 	
-	private Long startPlaceTime = new Date().getTime();
+	private Long startPlaceTime = System.currentTimeMillis();
+	
+	private Long placeRunTime =  System.currentTimeMillis();
 	
 	private String currentLine ;
 	
@@ -104,6 +107,11 @@ public  class  PlaceThread  extends Thread {
 				 {
 					 odd = o;
 				 }
+				 if("开某投某".equalsIgnoreCase(plan.getType()))
+				 {
+					 openInfo  = getLastResult();
+					 log.debug("pre plantype,opendata:{}",openInfo.toString());
+				 }
 				 Long restPlaceTime = p.getRestTime();
 				if(!p.getDrawNumber().equalsIgnoreCase(record.getDrawNumber()) &&restPlaceTime>1000L)
 				 {
@@ -114,7 +122,8 @@ public  class  PlaceThread  extends Thread {
 					int amount = plan.getPlanPlaceAmountsList().size();
 					if(CollectionUtils.isEmpty(plan.getStartContents()))
 					{
-						plan.setType(plan.getType());
+//						plan.setType(plan.getType());
+						plan.setPlaceInfo(plan.getType(), openInfo.getResult());
 					}
 					log.info("place plan choose========");
 					log.debug("place plan choose========{}",plan.toLogString());
@@ -233,13 +242,26 @@ public  class  PlaceThread  extends Thread {
 						plan.nextLine();
 						
 					}
+//					if(DateUtils.addMinutes(new Date(placeRunTime),4).getTime()>d)
+					if(DateUtils.addHours(new Date(placeRunTime),4).getTime()>d)
+					{
+						log.debug("interrupt stop place");
+						return ;
+					}
+					
+					
 				}else{
 					round++;
 					continueLost++;
 					continueWin=0;
 				}
 				//切换选球
-				plan.setType(plan.getType());
+//				plan.setType(plan.getType());
+				plan.setPlaceInfo(plan.getType(),openInfo.getResult());
+				
+				log.debug("this is staticInfo:{}",this.getStaticString());
+				this.statis = new Statis(String.valueOf(realCount), String.valueOf(realAmount), String.valueOf( virtualCount), String.valueOf( virtualAmount), String.valueOf(0), String.valueOf( planTotalCount), String.valueOf( placeStatus), getRealWinPercent(), String.valueOf( continueWinMax), String.valueOf( continueLostMax), String.valueOf( wincount));
+				repaintPanelData();
 				
 				Thread.sleep(10000L);
 				
@@ -247,9 +269,6 @@ public  class  PlaceThread  extends Thread {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			 log.debug("this is staticInfo:{}",this.getStaticString());
-			 this.statis = new Statis(String.valueOf(realCount), String.valueOf(realAmount), String.valueOf( virtualCount), String.valueOf( virtualAmount), String.valueOf(0), String.valueOf( planTotalCount), String.valueOf( placeStatus), getRealWinPercent(), String.valueOf( continueWinMax), String.valueOf( continueLostMax), String.valueOf( wincount));
-			 repaintPanelData();
 		 }
 		 
 	 }
@@ -257,7 +276,7 @@ public  class  PlaceThread  extends Thread {
     private Period period;
     private Odd odd;
     
-    private OpenInfo openInfo;
+    private OpenInfo openInfo = new OpenInfo();
     
 	/**
   	 * getlastPeriodTime

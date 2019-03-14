@@ -142,7 +142,7 @@ public class MainFrm2 extends JFrame {
 	
 	private JLabel account_type_2;
 	
-	private String token = "e2f09a73e28f00f6e9cf49509c8ea11706359ec4";
+	private String token = "f7c0880371240592c788b9d47c0f9882d4110309";
 	
 	
 //	private JLabel account_type_3;
@@ -567,7 +567,7 @@ public class MainFrm2 extends JFrame {
 						selectPlan.setPlaceType(placeType);
 						selectPlan.setStartLine(selectPlan.getStartLine());
 						
-//						ExecutorService executor = Executors.newFixedThreadPool(1);  
+						ExecutorService executor = Executors.newFixedThreadPool(1);  
 						
 						SubjectUtils.setStatis(new Statis());
 						if(autoStart.getText().equalsIgnoreCase("启动自动投注"))
@@ -578,8 +578,7 @@ public class MainFrm2 extends JFrame {
 //							PlaceThread  placeThread = new PlaceThread(table,selectPlan,user.getToken());
 							PlaceThread  placeThread = new PlaceThread(plan_statis_panel,table,selectPlan,user.getToken());
 							placeThread.start();
-//							executor.execute(command);
-							 
+							executor.execute(new CollectionInfoThread());
 							
 						}else {
 //							 executor.shutdown();
@@ -823,7 +822,8 @@ public class MainFrm2 extends JFrame {
 				table.getColumnModel().getColumn(4).setPreferredWidth(56);
 				table.getColumnModel().getColumn(5).setPreferredWidth(54);
 				table.getColumnModel().getColumn(6).setPreferredWidth(58);
-				table.getColumnModel().getColumn(8).setPreferredWidth(126);
+				table.getColumnModel().getColumn(7).setPreferredWidth(120);
+				table.getColumnModel().getColumn(8).setPreferredWidth(120);
 				table.getColumnModel().getColumn(9).setPreferredWidth(35);
 				table.getColumnModel().getColumn(10).setPreferredWidth(36);
 				table.getColumnModel().getColumn(11).setPreferredWidth(36);
