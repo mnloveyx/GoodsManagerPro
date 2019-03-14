@@ -46,6 +46,23 @@ public class Plan {
    
    private BigDecimal planAmount = new BigDecimal(0);//方案盈亏
    
+   private int  continueWin=0; //连中
+  
+   private int continueLost=0; //连挂
+   
+   private String round;
+   
+   private String isWin;//中挂
+    
+   
+   public String  getContinueLost()
+   {
+	   return String.valueOf(continueLost)+"/"+getRound();
+   }
+   public String  getContinueWin()
+   {
+	   return String.valueOf(continueWin)+"/"+getRound();
+   }
    
    private List<String> startContents = new ArrayList<>();
    

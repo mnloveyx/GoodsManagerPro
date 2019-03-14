@@ -1,14 +1,20 @@
 package com.panli.view;
 
+import java.awt.Component;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -59,24 +65,29 @@ public  class  PlaceThread  extends Thread {
 	
 	 private int round=1;
 	 
-	 private int totalRound=0;
+	 private int planTotalCount=0;
 	 
 	 private Integer realCount=0; //真实投注次数
-	  private Double realAmount=0D;  //真实盈亏
+	  private BigDecimal realAmount=new BigDecimal(0);  //真实盈亏
 	  private Integer virtualCount=0; //虚拟投注次数
-	  private Double virtualAmount=0D;  //虚拟盈亏
-	  
-	  private Record preRecord = new Record();
+	  private BigDecimal virtualAmount= new BigDecimal(0);  //虚拟盈亏
+	  private String realWinPercent;  //准确率
 	  
 	  private DefaultTableModel tableModel;
 	  
-//	  private String placeStatus;  //投注状态
-//	  private String winPercent;  //准确率
+	  private String placeStatus;  //投注状态
 //	  private String drawNumber;  //投注基数
 	  
-	  private int  continueWin; //连中
+	  private int  continueWin=0; //连中
 	  
-	  private int continueLost; //连挂
+	  private int continueLost=0; //连挂
+	  
+	  private int  continueWinMax=0; //连中
+	  
+	  private int continueLostMax=0; //连挂
+	  
+	  private int wincount=0; //赢次
+	  
 	
 	 @Override
 	 public void run() {
@@ -97,8 +108,7 @@ public  class  PlaceThread  extends Thread {
 				if(!p.getDrawNumber().equalsIgnoreCase(record.getDrawNumber()) &&restPlaceTime>1000L)
 				 {
 					log.info("start place========");
-					record = new Record();
-					record.setPlan(plan);
+					record = new Record(plan);
 					//投注
 					Placebet  placebet = new Placebet();
 					int amount = plan.getPlanPlaceAmountsList().size();
@@ -127,7 +137,6 @@ public  class  PlaceThread  extends Thread {
 						log.info("startVirtualPlace==============");
 						record.setPlaceType(Api.placeType_0);
 						virtualCount++;
-//	  							statis.set
 					}else{
 						record.setPlaceType(Api.placeType_1);
 						log.info("startRealPlace==============");
@@ -142,11 +151,15 @@ public  class  PlaceThread  extends Thread {
 						Result r =   gson.fromJson(result, Result.class);
 						realCount++;
 					}
-					totalRound++;
+					planTotalCount++;
 					log.info("placecomplete========");
 					statis  = SubjectUtils.getStatis();
 					record.setRound(String.valueOf(round));
-					record.setIsWin("等待开奖");
+					record.setRound(String.valueOf(round));
+					record.setPlanTotalRound(String.valueOf(planTotalCount));
+					placeStatus = "等待开奖";
+					record.setIsWin(placeStatus);
+					
 //					tableModel.addRow(record.getRowData(tableModel.getColumnCount()));
 					tableModel.insertRow(0,record.getRowData(tableModel.getColumnCount()));
 				 }
@@ -169,6 +182,34 @@ public  class  PlaceThread  extends Thread {
 				
 				record.setOpenInfo(openInfo);
 				record.calc();
+				//计算连续数据
+				if(record.getWin())
+				{
+					continueWin++;
+					continueLost=0;
+					if(continueWin>continueWinMax)
+					{
+						continueWinMax = continueWin;
+					}
+					wincount++;
+				}else {
+					continueLost++;
+					continueWin=0;
+					if(continueLost>continueLostMax)
+					{
+						continueLostMax = continueWin;
+					}
+				}
+				if(Api.placeType_0.equalsIgnoreCase(record.getPlaceType()))
+				{
+					setVirtualAmount(virtualAmount.add(record.getResultAmount()));
+				}else {
+					setRealAmount(realAmount.add(record.getResultAmount()));
+				}
+				
+				plan.setContinueLost(continueLost);
+				plan.setContinueWin(continueWin);
+				
 				//再次刷新表格
 //				tableModel.removeRow(tableModel.getRowCount()-1);
 //				tableModel.addRow(record.getRowData(tableModel.getColumnCount()));
@@ -190,9 +231,12 @@ public  class  PlaceThread  extends Thread {
 						log.info("start change line========");
 						startPlaceTime = System.currentTimeMillis();
 						plan.nextLine();
+						
 					}
 				}else{
 					round++;
+					continueLost++;
+					continueWin=0;
 				}
 				//切换选球
 				plan.setType(plan.getType());
@@ -203,7 +247,9 @@ public  class  PlaceThread  extends Thread {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+			 log.debug("this is staticInfo:{}",this.getStaticString());
+			 this.statis = new Statis(String.valueOf(realCount), String.valueOf(realAmount), String.valueOf( virtualCount), String.valueOf( virtualAmount), String.valueOf(0), String.valueOf( planTotalCount), String.valueOf( placeStatus), getRealWinPercent(), String.valueOf( continueWinMax), String.valueOf( continueLostMax), String.valueOf( wincount));
+			 repaintPanelData();
 		 }
 		 
 	 }
@@ -221,6 +267,11 @@ public  class  PlaceThread  extends Thread {
 	  Period info =   getEntity(Api.member_period+plan.getSchemeValue(),Period.class);
 	  log.info(info.getResult().toString());
 	  return info.getResult();
+  }
+  
+  public String getRealWinPercent()
+  {
+	  return new BigDecimal(wincount/planTotalCount).setScale(0, RoundingMode.HALF_UP).multiply(new BigDecimal(100)).toString()+"%";
   }
   
 //  https://2164492817-hs.cp168.ws/web/rest/member/odds?lottery=LUCKYSB
@@ -243,13 +294,26 @@ public  class  PlaceThread  extends Thread {
   
   private  <T> T getEntity(String api,Class<T> s)
   {
-	  	Map<String,String> param = new HashMap<>();
-		param.put("token", token);
-		String result =	HttpClientUtil.get(api,null,param);
-		Gson gson = new GsonBuilder()
-		        .registerTypeAdapter(Date.class, new DateTypeAdapter())
-		        .create();
-	  return  gson.fromJson(result, s);
+	  Map<String,String> param = new HashMap<>();
+	  param.put("token", token);
+	  Gson gson = new GsonBuilder()
+			  .registerTypeAdapter(Date.class, new DateTypeAdapter())
+			  .create();
+	  try {
+		  String result =	HttpClientUtil.get(api,null,param);
+		return  gson.fromJson(result, s);
+	} catch (Exception e) {
+		try {
+			Thread.sleep(1000L);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		log.error("getEntity error:{},api:{}",e.getMessage(),api);
+		 String result =	HttpClientUtil.get(api,null,param);
+			return  gson.fromJson(result, s);
+	}
+//	  return  gson.fromJson(result, s);
   }
 	
 	private  String  token;
@@ -262,5 +326,45 @@ public  class  PlaceThread  extends Thread {
 		this.table = table;
 		this.tableModel = (DefaultTableModel) table.getModel();
 	}
+
+	public String getStaticString() {
+		return "planTotalCount=" + planTotalCount + ", realCount=" + realCount + ", realAmount=" + realAmount
+				+ ", virtualCount=" + virtualCount + ", virtualAmount=" + virtualAmount + ", continueWinMax="
+				+ continueWinMax + ", continueLostMax=" + continueLostMax+",realWinPercent="+getRealWinPercent();
+	}
 	
+	
+	
+	JPanel panel;
+	
+	Component[] cb ;
+	
+	public PlaceThread(JPanel panel,JTable table, Plan plan,String token) {
+		super();
+		this.plan = plan;
+		this.token = token;
+		this.table = table;
+		this.tableModel = (DefaultTableModel) table.getModel();
+		this.panel = panel;
+		this.cb = panel.getComponents();
+	}
+	
+//	private Map<String,>
+	
+	
+	public void repaintPanelData()
+	{
+		for (Component component : cb) {               //遍历
+		      if(component instanceof JLabel)
+		      {
+		    	  JLabel cb = (JLabel) component;   //强制转换
+		    		String name = cb.getName();
+		    		log.debug("repaintPanelData component name:{}",name);
+		    		if(StringUtils.isNoneBlank(name))
+		    		{
+		    			cb.setText(ReflexObjectUtil.getValueByKey(this.statis,name).toString());
+		    		}
+		      }
+	      	}
+	}
 }

@@ -71,6 +71,10 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.awt.SystemColor;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
@@ -124,6 +128,8 @@ public class MainFrm2 extends JFrame {
 	
 	private static List<Plan> plans;
 	
+	private JPanel plan_statis_panel;
+	
 	private static String planDir="./Scheme/";
 	
 	private String[] plan = new String[] {"方案1", "方案2", "方案3", "方案4", "方案5"};
@@ -172,7 +178,7 @@ public class MainFrm2 extends JFrame {
 		setTitle("娱乐管理系统V1.0.0");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrm.class.getResource("/images/goods_logo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1230, 650);
+		setBounds(100, 100, 1250, 650);
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -560,31 +566,26 @@ public class MainFrm2 extends JFrame {
 						selectPlan.setAmounts(amounts);
 						selectPlan.setPlaceType(placeType);
 						selectPlan.setStartLine(selectPlan.getStartLine());
-						PlaceThread  placeThread = new PlaceThread(table,selectPlan,user.getToken());
+						
+//						ExecutorService executor = Executors.newFixedThreadPool(1);  
+						
 						SubjectUtils.setStatis(new Statis());
 						if(autoStart.getText().equalsIgnoreCase("启动自动投注"))
 						{
-							log.info("启动自动投注:方案:{},下注类型:{},金额设置:{}",selectPlan.toLogString(),placeType,amounts);
+							log.info("stat auto place:plan:{},placeType:{},planPlaceAmounts:{}",selectPlan.toLogString(),placeType,amounts);
 							autoStart.setText("停止自动投注");
 							autoStart.setForeground(Color.GREEN);
-							
+//							PlaceThread  placeThread = new PlaceThread(table,selectPlan,user.getToken());
+							PlaceThread  placeThread = new PlaceThread(plan_statis_panel,table,selectPlan,user.getToken());
 							placeThread.start();
+//							executor.execute(command);
 							 
 							
 						}else {
-							
-							//终止线程
-							placeThread.setFlag(false);
-//							try {
-//								
-//								Thread.sleep(60000L);
-//							} catch (InterruptedException e1) {
-//								// TODO Auto-generated catch block
-//								e1.printStackTrace();
-//							}
+//							 executor.shutdown();
 							autoStart.setText("启动自动投注");
 							autoStart.setForeground(new Color(0, 0, 0));
-							log.info("停止自动投注:方案:{},下注类型:{},金额设置:{}",selectPlan.toLogString(),placeType,amounts);
+							log.info("stop auto place:方案:{},placeType:{},planPlaceAmounts:{}",selectPlan.toLogString(),placeType,amounts);
 							
 							Integer i = records.size();
 							String current = selectPlan.getCurrentLine();
@@ -614,16 +615,15 @@ public class MainFrm2 extends JFrame {
 									.addGroup(gl_panel_7.createParallelGroup(Alignment.LEADING)
 										.addComponent(autoradioButton)
 										.addComponent(autoradioButton_1))
-									.addGap(31)
+									.addGap(86)
 									.addComponent(autoStart)))
-							.addContainerGap(141, Short.MAX_VALUE))
+							.addContainerGap(367, Short.MAX_VALUE))
 				);
 				gl_panel_7.setVerticalGroup(
 					gl_panel_7.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel_7.createSequentialGroup()
 							.addContainerGap()
 							.addGroup(gl_panel_7.createParallelGroup(Alignment.LEADING)
-								.addComponent(autoStart, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_panel_7.createSequentialGroup()
 									.addGroup(gl_panel_7.createParallelGroup(Alignment.BASELINE, false)
 										.addComponent(label_5)
@@ -633,51 +633,61 @@ public class MainFrm2 extends JFrame {
 									.addGroup(gl_panel_7.createParallelGroup(Alignment.BASELINE)
 										.addComponent(label_23)
 										.addComponent(amountsTxt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addComponent(autoradioButton))))
-							.addGap(11)
-							.addComponent(label_24)
-							.addContainerGap())
+										.addComponent(autoradioButton))
+									.addGap(11)
+									.addComponent(label_24))
+								.addComponent(autoStart, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE))
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 				);
 				panel_7.setLayout(gl_panel_7);
 				
-				JPanel panel_11 = new JPanel();
-				panel_11.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-				panel_11.setPreferredSize(new Dimension(400, 20));
+			    plan_statis_panel = new JPanel();
+				plan_statis_panel.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+				plan_statis_panel.setPreferredSize(new Dimension(400, 20));
 				JLabel lblNewLabel_22 = new JLabel("真实下注：");
 				
-				JLabel realCountTxt = new JLabel("0");
+				JLabel realCount = new JLabel("0");
+				realCount.setName("realCount");
 				
 				JLabel label_7 = new JLabel("真实盈亏：");
 				
-				JLabel realAmountTxt = new JLabel("0");
+				JLabel realAmount = new JLabel("0");
+				realAmount.setName("realAmount");
 				
 				JLabel label_9 = new JLabel("模拟下注：");
 				
-				JLabel virtualCountTxt = new JLabel("0");
+				JLabel virtualCount = new JLabel("0");
+				virtualCount.setName("virtualCount");
 				
 				JLabel label_11 = new JLabel("模拟盈亏：");
 				
-				JLabel virtualAmountTxt = new JLabel("0");
+				JLabel virtualAmount = new JLabel("0");
+				virtualAmount.setName("virtualAmount");
 				
 				JLabel label_13 = new JLabel("投注记录：");
 				
-				JLabel placeCountTxt = new JLabel("0");
+				JLabel planTotalCount = new JLabel("0");
+				planTotalCount.setName("planTotalCount");
 				
 				JLabel label_15 = new JLabel("最大连中：");
 				
-				JLabel continueWinTxt = new JLabel("0");
+				JLabel continueWinMax = new JLabel("0");
+				continueWinMax.setName("continueWinMax");
 				
 				JLabel label_17 = new JLabel("最大连挂：");
 				
-				JLabel continueLostTxt = new JLabel("0");
+				JLabel continueLostMax = new JLabel("0");
+				continueLostMax.setName("continueLostMax");
 				
 				JLabel label_19 = new JLabel("投注状态：");
 				
-				JLabel placeStatusTxt = new JLabel("无");
+				JLabel placeStatus = new JLabel("无");
+				placeStatus.setName("placeStatus");
 				
 				JLabel label_21 = new JLabel("准确率：");
 				
-				JLabel winPercentTxt = new JLabel("0%");
+				JLabel realWinPercent = new JLabel("0%");
+				realWinPercent.setName("realWinPercent");
 				
 				JButton clearTable = new JButton("清除数据");
 				clearTable.addActionListener(new ActionListener() {
@@ -686,88 +696,97 @@ public class MainFrm2 extends JFrame {
 						model.setRowCount(0);
 					}
 				});
-				GroupLayout gl_panel_11 = new GroupLayout(panel_11);
-				gl_panel_11.setHorizontalGroup(
-					gl_panel_11.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel_11.createSequentialGroup()
+				GroupLayout gl_plan_statis_panel = new GroupLayout(plan_statis_panel);
+				gl_plan_statis_panel.setHorizontalGroup(
+					gl_plan_statis_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_plan_statis_panel.createSequentialGroup()
 							.addContainerGap()
-							.addGroup(gl_panel_11.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel_11.createSequentialGroup()
-									.addComponent(lblNewLabel_22)
+							.addGroup(gl_plan_statis_panel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_plan_statis_panel.createSequentialGroup()
+									.addComponent(lblNewLabel_22, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(realCountTxt, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
+									.addComponent(realCount, GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE))
+								.addGroup(gl_plan_statis_panel.createSequentialGroup()
+									.addComponent(label_19, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(placeStatus, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
+									.addGap(2)))
+							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addGroup(gl_plan_statis_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(label_7, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_plan_statis_panel.createSequentialGroup()
+									.addGap(2)
+									.addComponent(label_21)))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(gl_plan_statis_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(realAmount, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
+								.addComponent(realWinPercent, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(gl_plan_statis_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(label_13, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
+								.addComponent(label_9, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE))
+							.addGroup(gl_plan_statis_panel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_plan_statis_panel.createSequentialGroup()
+									.addGap(16)
+									.addComponent(virtualCount, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_plan_statis_panel.createSequentialGroup()
+									.addGap(16)
+									.addComponent(planTotalCount, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)))
+							.addGap(20)
+							.addGroup(gl_plan_statis_panel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_plan_statis_panel.createSequentialGroup()
+									.addComponent(label_11, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
+									.addGap(6)
+									.addComponent(virtualAmount, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(label_7, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
-									.addGap(6)
-									.addComponent(realAmountTxt, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE)
-									.addGap(18)
-									.addComponent(label_9, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
-									.addGap(6)
-									.addComponent(virtualCountTxt, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(label_11, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
-									.addGap(6)
-									.addComponent(virtualAmountTxt, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(label_13, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
-									.addGap(6)
-									.addComponent(placeCountTxt, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(label_15, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
-									.addGap(6)
-									.addComponent(continueWinTxt, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(label_17, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
-									.addGap(6)
-									.addComponent(continueLostTxt, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_panel_11.createSequentialGroup()
-									.addComponent(label_19, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
-									.addGap(4)
-									.addComponent(placeStatusTxt, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+									.addComponent(label_15, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(label_21, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
-									.addGap(18)
-									.addComponent(winPercentTxt, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-									.addGap(186)
+									.addComponent(continueWinMax, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(label_17)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(continueLostMax, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_plan_statis_panel.createSequentialGroup()
+									.addGap(10)
 									.addComponent(clearTable)))
-							.addContainerGap(290, Short.MAX_VALUE))
+							.addGap(130))
 				);
-				gl_panel_11.setVerticalGroup(
-					gl_panel_11.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel_11.createSequentialGroup()
+				gl_plan_statis_panel.setVerticalGroup(
+					gl_plan_statis_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_plan_statis_panel.createSequentialGroup()
 							.addContainerGap()
-							.addGroup(gl_panel_11.createParallelGroup(Alignment.LEADING)
-								.addComponent(label_17)
-								.addComponent(continueLostTxt)
-								.addComponent(label_15)
-								.addComponent(continueWinTxt)
-								.addComponent(label_13)
-								.addComponent(placeCountTxt)
+							.addGroup(gl_plan_statis_panel.createParallelGroup(Alignment.LEADING)
 								.addComponent(label_11)
-								.addComponent(virtualAmountTxt)
+								.addGroup(gl_plan_statis_panel.createParallelGroup(Alignment.BASELINE)
+									.addComponent(virtualAmount)
+									.addComponent(label_15)
+									.addComponent(continueWinMax)
+									.addComponent(label_17)
+									.addComponent(continueLostMax))
 								.addComponent(label_9)
-								.addComponent(virtualCountTxt)
+								.addComponent(virtualCount)
 								.addComponent(label_7)
-								.addComponent(realAmountTxt)
-								.addGroup(gl_panel_11.createParallelGroup(Alignment.BASELINE)
+								.addGroup(gl_plan_statis_panel.createParallelGroup(Alignment.BASELINE)
 									.addComponent(lblNewLabel_22)
-									.addComponent(realCountTxt)))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(gl_panel_11.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel_11.createSequentialGroup()
-									.addGroup(gl_panel_11.createParallelGroup(Alignment.LEADING)
-										.addComponent(placeStatusTxt, GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
-										.addGroup(gl_panel_11.createParallelGroup(Alignment.LEADING, false)
-											.addComponent(label_19, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-											.addGroup(gl_panel_11.createParallelGroup(Alignment.BASELINE)
-												.addComponent(winPercentTxt, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-												.addComponent(label_21, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+									.addComponent(realCount))
+								.addComponent(realAmount))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(gl_plan_statis_panel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_plan_statis_panel.createSequentialGroup()
+									.addGroup(gl_plan_statis_panel.createParallelGroup(Alignment.LEADING)
+										.addGroup(gl_plan_statis_panel.createParallelGroup(Alignment.BASELINE)
+											.addComponent(placeStatus, GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+											.addComponent(label_21, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+											.addComponent(realWinPercent, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+											.addComponent(label_13)
+											.addComponent(planTotalCount))
+										.addComponent(label_19))
 									.addGap(10))
-								.addGroup(gl_panel_11.createSequentialGroup()
+								.addGroup(gl_plan_statis_panel.createSequentialGroup()
 									.addComponent(clearTable)
 									.addContainerGap())))
 				);
-				panel_11.setLayout(gl_panel_11);
+				plan_statis_panel.setLayout(gl_plan_statis_panel);
 				
 				JScrollPane scrollPane_2 = new JScrollPane();
 				scrollPane_2.setPreferredSize(new Dimension(380, 300));
@@ -781,7 +800,7 @@ public class MainFrm2 extends JFrame {
 //						{null,null,null,null,null,null,null,null,null,null,null,null, "5/5", "0/2", "-20000.00", null},
 					},
 					new String[] {
-						"\u6295\u6CE8\u5F69\u79CD", "\u6295\u6CE8\u65F6\u95F4", "\u6295\u6CE8\u671F\u6570", "\u65B9\u6848", "\u73A9\u6CD5", "\u91D1\u989D", "\u76C8\u4E8F", "\u6295\u6CE8", "\u5F00\u5956\u53F7\u7801", "\u8F6E\u6B21", "\u72B6\u6001", "\u4E2D\u6302", "\u8FDE\u6302", "\u8FDE\u4E2D", "\u65B9\u6848\u76C8\u4E8F", "\u5F53\u524D\u7EBF\u8DEF"
+						"\u6295\u6CE8\u5F69\u79CD", "\u6295\u6CE8\u65F6\u95F4", "\u6295\u6CE8\u671F\u6570", "\u65B9\u6848", "\u73A9\u6CD5", "\u91D1\u989D", "\u76C8\u4E8F", "\u6295\u6CE8", "\u5F00\u5956\u53F7\u7801", "\u8F6E\u6B21", "\u72B6\u6001", "\u4E2D\u6302","\u8FDE\u4E2D","\u8FDE\u6302", "\u65B9\u6848\u76C8\u4E8F", "\u5F53\u524D\u7EBF\u8DEF"
 					}
 				) {
 					Class[] columnTypes = new Class[] {
@@ -818,12 +837,11 @@ public class MainFrm2 extends JFrame {
 				gl_panel_10.setHorizontalGroup(
 					gl_panel_10.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel_10.createSequentialGroup()
-							.addGroup(gl_panel_10.createParallelGroup(Alignment.LEADING)
-								.addComponent(scrollPane_2, GroupLayout.DEFAULT_SIZE, 940, Short.MAX_VALUE)
-								.addGroup(gl_panel_10.createParallelGroup(Alignment.TRAILING, false)
-									.addComponent(panel_7, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-									.addComponent(panel_11, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)))
-							.addContainerGap())
+							.addGroup(gl_panel_10.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(panel_7, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(plan_statis_panel, GroupLayout.PREFERRED_SIZE, 911, Short.MAX_VALUE)
+								.addComponent(scrollPane_2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+							.addContainerGap(39, Short.MAX_VALUE))
 				);
 				gl_panel_10.setVerticalGroup(
 					gl_panel_10.createParallelGroup(Alignment.LEADING)
@@ -831,7 +849,7 @@ public class MainFrm2 extends JFrame {
 							.addGap(1)
 							.addComponent(panel_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(panel_11, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
+							.addComponent(plan_statis_panel, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(scrollPane_2, GroupLayout.PREFERRED_SIZE, 232, GroupLayout.PREFERRED_SIZE)
 							.addGap(1))

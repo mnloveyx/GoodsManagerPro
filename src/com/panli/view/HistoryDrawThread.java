@@ -38,7 +38,7 @@ public class HistoryDrawThread extends Thread{
 	
     @Override
     public void run() {
-    	log.debug("start opendata history query"+Thread.currentThread().getName()+"currentTime:"+System.currentTimeMillis());
+    	log.debug("start opendata history query"+Thread.currentThread().getName()+" currentTime:"+System.currentTimeMillis());
     	
     	try {
     		while(flag)

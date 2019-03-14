@@ -36,7 +36,7 @@ public class AccountThread extends Thread{
 	int i =0;
 	  @Override
 	    public void run() {
-	    	log.debug("启动账户信息查询:"+Thread.currentThread().getName()+"当前时间:"+System.currentTimeMillis());
+	    	log.debug("start accountInfo history query:"+Thread.currentThread().getName()+" currentTime:"+System.currentTimeMillis());
 	    	
 	    	try {
 	    		while(true)
