@@ -22,20 +22,16 @@ public class OpenInfo{
 	private String result; //开奖结果
 	private String lottery; //彩种; PK10JSC
 	
+	/**
+	 * 组装开奖结果
+	 * @Title: getMap   
+	 * @Description: TODO
+	 * @param: @return      
+	 * @return: Map<String,String>      
+	 * @throws
+	 */
 	private Map<String,String> getMap()
 	{
-//		
-//		if(this.detail!=null)
-//		{
-//			String[] s = detail.split(";");
-//			for(int i = 0;i<s.length;i++)
-//			{
-//				String[] b = s[i].split(",");
-//				map.put(b[0],b[1]+b[2]);
-//			}
-//			return map;
-//		}
-//		return this.map;
 		if(StringUtils.isNoneBlank(result))
 		{
 			String[] r = result.split(",");
@@ -73,8 +69,9 @@ public class OpenInfo{
 		if(MapUtils.isNotEmpty(this.map))
 		{
 			return this.map.get(key);
+		}else {
+			return this.getMap().get(key);
 		}
-		return this.getMap().get(key);
 	}
 	
 	

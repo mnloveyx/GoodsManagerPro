@@ -54,7 +54,7 @@ public class Placebet {
 	}
 	
 	
-	public Integer getAmounts()
+	public Integer getPlaceAmounts()
 	{
 		Integer b = 0;
 		

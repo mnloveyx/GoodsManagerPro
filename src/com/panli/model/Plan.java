@@ -1,5 +1,6 @@
 package com.panli.model;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -34,16 +35,30 @@ public class Plan {
    private String currentLine;
    private String jumpHistory;
    private String type;
-   private String  amounts;  //投注金额设置
+   private String  planPlaceAmounts;  //投注金额设置
    private String  placeType; //投注类型   模拟投注，真实投注;
    
    private String startGame;
    
    private String contents; //下单内容;
    
+   private String planAmountTxt="0";//方案盈亏
+   
+   private BigDecimal planAmount = new BigDecimal(0);//方案盈亏
+   
    
    private List<String> startContents = new ArrayList<>();
    
+   public void calcPlanAmount(BigDecimal resultAmount)
+   {
+	   setPlanAmount(this.planAmount.add(resultAmount));
+	   setPlanAmountTxt(getPlanAmount().toString());
+   }
+   
+//   public String getPlanAmountTxt()
+//   {
+//	   return this.getPlanAmount().toString();
+//   }
    
    public void setStartLine(String startLine)
    {
@@ -55,20 +70,24 @@ public class Plan {
    {
 	   if(CollectionUtils.isNotEmpty(jumpLines))
 	   {
+		   String nextLine = "";
 		  for(int i = 0 ;i<jumpLines.size();i++)
 		  {
 			  String  s = jumpLines.get(i);
 			  if(currentLine.equalsIgnoreCase(s))
 			  {
-				  String l = jumpLines.get(i+1%jumpLines.size());
-				  log.info("当前线路：{},切换线路：{}",currentLine,l);
-				  
-				 setStartLine(l);
+				  nextLine = jumpLines.get((i+1)%jumpLines.size());
+				  log.debug("currentLine:{} find the next line:{}",currentLine,nextLine);
 				 break;
-			  }else {
-				  setStartLine(jumpLines.get(0));
 			  }
 		  }
+		  if(StringUtils.isBlank(nextLine))
+		  {
+			  nextLine =   jumpLines.get(0);
+			  log.debug("can not find the next line use default line:{}",nextLine);
+		  }
+		  setStartLine(nextLine);
+		  log.debug("currentLine:{}",nextLine);
 	   }
    }
    
@@ -144,16 +163,16 @@ public class Plan {
 	   
    }
    
-   private List<String> amountsList;
+   private List<String> planPlaceAmountsList;
    
    
    public void setAmounts(String amounts)
    {
-	   this.amounts = amounts;
+	   this.planPlaceAmounts = amounts;
 	   
-	   if(CollectionUtils.isEmpty(amountsList))
+	   if(CollectionUtils.isEmpty(planPlaceAmountsList))
 	   {
-		   this.amountsList = Arrays.asList(StringUtils.split(amounts, ","));
+		   setPlanPlaceAmountsList(Arrays.asList(StringUtils.split(amounts, ",")));
 	   }
    }
    
@@ -161,10 +180,7 @@ public class Plan {
    public void  setJumpLine(String jumpLine)
    {
 	   this.jumpLine = jumpLine;
-	   if(CollectionUtils.isEmpty(jumpLines))
-	   {
-		   this.jumpLines = Arrays.asList(StringUtils.split(jumpLine, ","));
-	   }
+	   this.jumpLines = Arrays.asList(StringUtils.split(jumpLine, ","));
    }
    
    public String getNumMap(String key) {

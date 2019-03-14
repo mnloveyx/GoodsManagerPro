@@ -92,7 +92,7 @@ public class LoginFrm extends JFrame {
 			}
 		}
 		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginFrm.class.getResource("/images/goods_logo.png")));
-		setTitle("娱乐辅助系统");
+		setTitle("娱乐辅助系统V1.0.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 546, 369);
 		contentPane = new JPanel();

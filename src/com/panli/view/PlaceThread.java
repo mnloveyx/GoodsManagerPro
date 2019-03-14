@@ -93,27 +93,27 @@ public  class  PlaceThread  extends Thread {
 				 {
 					 odd = o;
 				 }
-				 
-				if(!p.getDrawNumber().equalsIgnoreCase(record.getDrawNumber()) &&p.getRestTime()>1000L)
+				 Long restPlaceTime = p.getRestTime();
+				if(!p.getDrawNumber().equalsIgnoreCase(record.getDrawNumber()) &&restPlaceTime>1000L)
 				 {
-					log.info("开始投注========");
+					log.info("start place========");
 					record = new Record();
 					record.setPlan(plan);
 					//投注
 					Placebet  placebet = new Placebet();
-					int amount = plan.getAmountsList().size();
+					int amount = plan.getPlanPlaceAmountsList().size();
 					if(CollectionUtils.isEmpty(plan.getStartContents()))
 					{
 						plan.setType(plan.getType());
 					}
-					log.info("投注选择方案========");
-					log.debug("投注选择方案========{}",plan.toLogString());
+					log.info("place plan choose========");
+					log.debug("place plan choose========{}",plan.toLogString());
 					if(CollectionUtils.isNotEmpty(plan.getStartContents()))
 					{
 						int i = (round-1)%amount;
-						log.debug("这里是获取投注金位置:{}",String.valueOf(i));
+						log.debug("getPlaceAmount:{}",String.valueOf(i));
 						plan.getStartContents().forEach(c->{
-							Bet bet = new Bet(Integer.valueOf(plan.getAmountsList().get(i)),c, plan.getStartGame(),Double.valueOf(ReflexObjectUtil.getValueByKey(o, plan.getContents()).toString()));
+							Bet bet = new Bet(Integer.valueOf(plan.getPlanPlaceAmountsList().get(i)),c, plan.getStartGame(),Double.valueOf(ReflexObjectUtil.getValueByKey(o, plan.getContents()).toString()));
 							placebet.getBets().add(bet);
 							
 						});
@@ -124,13 +124,13 @@ public  class  PlaceThread  extends Thread {
 					log.debug("placebetInfo:{}",placebet.toString());
 					record.setPlacebet(placebet);
 					if(Api.placeType_0.equalsIgnoreCase(plan.getPlaceType())){
-						log.info("开始虚拟投注==============");
+						log.info("startVirtualPlace==============");
 						record.setPlaceType(Api.placeType_0);
 						virtualCount++;
 //	  							statis.set
 					}else{
 						record.setPlaceType(Api.placeType_1);
-						log.info("开始真实投注==============");
+						log.info("startRealPlace==============");
 						Map<String,String> param = new HashMap<>();
 						param.put("token", token);
 						Gson gson = new GsonBuilder()
@@ -138,18 +138,20 @@ public  class  PlaceThread  extends Thread {
 								.create();
 						String placeBetStr = gson.toJson(placebet);
 						String result =	HttpClientUtil.post(Api.placebet,placeBetStr,param);
-						log.debug("真实投注结果:{}",result);
+						log.debug("realPlaceResult:{}",result);
 						Result r =   gson.fromJson(result, Result.class);
 						realCount++;
 					}
 					totalRound++;
-					log.info("投注完成========");
+					log.info("placecomplete========");
 					statis  = SubjectUtils.getStatis();
 					record.setRound(String.valueOf(round));
 					record.setIsWin("等待开奖");
 //					tableModel.addRow(record.getRowData(tableModel.getColumnCount()));
 					tableModel.insertRow(0,record.getRowData(tableModel.getColumnCount()));
 				 }
+				log.debug("restPlaceTime:{},currentTime:{}",restPlaceTime,System.currentTimeMillis());
+				if(restPlaceTime<0) return;
 				Thread.sleep(p.getRestTime()+10000);
 				
 				openInfo = 	getLastResult();
@@ -162,7 +164,7 @@ public  class  PlaceThread  extends Thread {
 					Thread.sleep(10000);
 					openInfo = getLastResult();
 					
-					log.info("开奖期数:{},投奖期数:{}",openInfo.getDrawNumber(),record.getPlacebet().getDrawNumber());
+					log.info("drawNumbers:{},placeNumbers:{}",openInfo.getDrawNumber(),record.getPlacebet().getDrawNumber());
 				}
 				
 				record.setOpenInfo(openInfo);
@@ -181,11 +183,11 @@ public  class  PlaceThread  extends Thread {
 				{
 					round = 1;
 					Long d = System.currentTimeMillis();
-					log.info("开始时间：startPlaceTime:{},当前时间:{},路线时间:{} 分钟",new Date(startPlaceTime),new Date(d),plan.getStartTime());
+					log.info("placeStartTime：startPlaceTime:{},currentTime:{},placeSettingTime:{} minute",new Date(startPlaceTime),new Date(d),plan.getStartTime());
 					if((d-startPlaceTime) >Long.valueOf(plan.getStartTime())*60000)
 					{
-						log.info("任务开始时间：startPlaceTime:{},当前时间:{},路线时间:{} 分钟",new Date(startPlaceTime),new Date(),plan.getStartTime());
-						log.info("开始换线========");
+						log.debug("placeStartTime：startPlaceTime:{},currentTime:{},placeSettingTime:{} minute",new Date(startPlaceTime),new Date(),plan.getStartTime());
+						log.info("start change line========");
 						startPlaceTime = System.currentTimeMillis();
 						plan.nextLine();
 					}
@@ -212,7 +214,7 @@ public  class  PlaceThread  extends Thread {
     private OpenInfo openInfo;
     
 	/**
-  	 * 获取开奖时间
+  	 * getlastPeriodTime
 	 * @return 
   	 */
   private  Period getPeriod(){

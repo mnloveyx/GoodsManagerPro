@@ -109,6 +109,7 @@ public class MainFrm2 extends JFrame {
 	private JPanel plan_p2;
 	private  JPanel plan_p;
 	private JPanel panel_plan_main;
+	JPanel panel_12;
 	
 	private User user;
 	private JTable table;
@@ -135,7 +136,7 @@ public class MainFrm2 extends JFrame {
 	
 	private JLabel account_type_2;
 	
-	private String token = "494bac4b8582daed05d9fb6e35d908d01a9fdff7";
+	private String token = "0c4eed4df997248c0c737b4781002f2df4bb4620";
 	
 	
 //	private JLabel account_type_3;
@@ -248,7 +249,8 @@ public class MainFrm2 extends JFrame {
 			model.addElement(new Scheme("极速飞艇 ","LUCKYSB"));
 			model.addElement(new Scheme("幸运飞艇","XYFT"));
 		}
-		
+		//设置默认选中
+		model.setSelectedItem(schemes.get(0));
 		schemeTxt.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
@@ -412,7 +414,7 @@ public class MainFrm2 extends JFrame {
 	    panel_plan_main = new JPanel();
 		tabbedPane.addTab("2.方案设定", null, panel_plan_main, null);
 		
-		final JPanel panel_12 = new JPanel();
+		panel_12 = new JPanel();
 		planTable = new JTable();
 		planTable.setFillsViewportHeight(true);
 		
@@ -432,7 +434,6 @@ public class MainFrm2 extends JFrame {
                   return;
               }
 //              plans = sc
-              setPlan(plans.get(sr));
               
               String play = (String) planTable.getModel().getValueAt(sr, 1);
           	if(sr==0)
@@ -452,6 +453,7 @@ public class MainFrm2 extends JFrame {
           	t.setTitle(play+"跳线设置");
           	panel_12.updateUI();
       		panel_12.repaint();
+      		setPlan(plans.get(sr));
           }
         });  
 		
@@ -1090,6 +1092,7 @@ public class MainFrm2 extends JFrame {
 				}
 				autoselectplan.setModel(autoselectplanmodel);
 				autocalcplan.setModel(autoselectplanmodel);
+				log.debug("refulsh:autoselectplan and autocalcplan,plan:{}",currentPlan.toLogString());
 			}
 		});
 //		plan_b_save.addMouseListener(new MouseAdapter() {
@@ -1100,13 +1103,13 @@ public class MainFrm2 extends JFrame {
 		panel_13.add(plan_b_save);
 		
 		JButton plan_b_update = new JButton("修改");
-//		plan_b_update.addMouseListener(new MouseAdapter() {
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//				
-//				
-//			}
-//		});
+		plan_b_update.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				plan_text_1.setText("2");
+			}
+		});
 		panel_12.setLayout(new BorderLayout(0, 0));
 		plan_p = new JPanel();
 		plan_p.setBorder(new TitledBorder(null, "\u8BA1\u5212\u8BBE\u7F6E", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -1368,6 +1371,8 @@ public class MainFrm2 extends JFrame {
 	
 	protected void setPlan(Plan p)
 	{
+		log.debug("updatePlanPanel");
+		
 		plan_text_1.setText(p.getNumMap("1"));
 		plan_text_2.setText(p.getNumMap("2"));
 		plan_text_3.setText(p.getNumMap("3"));
@@ -1384,19 +1389,18 @@ public class MainFrm2 extends JFrame {
 		plan_p2_start.setText(p.getStartTime());
 		plan_p2_end.setText(p.getEndTime());
 		plan_p2_jumpline.setText(p.getJumpLine());
-		
-		TableModel  tm =	planTable.getModel();
-		 int selectIndex =	planTable.getSelectedRow();
-		 tm.setValueAt(p.getName(), selectIndex, 0);
-		 tm.setValueAt(p.getType(), selectIndex, 1);
-		 
-		 panel_plan_main.updateUI();
-		 panel_plan_main.repaint();
+//		TableModel  tm =	planTable.getModel();
+//		 int selectIndex =	planTable.getSelectedRow();
+//		 tm.setValueAt(p.getName(), selectIndex, 0);
+//		 tm.setValueAt(p.getType(), selectIndex, 1);
+//		 
+//		 panel_plan_main.updateUI();
+//		 panel_plan_main.repaint();
 	}
 	
 	
 	String schemeName,schemeValue, planName,startLine, startTime,endTime, jumpLines,planType;
-	Map<String,String> numMap = new HashMap<>();
+	Map<String,String> numMap ;
 	protected void  initSchemes()
 	{
 		this.schemes = new ArrayList<>();
@@ -1422,6 +1426,7 @@ public class MainFrm2 extends JFrame {
 									endTime = files.get(2).split("=")[1].split("-")[1];
 									jumpLines = files.get(3).split("=")[1];
 									
+									numMap = new HashMap<>();
 									for(int i = 4;i<files.size();i++)
 									{
 										String numKey =	files.get(i).split("=")[0];

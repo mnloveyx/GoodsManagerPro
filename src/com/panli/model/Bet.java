@@ -1,5 +1,8 @@
 package com.panli.model;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,6 +29,17 @@ public class Bet{
 	@Override
 	public String toString() {
 		return "Bet [amount=" + amount + ", contents=" + contents + ", game=" + game + ", odds=" + odds + "]";
+	}
+	
+	public BigDecimal getWinAmount()
+	{
+		BigDecimal o= new BigDecimal(getOdds());
+		return  o.multiply(new BigDecimal(getAmount())).setScale(2, RoundingMode.HALF_UP);
+	}
+	
+	public BigDecimal getPlaceAmount()
+	{
+		return new BigDecimal(getAmount());
 	}
 	
 }

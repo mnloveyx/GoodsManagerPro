@@ -1,6 +1,7 @@
 package com.panli.model;
 
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class Record {
     
     private Double amount=0D;//金额
     
-    private String resultAmount; //盈亏金额
+//    private String resultAmountTxt; //盈亏金额
     
     private String  placeBets=""; //投注
     
@@ -56,6 +57,19 @@ public class Record {
     
     private String currentLine;//当前线路
     
+    private BigDecimal resultAmount = new BigDecimal(0);
+    
+    public String getResultAmountTxt()
+    {
+    	BigDecimal b =getResultAmount();
+    	if(b.doubleValue()>0)
+    	{
+    		return "+"+b.toString();
+    	}else {
+    		return b.toString();
+    	}
+    }
+    
     public String[] getRowData(int heardSize) {
     	String[] data = new String[heardSize];
     	data[0] =  this.getPlan().getSchemeName();
@@ -63,8 +77,8 @@ public class Record {
     	data[2] =  this.getPlacebet().getDrawNumber();
     	data[3] =  this.getPlan().getName();
     	data[4] =  this.getPlan().getType();
-    	data[5] =  String.valueOf(this.getPlacebet().getAmounts());
-    	data[6] =  this.resultAmount;
+    	data[5] =  String.valueOf(this.getPlacebet().getPlaceAmounts());
+    	data[6] =  this.getResultAmountTxt();
     	data[7] =   String.valueOf(this.getPlacebet().getBetString());
     	data[8] =  this.resultBets;
     	data[9] =  this.round;
@@ -72,22 +86,27 @@ public class Record {
     	data[11] =  this.isWin;
     	data[12] =  this.continueWin;
     	data[13] =  this.continueLost;
-    	data[14] =  this.planAmount;
+    	data[14] =  this.plan.getPlanAmountTxt();
     	data[15] =  this.plan.getCurrentLine();
     	return data;
     }
     
-    
-    
+    /**
+     * 
+     * @Title: calc   
+     * @Description: calcOpenresult
+     * @param:       
+     * @return: void      
+     * @throws
+     */
     public void calc()
     {
-    	log.debug("开奖数据:{}",openInfo.toString());
-    	log.debug("投注数据:{}",placebet.toString());
+    	log.debug("opendata:{}",openInfo.toString());
+    	log.debug("placedata:{}",placebet.toString());
     	List<Bet> bets = placebet.getBets();
     	 
     	bets.forEach(b->{
     		String key = b.getGame()+"="+b.getContents();
-//    		String r  = openInfo.getMap().get(key);
     		String r = openInfo.getResult(key);
     		
     		log.info("key:{},value:{},detail:{},drwaNum:{},platNum:{}",key,r,openInfo.getDetail(),openInfo.getDrawNumber(),placebet.getDrawNumber());
@@ -95,20 +114,21 @@ public class Record {
     		if(!StringUtils.isEmpty(r))
     		{
     			this.win = true;
+    			resultAmount = resultAmount.add(b.getWinAmount());
     		}
-//    		this.placeBets+=b.getContents();
-    		this.amount+=b.getAmount()*b.getOdds();
+    		resultAmount = resultAmount.subtract(b.getPlaceAmount());
+    		
     	});
     	this.drawNumber = openInfo.getDrawNumber();
     	this.resultBets = openInfo.getResult();
     	if(getWin())
     	{
     		this.isWin = "中";
-    		this.resultAmount ="+"+this.amount;
     	}else {
     		this.isWin = "挂";
-    		this.resultAmount ="-"+this.getPlacebet().getAmounts();
     	}
+    	//calcPlanAmount
+    	plan.calcPlanAmount(getResultAmount());
     }
 
 	public Record(Plan plan) {
