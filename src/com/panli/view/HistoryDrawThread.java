@@ -13,15 +13,10 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.panli.model.Account;
 import com.panli.model.Api;
 import com.panli.model.HistoryDraw;
-import com.panli.model.Member;
 import com.panli.model.OpenInfo;
-import com.panli.model.Plan;
-import com.panli.model.Record;
 import com.panli.model.Scheme;
-import com.panli.model.Statis;
 import com.panli.util.DateTypeAdapter;
 import com.panli.util.HttpClientUtil;
 
@@ -30,21 +25,23 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class HistoryDrawThread extends Thread{
 	int i =0;
-	private Object [][]gridData=null;
-    private Object[] gridHeader = new String[] {
-			"\u6295\u6CE8\u5F69\u79CD", "\u6295\u6CE8\u65F6\u95F4", "\u6295\u6CE8\u671F\u6570", "\u65B9\u6848", "\u73A9\u6CD5", "\u91D1\u989D", "\u76C8\u4E8F", "\u6295\u6CE8", "\u5F00\u5956\u53F7\u7801", "\u8F6E\u6B21", "\u72B6\u6001", "\u4E2D\u6302", "\u8FDE\u6302", "\u8FDE\u4E2D", "\u65B9\u6848\u76C8\u4E8F"
-		};
-    
+	
    private  JTable table;
    private  Scheme scheme;
 	Long sleepTime = 60000L;
 	
+	DefaultTableModel model;
+	
+	private int cycle =0;
+	
+	 private boolean flag=true;
+	
     @Override
     public void run() {
-    	log.debug("启动开奖历史查询"+Thread.currentThread().getName()+"当前时间:"+System.currentTimeMillis());
+    	log.debug("start opendata history query"+Thread.currentThread().getName()+"currentTime:"+System.currentTimeMillis());
     	
     	try {
-    		while(true)
+    		while(flag)
     		{
     			Map<String,String> param = new HashMap<>();
 				param.put("token", token);
@@ -59,14 +56,17 @@ public class HistoryDrawThread extends Thread{
 				List<OpenInfo> openInfos = msg.getResult().getList();
 				if(CollectionUtils.isNotEmpty(openInfos))
 				{
-					DefaultTableModel model =	((DefaultTableModel) table.getModel());
 					model.setRowCount(0);
 					openInfos.forEach(record->{
-						model.addRow(record.getRowData(gridHeader.length));
+						model.addRow(record.getRowData(model.getColumnCount()));
 					});
 				}
 				
 				Thread.sleep(sleepTime);
+				if(cycle!=0)
+				{
+					this.flag = false;
+				}
 				i++;
     		}
 			
@@ -79,10 +79,16 @@ public class HistoryDrawThread extends Thread{
 
 	private String token;
 	public HistoryDrawThread(JTable table, Scheme scheme,String token) {
+		this(table, scheme,token,0);
+	}
+	
+	public HistoryDrawThread(JTable table, Scheme scheme, String token, int cycle) {
 		super();
 		this.table = table;
 		this.scheme = scheme;
+		this.cycle = cycle;
 		this.token = token;
+		this.model = ((DefaultTableModel) table.getModel());
 	}
     
     

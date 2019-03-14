@@ -136,7 +136,7 @@ public class MainFrm2 extends JFrame {
 	
 	private JLabel account_type_2;
 	
-	private String token = "0c4eed4df997248c0c737b4781002f2df4bb4620";
+	private String token = "e2f09a73e28f00f6e9cf49509c8ea11706359ec4";
 	
 	
 //	private JLabel account_type_3;
@@ -276,6 +276,9 @@ public class MainFrm2 extends JFrame {
 					autocalcplan.setModel(autoselectplanmodel);
 //					name
 //					planTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+					HistoryDrawThread thread = new HistoryDrawThread(table_2, scheme,user.getToken(),1);
+					thread.start();
+					
 				}
 			}
 		});
@@ -1103,13 +1106,13 @@ public class MainFrm2 extends JFrame {
 		panel_13.add(plan_b_save);
 		
 		JButton plan_b_update = new JButton("修改");
-		plan_b_update.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				plan_text_1.setText("2");
-			}
-		});
+//		plan_b_update.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				
+//				plan_text_1.setText("2");
+//			}
+//		});
 		panel_12.setLayout(new BorderLayout(0, 0));
 		plan_p = new JPanel();
 		plan_p.setBorder(new TitledBorder(null, "\u8BA1\u5212\u8BBE\u7F6E", TitledBorder.LEADING, TitledBorder.TOP, null, null));

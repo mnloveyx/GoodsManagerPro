@@ -2,8 +2,8 @@ package com.panli.model;
 
 import java.util.Date;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
+//import org.apache.commons.lang3.builder.ToStringBuilder;
+//import org.apache.commons.lang3.builder.ToStringStyle;
 
 import com.panli.util.DateUtils;
 
