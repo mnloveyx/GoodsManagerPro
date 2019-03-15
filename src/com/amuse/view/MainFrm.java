@@ -111,6 +111,7 @@ public class MainFrm extends JFrame {
 	private JComboBox autoselectplan;
 	private JComboBox autocalcplan;
 	private JScrollPane scrollPane;
+	private JLabel placeStatus;
 	
 	private JTable table_2;
 	private JPanel plan_p2;
@@ -145,7 +146,7 @@ public class MainFrm extends JFrame {
 	
 	private JLabel account_type_2;
 	
-	private String token = "82b94cad12911940357f6f8b41e00b5565d71798";
+	private String token = "0402e4da22f52931a17d381ca71bf23380d5dc0a";
 	
 	
 //	private JLabel account_type_3;
@@ -587,8 +588,10 @@ public class MainFrm extends JFrame {
 							try {
 								if(f.get())
 								{
+								   scheduledExecutorService = Executors.newScheduledThreadPool(1);
 //									PlaceAction placeThread = new PlaceAction(plan_statis_panel,table,selectPlan,user.getToken());
-									PlaceThread  placeThread = new PlaceThread(plan_statis_panel,table,selectPlan,user.getToken());
+//									PlaceThread  placeThread = new PlaceThread(plan_statis_panel,table,selectPlan,user.getToken());
+									PlaceAction placeThread = new PlaceAction(plan_statis_panel,table,selectPlan,user.getToken(),scheduledExecutorService);
 									executor.execute(placeThread);
 								}
 							} catch (InterruptedException e1) {
@@ -599,9 +602,8 @@ public class MainFrm extends JFrame {
 								e1.printStackTrace();
 							}
 						
-							
 						}else {
-							
+							scheduledExecutorService.shutdown();
 							 executor.shutdownNow();
 //							 try {
 //								executor.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);
@@ -611,12 +613,13 @@ public class MainFrm extends JFrame {
 //							}
 							autoStart.setText("启动自动投注");
 							autoStart.setName("autoStart");
+							 placeStatus.setText("等待投注");
 							autoStart.setForeground(new Color(0, 0, 0));
 							log.info("stop auto place:方案:{},placeType:{},planPlaceAmounts:{}",selectPlan.toLogString(),placeType,amounts);
-							
-							Integer i = records.size();
-							String current = selectPlan.getCurrentLine();
-							log.info(i.toString(),current);
+//							
+//							Integer i = records.size();
+//							String current = selectPlan.getCurrentLine();
+//							log.info(i.toString(),current);
 						}
 					}
 				});
@@ -708,7 +711,7 @@ public class MainFrm extends JFrame {
 				
 				JLabel label_19 = new JLabel("投注状态：");
 				
-				JLabel placeStatus = new JLabel("无");
+			    placeStatus = new JLabel("无");
 				placeStatus.setName("placeStatus");
 				
 				JLabel label_21 = new JLabel("准确率：");
@@ -1528,7 +1531,7 @@ public class MainFrm extends JFrame {
     
 	ExecutorService executor ;
 	Future<Boolean> f;
-	
+	ScheduledExecutorService scheduledExecutorService;
     
     /**
      * @Title: getButtonSelect   
