@@ -1,0 +1,859 @@
+2019-03-15 12:07:32,192 [Thread-15] DEBUG [com.panli.view.AccountThread] - start accountInfo history query:Thread-15 currentTime:1552622852192
+2019-03-15 12:07:32,196 [Thread-16] DEBUG [com.panli.view.HistoryDrawThread] - start opendata history queryThread-16 currentTime:1552622852196
+2019-03-15 12:08:08,330 [AWT-EventQueue-0] DEBUG [com.panli.view.MainFrm2] - updatePlanPanel
+2019-03-15 12:08:09,115 [AWT-EventQueue-0] DEBUG [com.panli.view.MainFrm2] - updatePlanPanel
+2019-03-15 12:08:09,178 [AWT-EventQueue-0] DEBUG [com.panli.view.MainFrm2] - updatePlanPanel
+2019-03-15 12:08:47,885 [AWT-EventQueue-0] DEBUG [com.panli.view.MainFrm2] - refulsh:autoselectplan and autocalcplan,plan:Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=null, jumpHistory=null, type=单双]
+2019-03-15 12:08:51,811 [AWT-EventQueue-0] INFO  [com.panli.view.MainFrm2] - stop auto place:方案:Plan [schemeName=极速飞艇 , name=方案1, startLine=2, startTime=2, endTime=60, jumpLine=1,2,3,4,5,6,7,8,9,10, numMapStr=一号=2,3,4,5,6,7,8,9,10
+二号=1,3,4,5,6,7,8,9,10
+三号=1,2,4,5,6,7,8,9,10
+四号=1,2,3,5,6,7,8,9,10
+五号=1,2,3,4,6,7,8,9,10
+六号=1,2,3,4,5,7,8,9,10
+七号=1,2,3,4,5,6,8,9,10
+八号=1,2,3,4,5,6,7,9,10
+九号=1,2,3,4,5,6,7,8,10
+十号=1,2,3,4,5,6,7,8,9
+, currentLine=2, jumpHistory=null, type=开某投某],placeType:真实投注,planPlaceAmounts:1,2,4,8,16,32,64,128,256,512
+2019-03-15 12:08:51,811 [AWT-EventQueue-0] INFO  [com.panli.view.MainFrm2] - 0
+2019-03-15 12:08:52,962 [AWT-EventQueue-0] INFO  [com.panli.view.MainFrm2] - stat auto place:plan:Plan [schemeName=极速飞艇 , name=方案1, startLine=2, startTime=2, endTime=60, jumpLine=1,2,3,4,5,6,7,8,9,10, numMapStr=一号=2,3,4,5,6,7,8,9,10
+二号=1,3,4,5,6,7,8,9,10
+三号=1,2,4,5,6,7,8,9,10
+四号=1,2,3,5,6,7,8,9,10
+五号=1,2,3,4,6,7,8,9,10
+六号=1,2,3,4,5,7,8,9,10
+七号=1,2,3,4,5,6,8,9,10
+八号=1,2,3,4,5,6,7,9,10
+九号=1,2,3,4,5,6,7,8,10
+十号=1,2,3,4,5,6,7,8,9
+, currentLine=2, jumpHistory=null, type=开某投某],placeType:真实投注,planPlaceAmounts:1,2,4,8,16,32,64,128,256,512
+2019-03-15 12:08:53,202 [Thread-18] INFO  [com.panli.view.PlaceThread] - Period [closeTime=2019-03-15 12:09:30, currentTime=2019-03-15 12:08:53, drawDate=2019-03-15 00:00:00, drawTime=2019-03-15 12:09:45, openTime=2019-03-15 12:08:30, drawNumber=51636852, pnumber=51636851]
+2019-03-15 12:08:53,798 [Thread-18] INFO  [com.panli.view.PlaceThread] - {"B1_1":9.71,"B1_2":9.71,"B1_3":9.71,"B1_4":9.71,"B1_5":9.71,"B1_6":9.71,"B1_7":9.71,"B1_8":9.71,"B1_9":9.71,"B1_10":9.71,"B2_1":9.71,"B2_2":9.71,"B2_3":9.71,"B2_4":9.71,"B2_5":9.71,"B2_6":9.71,"B2_7":9.71,"B2_8":9.71,"B2_9":9.71,"B2_10":9.71,"B3_1":9.71,"B3_2":9.71,"B3_3":9.71,"B3_4":9.71,"B3_5":9.71,"B3_6":9.71,"B3_7":9.71,"B3_8":9.71,"B3_9":9.71,"B3_10":9.71,"B4_1":9.71,"B4_2":9.71,"B4_3":9.71,"B4_4":9.71,"B4_5":9.71,"B4_6":9.71,"B4_7":9.71,"B4_8":9.71,"B4_9":9.71,"B4_10":9.71,"B5_1":9.71,"B5_2":9.71,"B5_3":9.71,"B5_4":9.71,"B5_5":9.71,"B5_6":9.71,"B5_7":9.71,"B5_8":9.71,"B5_9":9.71,"B5_10":9.71,"B6_1":9.71,"B6_2":9.71,"B6_3":9.71,"B6_4":9.71,"B6_5":9.71,"B6_6":9.71,"B6_7":9.71,"B6_8":9.71,"B6_9":9.71,"B6_10":9.71,"B7_1":9.71,"B7_2":9.71,"B7_3":9.71,"B7_4":9.71,"B7_5":9.71,"B7_6":9.71,"B7_7":9.71,"B7_8":9.71,"B7_9":9.71,"B7_10":9.71,"B8_1":9.71,"B8_2":9.71,"B8_3":9.71,"B8_4":9.71,"B8_5":9.71,"B8_6":9.71,"B8_7":9.71,"B8_8":9.71,"B8_9":9.71,"B8_10":9.71,"B9_1":9.71,"B9_2":9.71,"B9_3":9.71,"B9_4":9.71,"B9_5":9.71,"B9_6":9.71,"B9_7":9.71,"B9_8":9.71,"B9_9":9.71,"B9_10":9.71,"B10_1":9.71,"B10_2":9.71,"B10_3":9.71,"B10_4":9.71,"B10_5":9.71,"B10_6":9.71,"B10_7":9.71,"B10_8":9.71,"B10_9":9.71,"B10_10":9.71,"DS1_D":1.9426,"DS1_S":1.9426,"DS2_D":1.9426,"DS2_S":1.9426,"DS3_D":1.9426,"DS3_S":1.9426,"DS4_D":1.9426,"DS4_S":1.9426,"DS5_D":1.9426,"DS5_S":1.9426,"DS6_D":1.9426,"DS6_S":1.9426,"DS7_D":1.9426,"DS7_S":1.9426,"DS8_D":1.9426,"DS8_S":1.9426,"DS9_D":1.9426,"DS9_S":1.9426,"DS10_D":1.9426,"DS10_S":1.9426,"DX1_D":1.9426,"DX1_X":1.9426,"DX2_D":1.9426,"DX2_X":1.9426,"DX3_D":1.9426,"DX3_X":1.9426,"DX4_D":1.9426,"DX4_X":1.9426,"DX5_D":1.9426,"DX5_X":1.9426,"DX6_D":1.9426,"DX6_X":1.9426,"DX7_D":1.9426,"DX7_X":1.9426,"DX8_D":1.9426,"DX8_X":1.9426,"DX9_D":1.9426,"DX9_X":1.9426,"DX10_D":1.9426,"DX10_X":1.9426,"GDS_D":1.735,"GDS_S":2.135,"GDX_D":2.135,"GDX_X":1.735,"GYH_3":41.31,"GYH_4":41.31,"GYH_5":20.73,"GYH_6":20.73,"GYH_7":13.76,"GYH_8":13.76,"GYH_9":10.11,"GYH_10":10.11,"GYH_11":8.15,"GYH_12":10.11,"GYH_13":10.11,"GYH_14":13.76,"GYH_15":13.76,"GYH_16":20.73,"GYH_17":20.73,"GYH_18":41.31,"GYH_19":41.31,"LH1_H":1.9426,"LH1_L":1.9426,"LH2_H":1.9426,"LH2_L":1.9426,"LH3_H":1.9426,"LH3_L":1.9426,"LH4_H":1.9426,"LH4_L":1.9426,"LH5_H":1.9426,"LH5_L":1.9426,"message":null,"status":null,"statusCode":null,"result":null}
+2019-03-15 12:08:54,004 [Thread-18] DEBUG [com.panli.view.PlaceThread] - pre plantype,opendata:OpenInfo [detail=LH2=L,3,亚军-龙;LH1=H,2,冠军-虎;GDX=D,3,冠亚大;DX10=D,2,第十名-大;DX9=X,3,第九名-小;DX8=X,4,第八名-小;DX3=X,5,第三名-小;DX2=D,3,亚军-大;DX1=D,3,冠军-大;DS9=D,4,第九名-单;DS8=D,2,第八名-单;DS7=S,2,第七名-双;DS4=D,3,第四名-单;DS3=S,2,第三名-双;DS1=S,6,冠军-双;B3=2,2,第三名-2;B1=6,2,冠军-6;, drawNumber=51636851, drawTime=2019-03-15 12:08:30, map={}, result=6,9,2,3,8,4,10,1,5,7, lottery=LUCKYSB]
+2019-03-15 12:08:54,004 [Thread-18] INFO  [com.panli.view.PlaceThread] - start place========
+2019-03-15 12:08:54,016 [Thread-18] INFO  [com.panli.view.PlaceThread] - place plan choose========
+2019-03-15 12:08:54,016 [Thread-18] DEBUG [com.panli.view.PlaceThread] - place plan choose========Plan [schemeName=极速飞艇 , name=方案1, startLine=2, startTime=2, endTime=60, jumpLine=1,2,3,4,5,6,7,8,9,10, numMapStr=一号=2,3,4,5,6,7,8,9,10
+二号=1,3,4,5,6,7,8,9,10
+三号=1,2,4,5,6,7,8,9,10
+四号=1,2,3,5,6,7,8,9,10
+五号=1,2,3,4,6,7,8,9,10
+六号=1,2,3,4,5,7,8,9,10
+七号=1,2,3,4,5,6,8,9,10
+八号=1,2,3,4,5,6,7,9,10
+九号=1,2,3,4,5,6,7,8,10
+十号=1,2,3,4,5,6,7,8,9
+, currentLine=2, jumpHistory=null, type=开某投某]
+2019-03-15 12:08:54,016 [Thread-18] DEBUG [com.panli.view.PlaceThread] - getPlaceAmount:0
+2019-03-15 12:08:54,035 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placebetInfo:Placebet [drawTime=Fri Mar 15 12:08:54 CST 2019, drawNumber=51636852, lottery=LUCKYSB, bets=Bet [amount=1, contents=1, game=B2, odds=9.71]Bet [amount=1, contents=2, game=B2, odds=9.71]Bet [amount=1, contents=3, game=B2, odds=9.71]Bet [amount=1, contents=4, game=B2, odds=9.71]Bet [amount=1, contents=5, game=B2, odds=9.71]Bet [amount=1, contents=6, game=B2, odds=9.71]Bet [amount=1, contents=7, game=B2, odds=9.71]Bet [amount=1, contents=8, game=B2, odds=9.71]Bet [amount=1, contents=10, game=B2, odds=9.71]]
+2019-03-15 12:08:54,035 [Thread-18] INFO  [com.panli.view.PlaceThread] - startRealPlace==============
+2019-03-15 12:08:54,085 [pool-4-thread-1] DEBUG [com.panli.enums.license.SystemTool] - mac:2C-FD-A1-BF-C6-11,cpuNumber:BFEBFBFF000906E9,getSerialNumber(C):46398457,MachineCode:2C-FD-A1-BF-C6-11BFEBFBFF000906E946398457,md5:Stuge3k93Hcgbw95jbyLqA==
+2019-03-15 12:08:54,096 [pool-4-thread-1] DEBUG [com.panli.view.CollectionInfoThread] - collect client info hostName:PC-20180227SXER,ipaddress:192.168.1.62,machinecode:Stuge3k93Hcgbw95jbyLqA==,os:WINDOWS
+2019-03-15 12:08:54,402 [Thread-18] DEBUG [com.panli.view.PlaceThread] - realPlaceResult:{"message":"下注成功","result":{"account":{"balance":11.0,"betting":9.0,"maxLimit":20.0,"result":0.0,"type":0},"ids":["2019031512085421070431730001","2019031512085421070431730002","2019031512085421070431730003","2019031512085421070431730004","2019031512085421070431730005","2019031512085421070431730006","2019031512085421070431730007","2019031512085421070431730008","2019031512085421070431730009"],"odds":["9.71","9.71","9.71","9.71","9.71","9.71","9.71","9.71","9.71"],"status":0},"status":"success","statusCode":0}
+2019-03-15 12:08:54,418 [Thread-18] INFO  [com.panli.view.PlaceThread] - placecomplete========
+2019-03-15 12:08:54,418 [Thread-18] DEBUG [com.panli.view.PlaceThread] - restPlaceTime:37000,currentTime:1552622934418
+2019-03-15 12:09:03,402 [AWT-EventQueue-0] INFO  [com.panli.view.MainFrm2] - stop auto place:方案:Plan [schemeName=极速飞艇 , name=方案1, startLine=2, startTime=2, endTime=60, jumpLine=1,2,3,4,5,6,7,8,9,10, numMapStr=一号=2,3,4,5,6,7,8,9,10
+二号=1,3,4,5,6,7,8,9,10
+三号=1,2,4,5,6,7,8,9,10
+四号=1,2,3,5,6,7,8,9,10
+五号=1,2,3,4,6,7,8,9,10
+六号=1,2,3,4,5,7,8,9,10
+七号=1,2,3,4,5,6,8,9,10
+八号=1,2,3,4,5,6,7,9,10
+九号=1,2,3,4,5,6,7,8,10
+十号=1,2,3,4,5,6,7,8,9
+, currentLine=2, jumpHistory=null, type=开某投某],placeType:真实投注,planPlaceAmounts:1,2,4,8,16,32,64,128,256,512
+2019-03-15 12:09:03,403 [AWT-EventQueue-0] INFO  [com.panli.view.MainFrm2] - 0
+2019-03-15 12:09:05,652 [AWT-EventQueue-0] DEBUG [com.panli.view.MainFrm2] - updatePlanPanel
+2019-03-15 12:09:06,604 [AWT-EventQueue-0] DEBUG [com.panli.view.MainFrm2] - refulsh:autoselectplan and autocalcplan,plan:Plan [schemeName=极速飞艇 , name=方案1, startLine=2, startTime=2, endTime=60, jumpLine=1,2,3,4,5,6,7,8,9,10, numMapStr=一号=2,3,4,5,6,7,8,9,10
+二号=1,3,4,5,6,7,8,9,10
+三号=1,2,4,5,6,7,8,9,10
+四号=1,2,3,5,6,7,8,9,10
+五号=1,2,3,4,6,7,8,9,10
+六号=1,2,3,4,5,7,8,9,10
+七号=1,2,3,4,5,6,8,9,10
+八号=1,2,3,4,5,6,7,9,10
+九号=1,2,3,4,5,6,7,8,10
+十号=1,2,3,4,5,6,7,8,9
+, currentLine=null, jumpHistory=null, type=开某投某]
+2019-03-15 12:09:07,803 [AWT-EventQueue-0] DEBUG [com.panli.view.MainFrm2] - updatePlanPanel
+2019-03-15 12:09:07,867 [AWT-EventQueue-0] DEBUG [com.panli.view.MainFrm2] - updatePlanPanel
+2019-03-15 12:09:08,931 [AWT-EventQueue-0] DEBUG [com.panli.view.MainFrm2] - refulsh:autoselectplan and autocalcplan,plan:Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=null, jumpHistory=null, type=单双]
+2019-03-15 12:09:23,779 [Thread-15] DEBUG [com.panli.view.AccountThread] - start accountInfo history query:Thread-15 currentTime:1552622963778
+2019-03-15 12:09:23,780 [Thread-16] DEBUG [com.panli.view.HistoryDrawThread] - start opendata history queryThread-16 currentTime:1552622963780
+2019-03-15 12:09:27,453 [AWT-EventQueue-0] INFO  [com.panli.view.MainFrm2] - stop auto place:方案:Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=7, jumpHistory=null, type=单双],placeType:真实投注,planPlaceAmounts:1,2,3,4,5,6,7,8,9,10
+2019-03-15 12:09:27,454 [AWT-EventQueue-0] INFO  [com.panli.view.MainFrm2] - 0
+2019-03-15 12:09:27,970 [AWT-EventQueue-0] INFO  [com.panli.view.MainFrm2] - stat auto place:plan:Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=7, jumpHistory=null, type=单双],placeType:真实投注,planPlaceAmounts:1,2,3,4,5,6,7,8,9,10
+2019-03-15 12:09:28,179 [Thread-18] INFO  [com.panli.view.PlaceThread] - Period [closeTime=2019-03-15 12:09:30, currentTime=2019-03-15 12:09:28, drawDate=2019-03-15 00:00:00, drawTime=2019-03-15 12:09:45, openTime=2019-03-15 12:08:30, drawNumber=51636852, pnumber=51636851]
+2019-03-15 12:09:28,415 [pool-4-thread-1] DEBUG [com.panli.enums.license.SystemTool] - mac:2C-FD-A1-BF-C6-11,cpuNumber:BFEBFBFF000906E9,getSerialNumber(C):46398457,MachineCode:2C-FD-A1-BF-C6-11BFEBFBFF000906E946398457,md5:Stuge3k93Hcgbw95jbyLqA==
+2019-03-15 12:09:28,420 [pool-4-thread-1] DEBUG [com.panli.view.CollectionInfoThread] - collect client info hostName:PC-20180227SXER,ipaddress:192.168.1.62,machinecode:Stuge3k93Hcgbw95jbyLqA==,os:WINDOWS
+2019-03-15 12:09:28,505 [Thread-18] INFO  [com.panli.view.PlaceThread] - {"B1_1":9.71,"B1_2":9.71,"B1_3":9.71,"B1_4":9.71,"B1_5":9.71,"B1_6":9.71,"B1_7":9.71,"B1_8":9.71,"B1_9":9.71,"B1_10":9.71,"B2_1":9.71,"B2_2":9.71,"B2_3":9.71,"B2_4":9.71,"B2_5":9.71,"B2_6":9.71,"B2_7":9.71,"B2_8":9.71,"B2_9":9.71,"B2_10":9.71,"B3_1":9.71,"B3_2":9.71,"B3_3":9.71,"B3_4":9.71,"B3_5":9.71,"B3_6":9.71,"B3_7":9.71,"B3_8":9.71,"B3_9":9.71,"B3_10":9.71,"B4_1":9.71,"B4_2":9.71,"B4_3":9.71,"B4_4":9.71,"B4_5":9.71,"B4_6":9.71,"B4_7":9.71,"B4_8":9.71,"B4_9":9.71,"B4_10":9.71,"B5_1":9.71,"B5_2":9.71,"B5_3":9.71,"B5_4":9.71,"B5_5":9.71,"B5_6":9.71,"B5_7":9.71,"B5_8":9.71,"B5_9":9.71,"B5_10":9.71,"B6_1":9.71,"B6_2":9.71,"B6_3":9.71,"B6_4":9.71,"B6_5":9.71,"B6_6":9.71,"B6_7":9.71,"B6_8":9.71,"B6_9":9.71,"B6_10":9.71,"B7_1":9.71,"B7_2":9.71,"B7_3":9.71,"B7_4":9.71,"B7_5":9.71,"B7_6":9.71,"B7_7":9.71,"B7_8":9.71,"B7_9":9.71,"B7_10":9.71,"B8_1":9.71,"B8_2":9.71,"B8_3":9.71,"B8_4":9.71,"B8_5":9.71,"B8_6":9.71,"B8_7":9.71,"B8_8":9.71,"B8_9":9.71,"B8_10":9.71,"B9_1":9.71,"B9_2":9.71,"B9_3":9.71,"B9_4":9.71,"B9_5":9.71,"B9_6":9.71,"B9_7":9.71,"B9_8":9.71,"B9_9":9.71,"B9_10":9.71,"B10_1":9.71,"B10_2":9.71,"B10_3":9.71,"B10_4":9.71,"B10_5":9.71,"B10_6":9.71,"B10_7":9.71,"B10_8":9.71,"B10_9":9.71,"B10_10":9.71,"DS1_D":1.9426,"DS1_S":1.9426,"DS2_D":1.9426,"DS2_S":1.9426,"DS3_D":1.9426,"DS3_S":1.9426,"DS4_D":1.9426,"DS4_S":1.9426,"DS5_D":1.9426,"DS5_S":1.9426,"DS6_D":1.9426,"DS6_S":1.9426,"DS7_D":1.9426,"DS7_S":1.9426,"DS8_D":1.9426,"DS8_S":1.9426,"DS9_D":1.9426,"DS9_S":1.9426,"DS10_D":1.9426,"DS10_S":1.9426,"DX1_D":1.9426,"DX1_X":1.9426,"DX2_D":1.9426,"DX2_X":1.9426,"DX3_D":1.9426,"DX3_X":1.9426,"DX4_D":1.9426,"DX4_X":1.9426,"DX5_D":1.9426,"DX5_X":1.9426,"DX6_D":1.9426,"DX6_X":1.9426,"DX7_D":1.9426,"DX7_X":1.9426,"DX8_D":1.9426,"DX8_X":1.9426,"DX9_D":1.9426,"DX9_X":1.9426,"DX10_D":1.9426,"DX10_X":1.9426,"GDS_D":1.735,"GDS_S":2.135,"GDX_D":2.135,"GDX_X":1.735,"GYH_3":41.31,"GYH_4":41.31,"GYH_5":20.73,"GYH_6":20.73,"GYH_7":13.76,"GYH_8":13.76,"GYH_9":10.11,"GYH_10":10.11,"GYH_11":8.15,"GYH_12":10.11,"GYH_13":10.11,"GYH_14":13.76,"GYH_15":13.76,"GYH_16":20.73,"GYH_17":20.73,"GYH_18":41.31,"GYH_19":41.31,"LH1_H":1.9426,"LH1_L":1.9426,"LH2_H":1.9426,"LH2_L":1.9426,"LH3_H":1.9426,"LH3_L":1.9426,"LH4_H":1.9426,"LH4_L":1.9426,"LH5_H":1.9426,"LH5_L":1.9426,"message":null,"status":null,"statusCode":null,"result":null}
+2019-03-15 12:09:28,505 [Thread-18] INFO  [com.panli.view.PlaceThread] - start place========
+2019-03-15 12:09:28,506 [Thread-18] INFO  [com.panli.view.PlaceThread] - place plan choose========
+2019-03-15 12:09:28,507 [Thread-18] DEBUG [com.panli.view.PlaceThread] - place plan choose========Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=7, jumpHistory=null, type=单双]
+2019-03-15 12:09:28,507 [Thread-18] DEBUG [com.panli.view.PlaceThread] - getPlaceAmount:0
+2019-03-15 12:09:28,511 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placebetInfo:Placebet [drawTime=Fri Mar 15 12:09:28 CST 2019, drawNumber=51636852, lottery=LUCKYSB, bets=Bet [amount=1, contents=D, game=DS7, odds=1.9426]]
+2019-03-15 12:09:28,511 [Thread-18] INFO  [com.panli.view.PlaceThread] - startRealPlace==============
+2019-03-15 12:09:28,768 [Thread-18] DEBUG [com.panli.view.PlaceThread] - realPlaceResult:{"message":"下注成功","result":{"account":{"balance":10.0,"betting":10.0,"maxLimit":20.0,"result":0.0,"type":0},"ids":["2019031512092821070435240001"],"odds":["1.9426"],"status":0},"status":"success","statusCode":0}
+2019-03-15 12:09:28,769 [Thread-18] INFO  [com.panli.view.PlaceThread] - placecomplete========
+2019-03-15 12:09:28,769 [Thread-18] DEBUG [com.panli.view.PlaceThread] - restPlaceTime:2000,currentTime:1552622968769
+2019-03-15 12:09:38,795 [AWT-EventQueue-0] INFO  [com.panli.view.MainFrm2] - stop auto place:方案:Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=7, jumpHistory=null, type=单双],placeType:真实投注,planPlaceAmounts:1,2,3,4,5,6,7,8,9,10
+2019-03-15 12:09:38,795 [AWT-EventQueue-0] INFO  [com.panli.view.MainFrm2] - 0
+2019-03-15 12:09:45,631 [Thread-15] DEBUG [com.panli.view.AccountThread] - start accountInfo history query:Thread-15 currentTime:1552622985630
+2019-03-15 12:09:45,633 [Thread-16] DEBUG [com.panli.view.HistoryDrawThread] - start opendata history queryThread-16 currentTime:1552622985633
+2019-03-15 12:10:22,925 [AWT-EventQueue-0] INFO  [com.panli.view.MainFrm2] - stop auto place:方案:Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=7, jumpHistory=null, type=单双],placeType:真实投注,planPlaceAmounts:1,2,4,8,16,32,64,128,256,512,1024
+2019-03-15 12:10:22,925 [AWT-EventQueue-0] INFO  [com.panli.view.MainFrm2] - 0
+2019-03-15 12:10:23,466 [AWT-EventQueue-0] INFO  [com.panli.view.MainFrm2] - stat auto place:plan:Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=7, jumpHistory=null, type=单双],placeType:真实投注,planPlaceAmounts:1,2,4,8,16,32,64,128,256,512,1024
+2019-03-15 12:10:23,708 [Thread-18] INFO  [com.panli.view.PlaceThread] - Period [closeTime=2019-03-15 12:10:45, currentTime=2019-03-15 12:10:23, drawDate=2019-03-15 00:00:00, drawTime=2019-03-15 12:11:00, openTime=2019-03-15 12:09:45, drawNumber=51636853, pnumber=51636852]
+2019-03-15 12:10:24,044 [Thread-18] INFO  [com.panli.view.PlaceThread] - {"B1_1":9.71,"B1_2":9.71,"B1_3":9.71,"B1_4":9.71,"B1_5":9.71,"B1_6":9.71,"B1_7":9.71,"B1_8":9.71,"B1_9":9.71,"B1_10":9.71,"B2_1":9.71,"B2_2":9.71,"B2_3":9.71,"B2_4":9.71,"B2_5":9.71,"B2_6":9.71,"B2_7":9.71,"B2_8":9.71,"B2_9":9.71,"B2_10":9.71,"B3_1":9.71,"B3_2":9.71,"B3_3":9.71,"B3_4":9.71,"B3_5":9.71,"B3_6":9.71,"B3_7":9.71,"B3_8":9.71,"B3_9":9.71,"B3_10":9.71,"B4_1":9.71,"B4_2":9.71,"B4_3":9.71,"B4_4":9.71,"B4_5":9.71,"B4_6":9.71,"B4_7":9.71,"B4_8":9.71,"B4_9":9.71,"B4_10":9.71,"B5_1":9.71,"B5_2":9.71,"B5_3":9.71,"B5_4":9.71,"B5_5":9.71,"B5_6":9.71,"B5_7":9.71,"B5_8":9.71,"B5_9":9.71,"B5_10":9.71,"B6_1":9.71,"B6_2":9.71,"B6_3":9.71,"B6_4":9.71,"B6_5":9.71,"B6_6":9.71,"B6_7":9.71,"B6_8":9.71,"B6_9":9.71,"B6_10":9.71,"B7_1":9.71,"B7_2":9.71,"B7_3":9.71,"B7_4":9.71,"B7_5":9.71,"B7_6":9.71,"B7_7":9.71,"B7_8":9.71,"B7_9":9.71,"B7_10":9.71,"B8_1":9.71,"B8_2":9.71,"B8_3":9.71,"B8_4":9.71,"B8_5":9.71,"B8_6":9.71,"B8_7":9.71,"B8_8":9.71,"B8_9":9.71,"B8_10":9.71,"B9_1":9.71,"B9_2":9.71,"B9_3":9.71,"B9_4":9.71,"B9_5":9.71,"B9_6":9.71,"B9_7":9.71,"B9_8":9.71,"B9_9":9.71,"B9_10":9.71,"B10_1":9.71,"B10_2":9.71,"B10_3":9.71,"B10_4":9.71,"B10_5":9.71,"B10_6":9.71,"B10_7":9.71,"B10_8":9.71,"B10_9":9.71,"B10_10":9.71,"DS1_D":1.9426,"DS1_S":1.9426,"DS2_D":1.9426,"DS2_S":1.9426,"DS3_D":1.9426,"DS3_S":1.9426,"DS4_D":1.9426,"DS4_S":1.9426,"DS5_D":1.9426,"DS5_S":1.9426,"DS6_D":1.9426,"DS6_S":1.9426,"DS7_D":1.9426,"DS7_S":1.9426,"DS8_D":1.9426,"DS8_S":1.9426,"DS9_D":1.9426,"DS9_S":1.9426,"DS10_D":1.9426,"DS10_S":1.9426,"DX1_D":1.9426,"DX1_X":1.9426,"DX2_D":1.9426,"DX2_X":1.9426,"DX3_D":1.9426,"DX3_X":1.9426,"DX4_D":1.9426,"DX4_X":1.9426,"DX5_D":1.9426,"DX5_X":1.9426,"DX6_D":1.9426,"DX6_X":1.9426,"DX7_D":1.9426,"DX7_X":1.9426,"DX8_D":1.9426,"DX8_X":1.9426,"DX9_D":1.9426,"DX9_X":1.9426,"DX10_D":1.9426,"DX10_X":1.9426,"GDS_D":1.735,"GDS_S":2.135,"GDX_D":2.135,"GDX_X":1.735,"GYH_3":41.31,"GYH_4":41.31,"GYH_5":20.73,"GYH_6":20.73,"GYH_7":13.76,"GYH_8":13.76,"GYH_9":10.11,"GYH_10":10.11,"GYH_11":8.15,"GYH_12":10.11,"GYH_13":10.11,"GYH_14":13.76,"GYH_15":13.76,"GYH_16":20.73,"GYH_17":20.73,"GYH_18":41.31,"GYH_19":41.31,"LH1_H":1.9426,"LH1_L":1.9426,"LH2_H":1.9426,"LH2_L":1.9426,"LH3_H":1.9426,"LH3_L":1.9426,"LH4_H":1.9426,"LH4_L":1.9426,"LH5_H":1.9426,"LH5_L":1.9426,"message":null,"status":null,"statusCode":null,"result":null}
+2019-03-15 12:10:24,044 [Thread-18] INFO  [com.panli.view.PlaceThread] - start place========
+2019-03-15 12:10:24,046 [Thread-18] INFO  [com.panli.view.PlaceThread] - place plan choose========
+2019-03-15 12:10:24,046 [Thread-18] DEBUG [com.panli.view.PlaceThread] - place plan choose========Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=7, jumpHistory=null, type=单双]
+2019-03-15 12:10:24,046 [Thread-18] DEBUG [com.panli.view.PlaceThread] - getPlaceAmount:0
+2019-03-15 12:10:24,052 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placebetInfo:Placebet [drawTime=Fri Mar 15 12:10:24 CST 2019, drawNumber=51636853, lottery=LUCKYSB, bets=Bet [amount=1, contents=D, game=DS7, odds=1.9426]]
+2019-03-15 12:10:24,052 [Thread-18] INFO  [com.panli.view.PlaceThread] - startRealPlace==============
+2019-03-15 12:10:24,063 [pool-4-thread-1] DEBUG [com.panli.enums.license.SystemTool] - mac:2C-FD-A1-BF-C6-11,cpuNumber:BFEBFBFF000906E9,getSerialNumber(C):46398457,MachineCode:2C-FD-A1-BF-C6-11BFEBFBFF000906E946398457,md5:Stuge3k93Hcgbw95jbyLqA==
+2019-03-15 12:10:24,066 [pool-4-thread-1] DEBUG [com.panli.view.CollectionInfoThread] - collect client info hostName:PC-20180227SXER,ipaddress:192.168.1.62,machinecode:Stuge3k93Hcgbw95jbyLqA==,os:WINDOWS
+2019-03-15 12:10:24,242 [Thread-18] DEBUG [com.panli.view.PlaceThread] - realPlaceResult:{"message":"下注成功","result":{"account":{"balance":20.6526,"betting":1.0,"maxLimit":20.0,"result":1.6526,"type":0},"ids":["2019031512102421070448710001"],"odds":["1.9426"],"status":0},"status":"success","statusCode":0}
+2019-03-15 12:10:24,243 [Thread-18] INFO  [com.panli.view.PlaceThread] - placecomplete========
+2019-03-15 12:10:24,244 [Thread-18] DEBUG [com.panli.view.PlaceThread] - restPlaceTime:22000,currentTime:1552623024244
+2019-03-15 12:11:06,656 [Thread-18] INFO  [com.panli.view.PlaceThread] - drawNumbers:51636853,placeNumbers:51636853
+2019-03-15 12:11:06,656 [Thread-18] DEBUG [com.panli.model.Record] - opendata:OpenInfo [detail=LH4=L,2,第四名-龙;LH3=H,2,第三名-虎;LH2=L,5,亚军-龙;LH1=L,2,冠军-龙;GDS=S,2,冠亚双;DX10=X,2,第十名-小;DX9=X,5,第九名-小;DX4=D,2,第四名-大;DX2=D,5,亚军-大;DS10=D,3,第十名-单;DS8=S,2,第八名-双;DS7=D,2,第七名-单;DS6=D,2,第六名-单;DS5=D,2,第五名-单;DS4=S,2,第四名-双;DS2=S,2,亚军-双;DS1=S,8,冠军-双;B2=6,2,亚军-6;, drawNumber=51636853, drawTime=2019-03-15 12:11:00, map={}, result=8,6,2,10,9,7,3,4,1,5, lottery=LUCKYSB]
+2019-03-15 12:11:06,656 [Thread-18] DEBUG [com.panli.model.Record] - placedata:Placebet [drawTime=Fri Mar 15 12:10:24 CST 2019, drawNumber=51636853, lottery=LUCKYSB, bets=Bet [amount=1, contents=D, game=DS7, odds=1.9426]]
+2019-03-15 12:11:06,658 [Thread-18] INFO  [com.panli.model.Record] - key:DS7=D,value:3,detail:LH4=L,2,第四名-龙;LH3=H,2,第三名-虎;LH2=L,5,亚军-龙;LH1=L,2,冠军-龙;GDS=S,2,冠亚双;DX10=X,2,第十名-小;DX9=X,5,第九名-小;DX4=D,2,第四名-大;DX2=D,5,亚军-大;DS10=D,3,第十名-单;DS8=S,2,第八名-双;DS7=D,2,第七名-单;DS6=D,2,第六名-单;DS5=D,2,第五名-单;DS4=S,2,第四名-双;DS2=S,2,亚军-双;DS1=S,8,冠军-双;B2=6,2,亚军-6;,drwaNum:51636853,platNum:51636853
+2019-03-15 12:11:06,683 [Thread-18] INFO  [com.panli.view.PlaceThread] - placeStartTime：startPlaceTime:Fri Mar 15 12:10:23 CST 2019,currentTime:Fri Mar 15 12:11:06 CST 2019,placeSettingTime:3 minute
+2019-03-15 12:11:06,684 [Thread-18] DEBUG [com.panli.view.PlaceThread] - this is staticInfo:planTotalCount=1, realCount=1, realAmount=0.94, virtualCount=0, virtualAmount=0, continueWinMax=1, continueLostMax=0,realWinPercent=100%
+2019-03-15 12:11:06,684 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realCount
+2019-03-15 12:11:06,684 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:placeStatus
+2019-03-15 12:11:06,685 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realAmount
+2019-03-15 12:11:06,685 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realWinPercent
+2019-03-15 12:11:06,686 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualCount
+2019-03-15 12:11:06,686 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:planTotalCount
+2019-03-15 12:11:06,686 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualAmount
+2019-03-15 12:11:06,687 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueWinMax
+2019-03-15 12:11:06,687 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueLostMax
+2019-03-15 12:11:16,894 [Thread-18] INFO  [com.panli.view.PlaceThread] - Period [closeTime=2019-03-15 12:12:00, currentTime=2019-03-15 12:11:16, drawDate=2019-03-15 00:00:00, drawTime=2019-03-15 12:12:15, openTime=2019-03-15 12:11:00, drawNumber=51636854, pnumber=51636853]
+2019-03-15 12:11:17,095 [Thread-18] INFO  [com.panli.view.PlaceThread] - {"B1_1":9.71,"B1_2":9.71,"B1_3":9.71,"B1_4":9.71,"B1_5":9.71,"B1_6":9.71,"B1_7":9.71,"B1_8":9.71,"B1_9":9.71,"B1_10":9.71,"B2_1":9.71,"B2_2":9.71,"B2_3":9.71,"B2_4":9.71,"B2_5":9.71,"B2_6":9.71,"B2_7":9.71,"B2_8":9.71,"B2_9":9.71,"B2_10":9.71,"B3_1":9.71,"B3_2":9.71,"B3_3":9.71,"B3_4":9.71,"B3_5":9.71,"B3_6":9.71,"B3_7":9.71,"B3_8":9.71,"B3_9":9.71,"B3_10":9.71,"B4_1":9.71,"B4_2":9.71,"B4_3":9.71,"B4_4":9.71,"B4_5":9.71,"B4_6":9.71,"B4_7":9.71,"B4_8":9.71,"B4_9":9.71,"B4_10":9.71,"B5_1":9.71,"B5_2":9.71,"B5_3":9.71,"B5_4":9.71,"B5_5":9.71,"B5_6":9.71,"B5_7":9.71,"B5_8":9.71,"B5_9":9.71,"B5_10":9.71,"B6_1":9.71,"B6_2":9.71,"B6_3":9.71,"B6_4":9.71,"B6_5":9.71,"B6_6":9.71,"B6_7":9.71,"B6_8":9.71,"B6_9":9.71,"B6_10":9.71,"B7_1":9.71,"B7_2":9.71,"B7_3":9.71,"B7_4":9.71,"B7_5":9.71,"B7_6":9.71,"B7_7":9.71,"B7_8":9.71,"B7_9":9.71,"B7_10":9.71,"B8_1":9.71,"B8_2":9.71,"B8_3":9.71,"B8_4":9.71,"B8_5":9.71,"B8_6":9.71,"B8_7":9.71,"B8_8":9.71,"B8_9":9.71,"B8_10":9.71,"B9_1":9.71,"B9_2":9.71,"B9_3":9.71,"B9_4":9.71,"B9_5":9.71,"B9_6":9.71,"B9_7":9.71,"B9_8":9.71,"B9_9":9.71,"B9_10":9.71,"B10_1":9.71,"B10_2":9.71,"B10_3":9.71,"B10_4":9.71,"B10_5":9.71,"B10_6":9.71,"B10_7":9.71,"B10_8":9.71,"B10_9":9.71,"B10_10":9.71,"DS1_D":1.9426,"DS1_S":1.9426,"DS2_D":1.9426,"DS2_S":1.9426,"DS3_D":1.9426,"DS3_S":1.9426,"DS4_D":1.9426,"DS4_S":1.9426,"DS5_D":1.9426,"DS5_S":1.9426,"DS6_D":1.9426,"DS6_S":1.9426,"DS7_D":1.9426,"DS7_S":1.9426,"DS8_D":1.9426,"DS8_S":1.9426,"DS9_D":1.9426,"DS9_S":1.9426,"DS10_D":1.9426,"DS10_S":1.9426,"DX1_D":1.9426,"DX1_X":1.9426,"DX2_D":1.9426,"DX2_X":1.9426,"DX3_D":1.9426,"DX3_X":1.9426,"DX4_D":1.9426,"DX4_X":1.9426,"DX5_D":1.9426,"DX5_X":1.9426,"DX6_D":1.9426,"DX6_X":1.9426,"DX7_D":1.9426,"DX7_X":1.9426,"DX8_D":1.9426,"DX8_X":1.9426,"DX9_D":1.9426,"DX9_X":1.9426,"DX10_D":1.9426,"DX10_X":1.9426,"GDS_D":1.735,"GDS_S":2.135,"GDX_D":2.135,"GDX_X":1.735,"GYH_3":41.31,"GYH_4":41.31,"GYH_5":20.73,"GYH_6":20.73,"GYH_7":13.76,"GYH_8":13.76,"GYH_9":10.11,"GYH_10":10.11,"GYH_11":8.15,"GYH_12":10.11,"GYH_13":10.11,"GYH_14":13.76,"GYH_15":13.76,"GYH_16":20.73,"GYH_17":20.73,"GYH_18":41.31,"GYH_19":41.31,"LH1_H":1.9426,"LH1_L":1.9426,"LH2_H":1.9426,"LH2_L":1.9426,"LH3_H":1.9426,"LH3_L":1.9426,"LH4_H":1.9426,"LH4_L":1.9426,"LH5_H":1.9426,"LH5_L":1.9426,"message":null,"status":null,"statusCode":null,"result":null}
+2019-03-15 12:11:17,095 [Thread-18] INFO  [com.panli.view.PlaceThread] - start place========
+2019-03-15 12:11:17,095 [Thread-18] INFO  [com.panli.view.PlaceThread] - place plan choose========
+2019-03-15 12:11:17,095 [Thread-18] DEBUG [com.panli.view.PlaceThread] - place plan choose========Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=7, jumpHistory=null, type=单双]
+2019-03-15 12:11:17,095 [Thread-18] DEBUG [com.panli.view.PlaceThread] - getPlaceAmount:0
+2019-03-15 12:11:17,095 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placebetInfo:Placebet [drawTime=Fri Mar 15 12:11:17 CST 2019, drawNumber=51636854, lottery=LUCKYSB, bets=Bet [amount=1, contents=S, game=DS7, odds=1.9426]]
+2019-03-15 12:11:17,095 [Thread-18] INFO  [com.panli.view.PlaceThread] - startRealPlace==============
+2019-03-15 12:11:17,288 [Thread-18] DEBUG [com.panli.view.PlaceThread] - realPlaceResult:{"message":"下注成功","result":{"account":{"balance":21.5952,"betting":1.0,"maxLimit":20.0,"result":2.5952,"type":0},"ids":["2019031512111721070464250001"],"odds":["1.9426"],"status":0},"status":"success","statusCode":0}
+2019-03-15 12:11:17,288 [Thread-18] INFO  [com.panli.view.PlaceThread] - placecomplete========
+2019-03-15 12:11:17,289 [Thread-18] DEBUG [com.panli.view.PlaceThread] - restPlaceTime:44000,currentTime:1552623077289
+2019-03-15 12:12:21,715 [Thread-18] INFO  [com.panli.view.PlaceThread] - drawNumbers:51636854,placeNumbers:51636854
+2019-03-15 12:12:21,715 [Thread-18] DEBUG [com.panli.model.Record] - opendata:OpenInfo [detail=LH4=L,3,第四名-龙;LH3=H,3,第三名-虎;GDS=S,3,冠亚双;DX10=X,3,第十名-小;DX7=X,2,第七名-小;DX6=D,2,第六名-大;DX5=D,2,第五名-大;DX4=D,3,第四名-大;DX3=X,2,第三名-小;DS10=D,4,第十名-单;DS9=D,2,第九名-单;DS4=S,3,第四名-双;DS3=S,2,第三名-双;B10=5,2,第十名-5;B3=2,2,第三名-2;, drawNumber=51636854, drawTime=2019-03-15 12:12:15, map={}, result=3,1,2,6,8,10,4,9,7,5, lottery=LUCKYSB]
+2019-03-15 12:12:21,715 [Thread-18] DEBUG [com.panli.model.Record] - placedata:Placebet [drawTime=Fri Mar 15 12:11:17 CST 2019, drawNumber=51636854, lottery=LUCKYSB, bets=Bet [amount=1, contents=S, game=DS7, odds=1.9426]]
+2019-03-15 12:12:21,715 [Thread-18] INFO  [com.panli.model.Record] - key:DS7=S,value:4,detail:LH4=L,3,第四名-龙;LH3=H,3,第三名-虎;GDS=S,3,冠亚双;DX10=X,3,第十名-小;DX7=X,2,第七名-小;DX6=D,2,第六名-大;DX5=D,2,第五名-大;DX4=D,3,第四名-大;DX3=X,2,第三名-小;DS10=D,4,第十名-单;DS9=D,2,第九名-单;DS4=S,3,第四名-双;DS3=S,2,第三名-双;B10=5,2,第十名-5;B3=2,2,第三名-2;,drwaNum:51636854,platNum:51636854
+2019-03-15 12:12:21,715 [Thread-18] INFO  [com.panli.view.PlaceThread] - placeStartTime：startPlaceTime:Fri Mar 15 12:10:23 CST 2019,currentTime:Fri Mar 15 12:12:21 CST 2019,placeSettingTime:3 minute
+2019-03-15 12:12:21,716 [Thread-18] DEBUG [com.panli.view.PlaceThread] - this is staticInfo:planTotalCount=2, realCount=2, realAmount=1.88, virtualCount=0, virtualAmount=0, continueWinMax=2, continueLostMax=0,realWinPercent=100%
+2019-03-15 12:12:21,716 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realCount
+2019-03-15 12:12:21,716 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:placeStatus
+2019-03-15 12:12:21,716 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realAmount
+2019-03-15 12:12:21,716 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realWinPercent
+2019-03-15 12:12:21,720 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualCount
+2019-03-15 12:12:21,720 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:planTotalCount
+2019-03-15 12:12:21,721 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualAmount
+2019-03-15 12:12:21,721 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueWinMax
+2019-03-15 12:12:21,721 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueLostMax
+2019-03-15 12:12:31,929 [Thread-18] INFO  [com.panli.view.PlaceThread] - Period [closeTime=2019-03-15 12:13:15, currentTime=2019-03-15 12:12:32, drawDate=2019-03-15 00:00:00, drawTime=2019-03-15 12:13:30, openTime=2019-03-15 12:12:15, drawNumber=51636855, pnumber=51636854]
+2019-03-15 12:12:32,162 [Thread-18] INFO  [com.panli.view.PlaceThread] - {"B1_1":9.71,"B1_2":9.71,"B1_3":9.71,"B1_4":9.71,"B1_5":9.71,"B1_6":9.71,"B1_7":9.71,"B1_8":9.71,"B1_9":9.71,"B1_10":9.71,"B2_1":9.71,"B2_2":9.71,"B2_3":9.71,"B2_4":9.71,"B2_5":9.71,"B2_6":9.71,"B2_7":9.71,"B2_8":9.71,"B2_9":9.71,"B2_10":9.71,"B3_1":9.71,"B3_2":9.71,"B3_3":9.71,"B3_4":9.71,"B3_5":9.71,"B3_6":9.71,"B3_7":9.71,"B3_8":9.71,"B3_9":9.71,"B3_10":9.71,"B4_1":9.71,"B4_2":9.71,"B4_3":9.71,"B4_4":9.71,"B4_5":9.71,"B4_6":9.71,"B4_7":9.71,"B4_8":9.71,"B4_9":9.71,"B4_10":9.71,"B5_1":9.71,"B5_2":9.71,"B5_3":9.71,"B5_4":9.71,"B5_5":9.71,"B5_6":9.71,"B5_7":9.71,"B5_8":9.71,"B5_9":9.71,"B5_10":9.71,"B6_1":9.71,"B6_2":9.71,"B6_3":9.71,"B6_4":9.71,"B6_5":9.71,"B6_6":9.71,"B6_7":9.71,"B6_8":9.71,"B6_9":9.71,"B6_10":9.71,"B7_1":9.71,"B7_2":9.71,"B7_3":9.71,"B7_4":9.71,"B7_5":9.71,"B7_6":9.71,"B7_7":9.71,"B7_8":9.71,"B7_9":9.71,"B7_10":9.71,"B8_1":9.71,"B8_2":9.71,"B8_3":9.71,"B8_4":9.71,"B8_5":9.71,"B8_6":9.71,"B8_7":9.71,"B8_8":9.71,"B8_9":9.71,"B8_10":9.71,"B9_1":9.71,"B9_2":9.71,"B9_3":9.71,"B9_4":9.71,"B9_5":9.71,"B9_6":9.71,"B9_7":9.71,"B9_8":9.71,"B9_9":9.71,"B9_10":9.71,"B10_1":9.71,"B10_2":9.71,"B10_3":9.71,"B10_4":9.71,"B10_5":9.71,"B10_6":9.71,"B10_7":9.71,"B10_8":9.71,"B10_9":9.71,"B10_10":9.71,"DS1_D":1.9426,"DS1_S":1.9426,"DS2_D":1.9426,"DS2_S":1.9426,"DS3_D":1.9426,"DS3_S":1.9426,"DS4_D":1.9426,"DS4_S":1.9426,"DS5_D":1.9426,"DS5_S":1.9426,"DS6_D":1.9426,"DS6_S":1.9426,"DS7_D":1.9426,"DS7_S":1.9426,"DS8_D":1.9426,"DS8_S":1.9426,"DS9_D":1.9426,"DS9_S":1.9426,"DS10_D":1.9426,"DS10_S":1.9426,"DX1_D":1.9426,"DX1_X":1.9426,"DX2_D":1.9426,"DX2_X":1.9426,"DX3_D":1.9426,"DX3_X":1.9426,"DX4_D":1.9426,"DX4_X":1.9426,"DX5_D":1.9426,"DX5_X":1.9426,"DX6_D":1.9426,"DX6_X":1.9426,"DX7_D":1.9426,"DX7_X":1.9426,"DX8_D":1.9426,"DX8_X":1.9426,"DX9_D":1.9426,"DX9_X":1.9426,"DX10_D":1.9426,"DX10_X":1.9426,"GDS_D":1.735,"GDS_S":2.135,"GDX_D":2.135,"GDX_X":1.735,"GYH_3":41.31,"GYH_4":41.31,"GYH_5":20.73,"GYH_6":20.73,"GYH_7":13.76,"GYH_8":13.76,"GYH_9":10.11,"GYH_10":10.11,"GYH_11":8.15,"GYH_12":10.11,"GYH_13":10.11,"GYH_14":13.76,"GYH_15":13.76,"GYH_16":20.73,"GYH_17":20.73,"GYH_18":41.31,"GYH_19":41.31,"LH1_H":1.9426,"LH1_L":1.9426,"LH2_H":1.9426,"LH2_L":1.9426,"LH3_H":1.9426,"LH3_L":1.9426,"LH4_H":1.9426,"LH4_L":1.9426,"LH5_H":1.9426,"LH5_L":1.9426,"message":null,"status":null,"statusCode":null,"result":null}
+2019-03-15 12:12:32,162 [Thread-18] INFO  [com.panli.view.PlaceThread] - start place========
+2019-03-15 12:12:32,162 [Thread-18] INFO  [com.panli.view.PlaceThread] - place plan choose========
+2019-03-15 12:12:32,162 [Thread-18] DEBUG [com.panli.view.PlaceThread] - place plan choose========Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=7, jumpHistory=null, type=单双]
+2019-03-15 12:12:32,162 [Thread-18] DEBUG [com.panli.view.PlaceThread] - getPlaceAmount:0
+2019-03-15 12:12:32,162 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placebetInfo:Placebet [drawTime=Fri Mar 15 12:12:32 CST 2019, drawNumber=51636855, lottery=LUCKYSB, bets=Bet [amount=1, contents=D, game=DS7, odds=1.9426]]
+2019-03-15 12:12:32,162 [Thread-18] INFO  [com.panli.view.PlaceThread] - startRealPlace==============
+2019-03-15 12:12:32,339 [Thread-18] DEBUG [com.panli.view.PlaceThread] - realPlaceResult:{"message":"下注成功","result":{"account":{"balance":22.5378,"betting":1.0,"maxLimit":20.0,"result":3.5378,"type":0},"ids":["2019031512123221070498240001"],"odds":["1.9426"],"status":0},"status":"success","statusCode":0}
+2019-03-15 12:12:32,339 [Thread-18] INFO  [com.panli.view.PlaceThread] - placecomplete========
+2019-03-15 12:12:32,339 [Thread-18] DEBUG [com.panli.view.PlaceThread] - restPlaceTime:43000,currentTime:1552623152339
+2019-03-15 12:13:35,774 [Thread-18] INFO  [com.panli.view.PlaceThread] - drawNumbers:51636855,placeNumbers:51636855
+2019-03-15 12:13:35,774 [Thread-18] DEBUG [com.panli.model.Record] - opendata:OpenInfo [detail=DX10=X,4,第十名-小;DX9=D,2,第九名-大;DX8=D,2,第八名-大;DX1=X,2,冠军-小;DS9=D,3,第九名-单;DS7=S,2,第七名-双;DS5=S,2,第五名-双;DS1=D,2,冠军-单;B9=7,2,第九名-7;, drawNumber=51636855, drawTime=2019-03-15 12:13:30, map={}, result=5,10,9,1,4,3,8,6,7,2, lottery=LUCKYSB]
+2019-03-15 12:13:35,774 [Thread-18] DEBUG [com.panli.model.Record] - placedata:Placebet [drawTime=Fri Mar 15 12:12:32 CST 2019, drawNumber=51636855, lottery=LUCKYSB, bets=Bet [amount=1, contents=D, game=DS7, odds=1.9426]]
+2019-03-15 12:13:35,774 [Thread-18] INFO  [com.panli.model.Record] - key:DS7=D,value:null,detail:DX10=X,4,第十名-小;DX9=D,2,第九名-大;DX8=D,2,第八名-大;DX1=X,2,冠军-小;DS9=D,3,第九名-单;DS7=S,2,第七名-双;DS5=S,2,第五名-双;DS1=D,2,冠军-单;B9=7,2,第九名-7;,drwaNum:51636855,platNum:51636855
+2019-03-15 12:13:35,774 [Thread-18] DEBUG [com.panli.view.PlaceThread] - this is staticInfo:planTotalCount=3, realCount=3, realAmount=0.88, virtualCount=0, virtualAmount=0, continueWinMax=2, continueLostMax=0,realWinPercent=0%
+2019-03-15 12:13:35,774 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realCount
+2019-03-15 12:13:35,774 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:placeStatus
+2019-03-15 12:13:35,775 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realAmount
+2019-03-15 12:13:35,775 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realWinPercent
+2019-03-15 12:13:35,775 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualCount
+2019-03-15 12:13:35,775 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:planTotalCount
+2019-03-15 12:13:35,775 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualAmount
+2019-03-15 12:13:35,775 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueWinMax
+2019-03-15 12:13:35,775 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueLostMax
+2019-03-15 12:13:45,965 [Thread-18] INFO  [com.panli.view.PlaceThread] - Period [closeTime=2019-03-15 12:14:30, currentTime=2019-03-15 12:13:46, drawDate=2019-03-15 00:00:00, drawTime=2019-03-15 12:14:45, openTime=2019-03-15 12:13:30, drawNumber=51636856, pnumber=51636855]
+2019-03-15 12:13:46,143 [Thread-18] INFO  [com.panli.view.PlaceThread] - {"B1_1":9.71,"B1_2":9.71,"B1_3":9.71,"B1_4":9.71,"B1_5":9.71,"B1_6":9.71,"B1_7":9.71,"B1_8":9.71,"B1_9":9.71,"B1_10":9.71,"B2_1":9.71,"B2_2":9.71,"B2_3":9.71,"B2_4":9.71,"B2_5":9.71,"B2_6":9.71,"B2_7":9.71,"B2_8":9.71,"B2_9":9.71,"B2_10":9.71,"B3_1":9.71,"B3_2":9.71,"B3_3":9.71,"B3_4":9.71,"B3_5":9.71,"B3_6":9.71,"B3_7":9.71,"B3_8":9.71,"B3_9":9.71,"B3_10":9.71,"B4_1":9.71,"B4_2":9.71,"B4_3":9.71,"B4_4":9.71,"B4_5":9.71,"B4_6":9.71,"B4_7":9.71,"B4_8":9.71,"B4_9":9.71,"B4_10":9.71,"B5_1":9.71,"B5_2":9.71,"B5_3":9.71,"B5_4":9.71,"B5_5":9.71,"B5_6":9.71,"B5_7":9.71,"B5_8":9.71,"B5_9":9.71,"B5_10":9.71,"B6_1":9.71,"B6_2":9.71,"B6_3":9.71,"B6_4":9.71,"B6_5":9.71,"B6_6":9.71,"B6_7":9.71,"B6_8":9.71,"B6_9":9.71,"B6_10":9.71,"B7_1":9.71,"B7_2":9.71,"B7_3":9.71,"B7_4":9.71,"B7_5":9.71,"B7_6":9.71,"B7_7":9.71,"B7_8":9.71,"B7_9":9.71,"B7_10":9.71,"B8_1":9.71,"B8_2":9.71,"B8_3":9.71,"B8_4":9.71,"B8_5":9.71,"B8_6":9.71,"B8_7":9.71,"B8_8":9.71,"B8_9":9.71,"B8_10":9.71,"B9_1":9.71,"B9_2":9.71,"B9_3":9.71,"B9_4":9.71,"B9_5":9.71,"B9_6":9.71,"B9_7":9.71,"B9_8":9.71,"B9_9":9.71,"B9_10":9.71,"B10_1":9.71,"B10_2":9.71,"B10_3":9.71,"B10_4":9.71,"B10_5":9.71,"B10_6":9.71,"B10_7":9.71,"B10_8":9.71,"B10_9":9.71,"B10_10":9.71,"DS1_D":1.9426,"DS1_S":1.9426,"DS2_D":1.9426,"DS2_S":1.9426,"DS3_D":1.9426,"DS3_S":1.9426,"DS4_D":1.9426,"DS4_S":1.9426,"DS5_D":1.9426,"DS5_S":1.9426,"DS6_D":1.9426,"DS6_S":1.9426,"DS7_D":1.9426,"DS7_S":1.9426,"DS8_D":1.9426,"DS8_S":1.9426,"DS9_D":1.9426,"DS9_S":1.9426,"DS10_D":1.9426,"DS10_S":1.9426,"DX1_D":1.9426,"DX1_X":1.9426,"DX2_D":1.9426,"DX2_X":1.9426,"DX3_D":1.9426,"DX3_X":1.9426,"DX4_D":1.9426,"DX4_X":1.9426,"DX5_D":1.9426,"DX5_X":1.9426,"DX6_D":1.9426,"DX6_X":1.9426,"DX7_D":1.9426,"DX7_X":1.9426,"DX8_D":1.9426,"DX8_X":1.9426,"DX9_D":1.9426,"DX9_X":1.9426,"DX10_D":1.9426,"DX10_X":1.9426,"GDS_D":1.735,"GDS_S":2.135,"GDX_D":2.135,"GDX_X":1.735,"GYH_3":41.31,"GYH_4":41.31,"GYH_5":20.73,"GYH_6":20.73,"GYH_7":13.76,"GYH_8":13.76,"GYH_9":10.11,"GYH_10":10.11,"GYH_11":8.15,"GYH_12":10.11,"GYH_13":10.11,"GYH_14":13.76,"GYH_15":13.76,"GYH_16":20.73,"GYH_17":20.73,"GYH_18":41.31,"GYH_19":41.31,"LH1_H":1.9426,"LH1_L":1.9426,"LH2_H":1.9426,"LH2_L":1.9426,"LH3_H":1.9426,"LH3_L":1.9426,"LH4_H":1.9426,"LH4_L":1.9426,"LH5_H":1.9426,"LH5_L":1.9426,"message":null,"status":null,"statusCode":null,"result":null}
+2019-03-15 12:13:46,143 [Thread-18] INFO  [com.panli.view.PlaceThread] - start place========
+2019-03-15 12:13:46,143 [Thread-18] INFO  [com.panli.view.PlaceThread] - place plan choose========
+2019-03-15 12:13:46,143 [Thread-18] DEBUG [com.panli.view.PlaceThread] - place plan choose========Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=7, jumpHistory=null, type=单双]
+2019-03-15 12:13:46,143 [Thread-18] DEBUG [com.panli.view.PlaceThread] - getPlaceAmount:1
+2019-03-15 12:13:46,143 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placebetInfo:Placebet [drawTime=Fri Mar 15 12:13:46 CST 2019, drawNumber=51636856, lottery=LUCKYSB, bets=Bet [amount=2, contents=S, game=DS7, odds=1.9426]]
+2019-03-15 12:13:46,143 [Thread-18] INFO  [com.panli.view.PlaceThread] - startRealPlace==============
+2019-03-15 12:13:46,333 [Thread-18] DEBUG [com.panli.view.PlaceThread] - realPlaceResult:{"message":"下注成功","result":{"account":{"balance":20.5378,"betting":2.0,"maxLimit":20.0,"result":2.5378,"type":0},"ids":["2019031512134621070512920001"],"odds":["1.9426"],"status":0},"status":"success","statusCode":0}
+2019-03-15 12:13:46,333 [Thread-18] INFO  [com.panli.view.PlaceThread] - placecomplete========
+2019-03-15 12:13:46,333 [Thread-18] DEBUG [com.panli.view.PlaceThread] - restPlaceTime:44000,currentTime:1552623226333
+2019-03-15 12:14:07,071 [AWT-EventQueue-0] DEBUG [com.panli.view.MainFrm2] - updatePlanPanel
+2019-03-15 12:14:08,979 [AWT-EventQueue-0] DEBUG [com.panli.view.MainFrm2] - updatePlanPanel
+2019-03-15 12:14:09,050 [AWT-EventQueue-0] DEBUG [com.panli.view.MainFrm2] - updatePlanPanel
+2019-03-15 12:14:50,740 [Thread-18] INFO  [com.panli.view.PlaceThread] - drawNumbers:51636856,placeNumbers:51636856
+2019-03-15 12:14:50,740 [Thread-18] DEBUG [com.panli.model.Record] - opendata:OpenInfo [detail=LH5=L,2,第五名-龙;LH4=H,2,第四名-虎;GDS=D,2,冠亚单;DX8=D,3,第八名-大;DX7=D,2,第七名-大;DX6=X,2,第六名-小;DX5=X,2,第五名-小;DX3=D,2,第三名-大;DX1=X,3,冠军-小;DS10=S,2,第十名-双;DS9=D,4,第九名-单;DS7=S,3,第七名-双;DS6=D,2,第六名-单;DS5=S,3,第五名-双;DS4=D,2,第四名-单;B6=3,2,第六名-3;B5=4,2,第五名-4;, drawNumber=51636856, drawTime=2019-03-15 12:14:45, map={}, result=2,1,8,7,4,3,10,9,5,6, lottery=LUCKYSB]
+2019-03-15 12:14:50,741 [Thread-18] DEBUG [com.panli.model.Record] - placedata:Placebet [drawTime=Fri Mar 15 12:13:46 CST 2019, drawNumber=51636856, lottery=LUCKYSB, bets=Bet [amount=2, contents=S, game=DS7, odds=1.9426]]
+2019-03-15 12:14:50,741 [Thread-18] INFO  [com.panli.model.Record] - key:DS7=S,value:10,detail:LH5=L,2,第五名-龙;LH4=H,2,第四名-虎;GDS=D,2,冠亚单;DX8=D,3,第八名-大;DX7=D,2,第七名-大;DX6=X,2,第六名-小;DX5=X,2,第五名-小;DX3=D,2,第三名-大;DX1=X,3,冠军-小;DS10=S,2,第十名-双;DS9=D,4,第九名-单;DS7=S,3,第七名-双;DS6=D,2,第六名-单;DS5=S,3,第五名-双;DS4=D,2,第四名-单;B6=3,2,第六名-3;B5=4,2,第五名-4;,drwaNum:51636856,platNum:51636856
+2019-03-15 12:14:50,741 [Thread-18] INFO  [com.panli.view.PlaceThread] - placeStartTime：startPlaceTime:Fri Mar 15 12:10:23 CST 2019,currentTime:Fri Mar 15 12:14:50 CST 2019,placeSettingTime:3 minute
+2019-03-15 12:14:50,741 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placeStartTime：startPlaceTime:Fri Mar 15 12:10:23 CST 2019,currentTime:Fri Mar 15 12:14:50 CST 2019,placeSettingTime:3 minute
+2019-03-15 12:14:50,741 [Thread-18] INFO  [com.panli.view.PlaceThread] - start change line========
+2019-03-15 12:14:50,741 [Thread-18] DEBUG [com.panli.model.Plan] - currentLine:7 find the next line:3
+2019-03-15 12:14:50,741 [Thread-18] DEBUG [com.panli.model.Plan] - currentLine:3
+2019-03-15 12:14:50,741 [Thread-18] DEBUG [com.panli.view.PlaceThread] - this is staticInfo:planTotalCount=4, realCount=4, realAmount=2.77, virtualCount=0, virtualAmount=0, continueWinMax=2, continueLostMax=0,realWinPercent=0%
+2019-03-15 12:14:50,741 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realCount
+2019-03-15 12:14:50,742 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:placeStatus
+2019-03-15 12:14:50,742 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realAmount
+2019-03-15 12:14:50,742 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realWinPercent
+2019-03-15 12:14:50,742 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualCount
+2019-03-15 12:14:50,742 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:planTotalCount
+2019-03-15 12:14:50,742 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualAmount
+2019-03-15 12:14:50,742 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueWinMax
+2019-03-15 12:14:50,742 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueLostMax
+2019-03-15 12:15:00,917 [Thread-18] INFO  [com.panli.view.PlaceThread] - Period [closeTime=2019-03-15 12:15:45, currentTime=2019-03-15 12:15:00, drawDate=2019-03-15 00:00:00, drawTime=2019-03-15 12:16:00, openTime=2019-03-15 12:14:45, drawNumber=51636857, pnumber=51636856]
+2019-03-15 12:15:01,121 [Thread-18] INFO  [com.panli.view.PlaceThread] - {"B1_1":9.71,"B1_2":9.71,"B1_3":9.71,"B1_4":9.71,"B1_5":9.71,"B1_6":9.71,"B1_7":9.71,"B1_8":9.71,"B1_9":9.71,"B1_10":9.71,"B2_1":9.71,"B2_2":9.71,"B2_3":9.71,"B2_4":9.71,"B2_5":9.71,"B2_6":9.71,"B2_7":9.71,"B2_8":9.71,"B2_9":9.71,"B2_10":9.71,"B3_1":9.71,"B3_2":9.71,"B3_3":9.71,"B3_4":9.71,"B3_5":9.71,"B3_6":9.71,"B3_7":9.71,"B3_8":9.71,"B3_9":9.71,"B3_10":9.71,"B4_1":9.71,"B4_2":9.71,"B4_3":9.71,"B4_4":9.71,"B4_5":9.71,"B4_6":9.71,"B4_7":9.71,"B4_8":9.71,"B4_9":9.71,"B4_10":9.71,"B5_1":9.71,"B5_2":9.71,"B5_3":9.71,"B5_4":9.71,"B5_5":9.71,"B5_6":9.71,"B5_7":9.71,"B5_8":9.71,"B5_9":9.71,"B5_10":9.71,"B6_1":9.71,"B6_2":9.71,"B6_3":9.71,"B6_4":9.71,"B6_5":9.71,"B6_6":9.71,"B6_7":9.71,"B6_8":9.71,"B6_9":9.71,"B6_10":9.71,"B7_1":9.71,"B7_2":9.71,"B7_3":9.71,"B7_4":9.71,"B7_5":9.71,"B7_6":9.71,"B7_7":9.71,"B7_8":9.71,"B7_9":9.71,"B7_10":9.71,"B8_1":9.71,"B8_2":9.71,"B8_3":9.71,"B8_4":9.71,"B8_5":9.71,"B8_6":9.71,"B8_7":9.71,"B8_8":9.71,"B8_9":9.71,"B8_10":9.71,"B9_1":9.71,"B9_2":9.71,"B9_3":9.71,"B9_4":9.71,"B9_5":9.71,"B9_6":9.71,"B9_7":9.71,"B9_8":9.71,"B9_9":9.71,"B9_10":9.71,"B10_1":9.71,"B10_2":9.71,"B10_3":9.71,"B10_4":9.71,"B10_5":9.71,"B10_6":9.71,"B10_7":9.71,"B10_8":9.71,"B10_9":9.71,"B10_10":9.71,"DS1_D":1.9426,"DS1_S":1.9426,"DS2_D":1.9426,"DS2_S":1.9426,"DS3_D":1.9426,"DS3_S":1.9426,"DS4_D":1.9426,"DS4_S":1.9426,"DS5_D":1.9426,"DS5_S":1.9426,"DS6_D":1.9426,"DS6_S":1.9426,"DS7_D":1.9426,"DS7_S":1.9426,"DS8_D":1.9426,"DS8_S":1.9426,"DS9_D":1.9426,"DS9_S":1.9426,"DS10_D":1.9426,"DS10_S":1.9426,"DX1_D":1.9426,"DX1_X":1.9426,"DX2_D":1.9426,"DX2_X":1.9426,"DX3_D":1.9426,"DX3_X":1.9426,"DX4_D":1.9426,"DX4_X":1.9426,"DX5_D":1.9426,"DX5_X":1.9426,"DX6_D":1.9426,"DX6_X":1.9426,"DX7_D":1.9426,"DX7_X":1.9426,"DX8_D":1.9426,"DX8_X":1.9426,"DX9_D":1.9426,"DX9_X":1.9426,"DX10_D":1.9426,"DX10_X":1.9426,"GDS_D":1.735,"GDS_S":2.135,"GDX_D":2.135,"GDX_X":1.735,"GYH_3":41.31,"GYH_4":41.31,"GYH_5":20.73,"GYH_6":20.73,"GYH_7":13.76,"GYH_8":13.76,"GYH_9":10.11,"GYH_10":10.11,"GYH_11":8.15,"GYH_12":10.11,"GYH_13":10.11,"GYH_14":13.76,"GYH_15":13.76,"GYH_16":20.73,"GYH_17":20.73,"GYH_18":41.31,"GYH_19":41.31,"LH1_H":1.9426,"LH1_L":1.9426,"LH2_H":1.9426,"LH2_L":1.9426,"LH3_H":1.9426,"LH3_L":1.9426,"LH4_H":1.9426,"LH4_L":1.9426,"LH5_H":1.9426,"LH5_L":1.9426,"message":null,"status":null,"statusCode":null,"result":null}
+2019-03-15 12:15:01,121 [Thread-18] INFO  [com.panli.view.PlaceThread] - start place========
+2019-03-15 12:15:01,121 [Thread-18] INFO  [com.panli.view.PlaceThread] - place plan choose========
+2019-03-15 12:15:01,121 [Thread-18] DEBUG [com.panli.view.PlaceThread] - place plan choose========Plan [schemeName=极速飞艇 , name=方案2, startLine=3, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=3, jumpHistory=null, type=单双]
+2019-03-15 12:15:01,121 [Thread-18] DEBUG [com.panli.view.PlaceThread] - getPlaceAmount:0
+2019-03-15 12:15:01,121 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placebetInfo:Placebet [drawTime=Fri Mar 15 12:15:01 CST 2019, drawNumber=51636857, lottery=LUCKYSB, bets=Bet [amount=1, contents=D, game=DS3, odds=1.9426]]
+2019-03-15 12:15:01,121 [Thread-18] INFO  [com.panli.view.PlaceThread] - startRealPlace==============
+2019-03-15 12:15:01,309 [Thread-18] DEBUG [com.panli.view.PlaceThread] - realPlaceResult:{"message":"下注成功","result":{"account":{"balance":23.423,"betting":1.0,"maxLimit":20.0,"result":4.423,"type":0},"ids":["2019031512150121070528960001"],"odds":["1.9426"],"status":0},"status":"success","statusCode":0}
+2019-03-15 12:15:01,309 [Thread-18] INFO  [com.panli.view.PlaceThread] - placecomplete========
+2019-03-15 12:15:01,309 [Thread-18] DEBUG [com.panli.view.PlaceThread] - restPlaceTime:45000,currentTime:1552623301309
+2019-03-15 12:16:06,718 [Thread-18] INFO  [com.panli.view.PlaceThread] - drawNumbers:51636857,placeNumbers:51636857
+2019-03-15 12:16:06,718 [Thread-18] DEBUG [com.panli.model.Record] - opendata:OpenInfo [detail=LH5=L,3,第五名-龙;LH3=H,2,第三名-虎;DX9=X,2,第九名-小;DX8=D,4,第八名-大;DX6=X,3,第六名-小;DX3=D,3,第三名-大;DS10=S,3,第十名-双;DS9=D,5,第九名-单;DS4=D,3,第四名-单;DS1=S,2,冠军-双;B9=5,2,第九名-5;, drawNumber=51636857, drawTime=2019-03-15 12:16:00, map={}, result=6,8,7,3,9,2,1,10,5,4, lottery=LUCKYSB]
+2019-03-15 12:16:06,719 [Thread-18] DEBUG [com.panli.model.Record] - placedata:Placebet [drawTime=Fri Mar 15 12:15:01 CST 2019, drawNumber=51636857, lottery=LUCKYSB, bets=Bet [amount=1, contents=D, game=DS3, odds=1.9426]]
+2019-03-15 12:16:06,719 [Thread-18] INFO  [com.panli.model.Record] - key:DS3=D,value:7,detail:LH5=L,3,第五名-龙;LH3=H,2,第三名-虎;DX9=X,2,第九名-小;DX8=D,4,第八名-大;DX6=X,3,第六名-小;DX3=D,3,第三名-大;DS10=S,3,第十名-双;DS9=D,5,第九名-单;DS4=D,3,第四名-单;DS1=S,2,冠军-双;B9=5,2,第九名-5;,drwaNum:51636857,platNum:51636857
+2019-03-15 12:16:06,719 [Thread-18] INFO  [com.panli.view.PlaceThread] - placeStartTime：startPlaceTime:Fri Mar 15 12:14:50 CST 2019,currentTime:Fri Mar 15 12:16:06 CST 2019,placeSettingTime:3 minute
+2019-03-15 12:16:06,719 [Thread-18] DEBUG [com.panli.view.PlaceThread] - this is staticInfo:planTotalCount=5, realCount=5, realAmount=3.71, virtualCount=0, virtualAmount=0, continueWinMax=2, continueLostMax=0,realWinPercent=0%
+2019-03-15 12:16:06,719 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realCount
+2019-03-15 12:16:06,719 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:placeStatus
+2019-03-15 12:16:06,719 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realAmount
+2019-03-15 12:16:06,719 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realWinPercent
+2019-03-15 12:16:06,719 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualCount
+2019-03-15 12:16:06,719 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:planTotalCount
+2019-03-15 12:16:06,720 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualAmount
+2019-03-15 12:16:06,720 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueWinMax
+2019-03-15 12:16:06,720 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueLostMax
+2019-03-15 12:16:16,904 [Thread-18] INFO  [com.panli.view.PlaceThread] - Period [closeTime=2019-03-15 12:17:00, currentTime=2019-03-15 12:16:16, drawDate=2019-03-15 00:00:00, drawTime=2019-03-15 12:17:15, openTime=2019-03-15 12:16:00, drawNumber=51636858, pnumber=51636857]
+2019-03-15 12:16:17,133 [Thread-18] INFO  [com.panli.view.PlaceThread] - {"B1_1":9.71,"B1_2":9.71,"B1_3":9.71,"B1_4":9.71,"B1_5":9.71,"B1_6":9.71,"B1_7":9.71,"B1_8":9.71,"B1_9":9.71,"B1_10":9.71,"B2_1":9.71,"B2_2":9.71,"B2_3":9.71,"B2_4":9.71,"B2_5":9.71,"B2_6":9.71,"B2_7":9.71,"B2_8":9.71,"B2_9":9.71,"B2_10":9.71,"B3_1":9.71,"B3_2":9.71,"B3_3":9.71,"B3_4":9.71,"B3_5":9.71,"B3_6":9.71,"B3_7":9.71,"B3_8":9.71,"B3_9":9.71,"B3_10":9.71,"B4_1":9.71,"B4_2":9.71,"B4_3":9.71,"B4_4":9.71,"B4_5":9.71,"B4_6":9.71,"B4_7":9.71,"B4_8":9.71,"B4_9":9.71,"B4_10":9.71,"B5_1":9.71,"B5_2":9.71,"B5_3":9.71,"B5_4":9.71,"B5_5":9.71,"B5_6":9.71,"B5_7":9.71,"B5_8":9.71,"B5_9":9.71,"B5_10":9.71,"B6_1":9.71,"B6_2":9.71,"B6_3":9.71,"B6_4":9.71,"B6_5":9.71,"B6_6":9.71,"B6_7":9.71,"B6_8":9.71,"B6_9":9.71,"B6_10":9.71,"B7_1":9.71,"B7_2":9.71,"B7_3":9.71,"B7_4":9.71,"B7_5":9.71,"B7_6":9.71,"B7_7":9.71,"B7_8":9.71,"B7_9":9.71,"B7_10":9.71,"B8_1":9.71,"B8_2":9.71,"B8_3":9.71,"B8_4":9.71,"B8_5":9.71,"B8_6":9.71,"B8_7":9.71,"B8_8":9.71,"B8_9":9.71,"B8_10":9.71,"B9_1":9.71,"B9_2":9.71,"B9_3":9.71,"B9_4":9.71,"B9_5":9.71,"B9_6":9.71,"B9_7":9.71,"B9_8":9.71,"B9_9":9.71,"B9_10":9.71,"B10_1":9.71,"B10_2":9.71,"B10_3":9.71,"B10_4":9.71,"B10_5":9.71,"B10_6":9.71,"B10_7":9.71,"B10_8":9.71,"B10_9":9.71,"B10_10":9.71,"DS1_D":1.9426,"DS1_S":1.9426,"DS2_D":1.9426,"DS2_S":1.9426,"DS3_D":1.9426,"DS3_S":1.9426,"DS4_D":1.9426,"DS4_S":1.9426,"DS5_D":1.9426,"DS5_S":1.9426,"DS6_D":1.9426,"DS6_S":1.9426,"DS7_D":1.9426,"DS7_S":1.9426,"DS8_D":1.9426,"DS8_S":1.9426,"DS9_D":1.9426,"DS9_S":1.9426,"DS10_D":1.9426,"DS10_S":1.9426,"DX1_D":1.9426,"DX1_X":1.9426,"DX2_D":1.9426,"DX2_X":1.9426,"DX3_D":1.9426,"DX3_X":1.9426,"DX4_D":1.9426,"DX4_X":1.9426,"DX5_D":1.9426,"DX5_X":1.9426,"DX6_D":1.9426,"DX6_X":1.9426,"DX7_D":1.9426,"DX7_X":1.9426,"DX8_D":1.9426,"DX8_X":1.9426,"DX9_D":1.9426,"DX9_X":1.9426,"DX10_D":1.9426,"DX10_X":1.9426,"GDS_D":1.735,"GDS_S":2.135,"GDX_D":2.135,"GDX_X":1.735,"GYH_3":41.31,"GYH_4":41.31,"GYH_5":20.73,"GYH_6":20.73,"GYH_7":13.76,"GYH_8":13.76,"GYH_9":10.11,"GYH_10":10.11,"GYH_11":8.15,"GYH_12":10.11,"GYH_13":10.11,"GYH_14":13.76,"GYH_15":13.76,"GYH_16":20.73,"GYH_17":20.73,"GYH_18":41.31,"GYH_19":41.31,"LH1_H":1.9426,"LH1_L":1.9426,"LH2_H":1.9426,"LH2_L":1.9426,"LH3_H":1.9426,"LH3_L":1.9426,"LH4_H":1.9426,"LH4_L":1.9426,"LH5_H":1.9426,"LH5_L":1.9426,"message":null,"status":null,"statusCode":null,"result":null}
+2019-03-15 12:16:17,134 [Thread-18] INFO  [com.panli.view.PlaceThread] - start place========
+2019-03-15 12:16:17,134 [Thread-18] INFO  [com.panli.view.PlaceThread] - place plan choose========
+2019-03-15 12:16:17,134 [Thread-18] DEBUG [com.panli.view.PlaceThread] - place plan choose========Plan [schemeName=极速飞艇 , name=方案2, startLine=3, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=3, jumpHistory=null, type=单双]
+2019-03-15 12:16:17,134 [Thread-18] DEBUG [com.panli.view.PlaceThread] - getPlaceAmount:0
+2019-03-15 12:16:17,134 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placebetInfo:Placebet [drawTime=Fri Mar 15 12:16:17 CST 2019, drawNumber=51636858, lottery=LUCKYSB, bets=Bet [amount=1, contents=S, game=DS3, odds=1.9426]]
+2019-03-15 12:16:17,134 [Thread-18] INFO  [com.panli.view.PlaceThread] - startRealPlace==============
+2019-03-15 12:16:17,334 [Thread-18] DEBUG [com.panli.view.PlaceThread] - realPlaceResult:{"message":"下注成功","result":{"account":{"balance":24.3656,"betting":1.0,"maxLimit":20.0,"result":5.3656,"type":0},"ids":["2019031512161721070551000001"],"odds":["1.9426"],"status":0},"status":"success","statusCode":0}
+2019-03-15 12:16:17,334 [Thread-18] INFO  [com.panli.view.PlaceThread] - placecomplete========
+2019-03-15 12:16:17,335 [Thread-18] DEBUG [com.panli.view.PlaceThread] - restPlaceTime:44000,currentTime:1552623377335
+2019-03-15 12:17:21,744 [Thread-18] INFO  [com.panli.view.PlaceThread] - drawNumbers:51636858,placeNumbers:51636858
+2019-03-15 12:17:21,744 [Thread-18] DEBUG [com.panli.model.Record] - opendata:OpenInfo [detail=LH4=L,2,第四名-龙;LH2=L,2,亚军-龙;DX9=X,3,第九名-小;DX7=X,2,第七名-小;DX3=D,4,第三名-大;DX2=D,2,亚军-大;DS9=D,6,第九名-单;DS8=S,2,第八名-双;DS7=D,2,第七名-单;DS6=S,2,第六名-双;DS3=D,2,第三名-单;DS2=S,2,亚军-双;B3=7,2,第三名-7;, drawNumber=51636858, drawTime=2019-03-15 12:17:15, map={}, result=3,6,7,8,4,10,5,2,1,9, lottery=LUCKYSB]
+2019-03-15 12:17:21,744 [Thread-18] DEBUG [com.panli.model.Record] - placedata:Placebet [drawTime=Fri Mar 15 12:16:17 CST 2019, drawNumber=51636858, lottery=LUCKYSB, bets=Bet [amount=1, contents=S, game=DS3, odds=1.9426]]
+2019-03-15 12:17:21,745 [Thread-18] INFO  [com.panli.model.Record] - key:DS3=S,value:null,detail:LH4=L,2,第四名-龙;LH2=L,2,亚军-龙;DX9=X,3,第九名-小;DX7=X,2,第七名-小;DX3=D,4,第三名-大;DX2=D,2,亚军-大;DS9=D,6,第九名-单;DS8=S,2,第八名-双;DS7=D,2,第七名-单;DS6=S,2,第六名-双;DS3=D,2,第三名-单;DS2=S,2,亚军-双;B3=7,2,第三名-7;,drwaNum:51636858,platNum:51636858
+2019-03-15 12:17:21,745 [Thread-18] DEBUG [com.panli.view.PlaceThread] - this is staticInfo:planTotalCount=6, realCount=6, realAmount=2.71, virtualCount=0, virtualAmount=0, continueWinMax=2, continueLostMax=0,realWinPercent=0%
+2019-03-15 12:17:21,745 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realCount
+2019-03-15 12:17:21,745 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:placeStatus
+2019-03-15 12:17:21,745 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realAmount
+2019-03-15 12:17:21,746 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realWinPercent
+2019-03-15 12:17:21,746 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualCount
+2019-03-15 12:17:21,746 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:planTotalCount
+2019-03-15 12:17:21,746 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualAmount
+2019-03-15 12:17:21,746 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueWinMax
+2019-03-15 12:17:21,746 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueLostMax
+2019-03-15 12:17:31,931 [Thread-18] INFO  [com.panli.view.PlaceThread] - Period [closeTime=2019-03-15 12:18:15, currentTime=2019-03-15 12:17:32, drawDate=2019-03-15 00:00:00, drawTime=2019-03-15 12:18:30, openTime=2019-03-15 12:17:15, drawNumber=51636859, pnumber=51636858]
+2019-03-15 12:17:32,138 [Thread-18] INFO  [com.panli.view.PlaceThread] - {"B1_1":9.71,"B1_2":9.71,"B1_3":9.71,"B1_4":9.71,"B1_5":9.71,"B1_6":9.71,"B1_7":9.71,"B1_8":9.71,"B1_9":9.71,"B1_10":9.71,"B2_1":9.71,"B2_2":9.71,"B2_3":9.71,"B2_4":9.71,"B2_5":9.71,"B2_6":9.71,"B2_7":9.71,"B2_8":9.71,"B2_9":9.71,"B2_10":9.71,"B3_1":9.71,"B3_2":9.71,"B3_3":9.71,"B3_4":9.71,"B3_5":9.71,"B3_6":9.71,"B3_7":9.71,"B3_8":9.71,"B3_9":9.71,"B3_10":9.71,"B4_1":9.71,"B4_2":9.71,"B4_3":9.71,"B4_4":9.71,"B4_5":9.71,"B4_6":9.71,"B4_7":9.71,"B4_8":9.71,"B4_9":9.71,"B4_10":9.71,"B5_1":9.71,"B5_2":9.71,"B5_3":9.71,"B5_4":9.71,"B5_5":9.71,"B5_6":9.71,"B5_7":9.71,"B5_8":9.71,"B5_9":9.71,"B5_10":9.71,"B6_1":9.71,"B6_2":9.71,"B6_3":9.71,"B6_4":9.71,"B6_5":9.71,"B6_6":9.71,"B6_7":9.71,"B6_8":9.71,"B6_9":9.71,"B6_10":9.71,"B7_1":9.71,"B7_2":9.71,"B7_3":9.71,"B7_4":9.71,"B7_5":9.71,"B7_6":9.71,"B7_7":9.71,"B7_8":9.71,"B7_9":9.71,"B7_10":9.71,"B8_1":9.71,"B8_2":9.71,"B8_3":9.71,"B8_4":9.71,"B8_5":9.71,"B8_6":9.71,"B8_7":9.71,"B8_8":9.71,"B8_9":9.71,"B8_10":9.71,"B9_1":9.71,"B9_2":9.71,"B9_3":9.71,"B9_4":9.71,"B9_5":9.71,"B9_6":9.71,"B9_7":9.71,"B9_8":9.71,"B9_9":9.71,"B9_10":9.71,"B10_1":9.71,"B10_2":9.71,"B10_3":9.71,"B10_4":9.71,"B10_5":9.71,"B10_6":9.71,"B10_7":9.71,"B10_8":9.71,"B10_9":9.71,"B10_10":9.71,"DS1_D":1.9426,"DS1_S":1.9426,"DS2_D":1.9426,"DS2_S":1.9426,"DS3_D":1.9426,"DS3_S":1.9426,"DS4_D":1.9426,"DS4_S":1.9426,"DS5_D":1.9426,"DS5_S":1.9426,"DS6_D":1.9426,"DS6_S":1.9426,"DS7_D":1.9426,"DS7_S":1.9426,"DS8_D":1.9426,"DS8_S":1.9426,"DS9_D":1.9426,"DS9_S":1.9426,"DS10_D":1.9426,"DS10_S":1.9426,"DX1_D":1.9426,"DX1_X":1.9426,"DX2_D":1.9426,"DX2_X":1.9426,"DX3_D":1.9426,"DX3_X":1.9426,"DX4_D":1.9426,"DX4_X":1.9426,"DX5_D":1.9426,"DX5_X":1.9426,"DX6_D":1.9426,"DX6_X":1.9426,"DX7_D":1.9426,"DX7_X":1.9426,"DX8_D":1.9426,"DX8_X":1.9426,"DX9_D":1.9426,"DX9_X":1.9426,"DX10_D":1.9426,"DX10_X":1.9426,"GDS_D":1.735,"GDS_S":2.135,"GDX_D":2.135,"GDX_X":1.735,"GYH_3":41.31,"GYH_4":41.31,"GYH_5":20.73,"GYH_6":20.73,"GYH_7":13.76,"GYH_8":13.76,"GYH_9":10.11,"GYH_10":10.11,"GYH_11":8.15,"GYH_12":10.11,"GYH_13":10.11,"GYH_14":13.76,"GYH_15":13.76,"GYH_16":20.73,"GYH_17":20.73,"GYH_18":41.31,"GYH_19":41.31,"LH1_H":1.9426,"LH1_L":1.9426,"LH2_H":1.9426,"LH2_L":1.9426,"LH3_H":1.9426,"LH3_L":1.9426,"LH4_H":1.9426,"LH4_L":1.9426,"LH5_H":1.9426,"LH5_L":1.9426,"message":null,"status":null,"statusCode":null,"result":null}
+2019-03-15 12:17:32,139 [Thread-18] INFO  [com.panli.view.PlaceThread] - start place========
+2019-03-15 12:17:32,139 [Thread-18] INFO  [com.panli.view.PlaceThread] - place plan choose========
+2019-03-15 12:17:32,139 [Thread-18] DEBUG [com.panli.view.PlaceThread] - place plan choose========Plan [schemeName=极速飞艇 , name=方案2, startLine=3, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=3, jumpHistory=null, type=单双]
+2019-03-15 12:17:32,139 [Thread-18] DEBUG [com.panli.view.PlaceThread] - getPlaceAmount:1
+2019-03-15 12:17:32,139 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placebetInfo:Placebet [drawTime=Fri Mar 15 12:17:32 CST 2019, drawNumber=51636859, lottery=LUCKYSB, bets=Bet [amount=2, contents=D, game=DS3, odds=1.9426]]
+2019-03-15 12:17:32,139 [Thread-18] INFO  [com.panli.view.PlaceThread] - startRealPlace==============
+2019-03-15 12:17:32,350 [Thread-18] DEBUG [com.panli.view.PlaceThread] - realPlaceResult:{"message":"下注成功","result":{"account":{"balance":22.3656,"betting":2.0,"maxLimit":20.0,"result":4.3656,"type":0},"ids":["2019031512173221070586880001"],"odds":["1.9426"],"status":0},"status":"success","statusCode":0}
+2019-03-15 12:17:32,351 [Thread-18] INFO  [com.panli.view.PlaceThread] - placecomplete========
+2019-03-15 12:17:32,351 [Thread-18] DEBUG [com.panli.view.PlaceThread] - restPlaceTime:43000,currentTime:1552623452351
+2019-03-15 12:18:35,774 [Thread-18] INFO  [com.panli.view.PlaceThread] - drawNumbers:51636859,placeNumbers:51636859
+2019-03-15 12:18:35,774 [Thread-18] DEBUG [com.panli.model.Record] - opendata:OpenInfo [detail=LH5=H,2,第五名-虎;LH3=L,2,第三名-龙;GDX=X,2,冠亚小;DX9=X,4,第九名-小;DX8=X,2,第八名-小;DX6=D,2,第六名-大;DX3=D,5,第三名-大;DS10=D,2,第十名-单;DS9=D,7,第九名-单;DS8=S,3,第八名-双;DS7=D,3,第七名-单;DS6=S,3,第六名-双;DS5=S,2,第五名-双;DS3=D,3,第三名-单;DS2=S,3,亚军-双;B8=2,2,第八名-2;B6=10,2,第六名-10;B3=7,3,第三名-7;, drawNumber=51636859, drawTime=2019-03-15 12:18:30, map={}, result=6,4,7,1,8,10,9,2,5,3, lottery=LUCKYSB]
+2019-03-15 12:18:35,774 [Thread-18] DEBUG [com.panli.model.Record] - placedata:Placebet [drawTime=Fri Mar 15 12:17:32 CST 2019, drawNumber=51636859, lottery=LUCKYSB, bets=Bet [amount=2, contents=D, game=DS3, odds=1.9426]]
+2019-03-15 12:18:35,774 [Thread-18] INFO  [com.panli.model.Record] - key:DS3=D,value:7,detail:LH5=H,2,第五名-虎;LH3=L,2,第三名-龙;GDX=X,2,冠亚小;DX9=X,4,第九名-小;DX8=X,2,第八名-小;DX6=D,2,第六名-大;DX3=D,5,第三名-大;DS10=D,2,第十名-单;DS9=D,7,第九名-单;DS8=S,3,第八名-双;DS7=D,3,第七名-单;DS6=S,3,第六名-双;DS5=S,2,第五名-双;DS3=D,3,第三名-单;DS2=S,3,亚军-双;B8=2,2,第八名-2;B6=10,2,第六名-10;B3=7,3,第三名-7;,drwaNum:51636859,platNum:51636859
+2019-03-15 12:18:35,774 [Thread-18] INFO  [com.panli.view.PlaceThread] - placeStartTime：startPlaceTime:Fri Mar 15 12:14:50 CST 2019,currentTime:Fri Mar 15 12:18:35 CST 2019,placeSettingTime:3 minute
+2019-03-15 12:18:35,774 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placeStartTime：startPlaceTime:Fri Mar 15 12:14:50 CST 2019,currentTime:Fri Mar 15 12:18:35 CST 2019,placeSettingTime:3 minute
+2019-03-15 12:18:35,774 [Thread-18] INFO  [com.panli.view.PlaceThread] - start change line========
+2019-03-15 12:18:35,774 [Thread-18] DEBUG [com.panli.model.Plan] - currentLine:3 find the next line:8
+2019-03-15 12:18:35,774 [Thread-18] DEBUG [com.panli.model.Plan] - currentLine:8
+2019-03-15 12:18:35,774 [Thread-18] DEBUG [com.panli.view.PlaceThread] - this is staticInfo:planTotalCount=7, realCount=7, realAmount=4.60, virtualCount=0, virtualAmount=0, continueWinMax=2, continueLostMax=0,realWinPercent=0%
+2019-03-15 12:18:35,774 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realCount
+2019-03-15 12:18:35,774 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:placeStatus
+2019-03-15 12:18:35,774 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realAmount
+2019-03-15 12:18:35,775 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realWinPercent
+2019-03-15 12:18:35,775 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualCount
+2019-03-15 12:18:35,775 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:planTotalCount
+2019-03-15 12:18:35,775 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualAmount
+2019-03-15 12:18:35,775 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueWinMax
+2019-03-15 12:18:35,775 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueLostMax
+2019-03-15 12:18:45,975 [Thread-18] INFO  [com.panli.view.PlaceThread] - Period [closeTime=2019-03-15 12:19:30, currentTime=2019-03-15 12:18:46, drawDate=2019-03-15 00:00:00, drawTime=2019-03-15 12:19:45, openTime=2019-03-15 12:18:30, drawNumber=51636860, pnumber=51636859]
+2019-03-15 12:18:46,163 [Thread-18] INFO  [com.panli.view.PlaceThread] - {"B1_1":9.71,"B1_2":9.71,"B1_3":9.71,"B1_4":9.71,"B1_5":9.71,"B1_6":9.71,"B1_7":9.71,"B1_8":9.71,"B1_9":9.71,"B1_10":9.71,"B2_1":9.71,"B2_2":9.71,"B2_3":9.71,"B2_4":9.71,"B2_5":9.71,"B2_6":9.71,"B2_7":9.71,"B2_8":9.71,"B2_9":9.71,"B2_10":9.71,"B3_1":9.71,"B3_2":9.71,"B3_3":9.71,"B3_4":9.71,"B3_5":9.71,"B3_6":9.71,"B3_7":9.71,"B3_8":9.71,"B3_9":9.71,"B3_10":9.71,"B4_1":9.71,"B4_2":9.71,"B4_3":9.71,"B4_4":9.71,"B4_5":9.71,"B4_6":9.71,"B4_7":9.71,"B4_8":9.71,"B4_9":9.71,"B4_10":9.71,"B5_1":9.71,"B5_2":9.71,"B5_3":9.71,"B5_4":9.71,"B5_5":9.71,"B5_6":9.71,"B5_7":9.71,"B5_8":9.71,"B5_9":9.71,"B5_10":9.71,"B6_1":9.71,"B6_2":9.71,"B6_3":9.71,"B6_4":9.71,"B6_5":9.71,"B6_6":9.71,"B6_7":9.71,"B6_8":9.71,"B6_9":9.71,"B6_10":9.71,"B7_1":9.71,"B7_2":9.71,"B7_3":9.71,"B7_4":9.71,"B7_5":9.71,"B7_6":9.71,"B7_7":9.71,"B7_8":9.71,"B7_9":9.71,"B7_10":9.71,"B8_1":9.71,"B8_2":9.71,"B8_3":9.71,"B8_4":9.71,"B8_5":9.71,"B8_6":9.71,"B8_7":9.71,"B8_8":9.71,"B8_9":9.71,"B8_10":9.71,"B9_1":9.71,"B9_2":9.71,"B9_3":9.71,"B9_4":9.71,"B9_5":9.71,"B9_6":9.71,"B9_7":9.71,"B9_8":9.71,"B9_9":9.71,"B9_10":9.71,"B10_1":9.71,"B10_2":9.71,"B10_3":9.71,"B10_4":9.71,"B10_5":9.71,"B10_6":9.71,"B10_7":9.71,"B10_8":9.71,"B10_9":9.71,"B10_10":9.71,"DS1_D":1.9426,"DS1_S":1.9426,"DS2_D":1.9426,"DS2_S":1.9426,"DS3_D":1.9426,"DS3_S":1.9426,"DS4_D":1.9426,"DS4_S":1.9426,"DS5_D":1.9426,"DS5_S":1.9426,"DS6_D":1.9426,"DS6_S":1.9426,"DS7_D":1.9426,"DS7_S":1.9426,"DS8_D":1.9426,"DS8_S":1.9426,"DS9_D":1.9426,"DS9_S":1.9426,"DS10_D":1.9426,"DS10_S":1.9426,"DX1_D":1.9426,"DX1_X":1.9426,"DX2_D":1.9426,"DX2_X":1.9426,"DX3_D":1.9426,"DX3_X":1.9426,"DX4_D":1.9426,"DX4_X":1.9426,"DX5_D":1.9426,"DX5_X":1.9426,"DX6_D":1.9426,"DX6_X":1.9426,"DX7_D":1.9426,"DX7_X":1.9426,"DX8_D":1.9426,"DX8_X":1.9426,"DX9_D":1.9426,"DX9_X":1.9426,"DX10_D":1.9426,"DX10_X":1.9426,"GDS_D":1.735,"GDS_S":2.135,"GDX_D":2.135,"GDX_X":1.735,"GYH_3":41.31,"GYH_4":41.31,"GYH_5":20.73,"GYH_6":20.73,"GYH_7":13.76,"GYH_8":13.76,"GYH_9":10.11,"GYH_10":10.11,"GYH_11":8.15,"GYH_12":10.11,"GYH_13":10.11,"GYH_14":13.76,"GYH_15":13.76,"GYH_16":20.73,"GYH_17":20.73,"GYH_18":41.31,"GYH_19":41.31,"LH1_H":1.9426,"LH1_L":1.9426,"LH2_H":1.9426,"LH2_L":1.9426,"LH3_H":1.9426,"LH3_L":1.9426,"LH4_H":1.9426,"LH4_L":1.9426,"LH5_H":1.9426,"LH5_L":1.9426,"message":null,"status":null,"statusCode":null,"result":null}
+2019-03-15 12:18:46,163 [Thread-18] INFO  [com.panli.view.PlaceThread] - start place========
+2019-03-15 12:18:46,163 [Thread-18] INFO  [com.panli.view.PlaceThread] - place plan choose========
+2019-03-15 12:18:46,163 [Thread-18] DEBUG [com.panli.view.PlaceThread] - place plan choose========Plan [schemeName=极速飞艇 , name=方案2, startLine=8, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=8, jumpHistory=null, type=单双]
+2019-03-15 12:18:46,163 [Thread-18] DEBUG [com.panli.view.PlaceThread] - getPlaceAmount:0
+2019-03-15 12:18:46,163 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placebetInfo:Placebet [drawTime=Fri Mar 15 12:18:46 CST 2019, drawNumber=51636860, lottery=LUCKYSB, bets=Bet [amount=1, contents=S, game=DS8, odds=1.9426]]
+2019-03-15 12:18:46,163 [Thread-18] INFO  [com.panli.view.PlaceThread] - startRealPlace==============
+2019-03-15 12:18:46,347 [Thread-18] DEBUG [com.panli.view.PlaceThread] - realPlaceResult:{"message":"下注成功","result":{"account":{"balance":25.2508,"betting":1.0,"maxLimit":20.0,"result":6.2508,"type":0},"ids":["2019031512184621070603090001"],"odds":["1.9426"],"status":0},"status":"success","statusCode":0}
+2019-03-15 12:18:46,347 [Thread-18] INFO  [com.panli.view.PlaceThread] - placecomplete========
+2019-03-15 12:18:46,347 [Thread-18] DEBUG [com.panli.view.PlaceThread] - restPlaceTime:44000,currentTime:1552623526347
+2019-03-15 12:19:50,752 [Thread-18] INFO  [com.panli.view.PlaceThread] - drawNumbers:51636860,placeNumbers:51636860
+2019-03-15 12:19:50,752 [Thread-18] DEBUG [com.panli.model.Record] - opendata:OpenInfo [detail=LH4=H,2,第四名-虎;LH3=L,3,第三名-龙;LH2=H,2,亚军-虎;LH1=L,2,冠军-龙;DX10=X,2,第十名-小;DX8=X,3,第八名-小;DX7=D,2,第七名-大;DX3=D,6,第三名-大;DX2=X,2,亚军-小;DX1=D,2,冠军-大;DS10=D,3,第十名-单;DS9=D,8,第九名-单;DS6=S,4,第六名-双;DS2=S,4,亚军-双;B10=3,2,第十名-3;B2=4,2,亚军-4;, drawNumber=51636860, drawTime=2019-03-15 12:19:45, map={}, result=9,4,6,8,5,2,10,1,7,3, lottery=LUCKYSB]
+2019-03-15 12:19:50,752 [Thread-18] DEBUG [com.panli.model.Record] - placedata:Placebet [drawTime=Fri Mar 15 12:18:46 CST 2019, drawNumber=51636860, lottery=LUCKYSB, bets=Bet [amount=1, contents=S, game=DS8, odds=1.9426]]
+2019-03-15 12:19:50,752 [Thread-18] INFO  [com.panli.model.Record] - key:DS8=S,value:null,detail:LH4=H,2,第四名-虎;LH3=L,3,第三名-龙;LH2=H,2,亚军-虎;LH1=L,2,冠军-龙;DX10=X,2,第十名-小;DX8=X,3,第八名-小;DX7=D,2,第七名-大;DX3=D,6,第三名-大;DX2=X,2,亚军-小;DX1=D,2,冠军-大;DS10=D,3,第十名-单;DS9=D,8,第九名-单;DS6=S,4,第六名-双;DS2=S,4,亚军-双;B10=3,2,第十名-3;B2=4,2,亚军-4;,drwaNum:51636860,platNum:51636860
+2019-03-15 12:19:50,752 [Thread-18] DEBUG [com.panli.view.PlaceThread] - this is staticInfo:planTotalCount=8, realCount=8, realAmount=3.60, virtualCount=0, virtualAmount=0, continueWinMax=2, continueLostMax=0,realWinPercent=0%
+2019-03-15 12:19:50,752 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realCount
+2019-03-15 12:19:50,752 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:placeStatus
+2019-03-15 12:19:50,752 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realAmount
+2019-03-15 12:19:50,752 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realWinPercent
+2019-03-15 12:19:50,752 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualCount
+2019-03-15 12:19:50,752 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:planTotalCount
+2019-03-15 12:19:50,752 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualAmount
+2019-03-15 12:19:50,752 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueWinMax
+2019-03-15 12:19:50,752 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueLostMax
+2019-03-15 12:20:00,928 [Thread-18] INFO  [com.panli.view.PlaceThread] - Period [closeTime=2019-03-15 12:20:45, currentTime=2019-03-15 12:20:01, drawDate=2019-03-15 00:00:00, drawTime=2019-03-15 12:21:00, openTime=2019-03-15 12:19:45, drawNumber=51636861, pnumber=51636860]
+2019-03-15 12:20:01,117 [Thread-18] INFO  [com.panli.view.PlaceThread] - {"B1_1":9.71,"B1_2":9.71,"B1_3":9.71,"B1_4":9.71,"B1_5":9.71,"B1_6":9.71,"B1_7":9.71,"B1_8":9.71,"B1_9":9.71,"B1_10":9.71,"B2_1":9.71,"B2_2":9.71,"B2_3":9.71,"B2_4":9.71,"B2_5":9.71,"B2_6":9.71,"B2_7":9.71,"B2_8":9.71,"B2_9":9.71,"B2_10":9.71,"B3_1":9.71,"B3_2":9.71,"B3_3":9.71,"B3_4":9.71,"B3_5":9.71,"B3_6":9.71,"B3_7":9.71,"B3_8":9.71,"B3_9":9.71,"B3_10":9.71,"B4_1":9.71,"B4_2":9.71,"B4_3":9.71,"B4_4":9.71,"B4_5":9.71,"B4_6":9.71,"B4_7":9.71,"B4_8":9.71,"B4_9":9.71,"B4_10":9.71,"B5_1":9.71,"B5_2":9.71,"B5_3":9.71,"B5_4":9.71,"B5_5":9.71,"B5_6":9.71,"B5_7":9.71,"B5_8":9.71,"B5_9":9.71,"B5_10":9.71,"B6_1":9.71,"B6_2":9.71,"B6_3":9.71,"B6_4":9.71,"B6_5":9.71,"B6_6":9.71,"B6_7":9.71,"B6_8":9.71,"B6_9":9.71,"B6_10":9.71,"B7_1":9.71,"B7_2":9.71,"B7_3":9.71,"B7_4":9.71,"B7_5":9.71,"B7_6":9.71,"B7_7":9.71,"B7_8":9.71,"B7_9":9.71,"B7_10":9.71,"B8_1":9.71,"B8_2":9.71,"B8_3":9.71,"B8_4":9.71,"B8_5":9.71,"B8_6":9.71,"B8_7":9.71,"B8_8":9.71,"B8_9":9.71,"B8_10":9.71,"B9_1":9.71,"B9_2":9.71,"B9_3":9.71,"B9_4":9.71,"B9_5":9.71,"B9_6":9.71,"B9_7":9.71,"B9_8":9.71,"B9_9":9.71,"B9_10":9.71,"B10_1":9.71,"B10_2":9.71,"B10_3":9.71,"B10_4":9.71,"B10_5":9.71,"B10_6":9.71,"B10_7":9.71,"B10_8":9.71,"B10_9":9.71,"B10_10":9.71,"DS1_D":1.9426,"DS1_S":1.9426,"DS2_D":1.9426,"DS2_S":1.9426,"DS3_D":1.9426,"DS3_S":1.9426,"DS4_D":1.9426,"DS4_S":1.9426,"DS5_D":1.9426,"DS5_S":1.9426,"DS6_D":1.9426,"DS6_S":1.9426,"DS7_D":1.9426,"DS7_S":1.9426,"DS8_D":1.9426,"DS8_S":1.9426,"DS9_D":1.9426,"DS9_S":1.9426,"DS10_D":1.9426,"DS10_S":1.9426,"DX1_D":1.9426,"DX1_X":1.9426,"DX2_D":1.9426,"DX2_X":1.9426,"DX3_D":1.9426,"DX3_X":1.9426,"DX4_D":1.9426,"DX4_X":1.9426,"DX5_D":1.9426,"DX5_X":1.9426,"DX6_D":1.9426,"DX6_X":1.9426,"DX7_D":1.9426,"DX7_X":1.9426,"DX8_D":1.9426,"DX8_X":1.9426,"DX9_D":1.9426,"DX9_X":1.9426,"DX10_D":1.9426,"DX10_X":1.9426,"GDS_D":1.735,"GDS_S":2.135,"GDX_D":2.135,"GDX_X":1.735,"GYH_3":41.31,"GYH_4":41.31,"GYH_5":20.73,"GYH_6":20.73,"GYH_7":13.76,"GYH_8":13.76,"GYH_9":10.11,"GYH_10":10.11,"GYH_11":8.15,"GYH_12":10.11,"GYH_13":10.11,"GYH_14":13.76,"GYH_15":13.76,"GYH_16":20.73,"GYH_17":20.73,"GYH_18":41.31,"GYH_19":41.31,"LH1_H":1.9426,"LH1_L":1.9426,"LH2_H":1.9426,"LH2_L":1.9426,"LH3_H":1.9426,"LH3_L":1.9426,"LH4_H":1.9426,"LH4_L":1.9426,"LH5_H":1.9426,"LH5_L":1.9426,"message":null,"status":null,"statusCode":null,"result":null}
+2019-03-15 12:20:01,117 [Thread-18] INFO  [com.panli.view.PlaceThread] - start place========
+2019-03-15 12:20:01,117 [Thread-18] INFO  [com.panli.view.PlaceThread] - place plan choose========
+2019-03-15 12:20:01,117 [Thread-18] DEBUG [com.panli.view.PlaceThread] - place plan choose========Plan [schemeName=极速飞艇 , name=方案2, startLine=8, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=8, jumpHistory=null, type=单双]
+2019-03-15 12:20:01,118 [Thread-18] DEBUG [com.panli.view.PlaceThread] - getPlaceAmount:1
+2019-03-15 12:20:01,118 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placebetInfo:Placebet [drawTime=Fri Mar 15 12:20:01 CST 2019, drawNumber=51636861, lottery=LUCKYSB, bets=Bet [amount=2, contents=D, game=DS8, odds=1.9426]]
+2019-03-15 12:20:01,118 [Thread-18] INFO  [com.panli.view.PlaceThread] - startRealPlace==============
+2019-03-15 12:20:01,365 [Thread-18] DEBUG [com.panli.view.PlaceThread] - realPlaceResult:{"message":"下注成功","result":{"account":{"balance":23.2508,"betting":2.0,"maxLimit":20.0,"result":5.2508,"type":0},"ids":["2019031512200121070619310001"],"odds":["1.9426"],"status":0},"status":"success","statusCode":0}
+2019-03-15 12:20:01,365 [Thread-18] INFO  [com.panli.view.PlaceThread] - placecomplete========
+2019-03-15 12:20:01,365 [Thread-18] DEBUG [com.panli.view.PlaceThread] - restPlaceTime:44000,currentTime:1552623601365
+2019-03-15 12:21:05,732 [Thread-18] INFO  [com.panli.view.PlaceThread] - drawNumbers:51636861,placeNumbers:51636861
+2019-03-15 12:21:05,732 [Thread-18] DEBUG [com.panli.model.Record] - opendata:OpenInfo [detail=LH5=L,2,第五名-龙;LH4=H,3,第四名-虎;GDX=D,2,冠亚大;GDS=D,2,冠亚单;GYH=13,2,冠亚军和-13;DX7=D,3,第七名-大;DX6=X,2,第六名-小;DX5=X,2,第五名-小;DX4=D,2,第四名-大;DX2=X,3,亚军-小;DX1=D,3,冠军-大;DS10=D,4,第十名-单;DS9=D,9,第九名-单;DS8=D,2,第八名-单;DS7=S,2,第七名-双;DS4=S,2,第四名-双;DS3=S,2,第三名-双;B7=10,2,第七名-10;, drawNumber=51636861, drawTime=2019-03-15 12:21:00, map={}, result=8,5,2,6,4,3,10,7,1,9, lottery=LUCKYSB]
+2019-03-15 12:21:05,732 [Thread-18] DEBUG [com.panli.model.Record] - placedata:Placebet [drawTime=Fri Mar 15 12:20:01 CST 2019, drawNumber=51636861, lottery=LUCKYSB, bets=Bet [amount=2, contents=D, game=DS8, odds=1.9426]]
+2019-03-15 12:21:05,732 [Thread-18] INFO  [com.panli.model.Record] - key:DS8=D,value:7,detail:LH5=L,2,第五名-龙;LH4=H,3,第四名-虎;GDX=D,2,冠亚大;GDS=D,2,冠亚单;GYH=13,2,冠亚军和-13;DX7=D,3,第七名-大;DX6=X,2,第六名-小;DX5=X,2,第五名-小;DX4=D,2,第四名-大;DX2=X,3,亚军-小;DX1=D,3,冠军-大;DS10=D,4,第十名-单;DS9=D,9,第九名-单;DS8=D,2,第八名-单;DS7=S,2,第七名-双;DS4=S,2,第四名-双;DS3=S,2,第三名-双;B7=10,2,第七名-10;,drwaNum:51636861,platNum:51636861
+2019-03-15 12:21:05,732 [Thread-18] INFO  [com.panli.view.PlaceThread] - placeStartTime：startPlaceTime:Fri Mar 15 12:18:35 CST 2019,currentTime:Fri Mar 15 12:21:05 CST 2019,placeSettingTime:3 minute
+2019-03-15 12:21:05,732 [Thread-18] DEBUG [com.panli.view.PlaceThread] - this is staticInfo:planTotalCount=9, realCount=9, realAmount=5.49, virtualCount=0, virtualAmount=0, continueWinMax=2, continueLostMax=0,realWinPercent=0%
+2019-03-15 12:21:05,732 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realCount
+2019-03-15 12:21:05,732 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:placeStatus
+2019-03-15 12:21:05,733 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realAmount
+2019-03-15 12:21:05,733 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realWinPercent
+2019-03-15 12:21:05,733 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualCount
+2019-03-15 12:21:05,733 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:planTotalCount
+2019-03-15 12:21:05,733 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualAmount
+2019-03-15 12:21:05,733 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueWinMax
+2019-03-15 12:21:05,733 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueLostMax
+2019-03-15 12:21:15,215 [Thread-15] DEBUG [com.panli.view.AccountThread] - start accountInfo history query:Thread-15 currentTime:1552623675214
+2019-03-15 12:21:15,217 [Thread-16] DEBUG [com.panli.view.HistoryDrawThread] - start opendata history queryThread-16 currentTime:1552623675217
+2019-03-15 12:21:16,340 [AWT-EventQueue-0] DEBUG [com.panli.view.MainFrm2] - updatePlanPanel
+2019-03-15 12:21:17,292 [AWT-EventQueue-0] DEBUG [com.panli.view.MainFrm2] - updatePlanPanel
+2019-03-15 12:21:17,362 [AWT-EventQueue-0] DEBUG [com.panli.view.MainFrm2] - updatePlanPanel
+2019-03-15 12:21:56,461 [AWT-EventQueue-0] INFO  [com.panli.view.MainFrm2] - stop auto place:方案:Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=7, jumpHistory=null, type=单双],placeType:真实投注,planPlaceAmounts:4,8,16,32,64,128,256,512
+2019-03-15 12:21:56,461 [AWT-EventQueue-0] INFO  [com.panli.view.MainFrm2] - 0
+2019-03-15 12:21:57,194 [AWT-EventQueue-0] INFO  [com.panli.view.MainFrm2] - stat auto place:plan:Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=7, jumpHistory=null, type=单双],placeType:真实投注,planPlaceAmounts:4,8,16,32,64,128,256,512
+2019-03-15 12:21:57,606 [pool-4-thread-1] DEBUG [com.panli.enums.license.SystemTool] - mac:2C-FD-A1-BF-C6-11,cpuNumber:BFEBFBFF000906E9,getSerialNumber(C):46398457,MachineCode:2C-FD-A1-BF-C6-11BFEBFBFF000906E946398457,md5:Stuge3k93Hcgbw95jbyLqA==
+2019-03-15 12:21:57,610 [pool-4-thread-1] DEBUG [com.panli.view.CollectionInfoThread] - collect client info hostName:PC-20180227SXER,ipaddress:192.168.1.62,machinecode:Stuge3k93Hcgbw95jbyLqA==,os:WINDOWS
+2019-03-15 12:21:58,447 [Thread-18] INFO  [com.panli.view.PlaceThread] - Period [closeTime=2019-03-15 12:22:00, currentTime=2019-03-15 12:21:58, drawDate=2019-03-15 00:00:00, drawTime=2019-03-15 12:22:15, openTime=2019-03-15 12:21:00, drawNumber=51636862, pnumber=51636861]
+2019-03-15 12:21:58,777 [Thread-18] INFO  [com.panli.view.PlaceThread] - {"B1_1":9.71,"B1_2":9.71,"B1_3":9.71,"B1_4":9.71,"B1_5":9.71,"B1_6":9.71,"B1_7":9.71,"B1_8":9.71,"B1_9":9.71,"B1_10":9.71,"B2_1":9.71,"B2_2":9.71,"B2_3":9.71,"B2_4":9.71,"B2_5":9.71,"B2_6":9.71,"B2_7":9.71,"B2_8":9.71,"B2_9":9.71,"B2_10":9.71,"B3_1":9.71,"B3_2":9.71,"B3_3":9.71,"B3_4":9.71,"B3_5":9.71,"B3_6":9.71,"B3_7":9.71,"B3_8":9.71,"B3_9":9.71,"B3_10":9.71,"B4_1":9.71,"B4_2":9.71,"B4_3":9.71,"B4_4":9.71,"B4_5":9.71,"B4_6":9.71,"B4_7":9.71,"B4_8":9.71,"B4_9":9.71,"B4_10":9.71,"B5_1":9.71,"B5_2":9.71,"B5_3":9.71,"B5_4":9.71,"B5_5":9.71,"B5_6":9.71,"B5_7":9.71,"B5_8":9.71,"B5_9":9.71,"B5_10":9.71,"B6_1":9.71,"B6_2":9.71,"B6_3":9.71,"B6_4":9.71,"B6_5":9.71,"B6_6":9.71,"B6_7":9.71,"B6_8":9.71,"B6_9":9.71,"B6_10":9.71,"B7_1":9.71,"B7_2":9.71,"B7_3":9.71,"B7_4":9.71,"B7_5":9.71,"B7_6":9.71,"B7_7":9.71,"B7_8":9.71,"B7_9":9.71,"B7_10":9.71,"B8_1":9.71,"B8_2":9.71,"B8_3":9.71,"B8_4":9.71,"B8_5":9.71,"B8_6":9.71,"B8_7":9.71,"B8_8":9.71,"B8_9":9.71,"B8_10":9.71,"B9_1":9.71,"B9_2":9.71,"B9_3":9.71,"B9_4":9.71,"B9_5":9.71,"B9_6":9.71,"B9_7":9.71,"B9_8":9.71,"B9_9":9.71,"B9_10":9.71,"B10_1":9.71,"B10_2":9.71,"B10_3":9.71,"B10_4":9.71,"B10_5":9.71,"B10_6":9.71,"B10_7":9.71,"B10_8":9.71,"B10_9":9.71,"B10_10":9.71,"DS1_D":1.9426,"DS1_S":1.9426,"DS2_D":1.9426,"DS2_S":1.9426,"DS3_D":1.9426,"DS3_S":1.9426,"DS4_D":1.9426,"DS4_S":1.9426,"DS5_D":1.9426,"DS5_S":1.9426,"DS6_D":1.9426,"DS6_S":1.9426,"DS7_D":1.9426,"DS7_S":1.9426,"DS8_D":1.9426,"DS8_S":1.9426,"DS9_D":1.9426,"DS9_S":1.9426,"DS10_D":1.9426,"DS10_S":1.9426,"DX1_D":1.9426,"DX1_X":1.9426,"DX2_D":1.9426,"DX2_X":1.9426,"DX3_D":1.9426,"DX3_X":1.9426,"DX4_D":1.9426,"DX4_X":1.9426,"DX5_D":1.9426,"DX5_X":1.9426,"DX6_D":1.9426,"DX6_X":1.9426,"DX7_D":1.9426,"DX7_X":1.9426,"DX8_D":1.9426,"DX8_X":1.9426,"DX9_D":1.9426,"DX9_X":1.9426,"DX10_D":1.9426,"DX10_X":1.9426,"GDS_D":1.735,"GDS_S":2.135,"GDX_D":2.135,"GDX_X":1.735,"GYH_3":41.31,"GYH_4":41.31,"GYH_5":20.73,"GYH_6":20.73,"GYH_7":13.76,"GYH_8":13.76,"GYH_9":10.11,"GYH_10":10.11,"GYH_11":8.15,"GYH_12":10.11,"GYH_13":10.11,"GYH_14":13.76,"GYH_15":13.76,"GYH_16":20.73,"GYH_17":20.73,"GYH_18":41.31,"GYH_19":41.31,"LH1_H":1.9426,"LH1_L":1.9426,"LH2_H":1.9426,"LH2_L":1.9426,"LH3_H":1.9426,"LH3_L":1.9426,"LH4_H":1.9426,"LH4_L":1.9426,"LH5_H":1.9426,"LH5_L":1.9426,"message":null,"status":null,"statusCode":null,"result":null}
+2019-03-15 12:21:58,777 [Thread-18] INFO  [com.panli.view.PlaceThread] - start place========
+2019-03-15 12:21:58,779 [Thread-18] INFO  [com.panli.view.PlaceThread] - place plan choose========
+2019-03-15 12:21:58,779 [Thread-18] DEBUG [com.panli.view.PlaceThread] - place plan choose========Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=7, jumpHistory=null, type=单双]
+2019-03-15 12:21:58,779 [Thread-18] DEBUG [com.panli.view.PlaceThread] - getPlaceAmount:0
+2019-03-15 12:21:58,783 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placebetInfo:Placebet [drawTime=Fri Mar 15 12:21:58 CST 2019, drawNumber=51636862, lottery=LUCKYSB, bets=Bet [amount=4, contents=D, game=DS7, odds=1.9426]]
+2019-03-15 12:21:58,783 [Thread-18] INFO  [com.panli.view.PlaceThread] - startRealPlace==============
+2019-03-15 12:21:59,036 [Thread-18] DEBUG [com.panli.view.PlaceThread] - realPlaceResult:{"message":"下注成功","result":{"account":{"balance":23.136,"betting":4.0,"maxLimit":20.0,"result":7.136,"type":0},"ids":["2019031512215921070659480001"],"odds":["1.9426"],"status":0},"status":"success","statusCode":0}
+2019-03-15 12:21:59,037 [Thread-18] INFO  [com.panli.view.PlaceThread] - placecomplete========
+2019-03-15 12:21:59,038 [Thread-18] DEBUG [com.panli.view.PlaceThread] - restPlaceTime:2000,currentTime:1552623719037
+2019-03-15 12:22:21,395 [Thread-18] INFO  [com.panli.view.PlaceThread] - drawNumbers:51636862,placeNumbers:51636862
+2019-03-15 12:22:21,396 [Thread-18] DEBUG [com.panli.model.Record] - opendata:OpenInfo [detail=LH4=H,4,第四名-虎;LH2=L,2,亚军-龙;GDX=D,3,冠亚大;DX10=D,2,第十名-大;DX9=X,2,第九名-小;DX7=D,4,第七名-大;DX6=X,3,第六名-小;DX5=X,3,第五名-小;DX1=D,4,冠军-大;DS9=D,10,第九名-单;DS7=S,3,第七名-双;DS6=D,2,第六名-单;DS5=S,2,第五名-双;DS3=S,3,第三名-双;DS2=D,2,亚军-单;, drawNumber=51636862, drawTime=2019-03-15 12:22:15, map={}, result=7,9,10,1,2,5,8,4,3,6, lottery=LUCKYSB]
+2019-03-15 12:22:21,396 [Thread-18] DEBUG [com.panli.model.Record] - placedata:Placebet [drawTime=Fri Mar 15 12:21:58 CST 2019, drawNumber=51636862, lottery=LUCKYSB, bets=Bet [amount=4, contents=D, game=DS7, odds=1.9426]]
+2019-03-15 12:22:21,397 [Thread-18] INFO  [com.panli.model.Record] - key:DS7=D,value:null,detail:LH4=H,4,第四名-虎;LH2=L,2,亚军-龙;GDX=D,3,冠亚大;DX10=D,2,第十名-大;DX9=X,2,第九名-小;DX7=D,4,第七名-大;DX6=X,3,第六名-小;DX5=X,3,第五名-小;DX1=D,4,冠军-大;DS9=D,10,第九名-单;DS7=S,3,第七名-双;DS6=D,2,第六名-单;DS5=S,2,第五名-双;DS3=S,3,第三名-双;DS2=D,2,亚军-单;,drwaNum:51636862,platNum:51636862
+2019-03-15 12:22:21,397 [Thread-18] DEBUG [com.panli.view.PlaceThread] - this is staticInfo:planTotalCount=1, realCount=1, realAmount=-4, virtualCount=0, virtualAmount=0, continueWinMax=0, continueLostMax=0,realWinPercent=0%
+2019-03-15 12:22:21,397 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realCount
+2019-03-15 12:22:21,398 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:placeStatus
+2019-03-15 12:22:21,398 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realAmount
+2019-03-15 12:22:21,399 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realWinPercent
+2019-03-15 12:22:21,399 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualCount
+2019-03-15 12:22:21,399 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:planTotalCount
+2019-03-15 12:22:21,400 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualAmount
+2019-03-15 12:22:21,400 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueWinMax
+2019-03-15 12:22:21,400 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueLostMax
+2019-03-15 12:22:31,636 [Thread-18] INFO  [com.panli.view.PlaceThread] - Period [closeTime=2019-03-15 12:23:15, currentTime=2019-03-15 12:22:31, drawDate=2019-03-15 00:00:00, drawTime=2019-03-15 12:23:30, openTime=2019-03-15 12:22:15, drawNumber=51636863, pnumber=51636862]
+2019-03-15 12:22:34,880 [Thread-18] INFO  [com.panli.view.PlaceThread] - {"B1_1":9.71,"B1_2":9.71,"B1_3":9.71,"B1_4":9.71,"B1_5":9.71,"B1_6":9.71,"B1_7":9.71,"B1_8":9.71,"B1_9":9.71,"B1_10":9.71,"B2_1":9.71,"B2_2":9.71,"B2_3":9.71,"B2_4":9.71,"B2_5":9.71,"B2_6":9.71,"B2_7":9.71,"B2_8":9.71,"B2_9":9.71,"B2_10":9.71,"B3_1":9.71,"B3_2":9.71,"B3_3":9.71,"B3_4":9.71,"B3_5":9.71,"B3_6":9.71,"B3_7":9.71,"B3_8":9.71,"B3_9":9.71,"B3_10":9.71,"B4_1":9.71,"B4_2":9.71,"B4_3":9.71,"B4_4":9.71,"B4_5":9.71,"B4_6":9.71,"B4_7":9.71,"B4_8":9.71,"B4_9":9.71,"B4_10":9.71,"B5_1":9.71,"B5_2":9.71,"B5_3":9.71,"B5_4":9.71,"B5_5":9.71,"B5_6":9.71,"B5_7":9.71,"B5_8":9.71,"B5_9":9.71,"B5_10":9.71,"B6_1":9.71,"B6_2":9.71,"B6_3":9.71,"B6_4":9.71,"B6_5":9.71,"B6_6":9.71,"B6_7":9.71,"B6_8":9.71,"B6_9":9.71,"B6_10":9.71,"B7_1":9.71,"B7_2":9.71,"B7_3":9.71,"B7_4":9.71,"B7_5":9.71,"B7_6":9.71,"B7_7":9.71,"B7_8":9.71,"B7_9":9.71,"B7_10":9.71,"B8_1":9.71,"B8_2":9.71,"B8_3":9.71,"B8_4":9.71,"B8_5":9.71,"B8_6":9.71,"B8_7":9.71,"B8_8":9.71,"B8_9":9.71,"B8_10":9.71,"B9_1":9.71,"B9_2":9.71,"B9_3":9.71,"B9_4":9.71,"B9_5":9.71,"B9_6":9.71,"B9_7":9.71,"B9_8":9.71,"B9_9":9.71,"B9_10":9.71,"B10_1":9.71,"B10_2":9.71,"B10_3":9.71,"B10_4":9.71,"B10_5":9.71,"B10_6":9.71,"B10_7":9.71,"B10_8":9.71,"B10_9":9.71,"B10_10":9.71,"DS1_D":1.9426,"DS1_S":1.9426,"DS2_D":1.9426,"DS2_S":1.9426,"DS3_D":1.9426,"DS3_S":1.9426,"DS4_D":1.9426,"DS4_S":1.9426,"DS5_D":1.9426,"DS5_S":1.9426,"DS6_D":1.9426,"DS6_S":1.9426,"DS7_D":1.9426,"DS7_S":1.9426,"DS8_D":1.9426,"DS8_S":1.9426,"DS9_D":1.9426,"DS9_S":1.9426,"DS10_D":1.9426,"DS10_S":1.9426,"DX1_D":1.9426,"DX1_X":1.9426,"DX2_D":1.9426,"DX2_X":1.9426,"DX3_D":1.9426,"DX3_X":1.9426,"DX4_D":1.9426,"DX4_X":1.9426,"DX5_D":1.9426,"DX5_X":1.9426,"DX6_D":1.9426,"DX6_X":1.9426,"DX7_D":1.9426,"DX7_X":1.9426,"DX8_D":1.9426,"DX8_X":1.9426,"DX9_D":1.9426,"DX9_X":1.9426,"DX10_D":1.9426,"DX10_X":1.9426,"GDS_D":1.735,"GDS_S":2.135,"GDX_D":2.135,"GDX_X":1.735,"GYH_3":41.31,"GYH_4":41.31,"GYH_5":20.73,"GYH_6":20.73,"GYH_7":13.76,"GYH_8":13.76,"GYH_9":10.11,"GYH_10":10.11,"GYH_11":8.15,"GYH_12":10.11,"GYH_13":10.11,"GYH_14":13.76,"GYH_15":13.76,"GYH_16":20.73,"GYH_17":20.73,"GYH_18":41.31,"GYH_19":41.31,"LH1_H":1.9426,"LH1_L":1.9426,"LH2_H":1.9426,"LH2_L":1.9426,"LH3_H":1.9426,"LH3_L":1.9426,"LH4_H":1.9426,"LH4_L":1.9426,"LH5_H":1.9426,"LH5_L":1.9426,"message":null,"status":null,"statusCode":null,"result":null}
+2019-03-15 12:22:34,881 [Thread-18] INFO  [com.panli.view.PlaceThread] - start place========
+2019-03-15 12:22:34,881 [Thread-18] INFO  [com.panli.view.PlaceThread] - place plan choose========
+2019-03-15 12:22:34,881 [Thread-18] DEBUG [com.panli.view.PlaceThread] - place plan choose========Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=7, jumpHistory=null, type=单双]
+2019-03-15 12:22:34,881 [Thread-18] DEBUG [com.panli.view.PlaceThread] - getPlaceAmount:1
+2019-03-15 12:22:34,881 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placebetInfo:Placebet [drawTime=Fri Mar 15 12:22:34 CST 2019, drawNumber=51636863, lottery=LUCKYSB, bets=Bet [amount=8, contents=S, game=DS7, odds=1.9426]]
+2019-03-15 12:22:34,881 [Thread-18] INFO  [com.panli.view.PlaceThread] - startRealPlace==============
+2019-03-15 12:22:35,075 [Thread-18] DEBUG [com.panli.view.PlaceThread] - realPlaceResult:{"message":"下注成功","result":{"account":{"balance":15.136,"betting":8.0,"maxLimit":20.0,"result":3.136,"type":0},"ids":["2019031512223521070677330001"],"odds":["1.9426"],"status":0},"status":"success","statusCode":0}
+2019-03-15 12:22:35,075 [Thread-18] INFO  [com.panli.view.PlaceThread] - placecomplete========
+2019-03-15 12:22:35,075 [Thread-18] DEBUG [com.panli.view.PlaceThread] - restPlaceTime:44000,currentTime:1552623755075
+2019-03-15 12:23:39,448 [Thread-18] INFO  [com.panli.view.PlaceThread] - drawNumbers:51636863,placeNumbers:51636863
+2019-03-15 12:23:39,448 [Thread-18] DEBUG [com.panli.model.Record] - opendata:OpenInfo [detail=LH5=H,2,第五名-虎;LH3=L,2,第三名-龙;GDS=S,2,冠亚双;DX10=D,3,第十名-大;DX8=X,2,第八名-小;DX7=D,5,第七名-大;DX6=X,4,第六名-小;DX5=X,4,第五名-小;DX3=D,2,第三名-大;DS10=S,2,第十名-双;DS8=S,2,第八名-双;DS7=S,4,第七名-双;DS4=D,2,第四名-单;DS2=D,3,亚军-单;DS1=D,2,冠军-单;B10=6,2,第十名-6;B8=4,2,第八名-4;B7=8,2,第七名-8;, drawNumber=51636863, drawTime=2019-03-15 12:23:30, map={}, result=5,3,7,9,1,2,8,4,10,6, lottery=LUCKYSB]
+2019-03-15 12:23:39,448 [Thread-18] DEBUG [com.panli.model.Record] - placedata:Placebet [drawTime=Fri Mar 15 12:22:34 CST 2019, drawNumber=51636863, lottery=LUCKYSB, bets=Bet [amount=8, contents=S, game=DS7, odds=1.9426]]
+2019-03-15 12:23:39,448 [Thread-18] INFO  [com.panli.model.Record] - key:DS7=S,value:8,detail:LH5=H,2,第五名-虎;LH3=L,2,第三名-龙;GDS=S,2,冠亚双;DX10=D,3,第十名-大;DX8=X,2,第八名-小;DX7=D,5,第七名-大;DX6=X,4,第六名-小;DX5=X,4,第五名-小;DX3=D,2,第三名-大;DS10=S,2,第十名-双;DS8=S,2,第八名-双;DS7=S,4,第七名-双;DS4=D,2,第四名-单;DS2=D,3,亚军-单;DS1=D,2,冠军-单;B10=6,2,第十名-6;B8=4,2,第八名-4;B7=8,2,第七名-8;,drwaNum:51636863,platNum:51636863
+2019-03-15 12:23:39,449 [Thread-18] INFO  [com.panli.view.PlaceThread] - placeStartTime：startPlaceTime:Fri Mar 15 12:21:57 CST 2019,currentTime:Fri Mar 15 12:23:39 CST 2019,placeSettingTime:3 minute
+2019-03-15 12:23:39,449 [Thread-18] DEBUG [com.panli.view.PlaceThread] - this is staticInfo:planTotalCount=2, realCount=2, realAmount=3.54, virtualCount=0, virtualAmount=0, continueWinMax=1, continueLostMax=0,realWinPercent=0%
+2019-03-15 12:23:39,449 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realCount
+2019-03-15 12:23:39,450 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:placeStatus
+2019-03-15 12:23:39,450 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realAmount
+2019-03-15 12:23:39,450 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realWinPercent
+2019-03-15 12:23:39,450 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualCount
+2019-03-15 12:23:39,450 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:planTotalCount
+2019-03-15 12:23:39,450 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualAmount
+2019-03-15 12:23:39,450 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueWinMax
+2019-03-15 12:23:39,450 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueLostMax
+2019-03-15 12:23:49,687 [Thread-18] INFO  [com.panli.view.PlaceThread] - Period [closeTime=2019-03-15 12:24:30, currentTime=2019-03-15 12:23:49, drawDate=2019-03-15 00:00:00, drawTime=2019-03-15 12:24:45, openTime=2019-03-15 12:23:30, drawNumber=51636864, pnumber=51636863]
+2019-03-15 12:23:49,892 [Thread-18] INFO  [com.panli.view.PlaceThread] - {"B1_1":9.71,"B1_2":9.71,"B1_3":9.71,"B1_4":9.71,"B1_5":9.71,"B1_6":9.71,"B1_7":9.71,"B1_8":9.71,"B1_9":9.71,"B1_10":9.71,"B2_1":9.71,"B2_2":9.71,"B2_3":9.71,"B2_4":9.71,"B2_5":9.71,"B2_6":9.71,"B2_7":9.71,"B2_8":9.71,"B2_9":9.71,"B2_10":9.71,"B3_1":9.71,"B3_2":9.71,"B3_3":9.71,"B3_4":9.71,"B3_5":9.71,"B3_6":9.71,"B3_7":9.71,"B3_8":9.71,"B3_9":9.71,"B3_10":9.71,"B4_1":9.71,"B4_2":9.71,"B4_3":9.71,"B4_4":9.71,"B4_5":9.71,"B4_6":9.71,"B4_7":9.71,"B4_8":9.71,"B4_9":9.71,"B4_10":9.71,"B5_1":9.71,"B5_2":9.71,"B5_3":9.71,"B5_4":9.71,"B5_5":9.71,"B5_6":9.71,"B5_7":9.71,"B5_8":9.71,"B5_9":9.71,"B5_10":9.71,"B6_1":9.71,"B6_2":9.71,"B6_3":9.71,"B6_4":9.71,"B6_5":9.71,"B6_6":9.71,"B6_7":9.71,"B6_8":9.71,"B6_9":9.71,"B6_10":9.71,"B7_1":9.71,"B7_2":9.71,"B7_3":9.71,"B7_4":9.71,"B7_5":9.71,"B7_6":9.71,"B7_7":9.71,"B7_8":9.71,"B7_9":9.71,"B7_10":9.71,"B8_1":9.71,"B8_2":9.71,"B8_3":9.71,"B8_4":9.71,"B8_5":9.71,"B8_6":9.71,"B8_7":9.71,"B8_8":9.71,"B8_9":9.71,"B8_10":9.71,"B9_1":9.71,"B9_2":9.71,"B9_3":9.71,"B9_4":9.71,"B9_5":9.71,"B9_6":9.71,"B9_7":9.71,"B9_8":9.71,"B9_9":9.71,"B9_10":9.71,"B10_1":9.71,"B10_2":9.71,"B10_3":9.71,"B10_4":9.71,"B10_5":9.71,"B10_6":9.71,"B10_7":9.71,"B10_8":9.71,"B10_9":9.71,"B10_10":9.71,"DS1_D":1.9426,"DS1_S":1.9426,"DS2_D":1.9426,"DS2_S":1.9426,"DS3_D":1.9426,"DS3_S":1.9426,"DS4_D":1.9426,"DS4_S":1.9426,"DS5_D":1.9426,"DS5_S":1.9426,"DS6_D":1.9426,"DS6_S":1.9426,"DS7_D":1.9426,"DS7_S":1.9426,"DS8_D":1.9426,"DS8_S":1.9426,"DS9_D":1.9426,"DS9_S":1.9426,"DS10_D":1.9426,"DS10_S":1.9426,"DX1_D":1.9426,"DX1_X":1.9426,"DX2_D":1.9426,"DX2_X":1.9426,"DX3_D":1.9426,"DX3_X":1.9426,"DX4_D":1.9426,"DX4_X":1.9426,"DX5_D":1.9426,"DX5_X":1.9426,"DX6_D":1.9426,"DX6_X":1.9426,"DX7_D":1.9426,"DX7_X":1.9426,"DX8_D":1.9426,"DX8_X":1.9426,"DX9_D":1.9426,"DX9_X":1.9426,"DX10_D":1.9426,"DX10_X":1.9426,"GDS_D":1.735,"GDS_S":2.135,"GDX_D":2.135,"GDX_X":1.735,"GYH_3":41.31,"GYH_4":41.31,"GYH_5":20.73,"GYH_6":20.73,"GYH_7":13.76,"GYH_8":13.76,"GYH_9":10.11,"GYH_10":10.11,"GYH_11":8.15,"GYH_12":10.11,"GYH_13":10.11,"GYH_14":13.76,"GYH_15":13.76,"GYH_16":20.73,"GYH_17":20.73,"GYH_18":41.31,"GYH_19":41.31,"LH1_H":1.9426,"LH1_L":1.9426,"LH2_H":1.9426,"LH2_L":1.9426,"LH3_H":1.9426,"LH3_L":1.9426,"LH4_H":1.9426,"LH4_L":1.9426,"LH5_H":1.9426,"LH5_L":1.9426,"message":null,"status":null,"statusCode":null,"result":null}
+2019-03-15 12:23:49,892 [Thread-18] INFO  [com.panli.view.PlaceThread] - start place========
+2019-03-15 12:23:49,892 [Thread-18] INFO  [com.panli.view.PlaceThread] - place plan choose========
+2019-03-15 12:23:49,892 [Thread-18] DEBUG [com.panli.view.PlaceThread] - place plan choose========Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=7, jumpHistory=null, type=单双]
+2019-03-15 12:23:49,892 [Thread-18] DEBUG [com.panli.view.PlaceThread] - getPlaceAmount:0
+2019-03-15 12:23:49,892 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placebetInfo:Placebet [drawTime=Fri Mar 15 12:23:49 CST 2019, drawNumber=51636864, lottery=LUCKYSB, bets=Bet [amount=4, contents=D, game=DS7, odds=1.9426]]
+2019-03-15 12:23:49,892 [Thread-18] INFO  [com.panli.view.PlaceThread] - startRealPlace==============
+2019-03-15 12:23:50,074 [Thread-18] DEBUG [com.panli.view.PlaceThread] - realPlaceResult:{"message":"下注成功","result":{"account":{"balance":26.6768,"betting":4.0,"maxLimit":20.0,"result":10.6768,"type":0},"ids":["2019031512235021070693600001"],"odds":["1.9426"],"status":0},"status":"success","statusCode":0}
+2019-03-15 12:23:50,075 [Thread-18] INFO  [com.panli.view.PlaceThread] - placecomplete========
+2019-03-15 12:23:50,075 [Thread-18] DEBUG [com.panli.view.PlaceThread] - restPlaceTime:41000,currentTime:1552623830075
+2019-03-15 12:24:52,485 [Thread-18] INFO  [com.panli.view.PlaceThread] - drawNumbers:51636864,placeNumbers:51636864
+2019-03-15 12:24:52,485 [Thread-18] DEBUG [com.panli.model.Record] - opendata:OpenInfo [detail=LH4=L,2,第四名-龙;LH1=H,2,冠军-虎;GDX=X,2,冠亚小;DX10=D,4,第十名-大;DX1=X,2,冠军-小;DS10=S,3,第十名-双;DS8=S,3,第八名-双;DS7=S,5,第七名-双;DS6=S,2,第六名-双;DS5=D,2,第五名-单;DS4=D,3,第四名-单;DS3=D,2,第三名-单;DS2=D,4,亚军-单;, drawNumber=51636864, drawTime=2019-03-15 12:24:45, map={}, result=2,9,1,5,7,6,4,10,3,8, lottery=LUCKYSB]
+2019-03-15 12:24:52,485 [Thread-18] DEBUG [com.panli.model.Record] - placedata:Placebet [drawTime=Fri Mar 15 12:23:49 CST 2019, drawNumber=51636864, lottery=LUCKYSB, bets=Bet [amount=4, contents=D, game=DS7, odds=1.9426]]
+2019-03-15 12:24:52,485 [Thread-18] INFO  [com.panli.model.Record] - key:DS7=D,value:null,detail:LH4=L,2,第四名-龙;LH1=H,2,冠军-虎;GDX=X,2,冠亚小;DX10=D,4,第十名-大;DX1=X,2,冠军-小;DS10=S,3,第十名-双;DS8=S,3,第八名-双;DS7=S,5,第七名-双;DS6=S,2,第六名-双;DS5=D,2,第五名-单;DS4=D,3,第四名-单;DS3=D,2,第三名-单;DS2=D,4,亚军-单;,drwaNum:51636864,platNum:51636864
+2019-03-15 12:24:52,486 [Thread-18] DEBUG [com.panli.view.PlaceThread] - this is staticInfo:planTotalCount=3, realCount=3, realAmount=-0.46, virtualCount=0, virtualAmount=0, continueWinMax=1, continueLostMax=0,realWinPercent=0%
+2019-03-15 12:24:52,486 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realCount
+2019-03-15 12:24:52,486 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:placeStatus
+2019-03-15 12:24:52,486 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realAmount
+2019-03-15 12:24:52,486 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realWinPercent
+2019-03-15 12:24:52,486 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualCount
+2019-03-15 12:24:52,486 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:planTotalCount
+2019-03-15 12:24:52,486 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualAmount
+2019-03-15 12:24:52,486 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueWinMax
+2019-03-15 12:24:52,486 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueLostMax
+2019-03-15 12:25:02,844 [Thread-18] INFO  [com.panli.view.PlaceThread] - Period [closeTime=2019-03-15 12:25:45, currentTime=2019-03-15 12:25:02, drawDate=2019-03-15 00:00:00, drawTime=2019-03-15 12:26:00, openTime=2019-03-15 12:24:45, drawNumber=51636865, pnumber=51636864]
+2019-03-15 12:25:03,040 [Thread-18] INFO  [com.panli.view.PlaceThread] - {"B1_1":9.71,"B1_2":9.71,"B1_3":9.71,"B1_4":9.71,"B1_5":9.71,"B1_6":9.71,"B1_7":9.71,"B1_8":9.71,"B1_9":9.71,"B1_10":9.71,"B2_1":9.71,"B2_2":9.71,"B2_3":9.71,"B2_4":9.71,"B2_5":9.71,"B2_6":9.71,"B2_7":9.71,"B2_8":9.71,"B2_9":9.71,"B2_10":9.71,"B3_1":9.71,"B3_2":9.71,"B3_3":9.71,"B3_4":9.71,"B3_5":9.71,"B3_6":9.71,"B3_7":9.71,"B3_8":9.71,"B3_9":9.71,"B3_10":9.71,"B4_1":9.71,"B4_2":9.71,"B4_3":9.71,"B4_4":9.71,"B4_5":9.71,"B4_6":9.71,"B4_7":9.71,"B4_8":9.71,"B4_9":9.71,"B4_10":9.71,"B5_1":9.71,"B5_2":9.71,"B5_3":9.71,"B5_4":9.71,"B5_5":9.71,"B5_6":9.71,"B5_7":9.71,"B5_8":9.71,"B5_9":9.71,"B5_10":9.71,"B6_1":9.71,"B6_2":9.71,"B6_3":9.71,"B6_4":9.71,"B6_5":9.71,"B6_6":9.71,"B6_7":9.71,"B6_8":9.71,"B6_9":9.71,"B6_10":9.71,"B7_1":9.71,"B7_2":9.71,"B7_3":9.71,"B7_4":9.71,"B7_5":9.71,"B7_6":9.71,"B7_7":9.71,"B7_8":9.71,"B7_9":9.71,"B7_10":9.71,"B8_1":9.71,"B8_2":9.71,"B8_3":9.71,"B8_4":9.71,"B8_5":9.71,"B8_6":9.71,"B8_7":9.71,"B8_8":9.71,"B8_9":9.71,"B8_10":9.71,"B9_1":9.71,"B9_2":9.71,"B9_3":9.71,"B9_4":9.71,"B9_5":9.71,"B9_6":9.71,"B9_7":9.71,"B9_8":9.71,"B9_9":9.71,"B9_10":9.71,"B10_1":9.71,"B10_2":9.71,"B10_3":9.71,"B10_4":9.71,"B10_5":9.71,"B10_6":9.71,"B10_7":9.71,"B10_8":9.71,"B10_9":9.71,"B10_10":9.71,"DS1_D":1.9426,"DS1_S":1.9426,"DS2_D":1.9426,"DS2_S":1.9426,"DS3_D":1.9426,"DS3_S":1.9426,"DS4_D":1.9426,"DS4_S":1.9426,"DS5_D":1.9426,"DS5_S":1.9426,"DS6_D":1.9426,"DS6_S":1.9426,"DS7_D":1.9426,"DS7_S":1.9426,"DS8_D":1.9426,"DS8_S":1.9426,"DS9_D":1.9426,"DS9_S":1.9426,"DS10_D":1.9426,"DS10_S":1.9426,"DX1_D":1.9426,"DX1_X":1.9426,"DX2_D":1.9426,"DX2_X":1.9426,"DX3_D":1.9426,"DX3_X":1.9426,"DX4_D":1.9426,"DX4_X":1.9426,"DX5_D":1.9426,"DX5_X":1.9426,"DX6_D":1.9426,"DX6_X":1.9426,"DX7_D":1.9426,"DX7_X":1.9426,"DX8_D":1.9426,"DX8_X":1.9426,"DX9_D":1.9426,"DX9_X":1.9426,"DX10_D":1.9426,"DX10_X":1.9426,"GDS_D":1.735,"GDS_S":2.135,"GDX_D":2.135,"GDX_X":1.735,"GYH_3":41.31,"GYH_4":41.31,"GYH_5":20.73,"GYH_6":20.73,"GYH_7":13.76,"GYH_8":13.76,"GYH_9":10.11,"GYH_10":10.11,"GYH_11":8.15,"GYH_12":10.11,"GYH_13":10.11,"GYH_14":13.76,"GYH_15":13.76,"GYH_16":20.73,"GYH_17":20.73,"GYH_18":41.31,"GYH_19":41.31,"LH1_H":1.9426,"LH1_L":1.9426,"LH2_H":1.9426,"LH2_L":1.9426,"LH3_H":1.9426,"LH3_L":1.9426,"LH4_H":1.9426,"LH4_L":1.9426,"LH5_H":1.9426,"LH5_L":1.9426,"message":null,"status":null,"statusCode":null,"result":null}
+2019-03-15 12:25:03,040 [Thread-18] INFO  [com.panli.view.PlaceThread] - start place========
+2019-03-15 12:25:03,040 [Thread-18] INFO  [com.panli.view.PlaceThread] - place plan choose========
+2019-03-15 12:25:03,040 [Thread-18] DEBUG [com.panli.view.PlaceThread] - place plan choose========Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=7, jumpHistory=null, type=单双]
+2019-03-15 12:25:03,040 [Thread-18] DEBUG [com.panli.view.PlaceThread] - getPlaceAmount:1
+2019-03-15 12:25:03,040 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placebetInfo:Placebet [drawTime=Fri Mar 15 12:25:03 CST 2019, drawNumber=51636865, lottery=LUCKYSB, bets=Bet [amount=8, contents=S, game=DS7, odds=1.9426]]
+2019-03-15 12:25:03,040 [Thread-18] INFO  [com.panli.view.PlaceThread] - startRealPlace==============
+2019-03-15 12:25:03,222 [Thread-18] DEBUG [com.panli.view.PlaceThread] - realPlaceResult:{"message":"下注成功","result":{"account":{"balance":18.6768,"betting":8.0,"maxLimit":20.0,"result":6.6768,"type":0},"ids":["2019031512250321070710410001"],"odds":["1.9426"],"status":0},"status":"success","statusCode":0}
+2019-03-15 12:25:03,223 [Thread-18] INFO  [com.panli.view.PlaceThread] - placecomplete========
+2019-03-15 12:25:03,223 [Thread-18] DEBUG [com.panli.view.PlaceThread] - restPlaceTime:43000,currentTime:1552623903223
+2019-03-15 12:26:06,635 [Thread-18] INFO  [com.panli.view.PlaceThread] - drawNumbers:51636865,placeNumbers:51636865
+2019-03-15 12:26:06,636 [Thread-18] DEBUG [com.panli.model.Record] - opendata:OpenInfo [detail=LH5=L,2,第五名-龙;LH4=L,3,第四名-龙;LH3=H,2,第三名-虎;LH2=L,2,亚军-龙;LH1=H,3,冠军-虎;GDX=X,3,冠亚小;GDS=D,2,冠亚单;GYH=11,2,冠亚军和-11;DX8=D,2,第八名-大;DX7=X,2,第七名-小;DX6=D,2,第六名-大;DX5=D,2,第五名-大;DX4=X,2,第四名-小;DX3=X,2,第三名-小;DX2=D,2,亚军-大;DX1=X,3,冠军-小;DS10=S,4,第十名-双;DS6=S,3,第六名-双;DS4=D,4,第四名-单;DS3=D,3,第三名-单;DS2=D,5,亚军-单;DS1=S,2,冠军-双;B6=6,2,第六名-6;B2=9,2,亚军-9;B1=2,2,冠军-2;, drawNumber=51636865, drawTime=2019-03-15 12:26:00, map={}, result=2,9,5,3,10,6,1,7,8,4, lottery=LUCKYSB]
+2019-03-15 12:26:06,636 [Thread-18] DEBUG [com.panli.model.Record] - placedata:Placebet [drawTime=Fri Mar 15 12:25:03 CST 2019, drawNumber=51636865, lottery=LUCKYSB, bets=Bet [amount=8, contents=S, game=DS7, odds=1.9426]]
+2019-03-15 12:26:06,636 [Thread-18] INFO  [com.panli.model.Record] - key:DS7=S,value:null,detail:LH5=L,2,第五名-龙;LH4=L,3,第四名-龙;LH3=H,2,第三名-虎;LH2=L,2,亚军-龙;LH1=H,3,冠军-虎;GDX=X,3,冠亚小;GDS=D,2,冠亚单;GYH=11,2,冠亚军和-11;DX8=D,2,第八名-大;DX7=X,2,第七名-小;DX6=D,2,第六名-大;DX5=D,2,第五名-大;DX4=X,2,第四名-小;DX3=X,2,第三名-小;DX2=D,2,亚军-大;DX1=X,3,冠军-小;DS10=S,4,第十名-双;DS6=S,3,第六名-双;DS4=D,4,第四名-单;DS3=D,3,第三名-单;DS2=D,5,亚军-单;DS1=S,2,冠军-双;B6=6,2,第六名-6;B2=9,2,亚军-9;B1=2,2,冠军-2;,drwaNum:51636865,platNum:51636865
+2019-03-15 12:26:06,636 [Thread-18] DEBUG [com.panli.view.PlaceThread] - this is staticInfo:planTotalCount=4, realCount=4, realAmount=-8.46, virtualCount=0, virtualAmount=0, continueWinMax=1, continueLostMax=0,realWinPercent=0%
+2019-03-15 12:26:06,636 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realCount
+2019-03-15 12:26:06,636 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:placeStatus
+2019-03-15 12:26:06,636 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realAmount
+2019-03-15 12:26:06,636 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realWinPercent
+2019-03-15 12:26:06,636 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualCount
+2019-03-15 12:26:06,636 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:planTotalCount
+2019-03-15 12:26:06,636 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualAmount
+2019-03-15 12:26:06,636 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueWinMax
+2019-03-15 12:26:06,636 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueLostMax
+2019-03-15 12:26:16,834 [Thread-18] INFO  [com.panli.view.PlaceThread] - Period [closeTime=2019-03-15 12:27:00, currentTime=2019-03-15 12:26:16, drawDate=2019-03-15 00:00:00, drawTime=2019-03-15 12:27:15, openTime=2019-03-15 12:26:00, drawNumber=51636866, pnumber=51636865]
+2019-03-15 12:26:17,015 [Thread-18] INFO  [com.panli.view.PlaceThread] - {"B1_1":9.71,"B1_2":9.71,"B1_3":9.71,"B1_4":9.71,"B1_5":9.71,"B1_6":9.71,"B1_7":9.71,"B1_8":9.71,"B1_9":9.71,"B1_10":9.71,"B2_1":9.71,"B2_2":9.71,"B2_3":9.71,"B2_4":9.71,"B2_5":9.71,"B2_6":9.71,"B2_7":9.71,"B2_8":9.71,"B2_9":9.71,"B2_10":9.71,"B3_1":9.71,"B3_2":9.71,"B3_3":9.71,"B3_4":9.71,"B3_5":9.71,"B3_6":9.71,"B3_7":9.71,"B3_8":9.71,"B3_9":9.71,"B3_10":9.71,"B4_1":9.71,"B4_2":9.71,"B4_3":9.71,"B4_4":9.71,"B4_5":9.71,"B4_6":9.71,"B4_7":9.71,"B4_8":9.71,"B4_9":9.71,"B4_10":9.71,"B5_1":9.71,"B5_2":9.71,"B5_3":9.71,"B5_4":9.71,"B5_5":9.71,"B5_6":9.71,"B5_7":9.71,"B5_8":9.71,"B5_9":9.71,"B5_10":9.71,"B6_1":9.71,"B6_2":9.71,"B6_3":9.71,"B6_4":9.71,"B6_5":9.71,"B6_6":9.71,"B6_7":9.71,"B6_8":9.71,"B6_9":9.71,"B6_10":9.71,"B7_1":9.71,"B7_2":9.71,"B7_3":9.71,"B7_4":9.71,"B7_5":9.71,"B7_6":9.71,"B7_7":9.71,"B7_8":9.71,"B7_9":9.71,"B7_10":9.71,"B8_1":9.71,"B8_2":9.71,"B8_3":9.71,"B8_4":9.71,"B8_5":9.71,"B8_6":9.71,"B8_7":9.71,"B8_8":9.71,"B8_9":9.71,"B8_10":9.71,"B9_1":9.71,"B9_2":9.71,"B9_3":9.71,"B9_4":9.71,"B9_5":9.71,"B9_6":9.71,"B9_7":9.71,"B9_8":9.71,"B9_9":9.71,"B9_10":9.71,"B10_1":9.71,"B10_2":9.71,"B10_3":9.71,"B10_4":9.71,"B10_5":9.71,"B10_6":9.71,"B10_7":9.71,"B10_8":9.71,"B10_9":9.71,"B10_10":9.71,"DS1_D":1.9426,"DS1_S":1.9426,"DS2_D":1.9426,"DS2_S":1.9426,"DS3_D":1.9426,"DS3_S":1.9426,"DS4_D":1.9426,"DS4_S":1.9426,"DS5_D":1.9426,"DS5_S":1.9426,"DS6_D":1.9426,"DS6_S":1.9426,"DS7_D":1.9426,"DS7_S":1.9426,"DS8_D":1.9426,"DS8_S":1.9426,"DS9_D":1.9426,"DS9_S":1.9426,"DS10_D":1.9426,"DS10_S":1.9426,"DX1_D":1.9426,"DX1_X":1.9426,"DX2_D":1.9426,"DX2_X":1.9426,"DX3_D":1.9426,"DX3_X":1.9426,"DX4_D":1.9426,"DX4_X":1.9426,"DX5_D":1.9426,"DX5_X":1.9426,"DX6_D":1.9426,"DX6_X":1.9426,"DX7_D":1.9426,"DX7_X":1.9426,"DX8_D":1.9426,"DX8_X":1.9426,"DX9_D":1.9426,"DX9_X":1.9426,"DX10_D":1.9426,"DX10_X":1.9426,"GDS_D":1.735,"GDS_S":2.135,"GDX_D":2.135,"GDX_X":1.735,"GYH_3":41.31,"GYH_4":41.31,"GYH_5":20.73,"GYH_6":20.73,"GYH_7":13.76,"GYH_8":13.76,"GYH_9":10.11,"GYH_10":10.11,"GYH_11":8.15,"GYH_12":10.11,"GYH_13":10.11,"GYH_14":13.76,"GYH_15":13.76,"GYH_16":20.73,"GYH_17":20.73,"GYH_18":41.31,"GYH_19":41.31,"LH1_H":1.9426,"LH1_L":1.9426,"LH2_H":1.9426,"LH2_L":1.9426,"LH3_H":1.9426,"LH3_L":1.9426,"LH4_H":1.9426,"LH4_L":1.9426,"LH5_H":1.9426,"LH5_L":1.9426,"message":null,"status":null,"statusCode":null,"result":null}
+2019-03-15 12:26:17,015 [Thread-18] INFO  [com.panli.view.PlaceThread] - start place========
+2019-03-15 12:26:17,016 [Thread-18] INFO  [com.panli.view.PlaceThread] - place plan choose========
+2019-03-15 12:26:17,016 [Thread-18] DEBUG [com.panli.view.PlaceThread] - place plan choose========Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=7, jumpHistory=null, type=单双]
+2019-03-15 12:26:17,016 [Thread-18] DEBUG [com.panli.view.PlaceThread] - getPlaceAmount:2
+2019-03-15 12:26:17,016 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placebetInfo:Placebet [drawTime=Fri Mar 15 12:26:17 CST 2019, drawNumber=51636866, lottery=LUCKYSB, bets=Bet [amount=16, contents=D, game=DS7, odds=1.9426]]
+2019-03-15 12:26:17,016 [Thread-18] INFO  [com.panli.view.PlaceThread] - startRealPlace==============
+2019-03-15 12:26:17,252 [Thread-18] DEBUG [com.panli.view.PlaceThread] - realPlaceResult:{"message":"下注成功","result":{"account":{"balance":2.6768,"betting":16.0,"maxLimit":20.0,"result":-1.3232,"type":0},"ids":["2019031512261721070732020001"],"odds":["1.9426"],"status":0},"status":"success","statusCode":0}
+2019-03-15 12:26:17,252 [Thread-18] INFO  [com.panli.view.PlaceThread] - placecomplete========
+2019-03-15 12:26:17,252 [Thread-18] DEBUG [com.panli.view.PlaceThread] - restPlaceTime:44000,currentTime:1552623977252
+2019-03-15 12:27:21,652 [Thread-18] INFO  [com.panli.view.PlaceThread] - drawNumbers:51636866,placeNumbers:51636866
+2019-03-15 12:27:21,652 [Thread-18] DEBUG [com.panli.model.Record] - opendata:OpenInfo [detail=LH5=L,3,第五名-龙;LH4=L,4,第四名-龙;LH2=L,3,亚军-龙;LH1=H,4,冠军-虎;GDX=X,4,冠亚小;DX5=D,3,第五名-大;DX3=X,3,第三名-小;DS9=S,2,第九名-双;DS8=D,2,第八名-单;DS3=D,4,第三名-单;DS1=S,3,冠军-双;B3=5,2,第三名-5;, drawNumber=51636866, drawTime=2019-03-15 12:27:15, map={}, result=6,4,5,10,9,1,8,3,2,7, lottery=LUCKYSB]
+2019-03-15 12:27:21,652 [Thread-18] DEBUG [com.panli.model.Record] - placedata:Placebet [drawTime=Fri Mar 15 12:26:17 CST 2019, drawNumber=51636866, lottery=LUCKYSB, bets=Bet [amount=16, contents=D, game=DS7, odds=1.9426]]
+2019-03-15 12:27:21,653 [Thread-18] INFO  [com.panli.model.Record] - key:DS7=D,value:null,detail:LH5=L,3,第五名-龙;LH4=L,4,第四名-龙;LH2=L,3,亚军-龙;LH1=H,4,冠军-虎;GDX=X,4,冠亚小;DX5=D,3,第五名-大;DX3=X,3,第三名-小;DS9=S,2,第九名-双;DS8=D,2,第八名-单;DS3=D,4,第三名-单;DS1=S,3,冠军-双;B3=5,2,第三名-5;,drwaNum:51636866,platNum:51636866
+2019-03-15 12:27:21,653 [Thread-18] DEBUG [com.panli.view.PlaceThread] - this is staticInfo:planTotalCount=5, realCount=5, realAmount=-24.46, virtualCount=0, virtualAmount=0, continueWinMax=1, continueLostMax=0,realWinPercent=0%
+2019-03-15 12:27:21,653 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realCount
+2019-03-15 12:27:21,653 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:placeStatus
+2019-03-15 12:27:21,653 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realAmount
+2019-03-15 12:27:21,653 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realWinPercent
+2019-03-15 12:27:21,653 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualCount
+2019-03-15 12:27:21,653 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:planTotalCount
+2019-03-15 12:27:21,653 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualAmount
+2019-03-15 12:27:21,653 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueWinMax
+2019-03-15 12:27:21,653 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueLostMax
+2019-03-15 12:27:31,843 [Thread-18] INFO  [com.panli.view.PlaceThread] - Period [closeTime=2019-03-15 12:28:15, currentTime=2019-03-15 12:27:31, drawDate=2019-03-15 00:00:00, drawTime=2019-03-15 12:28:30, openTime=2019-03-15 12:27:15, drawNumber=51636867, pnumber=51636866]
+2019-03-15 12:27:33,059 [Thread-18] INFO  [com.panli.view.PlaceThread] - {"B1_1":9.71,"B1_2":9.71,"B1_3":9.71,"B1_4":9.71,"B1_5":9.71,"B1_6":9.71,"B1_7":9.71,"B1_8":9.71,"B1_9":9.71,"B1_10":9.71,"B2_1":9.71,"B2_2":9.71,"B2_3":9.71,"B2_4":9.71,"B2_5":9.71,"B2_6":9.71,"B2_7":9.71,"B2_8":9.71,"B2_9":9.71,"B2_10":9.71,"B3_1":9.71,"B3_2":9.71,"B3_3":9.71,"B3_4":9.71,"B3_5":9.71,"B3_6":9.71,"B3_7":9.71,"B3_8":9.71,"B3_9":9.71,"B3_10":9.71,"B4_1":9.71,"B4_2":9.71,"B4_3":9.71,"B4_4":9.71,"B4_5":9.71,"B4_6":9.71,"B4_7":9.71,"B4_8":9.71,"B4_9":9.71,"B4_10":9.71,"B5_1":9.71,"B5_2":9.71,"B5_3":9.71,"B5_4":9.71,"B5_5":9.71,"B5_6":9.71,"B5_7":9.71,"B5_8":9.71,"B5_9":9.71,"B5_10":9.71,"B6_1":9.71,"B6_2":9.71,"B6_3":9.71,"B6_4":9.71,"B6_5":9.71,"B6_6":9.71,"B6_7":9.71,"B6_8":9.71,"B6_9":9.71,"B6_10":9.71,"B7_1":9.71,"B7_2":9.71,"B7_3":9.71,"B7_4":9.71,"B7_5":9.71,"B7_6":9.71,"B7_7":9.71,"B7_8":9.71,"B7_9":9.71,"B7_10":9.71,"B8_1":9.71,"B8_2":9.71,"B8_3":9.71,"B8_4":9.71,"B8_5":9.71,"B8_6":9.71,"B8_7":9.71,"B8_8":9.71,"B8_9":9.71,"B8_10":9.71,"B9_1":9.71,"B9_2":9.71,"B9_3":9.71,"B9_4":9.71,"B9_5":9.71,"B9_6":9.71,"B9_7":9.71,"B9_8":9.71,"B9_9":9.71,"B9_10":9.71,"B10_1":9.71,"B10_2":9.71,"B10_3":9.71,"B10_4":9.71,"B10_5":9.71,"B10_6":9.71,"B10_7":9.71,"B10_8":9.71,"B10_9":9.71,"B10_10":9.71,"DS1_D":1.9426,"DS1_S":1.9426,"DS2_D":1.9426,"DS2_S":1.9426,"DS3_D":1.9426,"DS3_S":1.9426,"DS4_D":1.9426,"DS4_S":1.9426,"DS5_D":1.9426,"DS5_S":1.9426,"DS6_D":1.9426,"DS6_S":1.9426,"DS7_D":1.9426,"DS7_S":1.9426,"DS8_D":1.9426,"DS8_S":1.9426,"DS9_D":1.9426,"DS9_S":1.9426,"DS10_D":1.9426,"DS10_S":1.9426,"DX1_D":1.9426,"DX1_X":1.9426,"DX2_D":1.9426,"DX2_X":1.9426,"DX3_D":1.9426,"DX3_X":1.9426,"DX4_D":1.9426,"DX4_X":1.9426,"DX5_D":1.9426,"DX5_X":1.9426,"DX6_D":1.9426,"DX6_X":1.9426,"DX7_D":1.9426,"DX7_X":1.9426,"DX8_D":1.9426,"DX8_X":1.9426,"DX9_D":1.9426,"DX9_X":1.9426,"DX10_D":1.9426,"DX10_X":1.9426,"GDS_D":1.735,"GDS_S":2.135,"GDX_D":2.135,"GDX_X":1.735,"GYH_3":41.31,"GYH_4":41.31,"GYH_5":20.73,"GYH_6":20.73,"GYH_7":13.76,"GYH_8":13.76,"GYH_9":10.11,"GYH_10":10.11,"GYH_11":8.15,"GYH_12":10.11,"GYH_13":10.11,"GYH_14":13.76,"GYH_15":13.76,"GYH_16":20.73,"GYH_17":20.73,"GYH_18":41.31,"GYH_19":41.31,"LH1_H":1.9426,"LH1_L":1.9426,"LH2_H":1.9426,"LH2_L":1.9426,"LH3_H":1.9426,"LH3_L":1.9426,"LH4_H":1.9426,"LH4_L":1.9426,"LH5_H":1.9426,"LH5_L":1.9426,"message":null,"status":null,"statusCode":null,"result":null}
+2019-03-15 12:27:33,059 [Thread-18] INFO  [com.panli.view.PlaceThread] - start place========
+2019-03-15 12:27:33,059 [Thread-18] INFO  [com.panli.view.PlaceThread] - place plan choose========
+2019-03-15 12:27:33,059 [Thread-18] DEBUG [com.panli.view.PlaceThread] - place plan choose========Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=7, jumpHistory=null, type=单双]
+2019-03-15 12:27:33,059 [Thread-18] DEBUG [com.panli.view.PlaceThread] - getPlaceAmount:3
+2019-03-15 12:27:33,059 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placebetInfo:Placebet [drawTime=Fri Mar 15 12:27:33 CST 2019, drawNumber=51636867, lottery=LUCKYSB, bets=Bet [amount=32, contents=S, game=DS7, odds=1.9426]]
+2019-03-15 12:27:33,059 [Thread-18] INFO  [com.panli.view.PlaceThread] - startRealPlace==============
+2019-03-15 12:27:33,248 [Thread-18] DEBUG [com.panli.view.PlaceThread] - realPlaceResult:
+2019-03-15 12:27:33,248 [Thread-18] INFO  [com.panli.view.PlaceThread] - placecomplete========
+2019-03-15 12:27:33,249 [Thread-18] DEBUG [com.panli.view.PlaceThread] - restPlaceTime:44000,currentTime:1552624053249
+2019-03-15 12:28:37,619 [Thread-18] INFO  [com.panli.view.PlaceThread] - drawNumbers:51636867,placeNumbers:51636867
+2019-03-15 12:28:37,619 [Thread-18] DEBUG [com.panli.model.Record] - opendata:OpenInfo [detail=LH4=L,5,第四名-龙;LH2=L,4,亚军-龙;GDS=S,2,冠亚双;DX9=X,2,第九名-小;DX4=D,2,第四名-大;DS10=D,2,第十名-单;DS8=D,3,第八名-单;DS4=S,2,第四名-双;DS3=D,5,第三名-单;DS2=S,2,亚军-双;DS1=S,4,冠军-双;, drawNumber=51636867, drawTime=2019-03-15 12:28:30, map={}, result=2,10,7,6,4,8,3,9,5,1, lottery=LUCKYSB]
+2019-03-15 12:28:37,619 [Thread-18] DEBUG [com.panli.model.Record] - placedata:Placebet [drawTime=Fri Mar 15 12:27:33 CST 2019, drawNumber=51636867, lottery=LUCKYSB, bets=Bet [amount=32, contents=S, game=DS7, odds=1.9426]]
+2019-03-15 12:28:37,619 [Thread-18] INFO  [com.panli.model.Record] - key:DS7=S,value:null,detail:LH4=L,5,第四名-龙;LH2=L,4,亚军-龙;GDS=S,2,冠亚双;DX9=X,2,第九名-小;DX4=D,2,第四名-大;DS10=D,2,第十名-单;DS8=D,3,第八名-单;DS4=S,2,第四名-双;DS3=D,5,第三名-单;DS2=S,2,亚军-双;DS1=S,4,冠军-双;,drwaNum:51636867,platNum:51636867
+2019-03-15 12:28:37,619 [Thread-18] DEBUG [com.panli.view.PlaceThread] - this is staticInfo:planTotalCount=6, realCount=6, realAmount=-56.46, virtualCount=0, virtualAmount=0, continueWinMax=1, continueLostMax=0,realWinPercent=0%
+2019-03-15 12:28:37,619 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realCount
+2019-03-15 12:28:37,619 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:placeStatus
+2019-03-15 12:28:37,619 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realAmount
+2019-03-15 12:28:37,620 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realWinPercent
+2019-03-15 12:28:37,620 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualCount
+2019-03-15 12:28:37,620 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:planTotalCount
+2019-03-15 12:28:37,620 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualAmount
+2019-03-15 12:28:37,620 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueWinMax
+2019-03-15 12:28:37,620 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueLostMax
+2019-03-15 12:28:47,901 [Thread-18] INFO  [com.panli.view.PlaceThread] - Period [closeTime=2019-03-15 12:29:30, currentTime=2019-03-15 12:28:47, drawDate=2019-03-15 00:00:00, drawTime=2019-03-15 12:29:45, openTime=2019-03-15 12:28:30, drawNumber=51636868, pnumber=51636867]
+2019-03-15 12:28:48,086 [Thread-18] INFO  [com.panli.view.PlaceThread] - {"B1_1":9.71,"B1_2":9.71,"B1_3":9.71,"B1_4":9.71,"B1_5":9.71,"B1_6":9.71,"B1_7":9.71,"B1_8":9.71,"B1_9":9.71,"B1_10":9.71,"B2_1":9.71,"B2_2":9.71,"B2_3":9.71,"B2_4":9.71,"B2_5":9.71,"B2_6":9.71,"B2_7":9.71,"B2_8":9.71,"B2_9":9.71,"B2_10":9.71,"B3_1":9.71,"B3_2":9.71,"B3_3":9.71,"B3_4":9.71,"B3_5":9.71,"B3_6":9.71,"B3_7":9.71,"B3_8":9.71,"B3_9":9.71,"B3_10":9.71,"B4_1":9.71,"B4_2":9.71,"B4_3":9.71,"B4_4":9.71,"B4_5":9.71,"B4_6":9.71,"B4_7":9.71,"B4_8":9.71,"B4_9":9.71,"B4_10":9.71,"B5_1":9.71,"B5_2":9.71,"B5_3":9.71,"B5_4":9.71,"B5_5":9.71,"B5_6":9.71,"B5_7":9.71,"B5_8":9.71,"B5_9":9.71,"B5_10":9.71,"B6_1":9.71,"B6_2":9.71,"B6_3":9.71,"B6_4":9.71,"B6_5":9.71,"B6_6":9.71,"B6_7":9.71,"B6_8":9.71,"B6_9":9.71,"B6_10":9.71,"B7_1":9.71,"B7_2":9.71,"B7_3":9.71,"B7_4":9.71,"B7_5":9.71,"B7_6":9.71,"B7_7":9.71,"B7_8":9.71,"B7_9":9.71,"B7_10":9.71,"B8_1":9.71,"B8_2":9.71,"B8_3":9.71,"B8_4":9.71,"B8_5":9.71,"B8_6":9.71,"B8_7":9.71,"B8_8":9.71,"B8_9":9.71,"B8_10":9.71,"B9_1":9.71,"B9_2":9.71,"B9_3":9.71,"B9_4":9.71,"B9_5":9.71,"B9_6":9.71,"B9_7":9.71,"B9_8":9.71,"B9_9":9.71,"B9_10":9.71,"B10_1":9.71,"B10_2":9.71,"B10_3":9.71,"B10_4":9.71,"B10_5":9.71,"B10_6":9.71,"B10_7":9.71,"B10_8":9.71,"B10_9":9.71,"B10_10":9.71,"DS1_D":1.9426,"DS1_S":1.9426,"DS2_D":1.9426,"DS2_S":1.9426,"DS3_D":1.9426,"DS3_S":1.9426,"DS4_D":1.9426,"DS4_S":1.9426,"DS5_D":1.9426,"DS5_S":1.9426,"DS6_D":1.9426,"DS6_S":1.9426,"DS7_D":1.9426,"DS7_S":1.9426,"DS8_D":1.9426,"DS8_S":1.9426,"DS9_D":1.9426,"DS9_S":1.9426,"DS10_D":1.9426,"DS10_S":1.9426,"DX1_D":1.9426,"DX1_X":1.9426,"DX2_D":1.9426,"DX2_X":1.9426,"DX3_D":1.9426,"DX3_X":1.9426,"DX4_D":1.9426,"DX4_X":1.9426,"DX5_D":1.9426,"DX5_X":1.9426,"DX6_D":1.9426,"DX6_X":1.9426,"DX7_D":1.9426,"DX7_X":1.9426,"DX8_D":1.9426,"DX8_X":1.9426,"DX9_D":1.9426,"DX9_X":1.9426,"DX10_D":1.9426,"DX10_X":1.9426,"GDS_D":1.735,"GDS_S":2.135,"GDX_D":2.135,"GDX_X":1.735,"GYH_3":41.31,"GYH_4":41.31,"GYH_5":20.73,"GYH_6":20.73,"GYH_7":13.76,"GYH_8":13.76,"GYH_9":10.11,"GYH_10":10.11,"GYH_11":8.15,"GYH_12":10.11,"GYH_13":10.11,"GYH_14":13.76,"GYH_15":13.76,"GYH_16":20.73,"GYH_17":20.73,"GYH_18":41.31,"GYH_19":41.31,"LH1_H":1.9426,"LH1_L":1.9426,"LH2_H":1.9426,"LH2_L":1.9426,"LH3_H":1.9426,"LH3_L":1.9426,"LH4_H":1.9426,"LH4_L":1.9426,"LH5_H":1.9426,"LH5_L":1.9426,"message":null,"status":null,"statusCode":null,"result":null}
+2019-03-15 12:28:48,086 [Thread-18] INFO  [com.panli.view.PlaceThread] - start place========
+2019-03-15 12:28:48,086 [Thread-18] INFO  [com.panli.view.PlaceThread] - place plan choose========
+2019-03-15 12:28:48,086 [Thread-18] DEBUG [com.panli.view.PlaceThread] - place plan choose========Plan [schemeName=极速飞艇 , name=方案2, startLine=7, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=7, jumpHistory=null, type=单双]
+2019-03-15 12:28:48,086 [Thread-18] DEBUG [com.panli.view.PlaceThread] - getPlaceAmount:4
+2019-03-15 12:28:48,086 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placebetInfo:Placebet [drawTime=Fri Mar 15 12:28:48 CST 2019, drawNumber=51636868, lottery=LUCKYSB, bets=Bet [amount=64, contents=D, game=DS7, odds=1.9426]]
+2019-03-15 12:28:48,086 [Thread-18] INFO  [com.panli.view.PlaceThread] - startRealPlace==============
+2019-03-15 12:28:48,287 [Thread-18] DEBUG [com.panli.view.PlaceThread] - realPlaceResult:
+2019-03-15 12:28:48,287 [Thread-18] INFO  [com.panli.view.PlaceThread] - placecomplete========
+2019-03-15 12:28:48,288 [Thread-18] DEBUG [com.panli.view.PlaceThread] - restPlaceTime:43000,currentTime:1552624128288
+2019-03-15 12:29:51,707 [Thread-18] INFO  [com.panli.view.PlaceThread] - drawNumbers:51636868,placeNumbers:51636868
+2019-03-15 12:29:51,707 [Thread-18] DEBUG [com.panli.model.Record] - opendata:OpenInfo [detail=LH5=H,2,第五名-虎;LH1=L,2,冠军-龙;GDX=D,2,冠亚大;GDS=S,3,冠亚双;GYH=12,2,冠亚军和-12;DX7=X,2,第七名-小;DX6=D,2,第六名-大;DX5=X,2,第五名-小;DX3=D,2,第三名-大;DS7=D,2,第七名-单;DS6=S,2,第六名-双;DS4=S,3,第四名-双;DS3=D,6,第三名-单;B3=7,2,第三名-7;, drawNumber=51636868, drawTime=2019-03-15 12:29:45, map={}, result=9,3,7,4,1,6,5,2,10,8, lottery=LUCKYSB]
+2019-03-15 12:29:51,707 [Thread-18] DEBUG [com.panli.model.Record] - placedata:Placebet [drawTime=Fri Mar 15 12:28:48 CST 2019, drawNumber=51636868, lottery=LUCKYSB, bets=Bet [amount=64, contents=D, game=DS7, odds=1.9426]]
+2019-03-15 12:29:51,707 [Thread-18] INFO  [com.panli.model.Record] - key:DS7=D,value:5,detail:LH5=H,2,第五名-虎;LH1=L,2,冠军-龙;GDX=D,2,冠亚大;GDS=S,3,冠亚双;GYH=12,2,冠亚军和-12;DX7=X,2,第七名-小;DX6=D,2,第六名-大;DX5=X,2,第五名-小;DX3=D,2,第三名-大;DS7=D,2,第七名-单;DS6=S,2,第六名-双;DS4=S,3,第四名-双;DS3=D,6,第三名-单;B3=7,2,第三名-7;,drwaNum:51636868,platNum:51636868
+2019-03-15 12:29:51,707 [Thread-18] INFO  [com.panli.view.PlaceThread] - placeStartTime：startPlaceTime:Fri Mar 15 12:21:57 CST 2019,currentTime:Fri Mar 15 12:29:51 CST 2019,placeSettingTime:3 minute
+2019-03-15 12:29:51,707 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placeStartTime：startPlaceTime:Fri Mar 15 12:21:57 CST 2019,currentTime:Fri Mar 15 12:29:51 CST 2019,placeSettingTime:3 minute
+2019-03-15 12:29:51,708 [Thread-18] INFO  [com.panli.view.PlaceThread] - start change line========
+2019-03-15 12:29:51,708 [Thread-18] DEBUG [com.panli.model.Plan] - currentLine:7 find the next line:3
+2019-03-15 12:29:51,708 [Thread-18] DEBUG [com.panli.model.Plan] - currentLine:3
+2019-03-15 12:29:51,708 [Thread-18] DEBUG [com.panli.view.PlaceThread] - this is staticInfo:planTotalCount=7, realCount=7, realAmount=3.87, virtualCount=0, virtualAmount=0, continueWinMax=1, continueLostMax=0,realWinPercent=0%
+2019-03-15 12:29:51,708 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realCount
+2019-03-15 12:29:51,708 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:placeStatus
+2019-03-15 12:29:51,708 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realAmount
+2019-03-15 12:29:51,708 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realWinPercent
+2019-03-15 12:29:51,708 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualCount
+2019-03-15 12:29:51,708 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:planTotalCount
+2019-03-15 12:29:51,708 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualAmount
+2019-03-15 12:29:51,708 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueWinMax
+2019-03-15 12:29:51,708 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueLostMax
+2019-03-15 12:30:02,027 [Thread-18] INFO  [com.panli.view.PlaceThread] - Period [closeTime=2019-03-15 12:30:45, currentTime=2019-03-15 12:30:02, drawDate=2019-03-15 00:00:00, drawTime=2019-03-15 12:31:00, openTime=2019-03-15 12:29:45, drawNumber=51636869, pnumber=51636868]
+2019-03-15 12:30:03,240 [Thread-18] INFO  [com.panli.view.PlaceThread] - {"B1_1":9.71,"B1_2":9.71,"B1_3":9.71,"B1_4":9.71,"B1_5":9.71,"B1_6":9.71,"B1_7":9.71,"B1_8":9.71,"B1_9":9.71,"B1_10":9.71,"B2_1":9.71,"B2_2":9.71,"B2_3":9.71,"B2_4":9.71,"B2_5":9.71,"B2_6":9.71,"B2_7":9.71,"B2_8":9.71,"B2_9":9.71,"B2_10":9.71,"B3_1":9.71,"B3_2":9.71,"B3_3":9.71,"B3_4":9.71,"B3_5":9.71,"B3_6":9.71,"B3_7":9.71,"B3_8":9.71,"B3_9":9.71,"B3_10":9.71,"B4_1":9.71,"B4_2":9.71,"B4_3":9.71,"B4_4":9.71,"B4_5":9.71,"B4_6":9.71,"B4_7":9.71,"B4_8":9.71,"B4_9":9.71,"B4_10":9.71,"B5_1":9.71,"B5_2":9.71,"B5_3":9.71,"B5_4":9.71,"B5_5":9.71,"B5_6":9.71,"B5_7":9.71,"B5_8":9.71,"B5_9":9.71,"B5_10":9.71,"B6_1":9.71,"B6_2":9.71,"B6_3":9.71,"B6_4":9.71,"B6_5":9.71,"B6_6":9.71,"B6_7":9.71,"B6_8":9.71,"B6_9":9.71,"B6_10":9.71,"B7_1":9.71,"B7_2":9.71,"B7_3":9.71,"B7_4":9.71,"B7_5":9.71,"B7_6":9.71,"B7_7":9.71,"B7_8":9.71,"B7_9":9.71,"B7_10":9.71,"B8_1":9.71,"B8_2":9.71,"B8_3":9.71,"B8_4":9.71,"B8_5":9.71,"B8_6":9.71,"B8_7":9.71,"B8_8":9.71,"B8_9":9.71,"B8_10":9.71,"B9_1":9.71,"B9_2":9.71,"B9_3":9.71,"B9_4":9.71,"B9_5":9.71,"B9_6":9.71,"B9_7":9.71,"B9_8":9.71,"B9_9":9.71,"B9_10":9.71,"B10_1":9.71,"B10_2":9.71,"B10_3":9.71,"B10_4":9.71,"B10_5":9.71,"B10_6":9.71,"B10_7":9.71,"B10_8":9.71,"B10_9":9.71,"B10_10":9.71,"DS1_D":1.9426,"DS1_S":1.9426,"DS2_D":1.9426,"DS2_S":1.9426,"DS3_D":1.9426,"DS3_S":1.9426,"DS4_D":1.9426,"DS4_S":1.9426,"DS5_D":1.9426,"DS5_S":1.9426,"DS6_D":1.9426,"DS6_S":1.9426,"DS7_D":1.9426,"DS7_S":1.9426,"DS8_D":1.9426,"DS8_S":1.9426,"DS9_D":1.9426,"DS9_S":1.9426,"DS10_D":1.9426,"DS10_S":1.9426,"DX1_D":1.9426,"DX1_X":1.9426,"DX2_D":1.9426,"DX2_X":1.9426,"DX3_D":1.9426,"DX3_X":1.9426,"DX4_D":1.9426,"DX4_X":1.9426,"DX5_D":1.9426,"DX5_X":1.9426,"DX6_D":1.9426,"DX6_X":1.9426,"DX7_D":1.9426,"DX7_X":1.9426,"DX8_D":1.9426,"DX8_X":1.9426,"DX9_D":1.9426,"DX9_X":1.9426,"DX10_D":1.9426,"DX10_X":1.9426,"GDS_D":1.735,"GDS_S":2.135,"GDX_D":2.135,"GDX_X":1.735,"GYH_3":41.31,"GYH_4":41.31,"GYH_5":20.73,"GYH_6":20.73,"GYH_7":13.76,"GYH_8":13.76,"GYH_9":10.11,"GYH_10":10.11,"GYH_11":8.15,"GYH_12":10.11,"GYH_13":10.11,"GYH_14":13.76,"GYH_15":13.76,"GYH_16":20.73,"GYH_17":20.73,"GYH_18":41.31,"GYH_19":41.31,"LH1_H":1.9426,"LH1_L":1.9426,"LH2_H":1.9426,"LH2_L":1.9426,"LH3_H":1.9426,"LH3_L":1.9426,"LH4_H":1.9426,"LH4_L":1.9426,"LH5_H":1.9426,"LH5_L":1.9426,"message":null,"status":null,"statusCode":null,"result":null}
+2019-03-15 12:30:03,240 [Thread-18] INFO  [com.panli.view.PlaceThread] - start place========
+2019-03-15 12:30:03,240 [Thread-18] INFO  [com.panli.view.PlaceThread] - place plan choose========
+2019-03-15 12:30:03,240 [Thread-18] DEBUG [com.panli.view.PlaceThread] - place plan choose========Plan [schemeName=极速飞艇 , name=方案2, startLine=3, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=3, jumpHistory=null, type=单双]
+2019-03-15 12:30:03,240 [Thread-18] DEBUG [com.panli.view.PlaceThread] - getPlaceAmount:0
+2019-03-15 12:30:03,240 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placebetInfo:Placebet [drawTime=Fri Mar 15 12:30:03 CST 2019, drawNumber=51636869, lottery=LUCKYSB, bets=Bet [amount=4, contents=S, game=DS3, odds=1.9426]]
+2019-03-15 12:30:03,240 [Thread-18] INFO  [com.panli.view.PlaceThread] - startRealPlace==============
+2019-03-15 12:30:03,419 [Thread-18] DEBUG [com.panli.view.PlaceThread] - realPlaceResult:
+2019-03-15 12:30:03,420 [Thread-18] INFO  [com.panli.view.PlaceThread] - placecomplete========
+2019-03-15 12:30:03,420 [Thread-18] DEBUG [com.panli.view.PlaceThread] - restPlaceTime:43000,currentTime:1552624203420
+2019-03-15 12:31:06,810 [Thread-18] INFO  [com.panli.view.PlaceThread] - drawNumbers:51636869,placeNumbers:51636869
+2019-03-15 12:31:06,811 [Thread-18] DEBUG [com.panli.model.Record] - opendata:OpenInfo [detail=GDX=D,3,冠亚大;GDS=S,4,冠亚双;DX10=D,2,第十名-大;DX8=X,2,第八名-小;DX5=X,3,第五名-小;DX1=D,2,冠军-大;DS8=S,2,第八名-双;DS7=D,3,第七名-单;DS4=S,4,第四名-双;DS3=D,7,第三名-单;B8=2,2,第八名-2;, drawNumber=51636869, drawTime=2019-03-15 12:31:00, map={}, result=8,6,1,10,4,3,7,2,5,9, lottery=LUCKYSB]
+2019-03-15 12:31:06,811 [Thread-18] DEBUG [com.panli.model.Record] - placedata:Placebet [drawTime=Fri Mar 15 12:30:03 CST 2019, drawNumber=51636869, lottery=LUCKYSB, bets=Bet [amount=4, contents=S, game=DS3, odds=1.9426]]
+2019-03-15 12:31:06,811 [Thread-18] INFO  [com.panli.model.Record] - key:DS3=S,value:null,detail:GDX=D,3,冠亚大;GDS=S,4,冠亚双;DX10=D,2,第十名-大;DX8=X,2,第八名-小;DX5=X,3,第五名-小;DX1=D,2,冠军-大;DS8=S,2,第八名-双;DS7=D,3,第七名-单;DS4=S,4,第四名-双;DS3=D,7,第三名-单;B8=2,2,第八名-2;,drwaNum:51636869,platNum:51636869
+2019-03-15 12:31:06,811 [Thread-18] DEBUG [com.panli.view.PlaceThread] - this is staticInfo:planTotalCount=8, realCount=8, realAmount=-0.13, virtualCount=0, virtualAmount=0, continueWinMax=1, continueLostMax=0,realWinPercent=0%
+2019-03-15 12:31:06,811 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realCount
+2019-03-15 12:31:06,811 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:placeStatus
+2019-03-15 12:31:06,811 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realAmount
+2019-03-15 12:31:06,811 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:realWinPercent
+2019-03-15 12:31:06,811 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualCount
+2019-03-15 12:31:06,811 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:planTotalCount
+2019-03-15 12:31:06,811 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:virtualAmount
+2019-03-15 12:31:06,811 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueWinMax
+2019-03-15 12:31:06,812 [Thread-18] DEBUG [com.panli.view.PlaceThread] - repaintPanelData component name:continueLostMax
+2019-03-15 12:31:16,996 [Thread-18] INFO  [com.panli.view.PlaceThread] - Period [closeTime=2019-03-15 12:32:00, currentTime=2019-03-15 12:31:17, drawDate=2019-03-15 00:00:00, drawTime=2019-03-15 12:32:15, openTime=2019-03-15 12:31:00, drawNumber=51636870, pnumber=51636869]
+2019-03-15 12:31:17,188 [Thread-18] INFO  [com.panli.view.PlaceThread] - {"B1_1":9.71,"B1_2":9.71,"B1_3":9.71,"B1_4":9.71,"B1_5":9.71,"B1_6":9.71,"B1_7":9.71,"B1_8":9.71,"B1_9":9.71,"B1_10":9.71,"B2_1":9.71,"B2_2":9.71,"B2_3":9.71,"B2_4":9.71,"B2_5":9.71,"B2_6":9.71,"B2_7":9.71,"B2_8":9.71,"B2_9":9.71,"B2_10":9.71,"B3_1":9.71,"B3_2":9.71,"B3_3":9.71,"B3_4":9.71,"B3_5":9.71,"B3_6":9.71,"B3_7":9.71,"B3_8":9.71,"B3_9":9.71,"B3_10":9.71,"B4_1":9.71,"B4_2":9.71,"B4_3":9.71,"B4_4":9.71,"B4_5":9.71,"B4_6":9.71,"B4_7":9.71,"B4_8":9.71,"B4_9":9.71,"B4_10":9.71,"B5_1":9.71,"B5_2":9.71,"B5_3":9.71,"B5_4":9.71,"B5_5":9.71,"B5_6":9.71,"B5_7":9.71,"B5_8":9.71,"B5_9":9.71,"B5_10":9.71,"B6_1":9.71,"B6_2":9.71,"B6_3":9.71,"B6_4":9.71,"B6_5":9.71,"B6_6":9.71,"B6_7":9.71,"B6_8":9.71,"B6_9":9.71,"B6_10":9.71,"B7_1":9.71,"B7_2":9.71,"B7_3":9.71,"B7_4":9.71,"B7_5":9.71,"B7_6":9.71,"B7_7":9.71,"B7_8":9.71,"B7_9":9.71,"B7_10":9.71,"B8_1":9.71,"B8_2":9.71,"B8_3":9.71,"B8_4":9.71,"B8_5":9.71,"B8_6":9.71,"B8_7":9.71,"B8_8":9.71,"B8_9":9.71,"B8_10":9.71,"B9_1":9.71,"B9_2":9.71,"B9_3":9.71,"B9_4":9.71,"B9_5":9.71,"B9_6":9.71,"B9_7":9.71,"B9_8":9.71,"B9_9":9.71,"B9_10":9.71,"B10_1":9.71,"B10_2":9.71,"B10_3":9.71,"B10_4":9.71,"B10_5":9.71,"B10_6":9.71,"B10_7":9.71,"B10_8":9.71,"B10_9":9.71,"B10_10":9.71,"DS1_D":1.9426,"DS1_S":1.9426,"DS2_D":1.9426,"DS2_S":1.9426,"DS3_D":1.9426,"DS3_S":1.9426,"DS4_D":1.9426,"DS4_S":1.9426,"DS5_D":1.9426,"DS5_S":1.9426,"DS6_D":1.9426,"DS6_S":1.9426,"DS7_D":1.9426,"DS7_S":1.9426,"DS8_D":1.9426,"DS8_S":1.9426,"DS9_D":1.9426,"DS9_S":1.9426,"DS10_D":1.9426,"DS10_S":1.9426,"DX1_D":1.9426,"DX1_X":1.9426,"DX2_D":1.9426,"DX2_X":1.9426,"DX3_D":1.9426,"DX3_X":1.9426,"DX4_D":1.9426,"DX4_X":1.9426,"DX5_D":1.9426,"DX5_X":1.9426,"DX6_D":1.9426,"DX6_X":1.9426,"DX7_D":1.9426,"DX7_X":1.9426,"DX8_D":1.9426,"DX8_X":1.9426,"DX9_D":1.9426,"DX9_X":1.9426,"DX10_D":1.9426,"DX10_X":1.9426,"GDS_D":1.735,"GDS_S":2.135,"GDX_D":2.135,"GDX_X":1.735,"GYH_3":41.31,"GYH_4":41.31,"GYH_5":20.73,"GYH_6":20.73,"GYH_7":13.76,"GYH_8":13.76,"GYH_9":10.11,"GYH_10":10.11,"GYH_11":8.15,"GYH_12":10.11,"GYH_13":10.11,"GYH_14":13.76,"GYH_15":13.76,"GYH_16":20.73,"GYH_17":20.73,"GYH_18":41.31,"GYH_19":41.31,"LH1_H":1.9426,"LH1_L":1.9426,"LH2_H":1.9426,"LH2_L":1.9426,"LH3_H":1.9426,"LH3_L":1.9426,"LH4_H":1.9426,"LH4_L":1.9426,"LH5_H":1.9426,"LH5_L":1.9426,"message":null,"status":null,"statusCode":null,"result":null}
+2019-03-15 12:31:17,188 [Thread-18] INFO  [com.panli.view.PlaceThread] - start place========
+2019-03-15 12:31:17,188 [Thread-18] INFO  [com.panli.view.PlaceThread] - place plan choose========
+2019-03-15 12:31:17,188 [Thread-18] DEBUG [com.panli.view.PlaceThread] - place plan choose========Plan [schemeName=极速飞艇 , name=方案2, startLine=3, startTime=3, endTime=60, jumpLine=1,2,6,4,5,9,7,3,8,10, numMapStr=一号=1,2,3,4,5
+二号=1,2,3,4,5
+三号=1,2,3,4,5
+四号=1,2,3,4,5
+五号=1,2,3,4,5
+六号=1,2,3,4,5
+七号=1,2,3,4,5
+八号=1,2,3,4,5
+九号=1,2,3,4,5
+十号=1,2,3,4,5
+, currentLine=3, jumpHistory=null, type=单双]
+2019-03-15 12:31:17,188 [Thread-18] DEBUG [com.panli.view.PlaceThread] - getPlaceAmount:1
+2019-03-15 12:31:17,188 [Thread-18] DEBUG [com.panli.view.PlaceThread] - placebetInfo:Placebet [drawTime=Fri Mar 15 12:31:17 CST 2019, drawNumber=51636870, lottery=LUCKYSB, bets=Bet [amount=8, contents=D, game=DS3, odds=1.9426]]
+2019-03-15 12:31:17,188 [Thread-18] INFO  [com.panli.view.PlaceThread] - startRealPlace==============
+2019-03-15 12:31:17,375 [Thread-18] DEBUG [com.panli.view.PlaceThread] - realPlaceResult:
+2019-03-15 12:31:17,375 [Thread-18] INFO  [com.panli.view.PlaceThread] - placecomplete========
+2019-03-15 12:31:17,375 [Thread-18] DEBUG [com.panli.view.PlaceThread] - restPlaceTime:43000,currentTime:1552624277375
+2019-03-15 14:47:38,526 [Thread-15] DEBUG [com.amuse.view.AccountThread] - start accountInfo history query:Thread-15 currentTime:1552632458525
+2019-03-15 14:47:38,527 [Thread-16] DEBUG [com.amuse.view.HistoryDrawThread] - start opendata history queryThread-16 currentTime:1552632458527
+2019-03-15 15:15:59,935 [main] DEBUG [com.amuse.enums.license.SystemTool] - mac:2C-FD-A1-BF-C6-11,cpuNumber:BFEBFBFF000906E9,getSerialNumber(C):46398457,MachineCode:2C-FD-A1-BF-C6-11BFEBFBFF000906E946398457,md5:Stuge3k93Hcgbw95jbyLqA==
