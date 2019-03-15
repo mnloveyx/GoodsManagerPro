@@ -95,7 +95,7 @@ public class LoginFrm extends JFrame {
 				UIManager.put(key, font);
 			}
 		}
-		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginFrm.class.getResource("/images/goods_logo.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginFrm.class.getResource("/images/logo.png")));
 		setTitle("娱乐辅助系统V1.1.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 546, 369);

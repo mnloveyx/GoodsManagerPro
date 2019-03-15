@@ -583,12 +583,12 @@ public class MainFrm extends JFrame {
 //							PlaceThread  placeThread = new PlaceThread(table,selectPlan,user.getToken());
 //							PlaceThread  placeThread = new PlaceThread(plan_statis_panel,table,selectPlan,user.getToken());
 							
-							
 							 f= 	executor.submit(new CollectionInfoThread());
 							try {
 								if(f.get())
 								{
-									PlaceAction placeThread = new PlaceAction(plan_statis_panel,table,selectPlan,user.getToken());
+//									PlaceAction placeThread = new PlaceAction(plan_statis_panel,table,selectPlan,user.getToken());
+									PlaceThread  placeThread = new PlaceThread(plan_statis_panel,table,selectPlan,user.getToken());
 									executor.execute(placeThread);
 								}
 							} catch (InterruptedException e1) {
