@@ -175,7 +175,7 @@ public  class  PlaceThread  extends Thread {
 					record.setPlanTotalRound(String.valueOf(planTotalCount));
 					placeStatus = "等待开奖";
 					record.setIsWin(placeStatus);
-					
+					repaintPanelData("placeStatus", "等待开奖");
 //					tableModel.addRow(record.getRowData(tableModel.getColumnCount()));
 					tableModel.insertRow(0,record.getRowData(tableModel.getColumnCount()));
 				 }
