@@ -80,7 +80,7 @@ public class LicenseVertify {
 		return LicenseManagerHolder.getLicenseManager(initLicenseParams());
 	}
 	
-	public void install(String licdir){
+	public void install(String licdir) throws Exception{
 		try {
 			LicenseManager licenseManager = getLicenseManager();
 			//path=D:\eclipse_mars_workspace\LicenseTest\license.lic
@@ -88,10 +88,12 @@ public class LicenseVertify {
 			File file = new File(licdir+File.separator+licName);
 			licenseManager.install(file);
 			log.debug("license install success！");
+//			return 0;
 		} catch (Exception e) {
 			log.debug("license install faile！");
+//			return 2;
 			e.printStackTrace();
-			System.exit(0);
+//			System.exit(0);
 		}
 	}
 	public int vertify(){
@@ -106,6 +108,25 @@ public class LicenseVertify {
 			return 1;
 		}catch (Exception e) {
 			log.debug("license install faile！");
+//			e.printStackTrace();
+			return 2;
+		}
+	}
+	
+	public int vertify(String licdir){
+		
+		try {
+			LicenseManager licenseManager=getLicenseManager();
+			licenseManager.install(new File(licdir+File.separator+licName));
+			licenseManager.verify();
+			log.debug("license vertify success！");
+			return 0;
+		} catch(LicenseContentException ex){
+			log.debug("license is expire！");
+//			ex.printStackTrace();
+			return 1;
+		}catch (Exception e) {
+			log.debug("license vertify faile！");
 //			e.printStackTrace();
 			return 2;
 		}

@@ -1,13 +1,60 @@
--injars 'D:\project_pri\lottery.jar'
+-injars 'J:\lottery\lottery2.jar'
 -outjars 'D:\project_pri\lotteryguard.jar'
 
--libraryjars 'E:\worksoft\jdk1.8.0_92\jre\lib\rt.jar'
--libraryjars 'E:\worksoft\jdk1.8.0_92\jre\lib\jce.jar'
+-libraryjars 'I:\worksoft\jdk1.8.0_92\jre\lib\rt.jar'
+-libraryjars 'I:\worksoft\jdk1.8.0_92\jre\lib\jce.jar'
 
--keepattributes *Annotation*
--dontwarn module-info.**,org.mapstruct.ap.spi.AstModifyingAnnotationProcessor,com.alibaba.fastjson.**
+-skipnonpubliclibraryclasses
+-keeppackagenames de.schlichtherle.**,lombok.**,org.**,com.alibaba.**,com.google.**,com.jgoodies.**,com.nexes.**,com.toedter.**,zwitserloot.**
+-keepattributes *Annotation*,Signature
+-dontwarn module-info.**,org.mapstruct.ap.spi.AstModifyingAnnotationProcessor,com.alibaba.fastjson.**,lombok.**,org.apache.log4j.**,java.lang.**,java.util.**,javax.swing.**,org.apache.**,com.amuse.**
 
 
+
+-keep public class lombok.** {
+    <fields>;
+    <methods>;
+}
+
+-keep public class org.apache.log4j.** {
+    <fields>;
+    <methods>;
+}
+
+-keep public final class java.lang.** {
+    <fields>;
+    <methods>;
+}
+
+-keep public class java.util.** {
+    <fields>;
+    <methods>;
+}
+
+-keep public class javax.swing.** {
+    <fields>;
+    <methods>;
+}
+
+-keep public class org.apache.** {
+    <fields>;
+    <methods>;
+}
+
+# -keep public class com.bean.UserBean { *;}
+# 瀵筧lipay鐨勬贩娣嗗鐞�
+# -libraryjars libs/alipaysdk.jar
+# -dontwarn com.alipay.android.app.**
+# -keep public class com.alipay.**  { *; }
+# 淇濈暀Serializable搴忓垪鍖栫殑绫讳笉琚贩娣�
+-keepclassmembers class * extends java.io.Serializable {
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}
 
 # lombok.ConfigurationKeys
 -keep,allowshrinking class *
@@ -275,9 +322,9 @@
     public java.lang.String trim();
 }
 
-# Remove - StringBuffer method calls. Remove all invocations of StringBuffer
+# Remove - StringBuilder method calls. Remove all invocations of StringBuilder
 # methods without side effects whose return values are not used.
--assumenosideeffects public class java.lang.StringBuffer {
+-assumenosideeffects public class java.lang.StringBuilder {
     public java.lang.String toString();
     public char charAt(int);
     public int capacity();
@@ -291,9 +338,13 @@
     public java.lang.String substring(int,int);
 }
 
-# Remove - StringBuilder method calls. Remove all invocations of StringBuilder
+# Remove - StringBuffer method calls. Remove all invocations of StringBuffer
 # methods without side effects whose return values are not used.
--assumenosideeffects public class java.lang.StringBuilder {
+-assumenosideeffects public class java.lang.StringBuffer {
+    public <init>();
+    public <init>(int);
+    public <init>(java.lang.String);
+    public <init>(java.lang.CharSequence);
     public java.lang.String toString();
     public char charAt(int);
     public int capacity();

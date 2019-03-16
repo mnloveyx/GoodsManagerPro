@@ -153,7 +153,7 @@ public class MainFrm extends JFrame {
 	
 	String machineCode = SystemTool.getMachineCode();
 	
-	private String token = "57a16cd11203dcff737fcba1b2d76c1dc9cd6c6c";
+	private String token = "153eabc6bcfa4a35c148100ec2a91a38ee356205";
 	
 	
 //	private JLabel account_type_3;
@@ -571,14 +571,18 @@ public class MainFrm extends JFrame {
 //				});
 				autoStart.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						
-						vertify = new LicenseVertify(machineCode);
-						vertify.install("./lib");
-						if(vertify.vertify()!=0)
-						{
+						try {
+							vertify = new LicenseVertify(machineCode);
+							if(vertify.vertify("./lib")!=0)
+							{
+								JOptionPane.showMessageDialog(null, "系统异常，请联系上级！");
+								return ;
+							}
+						}catch (Exception ex) {
 							JOptionPane.showMessageDialog(null, "系统异常，请联系上级！");
 							return ;
 						}
+						
 						
 						String placeType = getRadioButton(autogroup);
 						Plan selectPlan = (Plan) autoselectplan.getSelectedItem();
