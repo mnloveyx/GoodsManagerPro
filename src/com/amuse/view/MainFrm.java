@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.AbstractButton;
 import javax.swing.AbstractListModel;
 import javax.swing.ButtonGroup;
@@ -40,6 +41,8 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 
+import com.amuse.enums.license.LicenseVertify;
+import com.amuse.enums.license.SystemTool;
 import com.amuse.model.Api;
 import com.amuse.model.Item;
 import com.amuse.model.Plan;
@@ -146,7 +149,11 @@ public class MainFrm extends JFrame {
 	
 	private JLabel account_type_2;
 	
-	private String token = "0402e4da22f52931a17d381ca71bf23380d5dc0a";
+	LicenseVertify vertify;
+	
+	String machineCode = SystemTool.getMachineCode();
+	
+	private String token = "57a16cd11203dcff737fcba1b2d76c1dc9cd6c6c";
 	
 	
 //	private JLabel account_type_3;
@@ -564,6 +571,15 @@ public class MainFrm extends JFrame {
 //				});
 				autoStart.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						
+						vertify = new LicenseVertify(machineCode);
+						vertify.install("./lib");
+						if(vertify.vertify()!=0)
+						{
+							JOptionPane.showMessageDialog(null, "系统异常，请联系上级！");
+							return ;
+						}
+						
 						String placeType = getRadioButton(autogroup);
 						Plan selectPlan = (Plan) autoselectplan.getSelectedItem();
 						SubjectUtils.setPlan(selectPlan);
@@ -739,13 +755,13 @@ public class MainFrm extends JFrame {
 								.addGroup(gl_plan_statis_panel.createSequentialGroup()
 									.addComponent(label_19, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-									.addComponent(placeStatus, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
+									.addComponent(placeStatus, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
 									.addGap(2)))
 							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 							.addGroup(gl_plan_statis_panel.createParallelGroup(Alignment.LEADING)
 								.addComponent(label_7, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_plan_statis_panel.createSequentialGroup()
-									.addGap(2)
+									.addGap(12)
 									.addComponent(label_21)))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_plan_statis_panel.createParallelGroup(Alignment.LEADING)
@@ -755,13 +771,10 @@ public class MainFrm extends JFrame {
 							.addGroup(gl_plan_statis_panel.createParallelGroup(Alignment.LEADING)
 								.addComponent(label_13, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
 								.addComponent(label_9, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE))
+							.addGap(16)
 							.addGroup(gl_plan_statis_panel.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_plan_statis_panel.createSequentialGroup()
-									.addGap(16)
-									.addComponent(virtualCount, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_plan_statis_panel.createSequentialGroup()
-									.addGap(16)
-									.addComponent(planTotalCount, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)))
+								.addComponent(virtualCount, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+								.addComponent(planTotalCount, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
 							.addGap(20)
 							.addGroup(gl_plan_statis_panel.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_plan_statis_panel.createSequentialGroup()

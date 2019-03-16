@@ -34,7 +34,7 @@ public class Bet{
 	public BigDecimal getWinAmount()
 	{
 		BigDecimal o= new BigDecimal(getOdds());
-		return  o.multiply(new BigDecimal(getAmount())).setScale(2, RoundingMode.HALF_UP);
+		return  o.multiply(new BigDecimal(getAmount())).setScale(2, BigDecimal.ROUND_HALF_UP);
 	}
 	
 	public BigDecimal getPlaceAmount()

@@ -1,7 +1,10 @@
 package com.amuse.view;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.nio.charset.Charset;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -96,7 +99,18 @@ public class test {
 //		int i = 7;
 //		System.out.println(0%6);
 //		calcResult();
-		testCachedThreadPool();
+		
+		DecimalFormat df=new DecimalFormat("0.00");
+		
+//		Integer i = XMathUtil.divide(new BigDecimal(3), new BigDecimal(0)).multiply(new BigDecimal(100)).toBigInteger().intValue();
+		BigDecimal i = new BigDecimal(1).divide(new BigDecimal(3),2,BigDecimal.ROUND_HALF_UP);
+		System.out.println(i.toString());
+		BigDecimal j = i.multiply(new BigDecimal(100));
+		System.out.println(j.intValue());
+		String a= j.setScale(2).toString();//.divideToIntegralValue(new BigDecimal(10)).toString();//.setScale(2, RoundingMode.HALF_UP).multiply(new BigDecimal(100)).toString()+"%";
+//		System.out.println(df.format((double)3/4)*100));
+		System.out.println(a.toString());
+//		testCachedThreadPool();
 	}
 	
 	
@@ -115,6 +129,7 @@ public class test {
 								Thread.currentThread().isDaemon());
 						try {
 							Thread.sleep(1000);
+							return;
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}

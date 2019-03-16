@@ -17,6 +17,9 @@ public class CollectionInfoThread implements Callable<Boolean>{
 
 	@Override
 	public Boolean call() throws Exception {
+		
+//		RSATester.
+		
 		log.debug("collect client info hostName:{},ipaddress:{},machinecode:{},os:{}",SystemTool.getHostName(),SystemTool.getIpAddress(),SystemTool.getMachineCode(),SystemTool.getOS());
 		return true;
 	}

@@ -13,6 +13,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 import javax.print.attribute.HashAttributeSet;
@@ -143,7 +144,7 @@ public  class  PlaceAction  implements Runnable{
 		 repaintPanelData("placeStatus", "等待投注");
 		 Thread.sleep(restPlaceTime);
 //		 executor.scheduleWithFixedDelay(new Runnable() {
-		 executor.scheduleAtFixedRate(new Runnable() {
+		 ScheduledFuture<?> future = executor.scheduleAtFixedRate(new Runnable() {
 					@Override
 					public void run() {
 						
@@ -162,13 +163,14 @@ public  class  PlaceAction  implements Runnable{
 							 {
 								 openInfo  = getLastResult();
 								 log.debug("pre plantype,opendata:{}",openInfo.toString());
+//								 Thread.sleep(500);
 							 }
 							 restPlaceTime = p.getRestPlaceTime();
 							 restOpenTime  =p.getRestOpenTime();
 							 
 							 //1.表格没有数据 1.已经投注过不再投注。2.未开奖不再投注。3投注时间必须大于1秒
 							 
-							if((tableModel.getRowCount()==0||(!p.getDrawNumber().equalsIgnoreCase(tableModel.getValueAt(0,2).toString())) || StringUtils.isNoneBlank(tableModel.getValueAt(0, 8).toString())) &&restPlaceTime>1000L)
+							if((tableModel.getRowCount()==0||(!p.getDrawNumber().equalsIgnoreCase(tableModel.getValueAt(0,2).toString())) || StringUtils.isNoneBlank((String)tableModel.getValueAt(0, 8))) &&restPlaceTime>1000L)
 							 {
 								log.info("start place========");
 								record = new Record(plan);
@@ -245,6 +247,7 @@ public  class  PlaceAction  implements Runnable{
 							openInfo = 	getLastResult();
 							if(record.getPlacebet()==null)
 							{
+								log.debug("return in here");
 								return;
 							}
 							if(!openInfo.getDrawNumber().equalsIgnoreCase(record.getPlacebet().getDrawNumber()))
@@ -262,17 +265,17 @@ public  class  PlaceAction  implements Runnable{
 							{
 								continueWin++;
 								continueLost=0;
+								wincount++;
 								if(continueWin>continueWinMax)
 								{
 									continueWinMax = continueWin;
 								}
-								wincount++;
 							}else {
 								continueLost++;
 								continueWin=0;
 								if(continueLost>continueLostMax)
 								{
-									continueLostMax = continueWin;
+									continueLostMax = continueLost;
 								}
 							}
 							if(Api.placeType_0.equalsIgnoreCase(record.getPlaceType()))
@@ -292,6 +295,7 @@ public  class  PlaceAction  implements Runnable{
 							{
 								tableModel.removeRow(0);
 							}
+							//此处应该添加行数据匹配查找
 							tableModel.insertRow(0,record.getRowData(tableModel.getColumnCount()));
 //							records.add(record);
 							//跳转线路
@@ -306,7 +310,6 @@ public  class  PlaceAction  implements Runnable{
 									log.info("start change line========");
 									startPlaceTime = System.currentTimeMillis();
 									plan.nextLine();
-									
 								}
 //								if(DateUtils.addMinutes(new Date(placeRunTime),4).getTime()>d)
 								Long addPlaceRunTime = DateUtils.addHours(new Date(placeRunTime),4).getTime();
@@ -315,19 +318,15 @@ public  class  PlaceAction  implements Runnable{
 									log.debug("interrupt stop place,addPlaceRunTime:{},currentTime:{}",addPlaceRunTime,d);
 									return ;
 								}
-								
-								
 							}else{
 								round++;
-								continueLost++;
-								continueWin=0;
 							}
 							//切换选球
 //							plan.setType(plan.getType());
 							plan.setPlaceInfo(plan.getType(),openInfo.getResult());
 							
 							log.debug("this is staticInfo:{}",getStaticString());
-							statis = new Statis(String.valueOf(realCount), String.valueOf(realAmount), String.valueOf( virtualCount), String.valueOf( virtualAmount), String.valueOf(0), String.valueOf( planTotalCount), String.valueOf( placeStatus), getRealWinPercent(), String.valueOf( continueWinMax), String.valueOf( continueLostMax), String.valueOf( wincount));
+							statis = new Statis(String.valueOf(realCount), String.valueOf(realAmount), String.valueOf(virtualCount), String.valueOf(virtualAmount), String.valueOf(0), String.valueOf(planTotalCount), String.valueOf(placeStatus), getRealWinPercent(), String.valueOf(continueWinMax), String.valueOf(continueLostMax), String.valueOf(wincount));
 							repaintPanelData();
 							repaintPanelData("placeStatus", "等待投注");
 //							Thread.sleep(10000L);
@@ -339,13 +338,20 @@ public  class  PlaceAction  implements Runnable{
 					 }
 						
 				}, 0, restOpenTime, TimeUnit.MILLISECONDS);
+		 
+		 try {
+			    future.get().toString();
+			} catch (ExecutionException e) {
+			    Throwable cause = e.getCause();
+			    cause.printStackTrace();
+			}
+		 
+		 
 		 }catch (Exception e) {
 			 repaintPanelData("placeStatus", "等待投注");
 			 log.warn("scheduleAtFixedRate schedule thread interrupt:{}",e.getMessage());
 		}
 		
-		 
-		 
 //		 while(flag)
 //		 {
 //			 try {
@@ -532,8 +538,8 @@ public  class  PlaceAction  implements Runnable{
 //				e.printStackTrace();
 //			}
 //		 }
-		 
 	 }
+	 
     
     private Period period;
     private Odd odd;
@@ -552,7 +558,11 @@ public  class  PlaceAction  implements Runnable{
   
   public String getRealWinPercent()
   {
-	  return new BigDecimal(wincount/planTotalCount).setScale(0, RoundingMode.HALF_UP).multiply(new BigDecimal(100)).toString()+"%";
+	  try {
+		  return new BigDecimal(wincount).divide(new BigDecimal(planTotalCount),2,BigDecimal.ROUND_HALF_UP).multiply(new BigDecimal(100)).intValue()+"%";
+	  }catch (Exception e) {
+		return "0%";
+	}
   }
   
 //  https://2164492817-hs.cp168.ws/web/rest/member/odds?lottery=LUCKYSB
@@ -611,7 +621,7 @@ public  class  PlaceAction  implements Runnable{
 	public String getStaticString() {
 		return "planTotalCount=" + planTotalCount + ", realCount=" + realCount + ", realAmount=" + realAmount
 				+ ", virtualCount=" + virtualCount + ", virtualAmount=" + virtualAmount + ", continueWinMax="
-				+ continueWinMax + ", continueLostMax=" + continueLostMax+",realWinPercent="+getRealWinPercent();
+				+ continueWinMax + ", continueLostMax=" + continueLostMax+",realWinPercent="+getRealWinPercent()+",wincount="+wincount;
 	}
 	
 	

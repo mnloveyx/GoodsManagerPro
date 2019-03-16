@@ -246,6 +246,7 @@ public class LoginFrm extends JFrame {
 			return;
 		}
 		User user = new User(userName, password,code,cryptograph);
+		log.debug("user info:{}",user.toString());
 		try {
 			
 			Gson g = new Gson();
@@ -264,6 +265,7 @@ public class LoginFrm extends JFrame {
 				
 				if(user!=null && null!= user.getResult())
 				{	
+					log.debug("user info:{}",user.toString());
 					user = user.getResult();
 					SubjectUtils.setUser(user);
 					dispose();

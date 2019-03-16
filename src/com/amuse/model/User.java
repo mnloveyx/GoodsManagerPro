@@ -62,4 +62,17 @@ public class User extends Result<User> {
 	{
 		return this.oid;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", code=" + code + ", cryptograph=" + cryptograph + ", password=" + password
+				+ ", token=" + token + ", changePassword=" + changePassword + ", created=" + created + ", gameEnable="
+				+ gameEnable + ", ip=" + ip + ", ipAddress=" + ipAddress + ", lastLogin=" + lastLogin + ", loginTime="
+				+ loginTime + ", lv=" + lv + ", main=" + main + ", oid=" + oid + ", online=" + online + ", parent="
+				+ parent + ", platform=" + platform + ", range=" + range + ", resetType=" + resetType + ", server="
+				+ server + ", shareMode=" + shareMode + ", type=" + type + ", updated=" + updated + ", userKey="
+				+ userKey + ", username=" + username + ", userpass=" + userpass + ", wechatEnabled=" + wechatEnabled
+				+ "]";
+	}
+	
 }
