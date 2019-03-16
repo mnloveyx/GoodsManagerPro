@@ -430,8 +430,8 @@ public static Boolean ver_MacineCode(String str) throws NoSuchAlgorithmException
      *            运行参数.
      * @throws Exception 
      */
-    public static void main(String[] argc) throws Exception {
-        getSomeDay(new Date(),60);
-        //getWindowsMACAddress();
-    }
+//    public static void main(String[] argc) throws Exception {
+//        getSomeDay(new Date(),60);
+//        //getWindowsMACAddress();
+//    }
 }

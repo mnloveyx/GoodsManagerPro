@@ -24,7 +24,6 @@ import javax.swing.table.DefaultTableModel;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import com.amuse.model.Api;
 import com.amuse.model.Bet;
 import com.amuse.model.LastOpenResult;
 import com.amuse.model.Odd;
@@ -35,6 +34,7 @@ import com.amuse.model.Plan;
 import com.amuse.model.Record;
 import com.amuse.model.Result;
 import com.amuse.model.Statis;
+import com.amuse.util.Api;
 import com.amuse.util.DateTypeAdapter;
 import com.amuse.util.DateUtils;
 import com.amuse.util.HttpClientUtil;

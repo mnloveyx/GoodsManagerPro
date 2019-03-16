@@ -24,10 +24,10 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import com.amuse.enums.license.SystemTool;
-import com.amuse.model.Api;
 import com.amuse.model.Code;
 import com.amuse.model.LoginMsg;
 import com.amuse.model.User;
+import com.amuse.util.Api;
 import com.amuse.util.DateTypeAdapter;
 import com.amuse.util.HttpClientUtil;
 import com.amuse.util.StringUtil;
@@ -63,18 +63,18 @@ public class LoginFrm extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LoginFrm frame = new LoginFrm();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					LoginFrm frame = new LoginFrm();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.

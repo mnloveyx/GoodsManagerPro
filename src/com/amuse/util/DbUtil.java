@@ -58,16 +58,16 @@ public class DbUtil {
 	 * 测试main()方法
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		try {
-			getCon();
-			System.out.println("数据库连接成功!");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println("数据库连接失败!");
-		}
-	}
+//	public static void main(String[] args) {
+//		try {
+//			getCon();
+//			System.out.println("数据库连接成功!");
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//			System.out.println("数据库连接失败!");
+//		}
+//	}
 	
 	
 }

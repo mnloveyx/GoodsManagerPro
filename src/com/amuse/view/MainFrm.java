@@ -43,13 +43,13 @@ import org.apache.commons.lang3.time.DateUtils;
 
 import com.amuse.enums.license.LicenseVertify;
 import com.amuse.enums.license.SystemTool;
-import com.amuse.model.Api;
 import com.amuse.model.Item;
 import com.amuse.model.Plan;
 import com.amuse.model.Record;
 import com.amuse.model.Scheme;
 import com.amuse.model.Statis;
 import com.amuse.model.User;
+import com.amuse.util.Api;
 import com.amuse.util.FileUtils;
 import com.amuse.util.SubjectUtils;
 import com.toedter.calendar.JDateChooser;
@@ -161,18 +161,18 @@ public class MainFrm extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainFrm frame = new MainFrm(new User());
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					MainFrm frame = new MainFrm(new User());
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
@@ -181,7 +181,7 @@ public class MainFrm extends JFrame {
 //		 setUser(user);
 		initSchemes();
 		this.user = user;
-		if(null==SubjectUtils.getUser())
+		if(null==SubjectUtils.getUser() && user ==null)
 		{
 			this.user.setOid(token);
 			SubjectUtils.setUser(this.user);

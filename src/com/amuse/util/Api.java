@@ -1,4 +1,4 @@
-package com.amuse.model;
+package com.amuse.util;
 
 public class Api {
 

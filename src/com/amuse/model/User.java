@@ -74,5 +74,10 @@ public class User extends Result<User> {
 				+ userKey + ", username=" + username + ", userpass=" + userpass + ", wechatEnabled=" + wechatEnabled
 				+ "]";
 	}
+
+	public User(String oid) {
+		super();
+		this.oid = oid;
+	}
 	
 }

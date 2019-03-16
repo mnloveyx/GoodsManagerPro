@@ -19,7 +19,6 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.CharSet;
 import org.apache.commons.lang3.StringUtils;
 
-import com.amuse.model.Api;
 import com.amuse.model.HistoryDraw;
 import com.amuse.model.LastOpenResult;
 import com.amuse.model.Member;
@@ -28,6 +27,7 @@ import com.amuse.model.OpenInfo;
 import com.amuse.model.Period;
 import com.amuse.model.Result;
 import com.amuse.model.User;
+import com.amuse.util.Api;
 import com.amuse.util.DateTypeAdapter;
 import com.amuse.util.DateUtils;
 import com.amuse.util.FileUtils;
@@ -41,14 +41,19 @@ import sun.nio.cs.UTF_32;
 import sun.nio.cs.ext.GBK;
 @Slf4j
 public class test {
-	public static void main(String[] args) throws Exception {
-//		laomeng666
-//		Aa321123
-		/**  lottery
-		 * 极速赛车  PK10JSC 
-		         极速飞艇 LUCKYSB
-		         幸运飞艇 XYFT
-		 */
+//	laomeng666
+//	Aa321123
+	/**  lottery
+	 * 极速赛车  PK10JSC 
+	         极速飞艇 LUCKYSB
+	         幸运飞艇 XYFT
+	 */
+//	public static void main(String[] args) throws Exception {
+//
+//	}
+	
+	public void test() {
+
 //	Boolean b =	FileUtils.createFile("../Scheme/PK10JSC/方案名称.txt");
 //	List<String> l = FileUtils.findChildrenList(FileUtils.getFile("../Scheme/"), true);
 //	int i = 0;
@@ -112,6 +117,8 @@ public class test {
 		System.out.println(a.toString());
 //		testCachedThreadPool();
 	}
+	
+	
 	
 	
 	public static void testCachedThreadPool() throws Exception {
