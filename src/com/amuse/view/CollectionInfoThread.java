@@ -2,7 +2,7 @@ package com.amuse.view;
 
 import java.util.concurrent.Callable;
 
-import com.amuse.enums.license.SystemTool;
+import com.amuse.util.SystemTool;
 
 import lombok.extern.slf4j.Slf4j;
 

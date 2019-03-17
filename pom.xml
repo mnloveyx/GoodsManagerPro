@@ -148,7 +148,7 @@
         </dependencies>
     </dependencyManagement> -->
 	
-	<distributionManagement>
+	<!-- <distributionManagement>
 		<repository>
 			<id>maven-releases</id>
 			<name>Twikkercn public repositories</name>
@@ -159,7 +159,7 @@
 			<name>Twikkercn public repositories</name>
 			<url>http://192.168.1.240:8081/repository/maven-snapshots/</url>
 		</snapshotRepository>
-	</distributionManagement>
+	</distributionManagement> -->
 	
 	<build>
 		<plugins>

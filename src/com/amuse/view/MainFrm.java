@@ -42,7 +42,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 
 import com.amuse.enums.license.LicenseVertify;
-import com.amuse.enums.license.SystemTool;
 import com.amuse.model.Item;
 import com.amuse.model.Plan;
 import com.amuse.model.Record;
@@ -52,6 +51,7 @@ import com.amuse.model.User;
 import com.amuse.util.Api;
 import com.amuse.util.FileUtils;
 import com.amuse.util.SubjectUtils;
+import com.amuse.util.SystemTool;
 import com.toedter.calendar.JDateChooser;
 
 import lombok.extern.slf4j.Slf4j;
@@ -149,7 +149,7 @@ public class MainFrm extends JFrame {
 	
 	private JLabel account_type_2;
 	
-	LicenseVertify vertify;
+	private LicenseVertify vertify;
 	
 	String machineCode = SystemTool.getMachineCode();
 	

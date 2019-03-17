@@ -11,13 +11,13 @@ import javax.swing.table.DefaultTableModel;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import com.amuse.enums.license.SystemTool;
 import com.amuse.model.HistoryDraw;
 import com.amuse.model.OpenInfo;
 import com.amuse.model.Scheme;
 import com.amuse.util.Api;
 import com.amuse.util.DateTypeAdapter;
 import com.amuse.util.HttpClientUtil;
+import com.amuse.util.SystemTool;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

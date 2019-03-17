@@ -1,4 +1,4 @@
-package com.amuse.enums.license;
+package com.amuse.util;
 
 import java.io.BufferedReader;
 import java.io.File;

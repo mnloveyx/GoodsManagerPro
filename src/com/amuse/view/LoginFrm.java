@@ -23,7 +23,6 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
-import com.amuse.enums.license.SystemTool;
 import com.amuse.model.Code;
 import com.amuse.model.LoginMsg;
 import com.amuse.model.User;
@@ -32,6 +31,7 @@ import com.amuse.util.DateTypeAdapter;
 import com.amuse.util.HttpClientUtil;
 import com.amuse.util.StringUtil;
 import com.amuse.util.SubjectUtils;
+import com.amuse.util.SystemTool;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -246,7 +246,7 @@ public class LoginFrm extends JFrame {
 			return;
 		}
 		User user = new User(userName, password,code,cryptograph);
-		log.debug("user info:{}",user.toString());
+//		log.debug("user info:{}",user.toString());
 		try {
 			
 			Gson g = new Gson();
@@ -265,9 +265,10 @@ public class LoginFrm extends JFrame {
 				
 				if(user!=null && null!= user.getResult())
 				{	
-					log.debug("user info:{}",user.toString());
 					user = user.getResult();
+					user.setPassword(password);
 					SubjectUtils.setUser(user);
+					log.debug("user info:{}",user.toString());
 					dispose();
 					new MainFrm(user).setVisible(true);
 				}else {

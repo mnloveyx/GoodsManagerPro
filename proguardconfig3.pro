@@ -25,6 +25,8 @@
 
 -keep class com.amuse.model.** {*;}
 
+-keep class com.amuse.enums.license.** {*;}
+
 
 # -dontwarn com.amuse.**
 -keep class org.eclipse.jdt.internal.jarinjarloader.** {

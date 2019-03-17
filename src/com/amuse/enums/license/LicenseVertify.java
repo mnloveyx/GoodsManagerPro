@@ -117,7 +117,9 @@ public class LicenseVertify {
 		
 		try {
 			LicenseManager licenseManager=getLicenseManager();
-			licenseManager.install(new File(licdir+File.separator+licName));
+			String path = licdir+File.separator+licName;
+			log.debug("path={}",path);
+			licenseManager.install(new File(path));
 			licenseManager.verify();
 			log.debug("license vertify success！");
 			return 0;
