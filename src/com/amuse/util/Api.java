@@ -18,6 +18,8 @@ public class Api {
 	
 	public static String placeType_1 ="真实投注";
 	
+	public static String systemName ="金贝财富永动机";
+	
 	
 	
 	

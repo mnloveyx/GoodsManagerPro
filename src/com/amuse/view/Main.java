@@ -5,7 +5,7 @@ import java.awt.EventQueue;
 import com.amuse.model.User;
 
 public class Main {
-	private static String token = "5f529ebe2284bc211820623f97b70e7e0dc6d9a8";
+	private static String token = "95f57c4f9da1162e96e3db2abeefebdf51954341";
 	
 	/**
 	 * Launch the application.
