@@ -252,12 +252,14 @@ public  class  PlaceAction  implements Runnable{
 								log.debug("return in here");
 								return;
 							}
-							if(!openInfo.getDrawNumber().equalsIgnoreCase(record.getPlacebet().getDrawNumber()))
+							//如果投注期数不相等 循环4次
+							int k=0;
+							while((!openInfo.getDrawNumber().equalsIgnoreCase(record.getPlacebet().getDrawNumber()))&& k<4)
 							{
 								Thread.sleep(10000);
 								openInfo = getLastResult();
-								
-								log.info("drawNumbers:{},placeNumbers:{}",openInfo.getDrawNumber(),record.getPlacebet().getDrawNumber());
+								k++;
+								log.info("drawNumbers:{},placeNumbers:{},k:{}",openInfo.getDrawNumber(),record.getPlacebet().getDrawNumber(),k);
 							}
 							
 							record.setOpenInfo(openInfo);
