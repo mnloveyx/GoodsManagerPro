@@ -312,12 +312,12 @@ public  class  PlaceAction  implements Runnable{
 									plan.nextLine();
 								}
 //								if(DateUtils.addMinutes(new Date(placeRunTime),4).getTime()>d)
-								Long addPlaceRunTime = DateUtils.addHours(new Date(placeRunTime),4).getTime();
-								if(addPlaceRunTime<d)
-								{
-									log.debug("interrupt stop place,addPlaceRunTime:{},currentTime:{}",addPlaceRunTime,d);
-									return ;
-								}
+//								Long addPlaceRunTime = DateUtils.addHours(new Date(placeRunTime),4).getTime();
+//								if(addPlaceRunTime<d)
+//								{
+//									log.debug("interrupt stop place,addPlaceRunTime:{},currentTime:{}",addPlaceRunTime,d);
+//									return ;
+//								}
 							}else{
 								round++;
 							}
