@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <exe4j version="6.0.2" transformSequenceNumber="2">
-  <directoryPresets config="J:/lottery" />
+  <directoryPresets config="J:/lottery/jar/image" />
   <application name="金贝财富永动机" distributionSourceDir="J:/lottery/jar">
     <languages>
       <principalLanguage id="en" customLocalizationFile="" />
     </languages>
   </application>
-  <executable name="金贝财富永动机" type="2" iconSet="false" iconFile="" executableDir="." redirectStderr="true" stderrFile="./log/error.log" stderrMode="append" redirectStdout="true" stdoutFile="./log/output.log" stdoutMode="append" failOnStderrOutput="true" executableMode="1" changeWorkingDirectory="true" workingDirectory="." singleInstance="true" serviceStartType="2" serviceDependencies="" serviceDescription="" jreLocation="" executionLevel="asInvoker" checkConsoleParameter="false" globalSingleInstance="false" singleInstanceActivate="true" dpiAware="java9+" amd64="false">
+  <executable name="金贝财富永动机" type="2" iconSet="true" iconFile="J:/lottery/GoodsManagerPro/image/logo.ico" executableDir="." redirectStderr="true" stderrFile="./log/error.log" stderrMode="append" redirectStdout="true" stdoutFile="./log/output.log" stdoutMode="append" failOnStderrOutput="true" executableMode="1" changeWorkingDirectory="true" workingDirectory="." singleInstance="true" serviceStartType="2" serviceDependencies="" serviceDescription="" jreLocation="" executionLevel="asInvoker" checkConsoleParameter="false" globalSingleInstance="false" singleInstanceActivate="true" dpiAware="java9+" amd64="false">
     <messageSet />
     <versionInfo include="false" fileVersion="0" fileDescription="" legalCopyright="" internalName="" productName="" companyName="" productVersion="V1.0" />
   </executable>
-  <splashScreen show="false" width="0" height="0" bitmapFile="" textOverlay="false">
+  <splashScreen show="true" width="0" height="0" bitmapFile="J:/lottery/jar/image/splash.gif" textOverlay="false">
     <text>
       <statusLine x="20" y="20" text="" fontSize="8" fontColor="0,0,0" bold="false" />
       <versionLine x="20" y="40" text="version %VERSION%" fontSize="8" fontColor="0,0,0" bold="false" />

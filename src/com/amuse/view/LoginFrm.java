@@ -96,14 +96,14 @@ public class LoginFrm extends JFrame {
 			}
 		}
 		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginFrm.class.getResource("/images/logo.png")));
-		setTitle("娱乐辅助系统V1.1.0");
+		setTitle(Api.systemName+"V1.0.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 546, 369);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JLabel label = new JLabel("管理员登录界面");
+		JLabel label = new JLabel("登录界面");
 		label.setFont(new Font("宋体", Font.BOLD, 20));
 		label.setIcon(new ImageIcon(LoginFrm.class.getResource("/images/logo.png")));
 		
