@@ -323,6 +323,7 @@ public  class  PlaceAction  implements Runnable{
 							}
 							//切换选球
 //							plan.setType(plan.getType());
+							 
 							plan.setPlaceInfo(plan.getType(),openInfo.getResult());
 							
 							log.debug("this is staticInfo:{}",getStaticString());

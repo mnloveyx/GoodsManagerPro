@@ -41,9 +41,9 @@ public class HistoryDrawThread extends Thread{
     public void run() {
     	log.debug("start opendata history query"+Thread.currentThread().getName()+" currentTime:"+System.currentTimeMillis());
     	
-    	try {
-    		while(flag)
-    		{
+//    	try {
+//    		while(flag)
+//    		{
     			Map<String,String> param = new HashMap<>();
 				param.put("token", token);
 				String result =	HttpClientUtil.get(Api.member_dresult+scheme.getValue(),null,param);
@@ -63,18 +63,18 @@ public class HistoryDrawThread extends Thread{
 					});
 				}
 				
-				Thread.sleep(sleepTime);
+//				Thread.sleep(sleepTime);
 				if(cycle!=0)
 				{
 					this.flag = false;
 				}
 				i++;
-    		}
-			
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//    		}
+//			
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
     }
 
 

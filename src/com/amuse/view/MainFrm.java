@@ -25,6 +25,7 @@ import javax.swing.UIManager;
 import javax.swing.JLabel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.ListSelectionModel;
 import javax.swing.DefaultComboBoxModel;
@@ -32,6 +33,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTabbedPane;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Image;
 
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
@@ -79,6 +81,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.awt.SystemColor;
@@ -86,6 +89,8 @@ import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
+import javax.swing.SwingConstants;
+import java.awt.GridLayout;
 
 @Slf4j
 //@Setter
@@ -186,7 +191,7 @@ public class MainFrm extends JFrame {
 			this.user.setOid(token);
 			SubjectUtils.setUser(this.user);
 		}
-		setTitle("娱乐管理系统V1.0.0");
+		setTitle(Api.systemName+"V1.0.0");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrm.class.getResource("/images/logo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1250, 650);
@@ -199,46 +204,29 @@ public class MainFrm extends JFrame {
 		contentPane.add(panel, BorderLayout.NORTH);
 		panel.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel_1 = new JPanel();
-		panel.add(panel_1, BorderLayout.WEST);
+		JPanel panel_ad0 = new JPanel();
+		panel_ad0.setPreferredSize(new Dimension(300, 109));
+		panel.add(panel_ad0, BorderLayout.WEST);
+		panel_ad0.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel lblNewLabel_1 = new JLabel("这是一个广告图");
-		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
-		gl_panel_1.setHorizontalGroup(
-			gl_panel_1.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_panel_1.createSequentialGroup()
-					.addContainerGap(15, Short.MAX_VALUE)
-					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE))
-		);
-		gl_panel_1.setVerticalGroup(
-			gl_panel_1.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_1.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 74, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
-		panel_1.setLayout(gl_panel_1);
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		ImageIcon icon=new ImageIcon(".\\image\\ad0.gif");
+		icon=new ImageIcon(icon.getImage().getScaledInstance(panel_ad0.getPreferredSize().width, panel_ad0.getPreferredSize().height, Image.SCALE_DEFAULT));
+		lblNewLabel_1.setIcon(icon);
+		panel_ad0.add(lblNewLabel_1);
 		
-		JPanel panel_2 = new JPanel();
-		panel.add(panel_2);
+		JPanel panel_ad1 = new JPanel();
+		panel_ad1.setPreferredSize(new Dimension(getWidth()-300, 109));
+		panel.add(panel_ad1);
 		
-		JLabel lblNewLabel = new JLabel("这是一个广告位置");
-		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
-		gl_panel_2.setHorizontalGroup(
-			gl_panel_2.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_2.createSequentialGroup()
-					.addGap(274)
-					.addComponent(lblNewLabel)
-					.addContainerGap(279, Short.MAX_VALUE))
-		);
-		gl_panel_2.setVerticalGroup(
-			gl_panel_2.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_2.createSequentialGroup()
-					.addGap(34)
-					.addComponent(lblNewLabel)
-					.addContainerGap(45, Short.MAX_VALUE))
-		);
-		panel_2.setLayout(gl_panel_2);
+		JLabel lblNewLabel = new JLabel();
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		ImageIcon icon2=new ImageIcon(".\\image\\ad1.gif");
+		icon2.setImage((icon2.getImage().getScaledInstance(panel_ad1.getPreferredSize().width, panel_ad1.getPreferredSize().height, Image.SCALE_DEFAULT)));
+		panel_ad1.setLayout(new GridLayout(0, 1, 0, 0));
+		lblNewLabel.setIcon(icon2);
+		panel_ad1.add(lblNewLabel);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
@@ -339,11 +327,11 @@ public class MainFrm extends JFrame {
 					.addComponent(label_3)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(account_type_1, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addGap(30)
 					.addComponent(lblNewLabel_21)
-					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGap(18)
 					.addComponent(account_type_2, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
-					.addGap(348))
+					.addContainerGap(565, Short.MAX_VALUE))
 		);
 		gl_panel_4.setVerticalGroup(
 			gl_panel_4.createParallelGroup(Alignment.LEADING)
@@ -355,9 +343,9 @@ public class MainFrm extends JFrame {
 						.addComponent(account_type_0)
 						.addComponent(label_3)
 						.addComponent(account_type_1)
+						.addComponent(schemeTxt, GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
 						.addComponent(lblNewLabel_21)
-						.addComponent(account_type_2)
-						.addComponent(schemeTxt, GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE))
+						.addComponent(account_type_2))
 					.addContainerGap())
 		);
 		panel_4.setLayout(gl_panel_4);
@@ -1084,7 +1072,7 @@ public class MainFrm extends JFrame {
 		panel_6.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_3.add(panel_6, BorderLayout.SOUTH);
 		
-		JLabel lblNewLabel_2 = new JLabel("这是一些其它的提示信息");
+		JLabel lblNewLabel_2 = new JLabel("通知：如有客户需要在澳门【太阳城】【德晋】贵宾厅出码的请联系上级，高额返水。");
 		panel_6.add(lblNewLabel_2);
 		
 		JPanel panel_13 = new JPanel();
@@ -1428,12 +1416,18 @@ public class MainFrm extends JFrame {
 		panel_12.add(panel_13, BorderLayout.NORTH);
 		
 		
+		ScheduledExecutorService executorService = Executors.newScheduledThreadPool(2);
+		
 		
 		AccountThread accountThread = new AccountThread(account_type_0, account_type_1, account_type_2, user.getToken());
-		 accountThread.start();
+//		 accountThread.start();
+		
+		executorService.scheduleAtFixedRate(accountThread, 0, 60, TimeUnit.SECONDS);
 		 
 		 HistoryDrawThread drawThread = new HistoryDrawThread(table_2, scheme,user.getToken());
-		 drawThread.start();
+		 
+			executorService.scheduleAtFixedRate(drawThread, 0, 60, TimeUnit.SECONDS);
+//		 drawThread.start();
 //		table_3 = new JTable();
 //		tabbedPane.addTab("New tab", null, table_3, null);
 	}

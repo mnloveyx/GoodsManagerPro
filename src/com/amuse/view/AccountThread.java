@@ -14,6 +14,7 @@ import com.amuse.model.LoginMsg;
 import com.amuse.model.Member;
 import com.amuse.model.Record;
 import com.amuse.util.Api;
+import com.amuse.util.DateUtils;
 import com.amuse.util.HttpClientUtil;
 import com.amuse.util.SubjectUtils;
 import com.google.gson.Gson;
@@ -38,9 +39,9 @@ public class AccountThread extends Thread{
 	    public void run() {
 	    	log.debug("start accountInfo history query:"+Thread.currentThread().getName()+" currentTime:"+System.currentTimeMillis());
 	    	
-	    	try {
-	    		while(true)
-	    		{
+//	    	try {
+//	    		while(true)
+//	    		{
 	    			Map<String,String> param = new HashMap<>();
 	    					param.put("token",token);
 	    			String result =	HttpClientUtil.get(Api.member_info,null,param);
@@ -55,14 +56,14 @@ public class AccountThread extends Thread{
 	    				account_type_2.setText(accounts.get(0).getResult().toString());
 	    			}
 	    			
-	    			Thread.sleep(60000L);
+//	    			Thread.sleep(60000L);
 	    			i++;
-	    		}
+//	    		}
 				
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 	    }
 	public AccountThread(JLabel account_type_0, JLabel account_type_1, JLabel account_type_2,String token) {
 		super();
