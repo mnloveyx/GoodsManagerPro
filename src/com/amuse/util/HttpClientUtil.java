@@ -41,6 +41,8 @@ import org.apache.http.conn.ssl.TrustStrategy;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.DefaultHttpRequestRetryHandler;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.message.BasicNameValuePair;
@@ -55,11 +57,11 @@ import org.apache.http.util.EntityUtils;
 public class HttpClientUtil {
 	private static Log log = LogFactory.getLog(HttpClientUtil.class);
  
-	public static final int CONNECTION_TIMEOUT = 5000;// 连接超时时间
+	public static final int CONNECTION_TIMEOUT = 20000;// 连接超时时间
  
-	public static final int CONNECTION_REQUEST_TIMEOUT = 5000;// 请求超时时间
+	public static final int CONNECTION_REQUEST_TIMEOUT = 20000;// 请求超时时间
 	
-	public static final int SOCKET_TIMEOUT = 10000;// 数据读取等待超时
+	public static final int SOCKET_TIMEOUT = 20000;// 数据读取等待超时
  
 	public static final String HTTP = "http";// http
 	
@@ -139,7 +141,7 @@ public class HttpClientUtil {
 			// 创建一个SSL信任所有证书的httpClient对象
 			httpClient = HttpClientUtil.createSSLInsecureClient();
 		}else {
-			httpClient = HttpClients.createDefault();
+			httpClient = HttpClientUtil.createDefault();
 		}
 		
 		CloseableHttpResponse response = null;
@@ -177,6 +179,7 @@ public class HttpClientUtil {
 		} catch (Exception e) {
 			log.error("----->url:" + url +", get请求异常:" + e.getMessage());
 			e.printStackTrace();
+			
 		} finally {
 			closeResource(httpClient, response);
 		}
@@ -294,7 +297,7 @@ public class HttpClientUtil {
 			// 创建一个SSL信任所有证书的httpClient对象
 			httpClient = HttpClientUtil.createSSLInsecureClient();
 		}else {
-			httpClient = HttpClients.createDefault();
+			httpClient = HttpClientUtil.createDefault();
 		}
 		CloseableHttpResponse response = null;
 		
@@ -348,7 +351,7 @@ public class HttpClientUtil {
 
 			SSLConnectionSocketFactory sslcsf = new SSLConnectionSocketFactory(sslContext);
 			
-			return HttpClients.custom().setSSLSocketFactory(sslcsf).build();
+			return createBuilder().setSSLSocketFactory(sslcsf).build();
 		} catch (KeyManagementException e) {
 			e.printStackTrace();
 		} catch (NoSuchAlgorithmException e) {
@@ -357,8 +360,20 @@ public class HttpClientUtil {
 			e.printStackTrace();
 		}
 		
-		return HttpClients.createDefault();
+		return createDefault();
 	}
+	
+	
+	  private static CloseableHttpClient createDefault() {
+	        return createBuilder().build();
+	    }
+		
+	
+	
+    private static HttpClientBuilder createBuilder() {
+//        return HttpClients.custom().setServiceUnavailableRetryStrategy(new ServiceRetryStrategy());
+        return HttpClients.custom().setRetryHandler(new CustomRequestRetryHandler());
+    }
 	
 	/**
 	 * 处理响应，获取响应报文
@@ -437,61 +452,61 @@ public class HttpClientUtil {
 
 
 	
-	/**
-	 * 采用绕过验证的方式处理https请求 
-	 * @param url
-	 * @param reqMap
-	 * @param encoding
-	 * @return
-	 */
-	public static String postSSLUrl(String url, Map<String, String> reqMap, String encoding){
-	    String result = "";
-	    CloseableHttpClient httpClient = null;
-	    CloseableHttpResponse response = null;
-		// 添加参数
-		List<NameValuePair> params = new ArrayList<>();
-		if (reqMap != null && reqMap.keySet().size() > 0) {
-			Iterator<Map.Entry<String, String>> iter = reqMap.entrySet().iterator();
-			while (iter.hasNext()) {
-				Map.Entry<String, String> entity = iter.next();
-				params.add(new BasicNameValuePair(entity.getKey(), entity.getValue()));
-			}
-		}
-	    
-	    try{
-		    //采用绕过验证的方式处理https请求  
-		    SSLContext sslcontext = createIgnoreVerifySSL();  
-		    //设置协议http和https对应的处理socket链接工厂的对象  
-		    Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create()  
-		        .register("http", PlainConnectionSocketFactory.INSTANCE)  
-		        .register("https", new SSLConnectionSocketFactory(sslcontext))  
-		        .build();  
-		    PoolingHttpClientConnectionManager connManager = new PoolingHttpClientConnectionManager(socketFactoryRegistry);  
-		    HttpClients.custom().setConnectionManager(connManager); 
-	
-		    //创建自定义的httpclient对象  
-		    httpClient = HttpClients.custom().setConnectionManager(connManager).build();  
-
-	        //创建post方式请求对象  
-	        HttpPost httpPost = new HttpPost(url); 
-	        httpPost.setEntity(new UrlEncodedFormEntity(params, encoding));
-	        
-	        //指定报文头Content-type、User-Agent
-	        httpPost.setHeader("Content-type", "application/x-www-form-urlencoded");  
-	        //httpPost.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; rv:6.0.2) Gecko/20100101 Firefox/6.0.2");
-
-	        //执行请求操作，并拿到结果（同步阻塞）  
- 			response = httpClient.execute(httpPost);
- 			result = handleResponse(url, encoding, response); 
-	    }catch(Exception e){
-	    	e.printStackTrace();
-	    }finally{
-	    	closeResource(httpClient, response);
-	    }
-	    
-	    return result;
-	}
-	
+//	/**
+//	 * 采用绕过验证的方式处理https请求 
+//	 * @param url
+//	 * @param reqMap
+//	 * @param encoding
+//	 * @return
+//	 */
+//	public static String postSSLUrl(String url, Map<String, String> reqMap, String encoding){
+//	    String result = "";
+//	    CloseableHttpClient httpClient = null;
+//	    CloseableHttpResponse response = null;
+//		// 添加参数
+//		List<NameValuePair> params = new ArrayList<>();
+//		if (reqMap != null && reqMap.keySet().size() > 0) {
+//			Iterator<Map.Entry<String, String>> iter = reqMap.entrySet().iterator();
+//			while (iter.hasNext()) {
+//				Map.Entry<String, String> entity = iter.next();
+//				params.add(new BasicNameValuePair(entity.getKey(), entity.getValue()));
+//			}
+//		}
+//	    
+//	    try{
+//		    //采用绕过验证的方式处理https请求  
+//		    SSLContext sslcontext = createIgnoreVerifySSL();  
+//		    //设置协议http和https对应的处理socket链接工厂的对象  
+//		    Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create()  
+//		        .register("http", PlainConnectionSocketFactory.INSTANCE)  
+//		        .register("https", new SSLConnectionSocketFactory(sslcontext))  
+//		        .build();  
+//		    PoolingHttpClientConnectionManager connManager = new PoolingHttpClientConnectionManager(socketFactoryRegistry);  
+//		    HttpClients.custom().setConnectionManager(connManager); 
+//	
+//		    //创建自定义的httpclient对象  
+//		    httpClient = HttpClients.custom().setConnectionManager(connManager).build();  
+//
+//	        //创建post方式请求对象  
+//	        HttpPost httpPost = new HttpPost(url); 
+//	        httpPost.setEntity(new UrlEncodedFormEntity(params, encoding));
+//	        
+//	        //指定报文头Content-type、User-Agent
+//	        httpPost.setHeader("Content-type", "application/x-www-form-urlencoded");  
+//	        //httpPost.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; rv:6.0.2) Gecko/20100101 Firefox/6.0.2");
+//
+//	        //执行请求操作，并拿到结果（同步阻塞）  
+// 			response = httpClient.execute(httpPost);
+// 			result = handleResponse(url, encoding, response); 
+//	    }catch(Exception e){
+//	    	e.printStackTrace();
+//	    }finally{
+//	    	closeResource(httpClient, response);
+//	    }
+//	    
+//	    return result;
+//	}
+//	
 	/** 
 	* 绕过验证 
 	*   
