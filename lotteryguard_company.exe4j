@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exe4j version="6.0.2" transformSequenceNumber="2">
+  <directoryPresets config="D:/project_pri" />
+  <application name="金贝财富永动机" distributionSourceDir="D:/project_pri/jar">
+    <languages>
+      <principalLanguage id="en" customLocalizationFile="" />
+    </languages>
+  </application>
+  <executable name="金贝财富永动机" type="2" iconSet="true" iconFile="D:/project_pri/GoodsManagerPro/image/logo.ico" executableDir="." redirectStderr="true" stderrFile="./log/error.log" stderrMode="append" redirectStdout="true" stdoutFile="./log/output.log" stdoutMode="append" failOnStderrOutput="true" executableMode="1" changeWorkingDirectory="true" workingDirectory="." singleInstance="true" serviceStartType="2" serviceDependencies="" serviceDescription="" jreLocation="" executionLevel="asInvoker" checkConsoleParameter="false" globalSingleInstance="false" singleInstanceActivate="true" dpiAware="java9+" amd64="false">
+    <messageSet />
+    <versionInfo include="false" fileVersion="0" fileDescription="" legalCopyright="" internalName="" productName="" companyName="" productVersion="V1.0" />
+  </executable>
+  <splashScreen show="true" width="0" height="0" bitmapFile="D:/project_pri/GoodsManagerPro/image/splash.gif" textOverlay="false">
+    <text>
+      <statusLine x="20" y="20" text="" fontSize="8" fontColor="0,0,0" bold="false" />
+      <versionLine x="20" y="40" text="version %VERSION%" fontSize="8" fontColor="0,0,0" bold="false" />
+    </text>
+  </splashScreen>
+  <java mainClass="com.amuse.view.Login" mainMode="1" vmParameters="-Dfile.encoding=utf-8" arguments="" allowVMPassthroughParameters="true" preferredVM="client" bundleRuntime="true" minVersion="1.8" maxVersion="" allowBetaVM="true" jdkOnly="false">
+    <searchSequence>
+      <directory location="./jre" />
+    </searchSequence>
+    <classPath>
+      <archive location="D:/project_pri/lottery_lib/slf4j-api-1.7.7.jar" failOnError="false" />
+      <archive location="D:/project_pri/lottery_lib/slf4j-log4j12-1.7.7.jar" failOnError="false" />
+      <archive location="D:/project_pri/lottery_lib/log4j-1.2.17.jar" failOnError="false" />
+      <archive location="D:/project_pri/lottery_lib/jcl-over-slf4j-1.7.7.jar" failOnError="false" />
+      <archive location="D:/project_pri/lottery_lib/httpclient-4.5.7.jar" failOnError="false" />
+      <archive location="D:/project_pri/lottery_lib/commons-beanutils-1.9.3.jar" failOnError="false" />
+      <archive location="D:/project_pri/lottery_lib/commons-codec-1.10.jar" failOnError="false" />
+      <archive location="D:/project_pri/lottery_lib/commons-collections-3.2.2.jar" failOnError="false" />
+      <archive location="D:/project_pri/lottery_lib/commons-io-2.6.jar" failOnError="false" />
+      <archive location="D:/project_pri/lottery_lib/commons-lang3-3.8.1.jar" failOnError="false" />
+      <archive location="D:/project_pri/lottery_lib/gson-2.8.5.jar" failOnError="false" />
+      <archive location="D:/project_pri/lottery_lib/httpcore-4.4.11.jar" failOnError="false" />
+      <archive location="D:/project_pri/lottery_lib/jcalendar-1.4.jar" failOnError="false" />
+      <archive location="D:/project_pri/lottery_lib/jgoodies-common-1.2.0.jar" failOnError="false" />
+      <archive location="D:/project_pri/lottery_lib/jgoodies-looks-2.4.1.jar" failOnError="false" />
+      <archive location="D:/project_pri/lottery_lib/jul-to-slf4j-1.7.7.jar" failOnError="false" />
+      <archive location="D:/project_pri/lottery_lib/lombok-1.18.4.jar" failOnError="false" />
+      <archive location="D:/project_pri/lottery_lib/truelicense-core-1.33.jar" failOnError="false" />
+      <archive location="D:/project_pri/lottery_lib/truelicense-swing-1.33.jar" failOnError="false" />
+      <archive location="D:/project_pri/lottery_lib/truelicense-xml-1.33.jar" failOnError="false" />
+      <archive location="D:/project_pri/lotteryguard.jar" failOnError="false" />
+    </classPath>
+    <modulePath />
+    <nativeLibraryDirectories>
+      <directory name="./lib" />
+    </nativeLibraryDirectories>
+    <vmOptions />
+  </java>
+  <includedFiles />
+  <unextractableFiles />
+</exe4j>
