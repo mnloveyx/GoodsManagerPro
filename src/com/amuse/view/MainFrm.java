@@ -559,17 +559,17 @@ public class MainFrm extends JFrame {
 //				});
 				autoStart.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						try {
-							vertify = new LicenseVertify(machineCode);
-							if(vertify.vertify("./lib")!=0)
-							{
-								JOptionPane.showMessageDialog(null, "系统异常，请联系上级！");
-								return ;
-							}
-						}catch (Exception ex) {
-							JOptionPane.showMessageDialog(null, "系统异常，请联系上级！");
-							return ;
-						}
+//						try {
+//							vertify = new LicenseVertify(machineCode);
+//							if(vertify.vertify("./lib")!=0)
+//							{
+//								JOptionPane.showMessageDialog(null, "系统异常，请联系上级！");
+//								return ;
+//							}
+//						}catch (Exception ex) {
+//							JOptionPane.showMessageDialog(null, "系统异常，请联系上级！");
+//							return ;
+//						}
 						
 						
 						String placeType = getRadioButton(autogroup);
