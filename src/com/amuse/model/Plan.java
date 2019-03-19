@@ -327,7 +327,7 @@ public static Map<String,String> numValueyMap =  new HashMap<>();
 	public String toLogString() {
 		return "Plan [schemeName=" + schemeName + ", name=" + name + ", startLine=" + startLine + ", startTime="
 				+ startTime + ", endTime=" + endTime + ", jumpLine=" + jumpLine + ", numMapStr=" + numMapStr
-				+ ", currentLine=" + currentLine + ", jumpHistory=" + jumpHistory + ", type=" + type + "]";
+				+ ", currentLine=" + currentLine + ", jumpHistory=" + jumpHistory + ", type=" + type +",planPlaceAmounts="+planPlaceAmounts+ "]";
 	}
 	
 }
