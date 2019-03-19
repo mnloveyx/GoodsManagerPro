@@ -217,8 +217,10 @@ public  class  PlaceAction  implements Runnable{
 									Result r =   gson.fromJson(result, Result.class);
 									if(StringUtils.isBlank(result))
 									{
+										executor.shutdown();
 										log.debug("place fail stop place action!!!!");
-										repaintPanelData("placeStatus", "投注失败");
+										repaintPanelData("placeStatus", "余额不足,投注失败！");
+										return;
 									}
 									
 									realCount++;
